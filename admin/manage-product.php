@@ -73,42 +73,46 @@ print_r($arrProduct );
            
           <table width="97%" border="0" cellspacing="10" cellpadding="5">
   <tr valign="middle" align="center">
-    <td height="200" colspan="2" width="220px" class="t-border"><img src="../images/bungh-clip.jpg" width="180" height="101" alt=""></td>
-    <td colspan="2" width="220px" class="t-border"><img src="../images/pincers.jpg" width="180" height="120" alt=""></td>
-    <td colspan="2" width="220px" class="t-border"><img src="../images/teddy.jpg" width="180" height="120" alt=""></td>
-   <td colspan="2" width="220px" class="t-border"><img src="../images/hanger.jpg" width="180" height="86" alt=""></td>
-
-  </tr>
-  <tr valign="top" align="center">
-    <td class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-    <td class="border-bg"><a href="edit-product.php">Edit</a></td>
-     <td class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-     <td class="border-bg"><a href="edit-product.php">Edit</a></td>
-    <td class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-     <td class="border-bg"><a href="edit-product.php">Edit</a></td>
-     <td class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-     <td class="border-bg"><a href="edit-product.php">Edit</a></td>
-  </tr>
-  <tr>
-   <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+    <td height="200" width="220" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
+      <tr>
+        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
+        </tr>
+      <tr>
+        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
+        </tr>
+    </table>      <br/></td>
+    <td width="220" height="200" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
+      <tr>
+        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
+        </tr>
+      <tr>
+        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
+        </tr>
+      </table>
+      <br/></td>
+    <td width="220" height="200" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
+      <tr>
+        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
+        </tr>
+      <tr>
+        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
+        </tr>
+      </table>
+      <br/></td>
+    <td width="220" height="200" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
+      <tr>
+        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
+      </tr>
+      <tr>
+        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
+      </tr>
+    </table>
+      <br/></td>
+    </tr>
 </table>
 
 
