@@ -144,7 +144,8 @@ var_dump($result);*/
   <tr>
                                     
                                     <td width="182" align="left" valign="top" bgcolor="#D6E7F6" class="red" style="padding:0px; margin:0px;"><?php include('left_mnu.php');?></td>
-                                    <td width="100%" align="center" valign="top" bgcolor="" class="red"><table width="100%" border="0"  align="center" cellpadding="0" cellspacing="0"  bordercolor="#000000">
+                                    <td width="100%" align="center" valign="top" bgcolor="" class="red"><form action="" method="get">
+                                    <table width="100%" border="0"  align="center" cellpadding="0" cellspacing="0"  bordercolor="#000000">
                                       <tr>
                                         <td valign="middle" height="20"  align="left"><table width="767" border="0" cellspacing="0" cellpadding="0">
                                             <tr>
@@ -166,35 +167,35 @@ var_dump($result);*/
         <div class="supp-left">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Name</div>
-             <div class="supplier-panel-right"><input name="Name" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="name" type="text" class="field" id="name" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Name</div>
-             <div class="supplier-panel-right"><input name="company-name" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="company" type="text" class="field" id="company" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Email Id</div>
-             <div class="supplier-panel-right"><input name="email-id" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="email" type="text" class="field" id="email" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Website (If any)</div>
              <div class="supplier-panel-right"><input name="website" type="text" class="field" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Phone No.</div>
-            <div class="supplier-panel-right"><input name="phone-no" type="text" class="field" /></div>
+             <div class="supplier-panel-left">Mobile</div>
+            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
-             <div class="supplier-panel-right"><input name="company-address" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="address" type="text" class="field" id="address" /></div>
           </div>
-          <div class="supplier-panel-bg">
+         <!-- <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Category</div>
              <div class="supplier-panel-right"><input name="category" type="text" class="field" /></div>
-          </div>
+          </div>-->
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">User Name</div>
-             <div class="supplier-panel-right"><input name="user-name" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="user_name" type="text" class="field" id="user_name" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
@@ -209,7 +210,7 @@ var_dump($result);*/
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
-             <div class="supplier-panel-right"><input name="zip-code" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
@@ -217,9 +218,9 @@ var_dump($result);*/
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
-             <div class="supplier-panel-right"><input name="company-pancard" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="pancard" type="text" class="field" id="pancard" /></div>
           </div>
-          <div class="supplier-panel-bg">
+          <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Gumasta Licence</div>
             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
           </div>
@@ -231,8 +232,8 @@ var_dump($result);*/
              <div class="supplier-panel-left">Company is in Partnership<br />
              or Propertier</div>
              <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
-          </div>
-          <div class="supplier-panel-bg">
+          </div>-->
+         <!-- <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Make Payment Online</div>
              <div class="supplier-panel-right"><input name="make-payment-online" type="text" class="field" /></div>
           </div>
@@ -277,7 +278,7 @@ var_dump($result);*/
 					</select>
                          </span>
              </div>
-          </div>
+          </div>-->
           
         </div>
       </div>
@@ -292,7 +293,8 @@ var_dump($result);*/
          <input name="Add Client" type="button" value="Add Client">
       </td>
     </tr>
-    </table></td>
+    </table>
+                                    </form></td>
   </tr>
 </table></td>
   </tr>

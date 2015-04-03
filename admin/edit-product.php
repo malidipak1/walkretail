@@ -12,7 +12,7 @@ include_once '../Util.php';
 $dbObj = new DBUtil();
 if(!empty($_POST)) {
 	
-	$id = $dbObj->addEditProduct($_POST['prod_name'], $category, $desc, $TOS, $price, $quantity, $stock_availability, $supplier_id, $image, $prod_id);
+	$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['price'], $_POST['quantity'], $_POST['stock_availability'], $_POST['supplier_id'], $_POST['image'], $_POST['prod_id']);
 	Util::redirect("", true);
 }
 
