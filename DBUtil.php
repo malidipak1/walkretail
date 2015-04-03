@@ -155,7 +155,10 @@ class DBUtil {
 			':quantity'	 => $quantity,
 			':stock_availability' => $stock_availability,
 			':supplier_id'	 => $supplier_id,
-			':image'	 => $image
+			':image'	 => $image,
+			':order_range' => $order_range,
+			':supply_ability' => $supply_ability,
+			':home_delivery' => $home_delivery
 		);
 		
 		return $this->executeUpdate($sql, $arrData);

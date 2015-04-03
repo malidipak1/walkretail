@@ -5,14 +5,14 @@ if(!isset($_SESSION['login']))
 	header('Location: index.php');
 	exit;
 }
-include_once 'DBUtil.php';
+include_once '../DBUtil.php';
 
 $dbObj = new DBUtil();
 
 if(!empty($_POST)) {
 
-	$id = $dbObj->addEditSupplier($id, $name, $user_name, $password, $status, $mobile, $email, $company, $address, $city, $state, $zipcode, $category,
-			$company_pan, $gumasta_lic, $registration_lic, $is_partner, $website);
+	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['category'],
+			$_POST['company_pan'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
 
 	header("Location: view-clients.php");
 }
@@ -22,7 +22,7 @@ if(!empty($_REQUEST['id'])) {
 	$arrSupplier = $dbObj->getSupplier($arrParam);
 	$arrSupplier = $arrProduct[0];
 }
-print_r($arrSupplier);
+//print_r($arrSupplier);
 ?>
 <html>
 <head>
@@ -66,7 +66,9 @@ print_r($arrSupplier);
         <div class="supp-left">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Name</div>
-             <div class="supplier-panel-right"><input name="name" type="text" class="field" id="name" /></div>
+             <div class="supplier-panel-right"><input name="name" type="text" class="field" id="name" />
+             	<input type="hidden" name="supplier_id" value="<?php echo $_REQUEST['supplier_id']?>">
+             </div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Name</div>
