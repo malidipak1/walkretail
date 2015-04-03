@@ -1,6 +1,4 @@
 <?php 
-include("database.inc.php");
-include("thumb.php");
 session_start();
 if(!isset($_SESSION['login']))
 {
@@ -8,129 +6,31 @@ if(!isset($_SESSION['login']))
 	exit;
 }
 
-$form_action="insert";
-$button_value="INSERT";
+include_once '../DBUtil.php';
+include_once '../Util.php';
 
-$image_id				= "";
-$image_detail			= ""; 
-$image_name				= "";
-$image_heading			= "";
-
-#################################   INSERT    #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='insert')
-{
-  $image_name	=	$_FILES['image']['name'];
-  $dir			=	"teams/";
-  $image1		=	$dir.$image_name;
-  
-  $sql="SELECT * from team WHERE team_name ='".$image_name."' ";
-  $result=mysql_query($sql);
-  $row=mysql_num_rows($result);
-  
-		 if(file_exists($image1))
-		 {
-			 header('location:add_new_team.php?message=Image Already Exists');
-			 exit;
-		 }
-		move_uploaded_file($_FILES['image']['tmp_name'], $image1);
-  		
-		$thumb_image_name='teams/'.$image_name;
-        $th11='teams/thumb1/'.$image_name;
-        $th22='teams/thumb2/'.$image_name;
-
-    	createthumb11($thumb_image_name, $th11,100,100);
-		createthumb11($thumb_image_name, $th22,454,266);
-		############################################################	 
-		
-		$sq2="INSERT INTO team VALUES('','".addslashes(ucfirst($_REQUEST['header_heading']))."','".addslashes($image_name)."','".addslashes(ucfirst($_REQUEST['image_detail']))."','".$_SERVER['REMOTE_ADDR']."')";
-		mysql_query($sq2);
-		header("location:view_teams.php?action=search_product&message=Image added sucessfully");
-		exit();	
-}
-#################################      END INSERT    #########################################
-
-#################################      EDIT         #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit')
-{
-	if(isset($_REQUEST['image_name']) && $_REQUEST['image_name']!=''){
-		$image_name=$_REQUEST['image_name'];
-		$form_action="update&old_image_name=$image_name";
-	}else{
-		$form_action="update";
-	}
-
-$button_value="Update";
-$sql_edit				=	mysql_query("select  * from team where header_id='".$_REQUEST['image_id']."' ");
-$result_edit			=	mysql_num_rows($sql_edit);
-$row_edit 				=	mysql_fetch_array($sql_edit);
-$image_id				=  $row_edit['header_id'];
-$image_heading			=  $row_edit['header_heading'];
-$image_detail			=  $row_edit['header_description'];
-$team_name		=  $row_edit['team_name'];
-
-##########################################################################
+$dbObj = new DBUtil();
+if(!empty($_POST)) {
+	
+	$id = $dbObj->addEditProduct($_POST['prod_name'], $category, $desc, $TOS, $price, $quantity, $stock_availability, $supplier_id, $image, $prod_id);
+	Util::redirect("", true);
 }
 
-#################################  	END	  #########################################
-
-
-#################################   UPDATE    #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='update')
-{
-$form_action		=	"update";
-$button_value		=	"Update";
-
-$old_image_name		=	$_REQUEST['old_image_name'];
-$dir				=	"teams/";
-$old_image			=	$dir.$old_image_name;
-
-$image_name			=	$_FILES['image']['name'];
-
-if($image_name=='')
-{
-$dir				=	"teams/";
-$image1				=	$dir.$image_name;
-
-$image_name			=	$_REQUEST['hidden_image'];
-}else{
-
-unlink("teams/".$_REQUEST['hidden_image']);
-unlink("teams/thumb1/".$_REQUEST['hidden_image']);
-unlink("teams/thumb2/".$_REQUEST['hidden_image']);
-
-$dir			=	"teams/";
-$image1			=	$dir.$image_name;
-
-if(file_exists($image1)){
-}else{
-	move_uploaded_file($_FILES['image']['tmp_name'], $image1);
-	$thumb_image_name='teams/'.$image_name;
-	$th11='teams/thumb1/'.$image_name;
-	$th22='teams/thumb2/'.$image_name;	
-	createthumb11($thumb_image_name, $th11,100,100);
-	createthumb11($thumb_image_name, $th22,454,266);
-	}
-				
+if(!empty($_REQUEST['prod_id'])) {
+	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
+	$arrProduct = $dbObj->getProducts();
+	$arrProduct = $arrProduct[0];
 }
-###################################################################	 
-$sql	=	"UPDATE team SET header_heading='".$_REQUEST['header_heading']."' , header_description='".$_REQUEST['image_detail']."',team_name='$image_name',ip_address='".$_SERVER['REMOTE_ADDR']."' where header_id='".$_REQUEST['image_id']."'";
-mysql_query($sql);
-header("location:view_teams.php?message=Image updated successfully");
-exit();
-}
-
-#################################  END update    #########################################
-/*echo "<pre>";
-echo count($result);
-var_dump($result);*/
-//echo $result['country_id'];
+$arrParent = Util::getCategoryList();
+//print_r($arrParent);
 ?>
 <html>
 <head>
 <title>:::(Admin Panel) :::</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="css/css.css" rel="stylesheet" type="text/css">
-
+<script src="../js/jquery-1.6.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src="js/admin.js"></script>
 <script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <?php include("common_tinymce.php");?>
 </head>
@@ -162,7 +62,7 @@ var_dump($result);*/
                                                 <td  align="center" class="red">
                                               </tr>
                                               <tr>	<td align="center" valign="top" >
-		<form action="add_new_slider.php?action=<?php echo $form_action; ?>" enctype="multipart/form-data"  onsubmit ="return check_form();" method="post" name="header" id="header">
+		<form action="" enctype="multipart/form-data"  onsubmit ="return check_form();" method="post" name="header" id="header">
  <table width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
 <?php if(isset($_REQUEST['message'])){?>
  <tr align="center" bgcolor="#2F87E8" >
@@ -171,53 +71,58 @@ var_dump($result);*/
 <?php }?>
  <tr align="center" bgcolor="#7D4B00" >
    <td height="25" colspan="2" align="center" bgcolor="#3c7701">
-     <div class="white">Edit Image</div></td>
+     <div class="white">Edit Product</div></td>
  </tr>
     <tr align="center" bgcolor="#FFFFFF">
       <td>
          <div class="supp-left1">
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">&nbsp;</div>
-             <div class="supplier-panel-right1"> <?php if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit'){?>
-        <img src="teams/thumb1/<?php echo $team_name;?>"> 
-        <?php }?>
-        <span><img src="../images/img.jpg" width="100" height="82" alt=""></span>
+             <div class="supplier-panel-right1"> 
         <input type="file" name="image" style="width:200px" >
-        <input type="hidden" name="hidden_image" value="<?php echo $team_name;?>"> 
         </div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Product Name</div>
-             <div class="supplier-panel-right1"><input name="product-name" type="text" class="field" /></div>
+             <div class="supplier-panel-right1"><input name="prod_name" type="text" class="field" value="<?php echo $arrProduct['prod_name']?>" />
+             	<input type="hidden" name="prod_id" value="<?php echo $arrProduct['prod_id']?>">
+             </div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Price</div>
-             <div class="supplier-panel-right1"><input name="price" type="text" class="field" /></div>
+             <div class="supplier-panel-right1"><input name="price" type="text" class="field" value="<?php echo $arrProduct['price']?>" /></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Quantity</div>
-             <div class="supplier-panel-right1"><input name="Quantity" type="text" class="field" /></div>
+             <div class="supplier-panel-right1"><input name="quantity" type="text" class="field" value="<?php echo $arrProduct['quantity']?>" /></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Upload Related Product</div>
             <div class="supplier-panel-right1"><input type="file" name="image" style="width:200px" >
-        <input type="hidden" name="hidden_image" value="<?php echo $team_name;?>"> </div>
+        </div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Discription</div>
-             <div class="supplier-panel-right1"><textarea name="case_study" id="case_study" cols="80" rows="10" style="width:750px;"></textarea></div>
+             <div class="supplier-panel-right1"><textarea name="desc" id="case_study" cols="80" rows="10" style="width:750px;"><?php echo $arrProduct['desc']?></textarea></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">TOS</div>
-             <div class="supplier-panel-right1"><textarea name="TOS" cols="42" rows="" style="width:750px; height:100px;"></textarea></div>
+             <div class="supplier-panel-right1"><textarea name="TOS" cols="42" rows="" style="width:750px; height:100px;"><?php echo $arrProduct['TOS']?></textarea></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Category</div>
-             <div class="supplier-panel-right1"><input name="category" type="text" class="field" /></div>
-          </div>
-          <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Sub Category</div>
-             <div class="supplier-panel-right1"><input name="sub-category" type="text" class="field" /></div>
+             <div class="supplier-panel-right1">
+	             <select id="category" name="category">
+	                   	<?php foreach ($arrParent as $parent => $arrSubCat) { ?>
+	             	<optgroup label="<?php echo $parent?>">
+	             	<?php foreach ($arrSubCat as $id => $name) {  ?>
+	             		<option value="<?php echo $id?>"><?php echo $name?></option>
+	             	<?php } ?>
+	             	</optgroup>
+	             	<?php }	?>
+	             	</select>
+             		
+             </div>
           </div>
          <br/><br/>
         </div>
@@ -225,8 +130,8 @@ var_dump($result);*/
     </tr>
     <tr bgcolor="#7D4B00">
                                                         <!--  <td height="25%" align="right" valign="top"  >&nbsp;</td> -->
-    	<td height="33" colspan="5" align="center" bgcolor="#3c7701"><input name="submit" type="submit" value="<?php echo $button_value;?>"/>
-    	  <input type="hidden" name="image_id" value="<?php echo $image_id?>">
+    	<td height="33" colspan="5" align="center" bgcolor="#3c7701"><input name="submit" type="submit" value="Submit"/>
+    	  
     	  </td>
     </tr>
     </table>
@@ -243,8 +148,6 @@ var_dump($result);*/
   </tr>
 </table>
 </body>
-
-
 </html>
 <script language="JavaScript">
 function check_form()

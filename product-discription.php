@@ -1,4 +1,16 @@
-s<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php 
+include_once 'DBUtil.php';
+include_once 'Util.php';
+	
+	if(empty($_REQUEST['prod_id'])) {
+		Util::redirect("");
+	}
+
+	$dbObj = new DBUtil();
+	$arrSupplier = $dbObj->getProducts();
+	print_r($arrSupplier);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
