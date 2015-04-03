@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("database.inc.php");
 error_reporting(~E_ALL);
 if(!isset($_SESSION['login']))
    {
@@ -8,64 +7,21 @@ if(!isset($_SESSION['login']))
 	 exit;
    }
 
-###########################################  PAGING WITH PER PAGE            #####################################
-$file_name			=	"view_teams.php"; // this is file name which is used during paging  , included at the bottom of the page
-$paging_table_name	=	"team";
-include("paging/paging_query.inc.php");
-
-############################################ END PAGING WITH PER PAGE       ##############################################
-
-/*if(isset($_REQUEST['category_id']) && $_REQUEST['category_id']!='')
-{
-	$query2="SELECT * FROM books WHERE book_category_id = '".$_REQUEST['category_id']."'";
-	$rec=mysql_query($query2);
-	$nume=mysql_num_rows($rec);
-}*/
-############################################ END PAGING WITH PER PAGE       ##############################################
-
-
-if(!isset($_REQUEST['action']))		
-{
-	
-	$sql=mysql_query("select * from team ORDER BY header_id LIMIT $eu, $limit");
-	$result=mysql_num_rows($sql);
-}
-
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='delete')
-{
-	$sql	=	"DELETE FROM team where header_id ='".$_REQUEST['image_id']."' ";
-	mysql_query($sql);
-	
-	if(file_exists("teams/".$_REQUEST['image_name']))
-	{
-		unlink("teams/".$_REQUEST['image_name']);
-	}
-	if(file_exists("teams/thumb1/".$_REQUEST['image_name']))
-	{
-		unlink("teams/thumb1/".$_REQUEST['image_name']);
-	}
-	if(file_exists("teams/thumb2/".$_REQUEST['image_name']))
-	{
-		unlink("teams/thumb2/".$_REQUEST['image_name']);
-	}
-	header("location:view_teams.php?message=Image deleted successfully&action=search_product");
-	exit;
-}
-################################################### END DELETE ########################
-
-############################################################## SEARCH ########################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='search_product')		
-{
-	$sql=mysql_query("select * from team ORDER BY team_name");
-	$result=mysql_num_rows($sql);
-}
-##############################################################END SEARCH ########################
-
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='view'){
-$sql=mysql_query("select * from team ORDER BY team_name  ");
-$result=mysql_num_rows($sql);
-}
-############################################## DELELE ########################
+   include_once '../DBUtil.php';
+   include_once '../Util.php';
+   
+   $dbObj = new DBUtil();
+   
+   if(!empty($_REQUEST['supplier_id'])) {
+	   	$arrParam = array('supplier_id' => $_REQUEST['supplier_id']);
+	   	if(!empty($_REQUEST['category']))
+	   		$arrParam = array('category' => $_REQUEST['category']);
+	   		
+	   	
+	   	$arrProduct = $dbObj->getProducts($arrParam );
+   }
+   
+print_r($arrProduct );
  ?>
 <html>
 <head>
