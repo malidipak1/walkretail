@@ -140,8 +140,8 @@ $(document).ready(function() {
        <div id="ad-bg">
          <div class="wrapper">
     <ul class="tabs">
-        <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">TAB 1</a></li>
-        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">TAB 2</a></li>
+        <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Product Description</a></li>
+        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Terms of Services</a></li>
         <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent4" class="tab">TAB 4</a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent5" class="tab">TAB 5</a></li>-->
     </ul>
@@ -179,7 +179,7 @@ $(document).ready(function() {
        
        <!-- image scrolling start -->
        
-       <div id="carouselh" style="display: none;">
+    <!--   <div id="carouselh">
                             <div style="float:left;">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="v-height-scroll">
                     <tr valign="middle">
@@ -361,7 +361,7 @@ $(document).ready(function() {
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
-                        </div>
+                        </div>-->
        
        <!-- image scrolling end -->
        

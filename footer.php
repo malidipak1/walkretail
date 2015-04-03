@@ -5,16 +5,21 @@
           <div class="footer">
             <ul>
         <li>
-          <h2>Company</h2>
+          <h2>Company Profile</h2>
           <ul>
-            <li style="background:none;"><a href="#">Morbi laoreet enim eu </a></li>
-            <li><a href="#">ligula vulputate, </a></li>
-            <li><a href="#">nec luctus leo sollicitudin.</a></li>
-            <li><a href="#">Curabitur at justo </a></li>
-            <li><a href="#">In metus venenatis cursus.</a></li>
-          </ul>
+            <li style="background:none;"><a href="faq.php"> FAQ </a></li>
+            <li><a href="terms-and-conditions.php">Terms & Conditions </a></li>
+            <li><a href="privacy-policy.php">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+           </ul>
         </li>
+
         <li>
+          <h2>Payment Options</h2>
+          <ul>
+            <li style="background:none;"><a href="#">Credit Card / Debit Card </a><br /> <br /></li>
+          </ul>
+          
           <h2>Payment Options</h2>
           <ul>
             <li style="background:none;"><a href="#">Credit Card / Debit Card </a></li>
@@ -22,15 +27,10 @@
             <li><a href="#">Credit Card EMI</a></li>
             <li><a href="#">PAYBACK</a></li>
           </ul>
+          
         </li>
         <li>
-          <h2>Help</h2>
-          <ul>
-            <li style="background:none;"><a href="faq.php"> FAQ </a></li>
-            <li><a href="terms-and-conditions.php">Terms & Conditions </a></li>
-            <li><a href="privacy-policy.php">Privacy Policy</a></li>
-            <li><a href="#">Contact Us</a></li>
-           </ul>
+        fACEBOOK HERE
         </li>
         
        </ul>
@@ -45,9 +45,9 @@
 <a href="https://twitter.com/walkretail" target="_blank">Twitter</a>
 </li>
 
-<li class="facebook" style="background-color: #f0f0f0">
+<!--<li class="facebook" style="background-color: #f0f0f0">
 <a href="https://www.facebook.com/WALKRETAIL" target="_blank">Facebook</a>
-</li>
+</li>-->
 
 <!--<li class="youtube" style="background-color: #f0f0f0">
 <a href="http://www.twitter.com/techandallcom" target="_blank">YouTube</a>
@@ -65,11 +65,11 @@
 <a href="http://www.twitter.com/techandallcom" target="_blank">Paypal</a>
 </li> -->
 
-<!--<li class="linkedin" style="background-color: #f0f0f0">
+<li class="linkedin" style="background-color: #f0f0f0">
 <a href="http://www.twitter.com/techandallcom" target="_blank">LinkedIN</a>
 </li>
 
-<li class="flickr" style="background-color: #f0f0f0">
+<!--<li class="flickr" style="background-color: #f0f0f0">
 <a href="http://www.twitter.com/techandallcom" target="_blank">Flickrr</a>
 </li>-->
 

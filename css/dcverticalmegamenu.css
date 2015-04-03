@@ -80,7 +80,7 @@ display: block;
 text-decoration: none; 
 font-size: 0.9em;
 }
-.mega-menu li .sub li.mega-hdr a.mega-hdr-a {
+/*.mega-menu li .sub li.mega-hdr a.mega-hdr-a {
 padding: 5px 5px 5px 15px; 
 margin-bottom: 5px; 
 background: #E88221; 
@@ -88,7 +88,8 @@ text-transform: uppercase;
 font-weight: bold; 
 color: #fff; 
 text-shadow: 1px 1px 1px #333;
-}
+}*/
+
 .mega-menu li .sub li.mega-hdr a.mega-hdr-a:hover {
 color: #000; 
 text-shadow: none;

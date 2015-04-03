@@ -52,7 +52,6 @@ $(document).ready(function($){
 </head>
 <body>
 <!--FB Page-->
-
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -61,6 +60,7 @@ $(document).ready(function($){
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
 <!--FB Page-->
 
 <div id="tgray-bg">
