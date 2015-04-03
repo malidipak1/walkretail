@@ -6,7 +6,6 @@ if(!isset($_SESSION['login']))
      header('Location: index.php');
 	 exit;
    }
-
    include_once '../DBUtil.php';
    include_once '../Util.php';
    
@@ -16,12 +15,9 @@ if(!isset($_SESSION['login']))
 	   	$arrParam = array('supplier_id' => $_REQUEST['supplier_id']);
 	   	if(!empty($_REQUEST['category']))
 	   		$arrParam = array('category' => $_REQUEST['category']);
-	   		
-	   	
 	   	$arrProduct = $dbObj->getProducts($arrParam );
-   }
-   
-print_r($arrProduct );
+   } 
+//print_r($arrProduct );
  ?>
 <html>
 <head>
@@ -73,45 +69,23 @@ print_r($arrProduct );
            
           <table width="97%" border="0" cellspacing="10" cellpadding="5">
   <tr valign="middle" align="center">
-    <td height="200" width="220" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
+   
+    
+    <?php foreach ($arrProduct as $product) {?>
+     <td height="200" width="220" class="t-border">
+    <table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
       <tr>
-        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
+        <th colspan="2" scope="row"><img src="<?php echo $product['image']?>" width="180" height="120" alt=""></th>
         </tr>
       <tr>
-        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
+        <td align="center" valign="middle" class="border-bg"><a href="product-discription.php?prod_id=<?php echo $product['prod_id']?>">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php?prod_id=<?php echo $product['prod_id']?>&supplier_id=<?php echo $product['supplier_id']?>">Edit</a></td>
         </tr>
-    </table>      <br/></td>
-    <td width="220" height="200" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
-      <tr>
-        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
-        </tr>
-      <tr>
-        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
-        </tr>
-      </table>
-      <br/></td>
-    <td width="220" height="200" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
-      <tr>
-        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
-        </tr>
-      <tr>
-        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
-        </tr>
-      </table>
-      <br/></td>
-    <td width="220" height="200" class="t-border"><table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
-      <tr>
-        <th colspan="2" scope="row"><img src="../images/pincers.jpg" width="180" height="120" alt=""></th>
-      </tr>
-      <tr>
-        <td align="center" valign="middle" class="border-bg"><a href="http://webtech1.pwebt.com/walk-retail/product-discription.php">View</a></td>
-        <td align="center" valign="middle" class="border-bg"><a href="edit-product.php">Edit</a></td>
-      </tr>
     </table>
-      <br/></td>
+    </td>
+    <?php } ?>
+    
+ 
     </tr>
 </table>
 

@@ -1,129 +1,28 @@
 <?php 
-include("database.inc.php");
-include("thumb.php");
 session_start();
 if(!isset($_SESSION['login']))
 {
 	header('Location: index.php');
 	exit;
 }
+include_once 'DBUtil.php';
 
-$form_action="insert";
-$button_value="INSERT";
+$dbObj = new DBUtil();
 
-$image_id				= "";
-$image_detail			= ""; 
-$image_name				= "";
-$image_heading			= "";
+if(!empty($_POST)) {
 
-#################################   INSERT    #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='insert')
-{
-  $image_name	=	$_FILES['image']['name'];
-  $dir			=	"teams/";
-  $image1		=	$dir.$image_name;
-  
-  $sql="SELECT * from team WHERE team_name ='".$image_name."' ";
-  $result=mysql_query($sql);
-  $row=mysql_num_rows($result);
-  
-		 if(file_exists($image1))
-		 {
-			 header('location:add_new_team.php?message=Image Already Exists');
-			 exit;
-		 }
-		move_uploaded_file($_FILES['image']['tmp_name'], $image1);
-  		
-		$thumb_image_name='teams/'.$image_name;
-        $th11='teams/thumb1/'.$image_name;
-        $th22='teams/thumb2/'.$image_name;
+	$id = $dbObj->addEditSupplier($id, $name, $user_name, $password, $status, $mobile, $email, $company, $address, $city, $state, $zipcode, $category,
+			$company_pan, $gumasta_lic, $registration_lic, $is_partner, $website);
 
-    	createthumb11($thumb_image_name, $th11,100,100);
-		createthumb11($thumb_image_name, $th22,454,266);
-		############################################################	 
-		
-		$sq2="INSERT INTO team VALUES('','".addslashes(ucfirst($_REQUEST['header_heading']))."','".addslashes($image_name)."','".addslashes(ucfirst($_REQUEST['image_detail']))."','".$_SERVER['REMOTE_ADDR']."')";
-		mysql_query($sq2);
-		header("location:view_teams.php?action=search_product&message=Image added sucessfully");
-		exit();	
-}
-#################################      END INSERT    #########################################
-
-#################################      EDIT         #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit')
-{
-	if(isset($_REQUEST['image_name']) && $_REQUEST['image_name']!=''){
-		$image_name=$_REQUEST['image_name'];
-		$form_action="update&old_image_name=$image_name";
-	}else{
-		$form_action="update";
-	}
-
-$button_value="Update";
-$sql_edit				=	mysql_query("select  * from team where header_id='".$_REQUEST['image_id']."' ");
-$result_edit			=	mysql_num_rows($sql_edit);
-$row_edit 				=	mysql_fetch_array($sql_edit);
-$image_id				=  $row_edit['header_id'];
-$image_heading			=  $row_edit['header_heading'];
-$image_detail			=  $row_edit['header_description'];
-$team_name		=  $row_edit['team_name'];
-
-##########################################################################
+	header("Location: view-clients.php");
 }
 
-#################################  	END	  #########################################
-
-
-#################################   UPDATE    #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='update')
-{
-$form_action		=	"update";
-$button_value		=	"Update";
-
-$old_image_name		=	$_REQUEST['old_image_name'];
-$dir				=	"teams/";
-$old_image			=	$dir.$old_image_name;
-
-$image_name			=	$_FILES['image']['name'];
-
-if($image_name=='')
-{
-$dir				=	"teams/";
-$image1				=	$dir.$image_name;
-
-$image_name			=	$_REQUEST['hidden_image'];
-}else{
-
-unlink("teams/".$_REQUEST['hidden_image']);
-unlink("teams/thumb1/".$_REQUEST['hidden_image']);
-unlink("teams/thumb2/".$_REQUEST['hidden_image']);
-
-$dir			=	"teams/";
-$image1			=	$dir.$image_name;
-
-if(file_exists($image1)){
-}else{
-	move_uploaded_file($_FILES['image']['tmp_name'], $image1);
-	$thumb_image_name='teams/'.$image_name;
-	$th11='teams/thumb1/'.$image_name;
-	$th22='teams/thumb2/'.$image_name;	
-	createthumb11($thumb_image_name, $th11,100,100);
-	createthumb11($thumb_image_name, $th22,454,266);
-	}
-				
+if(!empty($_REQUEST['id'])) {
+	$arrParam = array('id' => $_REQUEST['id']);
+	$arrSupplier = $dbObj->getSupplier($arrParam);
+	$arrSupplier = $arrProduct[0];
 }
-###################################################################	 
-$sql	=	"UPDATE team SET header_heading='".$_REQUEST['header_heading']."' , header_description='".$_REQUEST['image_detail']."',team_name='$image_name',ip_address='".$_SERVER['REMOTE_ADDR']."' where header_id='".$_REQUEST['image_id']."'";
-mysql_query($sql);
-header("location:view_teams.php?message=Image updated successfully");
-exit();
-}
-
-#################################  END update    #########################################
-/*echo "<pre>";
-echo count($result);
-var_dump($result);*/
-//echo $result['country_id'];
+print_r($arrSupplier);
 ?>
 <html>
 <head>

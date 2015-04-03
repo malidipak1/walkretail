@@ -1,72 +1,18 @@
 <?php
 session_start();
-include("database.inc.php");
-error_reporting(~E_ALL);
 if(!isset($_SESSION['login']))
    {
      header('Location: index.php');
 	 exit;
    }
-
-###########################################  PAGING WITH PER PAGE            #####################################
-$file_name			=	"view_teams.php"; // this is file name which is used during paging  , included at the bottom of the page
-$paging_table_name	=	"team";
-include("paging/paging_query.inc.php");
-
-############################################ END PAGING WITH PER PAGE       ##############################################
-
-/*if(isset($_REQUEST['category_id']) && $_REQUEST['category_id']!='')
-{
-	$query2="SELECT * FROM books WHERE book_category_id = '".$_REQUEST['category_id']."'";
-	$rec=mysql_query($query2);
-	$nume=mysql_num_rows($rec);
-}*/
-############################################ END PAGING WITH PER PAGE       ##############################################
-
-
-if(!isset($_REQUEST['action']))		
-{
-	
-	$sql=mysql_query("select * from team ORDER BY header_id LIMIT $eu, $limit");
-	$result=mysql_num_rows($sql);
-}
-
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='delete')
-{
-	$sql	=	"DELETE FROM team where header_id ='".$_REQUEST['image_id']."' ";
-	mysql_query($sql);
-	
-	if(file_exists("teams/".$_REQUEST['image_name']))
-	{
-		unlink("teams/".$_REQUEST['image_name']);
-	}
-	if(file_exists("teams/thumb1/".$_REQUEST['image_name']))
-	{
-		unlink("teams/thumb1/".$_REQUEST['image_name']);
-	}
-	if(file_exists("teams/thumb2/".$_REQUEST['image_name']))
-	{
-		unlink("teams/thumb2/".$_REQUEST['image_name']);
-	}
-	header("location:view_teams.php?message=Image deleted successfully&action=search_product");
-	exit;
-}
-################################################### END DELETE ########################
-
-############################################################## SEARCH ########################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='search_product')		
-{
-	$sql=mysql_query("select * from team ORDER BY team_name");
-	$result=mysql_num_rows($sql);
-}
-##############################################################END SEARCH ########################
-
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='view'){
-$sql=mysql_query("select * from team ORDER BY team_name  ");
-$result=mysql_num_rows($sql);
-}
-############################################## DELELE ########################
- ?>
+   include_once '../DBUtil.php';
+    
+   $dbObj = new DBUtil();
+   
+   if(!empty($_REQUEST['supplier_id'])) {
+	   	$arrResult = $dbObj->getSupplierProd($_REQUEST['supplier_id']);
+   }
+   ?>
 <html>
 <head>
 <title>:::(Admin Panel) :::</title>
@@ -115,22 +61,19 @@ $result=mysql_num_rows($sql);
            
            <table width="97%" border="0" cellspacing="0" cellpadding="10" style="border:1px solid #CCC">
               <tr bgcolor="#3c7701" height="35px;">
-                 <td class="white">Category Name</td>
+                <!--  <td class="white">Category Name</td> -->
                  <td class="white">Subcategory</td>
                  <td class="white" align="center">Product</td>
                  <td class="white" align="center">View</td>
               </tr>
+              <?php foreach ($arrResult as $result) {?>
               <tr>
-                <td class="t-border">Electronic</td>
-                <td class="t-border">Mobile</td>
-                <td class="t-border" align="center">15</td>
-                <td class="t-border" align="center"><a href="manage-product.php"><img src="images/Edit.gif" width="12" height="12" alt="Edit" border="0" /></a></td>
+               <!--  <td class="t-border">Electronic</td> -->
+                <td class="t-border"><?php echo $result['catname']?></td>
+                <td class="t-border" align="center"><?php echo $result['count']?></td>
+                <td class="t-border" align="center"><a href="manage-product.php?supplier_id=<?php echo $_REQUEST['supplier_id']?>&category=<?php echo $result['category']?>"><img src="images/Edit.gif" width="12" height="12" alt="Edit" border="0" /></a></td>
               </tr>
-              <tr>
-                <td class="t-border">Cloths</td>
-                <td class="t-border">Sarees</td>
-                <td class="t-border" align="center">50</td>
-                 <td class="t-border" align="center"><a href="manage-product.php"><img src="images/Edit.gif" width="12" height="12" alt="Edit" border="0" /></a></td>
+             <?php }?>
               </tr>
             </table>
 

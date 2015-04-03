@@ -1,3 +1,17 @@
+<?php 
+$arrResult = array();
+include_once 'DBUtil.php';
+$dbObj = new DBUtil();
+if(!empty($_REQUEST['category'])) {
+	$arrParam = array('category' => $_REQUEST['category']);
+	$arrResult = $dbObj->getProducts($arrParam);
+}
+
+if((empty($_REQUEST['min']) && empty($_REQUEST['max'])) )
+
+//print_r($arrResult);
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -72,55 +86,26 @@ $(document).ready(function($){
       <div class="spro">
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr valign="middle"  align="center">
-           <td width="33%">
+          
+             <?php foreach ($arrResult as $result) {?>
+              <td width="33%">
              <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr valign="top" align="center">
-                <td><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
+                <td><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>"><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></a></td>
               </tr>
              <tr valign="top" align="center">
-                <td height="40" valign="middle" class="pro-head">1080 P Car Video Recorder</td>
+                <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>
               </tr>
               <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : Rs100 - Rs 300</td>
+                <td height="26" valign="middle" class="price1">Price : Rs <?php echo $result['price']?></td>
               </tr>
              <tr valign="top" align="center">
-                 <td valign="middle" class="g-text">Order Range : 1-100 Pieces</td>
-              </tr>
-            </table>
-
-           </td>
-           <td width="33%">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr valign="top" align="center">
-                <td><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
-              </tr>
-             <tr valign="top" align="center">
-                <td height="40" valign="middle" class="pro-head">1080 P Car Video Recorder</td>
-              </tr>
-              <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : Rs100 - Rs 300</td>
-              </tr>
-             <tr valign="top" align="center">
-                 <td valign="middle" class="g-text">Order Range : 1-100 Pieces</td>
-              </tr>
-            </table>
-           </td>
-            <td width="33%">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr valign="top" align="center">
-                <td><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
-              </tr>
-             <tr valign="top" align="center">
-                <td height="40" valign="middle" class="pro-head">1080 P Car Video Recorder</td>
-              </tr>
-              <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : Rs100 - Rs 300</td>
-              </tr>
-             <tr valign="top" align="center">
-                 <td valign="middle" class="g-text">Order Range : 1-100 Pieces</td>
+                 <td valign="middle" class="g-text">Order Range : <?php echo $result['order_range']?></td>
               </tr>
             </table>
             </td>
+			<?php }?>
+        
           </tr>
           
          </table><br /><br />

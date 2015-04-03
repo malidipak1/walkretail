@@ -17,6 +17,13 @@ class Util {
 		return $dbObj->getCategories($param);
 	}
 	
+	public static function getSupplierName($supplier_id) {
+		$dbObj = new DBUtil();
+		$param = array('id' => $supplier_id);
+		$arrSupplier = $dbObj->getSupplier($param);
+		return $arrSupplier[0]['company'];
+	}
+	
 	public static function getCategoryList() {
 		$return_array = array();
 		
@@ -35,6 +42,7 @@ class Util {
 		//print_r($return_array);
 		return $return_array;
 	}
+	
 	
 }
 

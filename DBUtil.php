@@ -1,8 +1,8 @@
 <?php
-define ( "DB_HOST", 'localhost' );
+define ( "DB_HOST", '192.168.0.104' );
 define ( "DB_NAME", 'walkreta_walk' );
 define ( 'DB_PASSWD', '' );
-define ( 'DB_USER', 'root' );
+define ( 'DB_USER', 'walkreta_walk' );
 
 include ("lib/class.db.mysql.php");
 class DBUtil {
@@ -64,10 +64,26 @@ class DBUtil {
 		return $this->getAll($sql);
 	}
 	
+	
+	public function getSupplierProd($supplier_id =0) {
+		$sql = "SELECT category, count(prod_id) as count FROM `product` where supplier_id= " . $supplier_id . " group by category";
+		
+		$return_array = $this->getAll($sql);
+		
+		foreach ($return_array as $key => $result) {
+			$arrSearch = array('catid' => $result['category']);
+			 $catDetails = $this->getCategories($arrSearch);
+			 $return_array[$key]['catname'] = $catDetails[0]['catname'];
+		}
+		return $return_array;
+	}
+	
+	
 	public function getProducts($arrSearch = array()) {
 		$sql = "SELECT * FROM PRODUCT WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
 	}
+
 	
 	public function searchProductByName($prodName, $min = 0, $max = 0) {
 		$sql = "select * from product where 1=1 and prod_name like '%" . $prodName . "%' ";
@@ -114,34 +130,32 @@ class DBUtil {
 				':is_partner'  => $is_partner,
 				':website'  => $website
 		);
-	
 		return $this->executeUpdate($sql, $arrData);
-		
 	}
 	
-	public function addEditProduct($prod_name,$category,$desc,$TOS,$price,$quantity,$stock_availability,$supplier_id,$image, $prod_id = null) {
+	public function addEditProduct($prod_name,$category,$desc,$TOS,$price,$quantity,$stock_availability,$supplier_id,$image,
+			$order_range, $supply_ability, $home_delivery, $prod_id = null) {
 		$sql = "";
 		if ($prod_id == 0) {
 			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `price`, `quantity`, `stock_availability`, `supplier_id`, `image`) VALUES 
-					(:prod_id, :prod_name, :category, :desc, :TOS, :price, :quantity, :stock_availability, :supplier_id, :image))";
+					(:prod_id, :prod_name, :category, :desc, :TOS, :price, :quantity, :stock_availability, :supplier_id, :image)";
 		} else {
 			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`price`=:price,`quantity`=:quantity,
 					`stock_availability`=:stock_availability,`supplier_id`=:supplier_id,`image`=:image WHERE `prod_id`=:prod_id";
 		}
 		$arrData = array (
-			'prod_id '	 => $prod_id ,
-			'prod_name'	 => $prod_name,
-			'category'	 => $category,
-			'desc'	 => $desc,
-			'TOS'	 => $TOS,
-			'price'	 => $price,
-			'quantity'	 => $quantity,
-			'stock_availability'	 => $stock_availability,
-			'supplier_id'	 => $supplier_id,
-			'image'	 => $image
+			':prod_id'	 => $prod_id ,
+			':prod_name'	 => $prod_name,
+			':category'	 => $category,
+			':desc'	 => $desc,
+			':TOS'	 => $TOS,
+			':price'	 => $price,
+			':quantity'	 => $quantity,
+			':stock_availability' => $stock_availability,
+			':supplier_id'	 => $supplier_id,
+			':image'	 => $image
 		);
 		
-		//print_r($arrData);
 		return $this->executeUpdate($sql, $arrData);
 	}
 }

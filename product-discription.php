@@ -1,4 +1,16 @@
-s<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php 
+include_once 'DBUtil.php';
+include_once 'Util.php';
+$dbObj = new DBUtil();
+if(!empty($_REQUEST['prod_id'])) {
+	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
+	$arrResult = $dbObj->getProducts($arrParam);
+	$arrResult = $arrResult[0];
+}
+//print_r($arrResult);
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -84,7 +96,7 @@ $(document).ready(function() {
           
         </div>
         <div class="prod2">
-             <div class="head">Product name with Description, Manufacture by, Accessories and other details will be displayed here</div>
+             <div class="head"><?php echo $arrResult['prod_name']?></div>
           <div class="prod2-left">
             <span>Product Price :</span>
             <span>Min.Order Quantity : </span>
@@ -93,11 +105,11 @@ $(document).ready(function() {
             <span>Home Delivery : </span>
           </div>
              <div class="prod2-middle">
-                <span>Rs.100,00/-</span>
-                <span>1 Piece/Pieces max10000</span>
-                <span>1000 Piece / Pieces per Day 30000 / month</span>
-                <span>In Stock / Out of Stock</span>
-                <span>On order Above Rs. 5000/- only</span>
+                <span>Rs. <?php echo $arrResult['price']?>/-</span>
+                <span><?php echo $arrResult['order_range']?>&nbsp;</span>
+                <span><?php echo $arrResult['supply_ability']?>&nbsp;</span>
+                <span><?php $stock = ($arrResult['supply_ability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
+                <span><?php echo $arrResult['home_delivery']?>&nbsp;</span>
              </div>
              <div class="prod2-right" align="center">
                 <span><img src="images/trusted.png" width="86" height="88" alt="" /></span>
@@ -116,7 +128,7 @@ $(document).ready(function() {
              
         </div>
          <div>
-           <span><strong>Supplier</strong>  : Company Name</span><br /><br />
+           <span><strong>Supplier</strong>  : <?php echo Util::getSupplierName($arrResult['supplier_id']);?></span><br /><br />
           
         </div>
        
