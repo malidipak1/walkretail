@@ -72,48 +72,59 @@ $(document).ready(function($){
       <div class="spro">
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr valign="middle"  align="center">
-           <td width="33%"><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
-           <td width="33%"><img src="images/monarch-kitchenwares-pedal-steel-dustbin.jpg" width="227" height="151" alt="" /></td>
-            <td width="33%"><img src="images/navin-toys-no7.jpg" width="227" height="151" alt="" /></td>
+           <td width="33%">
+             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr valign="top" align="center">
+                <td><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
+              </tr>
+             <tr valign="top" align="center">
+                <td height="40" valign="middle" class="pro-head">1080 P Car Video Recorder</td>
+              </tr>
+              <tr valign="top" align="center">
+                <td height="26" valign="middle" class="price1">Price : Rs100 - Rs 300</td>
+              </tr>
+             <tr valign="top" align="center">
+                 <td valign="middle" class="g-text">Order Range : 1-100 Pieces</td>
+              </tr>
+            </table>
+
+           </td>
+           <td width="33%">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr valign="top" align="center">
+                <td><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
+              </tr>
+             <tr valign="top" align="center">
+                <td height="40" valign="middle" class="pro-head">1080 P Car Video Recorder</td>
+              </tr>
+              <tr valign="top" align="center">
+                <td height="26" valign="middle" class="price1">Price : Rs100 - Rs 300</td>
+              </tr>
+             <tr valign="top" align="center">
+                 <td valign="middle" class="g-text">Order Range : 1-100 Pieces</td>
+              </tr>
+            </table>
+           </td>
+            <td width="33%">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr valign="top" align="center">
+                <td><img src="images/monarch-kitchen-no.17.jpg" width="101" height="151" alt="" /></td>
+              </tr>
+             <tr valign="top" align="center">
+                <td height="40" valign="middle" class="pro-head">1080 P Car Video Recorder</td>
+              </tr>
+              <tr valign="top" align="center">
+                <td height="26" valign="middle" class="price1">Price : Rs100 - Rs 300</td>
+              </tr>
+             <tr valign="top" align="center">
+                 <td valign="middle" class="g-text">Order Range : 1-100 Pieces</td>
+              </tr>
+            </table>
+            </td>
           </tr>
-          <tr class="pro-head">
-            <td height="34">1080 P Car Video Recorder </td>
-            <td>1080 P Car Video Recorder</td>
-            <td>1080 P Car Video Recorders</td>
-          </tr>
-          <tr class="price1">
-            <td height="23">Price : Rs100 - Rs 300</td>
-            <td>Price : Rs100 - Rs 300</td>
-            <td>Price : Rs100 - Rs 300</td>
-          </tr>
-          <tr class="g-text">
-             <td class="g-text">Order Range : 1-100 Pieces</td>
-            <td>Order Range : 1-100 Pieces</td>
-            <td>Order Range : 1-100 Pieces</td>
-          </tr>
+          
          </table><br /><br />
-         <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr valign="middle"  align="center">
-           <td width="33%"><img src="images/tabrez-alisha-no3.jpg" width="227" height="151" alt="" /></td>
-           <td width="33%"><img src="images/navin-toys-no8.jpg" width="227" height="151" alt="" /></td>
-            <td width="33%"><img src="images/navin-toys-no6.jpg" width="227" height="151" alt="" /></td>
-          </tr>
-          <tr class="pro-head">
-            <td height="34">1080 P Car Video Recorder </td>
-            <td>1080 P Car Video Recorder</td>
-            <td>1080 P Car Video Recorders</td>
-          </tr>
-          <tr class="price1">
-            <td height="23">Price : Rs100 - Rs 300</td>
-            <td>Price : Rs100 - Rs 300</td>
-            <td>Price : Rs100 - Rs 300</td>
-          </tr>
-          <tr class="g-text">
-             <td class="g-text">Order Range : 1-100 Pieces</td>
-            <td>Order Range : 1-100 Pieces</td>
-            <td>Order Range : 1-100 Pieces</td>
-          </tr>
-         </table>
+        
          
          
 
