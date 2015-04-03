@@ -7,6 +7,8 @@ if(!empty($_REQUEST['prod_id'])) {
 	$arrResult = $dbObj->getProducts($arrParam);
 	$arrResult = $arrResult[0];
 }
+
+$image = "/supplier/image/" . $arrResult['image'];
 //print_r($arrResult);
 
 ?>
@@ -80,16 +82,16 @@ $(document).ready(function() {
           <div style="float:left;">
     <div class="clearfix">
         <a href="imgProd/triumph_big1.jpg" class="jqzoom" rel='gal1'  title="triumph" >
-            <img src="imgProd/triumph_small1.jpg"  title="triumph" >
+            <img src="<?php echo $image?>"  title="triumph" >
     </a></div>
 	<br/>
  <div class="clearfix" >
 	<ul id="thumblist" class="clearfix" >
-		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small1.jpg',largeimage: './imgProd/triumph_big1.jpg'}"><img src='imgProd/thumbs/triumph_thumb1.jpg'></a></li>
-		<li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
+		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo $image?>',largeimage: '<?php echo $image?>'}"><img src='<?php echo $image?>'></a></li>
+		<!-- <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
 		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li>
        <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
-		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li>
+		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li> -->
 	</ul>
 	</div>
 </div>

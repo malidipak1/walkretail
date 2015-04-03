@@ -35,7 +35,9 @@ if(!empty($_POST)) {
 	if($uploadOk == 1) {
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['price'], $_POST['quantity'], $_POST['stock_availability'], $_POST['supplier_id'], $image ,
 				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['prod_id']);
-		//Util::redirect("", true);
+		
+		$uri = "client-profile.php?supplier_id=" . $_POST['supplier_id'];
+		header("Location: $uri");
 	} else {
 		//image could not be uploaded
 	}
@@ -158,7 +160,9 @@ $arrParent = Util::getCategoryList();
 	             	<option value="0">-SELECT-</option>
 	                   	<?php foreach ($arrParent as $parent => $arrSubCat) { ?>
 	             	<optgroup label="<?php echo $parent?>">
-	             	<?php foreach ($arrSubCat as $id => $name) {  ?>
+	             	<?php foreach ($arrSubCat as $id => $name) {  
+	             		if($arrProduct['category'] == $id) { }?>
+	             	
 	             		<option value="<?php echo $id?>"><?php echo $name?></option>
 	             	<?php } ?>
 	             	</optgroup>
