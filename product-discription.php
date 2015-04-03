@@ -1,16 +1,4 @@
-<?php 
-include_once 'DBUtil.php';
-include_once 'Util.php';
-	
-	if(empty($_REQUEST['prod_id'])) {
-		Util::redirect("");
-	}
-
-	$dbObj = new DBUtil();
-	$arrSupplier = $dbObj->getProducts();
-	print_r($arrSupplier);
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+s<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -73,37 +61,7 @@ $(document).ready(function() {
 <div class="middle">
   <div class="middle-inner">
     <div class="left-2-panel">
-      <form action="" method="post" style="padding:0 0 10px 0; width:100%; float:left;">
-          <div class="btn">Select Quantity</div>
-          <div style="float:left;">
-            <select name="Property_Category" class="sell5">                   
-                         <option>Min</option>
-						 <option class="" value="0">0</option>
-						 <option class="" value="151">151</option>
-						 <option class="" value="301">301</option>-
-						 <option class="" value="451">451</option>
-						 <option class="" value="601">601</option>
-						 <option class="" value="751">751</option>
-                         <option class="" value="1000+">1000+</option>
-                        
-           </select>
-          </div>
-         <div style="float:left"><select name="Property_Category" class="sell5">                   
-                         <option>Max</option>
-						 <option class="" value="150">150</option>
-						 <option class="" value="300">300</option>
-						 <option class="" value="450">450</option>
-						 <option class="" value="600">600</option>
-						 <option class="" value="750">750</option>
-						 <option class="" value="900">900</option>
-                         <option class="" value="5000+">5000+</option>
-                       
-           </select></div>
-        <div style="float:left">
-          <input type="image" src="images/search.jpg" align="right" />
-        <input name="Search" type="text" value="search" class="search2" /></div>
-          <div style="float:left"></div>
-      </form>
+        <?php include("search-product.php");?>
       <div class="bg1">
         <div class="prod1" align="center">
           
@@ -340,6 +298,7 @@ $(document).ready(function() {
                     <tr valign="middle">
                         <td align="center"><img alt="" src="pro-img/img_1.jpg" /></td>
                     </tr>
+
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>

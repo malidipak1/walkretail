@@ -4,6 +4,42 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Walk Retail</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
+ <!-- CATEGORY MENU START-->
+    <link href="css/dcverticalmegamenu.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type='text/javascript' src='js/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='js/jquery.dcverticalmegamenu.1.3.js'></script>
+<script type="text/javascript">
+$(document).ready(function($){
+
+	$('#mega-1').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'show',
+		direction: 'right'
+	});
+	$('#mega-2').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'slow',
+		effect: 'fade',
+		direction: 'left'
+	});
+	$('#mega-3').dcVerticalMegaMenu({
+		rowItems: '4',
+		speed: 'slow',
+		effect: 'slide',
+		direction: 'right'
+	});
+	$('#mega-4').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'slide',
+		direction: 'left'
+	});
+
+});
+</script>
+<!--CATEGORY MENU END-->
 </head>
 
 <body>
@@ -21,59 +57,14 @@
 
 <div class="middle">
   <div class="middle-inner">
-    <div class="left-panel">
-      <div id="cat-bg">Related Categories</div>
-      <div class="list">
-        <ul>
-            <li><a href="#">OnePlus One</a></li>
-            <li><a href="#">Microsoft Lumia 638 4G</a></li>
-            <li><a href="#">ZTE Grand S2</a></li>
-            <li><a href="#">Arya A1 Plus</a></li>
-            <li><a href="#">Jivi JSP Q56</a></li>
-            <li><a href="#">Intex Aqua i5 Octa</a></li>
-            <li><a href="#">Samsung Gear S Smart Watch</a></li>
-            <li><a href="#">iPhone 6</a></li>
-            <li><a href="#">Spice Stellar 520n</a></li>
-            <li><a href="#">Power Banks</a></li>
-            <li><a href="#">Designer Cases </a></li>
-            <li><a href="#">Bluetooth Headsets</a></li>
-        </ul>
-      </div>
-    </div>
+       <?php include("side-categories.php");?>
+
     
     <!-- left panel end -->
     
     <div class="middle-panel">
     
-      <form action="" method="post" style="padding:0 0 10px 0; width:100%; float:left;">
-          <div class="btn">Select Quantity</div>
-         <div style="float:left;">
-            <select name="Property_Category" class="sell5">                   
-                         <option>Min</option>
-						 <option class="" value="0">1</option>
-						 <option class="" value="11">11</option>
-						 <option class="" value="21">21</option>-
-						 <option class="" value="51">51</option>
-						 <option class="" value="101">101</option>
-						 <option class="" value="1001">1001</option>
-                     
-                        
-           </select>
-          </div>
-         <div style="float:left"><select name="Property_Category" class="sell5">                   
-                         <option>Max</option>
-						 <option class="" value="10">10</option>
-						 <option class="" value="20">20</option>
-						 <option class="" value="50">50</option>
-						 <option class="" value="100">100</option>
-						 <option class="" value="1000">1000</option>
-						 <option class="" value="10000">10000</option>
-                  </select></div>
-        <div style="float:left">
-        <input type="image" src="images/search.jpg" align="right" />
-        <input name="Search" type="text" value="search" class="search" /></div>
-          <div style="float:left"></div>
-      </form>
+        <?php include("search-product.php");?>
       
       <!-- end search form-->
       

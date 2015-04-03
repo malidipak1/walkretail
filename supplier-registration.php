@@ -22,44 +22,47 @@
 <div class="middle">
   <div class="middle-inner">
     <div class="left-2-panel">
-     
-      <div class="supp-con1">
+     <form action="" method="get">
+     <div class="supp-con1">
         <div class="supp-left">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Name</div>
-             <div class="supplier-panel-right"><input name="Name" type="text" class="field" /></div>
+             <div class="supplier-panel-right">
+               <p>&nbsp;</p>
+               <p>&nbsp;  </p>
+             </div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Name</div>
-             <div class="supplier-panel-right"><input name="company-name" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="company" type="text" class="field" id="company" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Email Id</div>
-             <div class="supplier-panel-right"><input name="email-id" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="email" type="text" class="field" id="email" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Website (If any)</div>
              <div class="supplier-panel-right"><input name="website" type="text" class="field" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Phone No.</div>
-            <div class="supplier-panel-right"><input name="phone-no" type="text" class="field" /></div>
+             <div class="supplier-panel-left">Mobile No.</div>
+            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
-             <div class="supplier-panel-right"><input name="company-address" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="address" type="text" class="field" id="address" /></div>
           </div>
-          <div class="supplier-panel-bg">
+          <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Category</div>
              <div class="supplier-panel-right"><input name="category" type="text" class="field" /></div>
-          </div>
+          </div>-->
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">User Name</div>
-             <div class="supplier-panel-right"><input name="user-name" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="user_name" type="text" class="field" id="user_name" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
-             <div class="supplier-panel-right"><input name="passward" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="password" type="text" class="field" id="password" /></div>
           </div>
          
         </div>
@@ -70,7 +73,7 @@
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
-             <div class="supplier-panel-right"><input name="zip-code" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
@@ -78,9 +81,9 @@
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
-             <div class="supplier-panel-right"><input name="company-pancard" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="pancard" type="text" class="field" id="pancard" /></div>
           </div>
-          <div class="supplier-panel-bg">
+          <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Gumasta Licence</div>
             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
           </div>
@@ -92,8 +95,13 @@
              <div class="supplier-panel-left">Company is in Partnership<br />
              or Propertier</div>
              <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
+          </div>-->
+           <div class="supplier-panel-bg">
+             <div class="supplier-panel-left"><br />
+             </div>
+             <div class="supplier-panel-right"><input type="submit" value="Register Now" /></div>
           </div>
-          <div class="supplier-panel-bg">
+          <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Make Payment Online</div>
              <div class="supplier-panel-right"><input name="make-payment-online" type="text" class="field" /></div>
           </div>
@@ -137,13 +145,14 @@
 						 <option class="" value="Industrial Lands_Plots">Industrial Lands/Plots</option>
 					</select>
                          </span>
-             </div>
+             </div>-->
           </div>
           
         </div>
-      </div>
-      
+     </form>
     </div>
+      
+  </div>
     
     <!-- left panel end -->
     
