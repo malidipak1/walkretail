@@ -9,7 +9,6 @@
 						 <option class="" value="51">51</option>
 						 <option class="" value="101">101</option>
 						 <option class="" value="1001">1001</option>
-                        
            </select>
           </div>
          <div style="float:left">
@@ -25,6 +24,6 @@
            </select></div>
         <div style="float:left">
         <input type="submit" src="images/search.jpg" align="right" />
-        <input name="search" type="text" value="" class="search" placeholder="Search by Product Title" /></div>
+        <input name="search" type="text" value="<?php echo $_REQUEST['search']?>" class="search" placeholder="Search by Product Title" /></div>
           <div style="float:left"></div>
       </form>

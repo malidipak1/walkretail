@@ -57,7 +57,7 @@ if(!isset($_SESSION['login']))
 
     <div class="tab_content_container">
         <div class="tab_content tab_content_active" id="tabcontent1">
-            <h3>Services</h3>
+           <table border="0" cellpadding="0" cellspacing="0" width="950"><tr><td><h3>Services</h3></td><td align="right"><h3><a href="edit-product.php?supplier_id=<?php echo $_REQUEST['supplier_id']?>">Add Product</a></h3></td></tr></table>
            
            <table width="97%" border="0" cellspacing="0" cellpadding="10" style="border:1px solid #CCC">
               <tr bgcolor="#3c7701" height="35px;">

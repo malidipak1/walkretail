@@ -3,6 +3,7 @@ define ( "DB_HOST", '192.168.0.104' );
 define ( "DB_NAME", 'walkreta_walk' );
 define ( 'DB_PASSWD', '' );
 define ( 'DB_USER', 'walkreta_walk' );
+define ( 'UPLOAD_IMAGE_DIR', 'C:/Users/dipakm/Documents/Dipak/img/');
 
 include ("lib/class.db.mysql.php");
 class DBUtil {
@@ -89,8 +90,9 @@ class DBUtil {
 		$sql = "select * from product where 1=1 and prod_name like '%" . $prodName . "%' ";
 				
 		if($min > 0 || $max > 0) {
-			$sql .= " price between $min AND $max";
+			$sql .= " AND price between $min AND $max";
 		}
+		//echo $sql;
 		return $this->getAll($sql);
 	}	
 		

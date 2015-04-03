@@ -76,7 +76,7 @@ $arrParent = Util::getCategoryList();
                                               
                       <td width="399" height="57" class="head_ing"> 
                        
-                        Edit Product</td>
+                        Add / Edit Product</td>
                                               <td width="368"  align="right">&nbsp;</td>
                                             </tr>
                                         </table></td>
@@ -96,7 +96,7 @@ $arrParent = Util::getCategoryList();
 <?php }?>
  <tr align="center" bgcolor="#7D4B00" >
    <td height="25" colspan="2" align="center" bgcolor="#3c7701">
-     <div class="white">Edit Product</div></td>
+     <div class="white">Add / Edit Product</div></td>
  </tr>
     <tr align="center" bgcolor="#FFFFFF">
       <td>

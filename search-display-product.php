@@ -7,7 +7,13 @@ if(!empty($_REQUEST['category'])) {
 	$arrResult = $dbObj->getProducts($arrParam);
 }
 
-if((empty($_REQUEST['min']) && empty($_REQUEST['max'])) )
+if(!empty($_REQUEST['search']) ){
+	
+	$min = empty($_REQUEST['min']) ? 0 : $_REQUEST['min'];
+	$max = empty($_REQUEST['max']) ? 0 : $_REQUEST['max'];
+	
+	$arrResult = $dbObj->searchProductByName($_REQUEST['search'], $min, $max);
+}
 
 //print_r($arrResult);
 
