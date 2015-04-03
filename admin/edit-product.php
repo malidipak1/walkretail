@@ -11,10 +11,34 @@ include_once '../Util.php';
 
 $dbObj = new DBUtil();
 if(!empty($_POST)) {
+	$uploadOk = -1;
 	
-	$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['price'], $_POST['quantity'], $_POST['stock_availability'], $_POST['supplier_id'], $_POST['image'],
-			$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['prod_id']);
-	//Util::redirect("", true);
+	$check = getimagesize($_FILES["image"]["tmp_name"]);
+	if($check !== false) {
+		//echo "File is an image - " . $check["mime"] . ".";
+		$uploadOk = 1;
+	} else {
+		//echo "File is not an image.";
+		$uploadOk = 0;
+	}
+	
+	$target_dir = UPLOAD_IMAGE_DIR;
+	$image = date('Ymd_Hms') . "_" . basename($_FILES["image"]["name"]);
+	$target_file = $target_dir . $image;
+	
+	if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+		//echo "File is valid, and was successfully uploaded.\n";
+	} else {
+// 		/echo "Possible file upload attack!\n";
+	}
+	
+	if($uploadOk == 1) {
+		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['price'], $_POST['quantity'], $_POST['stock_availability'], $_POST['supplier_id'], $image ,
+				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['prod_id']);
+		//Util::redirect("", true);
+	} else {
+		//image could not be uploaded
+	}
 }
 
 if(!empty($_REQUEST['prod_id'])) {
@@ -104,21 +128,21 @@ $arrParent = Util::getCategoryList();
         </div> -->
         
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Quantity</div>
+             <div class="supplier-panel-left1">Order Range</div>
              <div class="supplier-panel-right1"><input name="order_range" type="text" class="field" value="<?php echo $arrProduct['order_range']?>" /></div>
           </div>
   
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Quantity</div>
+             <div class="supplier-panel-left1">Supply Ability</div>
              <div class="supplier-panel-right1"><input name="supply_ability" type="text" class="field" value="<?php echo $arrProduct['supply_ability']?>" /></div>
           </div>
   
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Quantity</div>
-             <div class="supplier-panel-right1"><input name="home_delivery" type="text" class="field" value="<?php echo $arrProduct['quantity']?>" /></div>
+             <div class="supplier-panel-left1">Home Delivery</div>
+             <div class="supplier-panel-right1"><input name="home_delivery" type="text" class="field" value="<?php echo $arrProduct['home_delivery']?>" /></div>
           </div>
   
-           </div>
+           
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Discription</div>
              <div class="supplier-panel-right1"><textarea name="desc" id="case_study" cols="80" rows="10" style="width:750px;"><?php echo $arrProduct['desc']?></textarea></div>
@@ -142,6 +166,7 @@ $arrParent = Util::getCategoryList();
 	             	</select>
              		
              </div>
+             </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Stock Availibility</div>
              <div class="supplier-panel-right1"><select name="stock_availability">
@@ -151,9 +176,6 @@ $arrParent = Util::getCategoryList();
              
              </div>
           </div>
- 
-             
-             
           </div>
          <br/><br/>
         </div>

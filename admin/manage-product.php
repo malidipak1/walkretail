@@ -88,66 +88,93 @@ if(!isset($_SESSION['login']))
  
     </tr>
 </table>
-
-
  
         </div>
-
+<form action="edit-product.php" >
         <div class="tab_content" id="tabcontent2">
             <h3>Add New Products</h3>
             
-           <div class="supp-left1">
+            <div class="supp-left1">
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">&nbsp;</div>
-             <div class="supplier-panel-right1"> <?php if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit'){?>
-        <img src="teams/thumb1/<?php echo $team_name;?>"> 
-        <?php }?>
-        <span><img src="../images/img.jpg" width="100" height="82" alt=""></span>
+             <div class="supplier-panel-right1"> 
         <input type="file" name="image" style="width:200px" >
-        <input type="hidden" name="hidden_image" value="<?php echo $team_name;?>"> 
         </div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Product Name</div>
-             <div class="supplier-panel-right1"><input name="product-name" type="text" class="field" /></div>
+             <div class="supplier-panel-right1"><input name="prod_name" type="text" class="field" value="<?php echo $arrProduct['prod_name']?>" />
+             	<input type="hidden" name="prod_id" value="<?php echo $arrProduct['prod_id']?>">
+				<input type="hidden" name="supplier_id" value="<?php echo $_REQUEST['supplier_id']?>">
+             	</div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Price</div>
-             <div class="supplier-panel-right1"><input name="price" type="text" class="field" /></div>
+             <div class="supplier-panel-right1"><input name="price" type="text" class="field" value="<?php echo $arrProduct['price']?>" /></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Quantity</div>
-             <div class="supplier-panel-right1"><input name="Quantity" type="text" class="field" /></div>
+             <div class="supplier-panel-right1"><input name="quantity" type="text" class="field" value="<?php echo $arrProduct['quantity']?>" /></div>
           </div>
-          <div class="supplier-panel-bg1">
+         <!--  <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Upload Related Product</div>
             <div class="supplier-panel-right1"><input type="file" name="image" style="width:200px" >
-        <input type="hidden" name="hidden_image" value="<?php echo $team_name;?>"> </div>
+        </div> -->
+        
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Order Range</div>
+             <div class="supplier-panel-right1"><input name="order_range" type="text" class="field" value="<?php echo $arrProduct['order_range']?>" /></div>
           </div>
+  
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Supply Ability</div>
+             <div class="supplier-panel-right1"><input name="supply_ability" type="text" class="field" value="<?php echo $arrProduct['supply_ability']?>" /></div>
+          </div>
+  
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Home Delivery</div>
+             <div class="supplier-panel-right1"><input name="home_delivery" type="text" class="field" value="<?php echo $arrProduct['home_delivery']?>" /></div>
+          </div>
+  
+           
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Discription</div>
-             <div class="supplier-panel-right1"><textarea name="case_study" id="case_study" cols="80" rows="10" style="width:750px;"></textarea></div>
+             <div class="supplier-panel-right1"><textarea name="desc" id="case_study" cols="80" rows="10" style="width:750px;"><?php echo $arrProduct['desc']?></textarea></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">TOS</div>
-             <div class="supplier-panel-right1"><textarea name="TOS" cols="42" rows="" style="width:750px; height:100px;"></textarea></div>
+             <div class="supplier-panel-right1"><textarea name="TOS" cols="42" rows="" style="width:750px; height:100px;"><?php echo $arrProduct['TOS']?></textarea></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Category</div>
-             <div class="supplier-panel-right1"><input name="category" type="text" class="field" /></div>
-          </div>
+             <div class="supplier-panel-right1">
+	             <select id="category" name="category">
+	             	<option value="0">-SELECT-</option>
+	                   	<?php foreach ($arrParent as $parent => $arrSubCat) { ?>
+	             	<optgroup label="<?php echo $parent?>">
+	             	<?php foreach ($arrSubCat as $id => $name) {  ?>
+	             		<option value="<?php echo $id?>"><?php echo $name?></option>
+	             	<?php } ?>
+	             	</optgroup>
+	             	<?php }	?>
+	             	</select>
+             		
+             </div>
+             </div>
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Sub Category</div>
-             <div class="supplier-panel-right1"><input name="sub-category" type="text" class="field" /></div>
+             <div class="supplier-panel-left1">Stock Availibility</div>
+             <div class="supplier-panel-right1"><select name="stock_availability">
+             	<option>Yes</option>
+             	<option>No</option>
+             </select>
+             
+             </div>
           </div>
-         <br/><br/>
-        </div>
+          </div>
         
         <div align="center"><input name="Submit" type="button" value="Submit"></div>
-
-           
         </div>
-
+</form>
         <div class="tab_content" id="tabcontent3">
             <h3>Where does it come from ?</h3>
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
