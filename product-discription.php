@@ -119,11 +119,11 @@ $(document).ready(function() {
              </div>
              <div class="buy-now">
                <p>
-                 <span><a href="buy-now.php"><img src="images/buy-now.png" width="95" height="35" alt="" /></a></span>
+                 <span><a href="buy-now.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/buy-now.png" width="95" height="35" alt="" /></a></span>
                  <span>( For up to 3 Products )</span>
                </p>
               <p>
-                 <span><a href="get-quote.php"><img src="images/get-quotation.png" width="105" height="36" alt="" /></a></span>
+                 <span><a href="get-quote.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/get-quotation.png" width="105" height="36" alt="" /></a></span>
                  <span>( For Bulk Quantity )</span>
               </p>
              </div>

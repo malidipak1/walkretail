@@ -140,11 +140,12 @@ class DBUtil {
 			$order_range, $supply_ability, $home_delivery, $prod_id = null) {
 		$sql = "";
 		if ($prod_id == 0) {
-			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `price`, `quantity`, `stock_availability`, `supplier_id`, `image`) VALUES 
-					(:prod_id, :prod_name, :category, :desc, :TOS, :price, :quantity, :stock_availability, :supplier_id, :image)";
+			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `price`, `quantity`, `stock_availability`, `supplier_id`, `image`,`order_range`, `supply_ability`, `home_delivery`) VALUES 
+					(:prod_id, :prod_name, :category, :desc, :TOS, :price, :quantity, :stock_availability, :supplier_id, :image, :order_range, :supply_ability, :home_delivery)";
 		} else {
 			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`price`=:price,`quantity`=:quantity,
-					`stock_availability`=:stock_availability,`supplier_id`=:supplier_id,`image`=:image WHERE `prod_id`=:prod_id";
+					`stock_availability`=:stock_availability,`supplier_id`=:supplier_id,`image`=:image,`order_range`=:order_range, `supply_ability`=:supply_ability,`home_delivery`=:home_delivery
+					WHERE `prod_id`=:prod_id";
 		}
 		$arrData = array (
 			':prod_id'	 => $prod_id ,

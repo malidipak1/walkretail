@@ -1,7 +1,7 @@
 <?php
 include_once 'Util.php';
 $arrMenu = Util::getCategoryList();
-print_r($arrMenu);
+//print_r($arrMenu);
 ?>
 
 

@@ -90,6 +90,12 @@ $(document).ready(function($){
       
       <!-- producct start here-->
       <div class="spro">
+      
+      <?php if(count($arrResult) <= 0) {?>
+      
+      Products are coming soon!
+      
+      <?php } else {?>
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr valign="middle"  align="center">
           
@@ -114,7 +120,10 @@ $(document).ready(function($){
         
           </tr>
           
-         </table><br /><br />
+         </table>
+         <?php }?>
+         
+         <br /><br />
         
          
          
