@@ -11,7 +11,7 @@ $dbObj = new DBUtil();
 
 if(!empty($_POST)) {
 
-	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['category'],
+	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 1, $_POST['mobile'], $_POST['email'], $_POST['company'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['category'],
 			$_POST['company_pan'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
 
 	header("Location: view-clients.php");
@@ -43,15 +43,14 @@ if(!empty($_REQUEST['id'])) {
   <tr>
                                     
                                     <td width="182" align="left" valign="top" bgcolor="#D6E7F6" class="red" style="padding:0px; margin:0px;"><?php include('left_mnu.php');?></td>
-                                    <td width="100%" align="center" valign="top" bgcolor="" class="red"><form action="" method="get">
+                                    <td width="100%" align="center" valign="top" bgcolor="" class="red">
+                                    <form action="" method="post">
                                     <table width="100%" border="0"  align="center" cellpadding="0" cellspacing="0"  bordercolor="#000000">
                                       <tr>
                                         <td valign="middle" height="20"  align="left"><table width="767" border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                               
-                      <td width="399" height="57" class="head_ing"> 
-                       
-                        Add New Client</td>
+                      <td width="399" height="57" class="head_ing">  Add New Client</td>
                                               <td width="368"  align="right">&nbsp;</td>
                                             </tr>
                                         </table></td>
@@ -100,7 +99,7 @@ if(!empty($_REQUEST['id'])) {
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
-             <div class="supplier-panel-right"><input name="passward" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="password" type="text" class="field" /></div>
           </div>
          
         </div>
@@ -183,15 +182,13 @@ if(!empty($_REQUEST['id'])) {
           
         </div>
       </div>
-		
-        
         </td>
     </tr>
     </table></td>
     </tr>
     <tr>
       <td align="center">
-         <input name="Add Client" type="button" value="Add Client">
+         <input name="Add Client" type="submit" value="Add Client">
       </td>
     </tr>
     </table>

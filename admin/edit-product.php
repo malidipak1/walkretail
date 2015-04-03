@@ -43,7 +43,7 @@ if(!empty($_POST)) {
 
 if(!empty($_REQUEST['prod_id'])) {
 	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
-	$arrProduct = $dbObj->getProducts();
+	$arrProduct = $dbObj->getProducts($arrParam);
 	$arrProduct = $arrProduct[0];
 }
 $arrParent = Util::getCategoryList();

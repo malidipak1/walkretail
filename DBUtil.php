@@ -81,6 +81,7 @@ class DBUtil {
 	
 	
 	public function getProducts($arrSearch = array()) {
+		//print_r($arrSearch);
 		$sql = "SELECT * FROM PRODUCT WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
 	}
