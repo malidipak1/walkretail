@@ -150,7 +150,7 @@ $(document).ready(function($){
                   <div>
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="v-height">
                     <tr valign="middle">
-                        <td align="center"><a href="#"><img src="images/monarch-kitchenwares-pedal-steel-dustbin.jpg" width="227" height="151" alt="" /></a></td>
+                        <td align="center"><a href="http://walkretail.com/product-discription.php?prod_id=6"><img src="images/monarch-kitchenwares-pedal-steel-dustbin.jpg" width="227" height="151" alt="" /></a></td>
                     </tr>
                     </table>
                     <span class="pro-head">Pedal steel Dustbin 7" x 10"</span>

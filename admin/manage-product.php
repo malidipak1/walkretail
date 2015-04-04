@@ -10,13 +10,14 @@ if(!isset($_SESSION['login']))
    include_once '../Util.php';
    
    $dbObj = new DBUtil();
-   
+   $arrParam = array();
    if(!empty($_REQUEST['supplier_id'])) {
-	   	$arrParam = array('supplier_id' => $_REQUEST['supplier_id']);
+	   	$arrParam['supplier_id'] = $_REQUEST['supplier_id'];
 	   	if(!empty($_REQUEST['category']))
-	   		$arrParam = array('category' => $_REQUEST['category']);
+	   		$arrParam['category'] = $_REQUEST['category'];
 	   	$arrProduct = $dbObj->getProducts($arrParam );
    } 
+   $arrParent = Util::getCategoryList();
 //print_r($arrProduct );
  ?>
 <html>
@@ -57,7 +58,7 @@ if(!isset($_SESSION['login']))
     <ul class="tabs">
         <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Products</a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Add New Products</a></li>
-        <li><a href="clients-profile.php" class="tab">Back to Services and Profile</a></li>
+        <li><a href="clients-profile.php?supplier_id=<?php echo $_REQUEST['supplier_id']?>" class="tab">Back to Services and Profile</a></li>
         <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent3" class="tab">Back to Services and Profile</a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent4" class="tab">TAB 4</a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent5" class="tab">TAB 5</a></li>-->
@@ -71,11 +72,13 @@ if(!isset($_SESSION['login']))
   <tr valign="middle" align="center">
    
     
-    <?php foreach ($arrProduct as $product) {?>
+    <?php 
+    $count =1;
+    foreach ($arrProduct as $product) {?>
      <td height="200" width="220" class="t-border">
     <table width="100%" border="0" height="200px" cellspacing="0" cellpadding="0">
       <tr>
-        <th colspan="2" scope="row"><img src="<?php echo $product['image']?>" width="180" height="120" alt=""></th>
+        <th colspan="2" scope="row"><img src="<?php echo Util::getImage($product['image']);?>" width="180" height="120" alt=""></th>
         </tr>
       <tr>
         <td align="center" valign="middle" class="border-bg"><a href="product-discription.php?prod_id=<?php echo $product['prod_id']?>">View</a></td>
@@ -83,9 +86,12 @@ if(!isset($_SESSION['login']))
         </tr>
     </table>
     </td>
-    <?php } ?>
-    
- 
+           <?php 
+            if($count%3 == 0) {?>
+            	 </tr><tr valign="middle"  align="center">
+            <?php }
+             $count++; 
+      } ?>
     </tr>
 </table>
  
@@ -113,15 +119,20 @@ if(!isset($_SESSION['login']))
              <div class="supplier-panel-right1"><input name="price" type="text" class="field" value="<?php echo $arrProduct['price']?>" /></div>
           </div>
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Quantity</div>
-             <div class="supplier-panel-right1"><input name="quantity" type="text" class="field" value="<?php echo $arrProduct['quantity']?>" /></div>
+             <div class="supplier-panel-left1">Min Quantity</div>
+             <div class="supplier-panel-right1"><input name="min_quantity" type="text" class="field" value="<?php echo $arrProduct['min_quantity']?>" /></div>
           </div>
-         <!--  <div class="supplier-panel-bg1">
+          
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Max Quantity</div>
+             <div class="supplier-panel-right1"><input name="max_quantity" type="text" class="field" value="<?php echo $arrProduct['max_quantity']?>" /></div>
+          </div>
+                   <!--  <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Upload Related Product</div>
             <div class="supplier-panel-right1"><input type="file" name="image" style="width:200px" >
         </div> -->
         
-          <div class="supplier-panel-bg1">
+      <!--     <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Order Range</div>
              <div class="supplier-panel-right1"><input name="order_range" type="text" class="field" value="<?php echo $arrProduct['order_range']?>" /></div>
           </div>
@@ -130,7 +141,7 @@ if(!isset($_SESSION['login']))
              <div class="supplier-panel-left1">Supply Ability</div>
              <div class="supplier-panel-right1"><input name="supply_ability" type="text" class="field" value="<?php echo $arrProduct['supply_ability']?>" /></div>
           </div>
-  
+   -->
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Home Delivery</div>
              <div class="supplier-panel-right1"><input name="home_delivery" type="text" class="field" value="<?php echo $arrProduct['home_delivery']?>" /></div>
@@ -138,7 +149,7 @@ if(!isset($_SESSION['login']))
   
            
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Discription</div>
+             <div class="supplier-panel-left1">Description</div>
              <div class="supplier-panel-right1"><textarea name="desc" id="case_study" cols="80" rows="10" style="width:750px;"><?php echo $arrProduct['desc']?></textarea></div>
           </div>
           <div class="supplier-panel-bg1">

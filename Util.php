@@ -1,9 +1,64 @@
 <?php
+include_once 'lib/config.php';
 include_once 'DBUtil.php';
 class Util {
 	
+	public static function getMailHeader() {
+		$headers = 'From: enquiry@walkretail.com' . "\r\n" .
+		    'Reply-To: enquiry@walkretail.com' . "\r\n".
+			"Content-Type: text/html; charset=ISO-8859-1\r\n" .
+			"MIME-Version: 1.0\r\n" ;
+			
+		return $headers;
+	}
+	
+	public static function readMailFile($type="buynow") {
+		$filename = "";
+		
+		switch ($type) {
+			case "buynow":
+				$filename = FILEPATH ."buynow.txt";
+				break;
+			case "quote":
+				$filename = FILEPATH ."quote.txt";
+				break;
+		}
+		
+		$file = fopen($filename, "r");
+		$fileStr = "";
+		while(!feof($file)) {
+			$fileStr .= fgetc($file);
+		}
+		fclose($file);
+		return $fileStr;
+	}
+	
+	public static function enquiryMail ($type, $arrPost) {
+		
+		$strFile = Util::readMailFile($type);
+		
+		foreach ($arrPost as $key => $value) {
+			$search = "{" . strtoupper ($key) . "}";
+			$strFile = str_replace($search, $value, $strFile);
+		}
+		
+		if("quote" == $type ) {
+			$subject = "Want Quotation for - " . $arrPost['prod_name'];
+		} else {
+			$subject = "Want to Buy Product - " . $arrPost['prod_name'];
+		}
+		
+		mail(MAILTO, $subject, $strFile, Util::getMailHeader());
+	}
+	
+	
+	public static function getImage($image) {
+		$image = "/supplier/image/" . $image;
+		return $image;	
+	}
+	
 	public static function redirect($url, $admin = false) {
-		$urlStr = "/walkretail/trunk/";
+		$urlStr = "/";
 		if($admin) {
 			$urlStr .= "admin/";
 		}

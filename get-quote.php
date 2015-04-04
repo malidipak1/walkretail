@@ -1,9 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php 
+include_once 'DBUtil.php';
+include_once 'Util.php';
+$dbObj = new DBUtil();
+
+$message = "";
+if(!empty($_POST)) {
+	Util::enquiryMail("quote", $_POST);
+	$message = "Thank you for your quotation request. We will get back to you soon.";
+}
+
+if(!empty($_REQUEST['prod_id'])) {
+	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
+	$arrResult = $dbObj->getProducts($arrParam);
+	$arrResult = $arrResult[0];
+}
+$image = Util::getImage($arrResult['image']);
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Walk Retail</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+	function validate(form) {
+		if(form.name.value == '') {
+			alert("Name can not be empty");
+			return false;
+		}	
+		if(form.emailid.value == '') {
+			alert("Email can not be empty");
+			return false;
+		}
+		if(form.phone.value == '') {
+			alert("Phone can not be empty");
+			return false;
+		}
+		if(form.quantity.value == '') {
+			alert("Please select Quantity");
+			return false;
+		}
+		if(form.category.value == 0) {
+			alert("Please select Category");
+			return false;
+		}
+		return true;
+}
+	
+</script>
+
 </head>
 
 <body>
@@ -21,27 +67,26 @@
 
 <div class="middle">
   <div class="middle-inner">
+  	<div align="center" style="color: red"><?php echo $message?></div>
+  
     <div class="form-con1">
-      
+       <form name="qoute" method="post" onsubmit="javascript: return validate(this);">
       <div class="form-pad1">
            
            
       <div class="property-panel-bg" align="center"> 
-          <img src="images/bungh-clip.jpg" width="227" height="128" alt="" /> </div>   
-          <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Discription</span> 
-                     <span class="poperty-panel-right">
-                     <textarea name="discription" rows="4" class="sell3"></textarea>
-                     </span> 
-          </div>     
+          <img src="<?php echo $image?>" width="227" height="128" alt="<?php echo $arrResult['prod_name']?>" /> </div>   
+ 
 <div class="property-panel-bg"> <span class="property-panel-left">Name</span> <span class="poperty-panel-right">
                   <input name="name" type="text" class="sell2" />
+                   <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
+                  <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
                 </span> </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Email-Id</span> <span class="poperty-panel-right">
-                  <input name="email-id" type="text" class="sell2" />
+                  <input name="emailid" type="text" class="sell2" />
         </span> </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Phone No.</span> <span class="poperty-panel-right">
-                  <input name="phone-no" type="text" class="sell2" />
+                  <input name="phone" type="text" class="sell2" />
                 </span> </div>
                 <div class="property-panel-bg"> 
                   <span class="property-panel-left">Address</span> 
@@ -49,8 +94,22 @@
                      <textarea name="address" rows="4" class="sell3"></textarea>
                      </span> 
           </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Cetegory</span> <span class="poperty-panel-right">
-                  <input name="category" type="text" class="sell2" />
+                <div class="property-panel-bg"> <span class="property-panel-left">Category</span> <span class="poperty-panel-right">
+                  <select id="category" name="category">
+	             	<option value="0">-SELECT-</option>
+	                   	<?php 
+	                   	$arrParent = Util::getCategoryList();
+	                   	foreach ($arrParent as $parent => $arrSubCat) { ?>
+	             	<optgroup label="<?php echo $parent?>">
+	             	<?php foreach ($arrSubCat as $id => $name) {  
+	             		$selected = "";
+	             		if($arrProduct['category'] == $id) { $selected = "selected='selected'"; }?>
+	             	
+	             		<option <?php echo $selected?> value="<?php echo $id?>"><?php echo $name?></option>
+	             	<?php } ?>
+	             	</optgroup>
+	             	<?php }	?>
+	             	</select>
                 </span> </div>
                
         
@@ -61,22 +120,28 @@
                      </span> 
           </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Quantity</span> <span class="poperty-panel-right">
-                  <input name="Quantity" type="text" class="sell2" />
+                  <input name="quantity" type="text" class="sell2" />
                 </span> </div>
-                 
+                      <div class="property-panel-bg"> 
+                  <!-- <span class="property-panel-left">Comment</span> 
+                     <span class="poperty-panel-right">
+                     <textarea name=description rows="4" class="sell3"></textarea>
+                     </span>  -->
+          </div>         
                 <br /><br /><br />
         <div class="property-panel-bg"> 
                   <span class="property-panel-left">&nbsp;</span> 
                      <span class="poperty-panel-right">
                      <br /><br />
-                       <input name=""  style="text-align:center" type="image" src="images/get-quotation.png"/>
-                        <span><a href="product-discription.php"><img src="images/back.png" width="184" height="36" alt="" /></a></span>
+                       <input name="submit"  style="text-align:center" type="submit" src="images/get-quotation.png"/>
+                        <span><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/back.png" width="184" height="36" alt="" /></a></span>
                      
                      </span> 
           </div>
                 
                 
 </div>
+</form>
             </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ if(!empty($_REQUEST['prod_id'])) {
 	$arrResult = $arrResult[0];
 }
 
-$image = "/supplier/image/" . $arrResult['image'];
+$image = Util::getImage($arrResult['image']);
 //print_r($arrResult);
 
 ?>
@@ -81,13 +81,13 @@ $(document).ready(function() {
           
           <div style="float:left;">
     <div class="clearfix">
-        <a href="imgProd/triumph_big1.jpg" class="jqzoom" rel='gal1'  title="triumph" >
-            <img src="<?php echo $image?>"  title="triumph" >
+        <a href="<?php echo $image?>" class="jqzoom" rel='gal1'  title="triumph" >
+            <img src="<?php echo $image?>"  title="triumph" height="300" width="300" >
     </a></div>
 	<br/>
  <div class="clearfix" >
 	<ul id="thumblist" class="clearfix" >
-		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo $image?>',largeimage: '<?php echo $image?>'}"><img src='<?php echo $image?>'></a></li>
+		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo $image?>',largeimage: '<?php echo $image?>'}"><img src='<?php echo $image?>' width="50" height="50" ></a></li>
 		<!-- <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
 		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li>
        <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
@@ -101,16 +101,16 @@ $(document).ready(function() {
              <div class="head"><?php echo $arrResult['prod_name']?></div>
           <div class="prod2-left">
             <span>Product Price :</span>
-            <span>Min.Order Quantity : </span>
-            <span>Supply Ability : </span>
+            <span>Min. Order Quantity : </span>
+            <span>Max. Order Quantity : </span>
             <span>Stock Availability : </span>
             <span>Home Delivery : </span>
           </div>
              <div class="prod2-middle">
                 <span>Rs. <?php echo $arrResult['price']?>/-</span>
-                <span><?php echo $arrResult['order_range']?>&nbsp;</span>
-                <span><?php echo $arrResult['supply_ability']?>&nbsp;</span>
-                <span><?php $stock = ($arrResult['supply_ability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
+                <span><?php echo $arrResult['min_quantity']?>&nbsp;</span>
+                <span><?php echo $arrResult['max_quantity']?>&nbsp;</span>
+                <span><?php $stock = ($arrResult['stock_availability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
                 <span><?php echo $arrResult['home_delivery']?>&nbsp;</span>
              </div>
              <div class="prod2-right" align="center">
@@ -130,7 +130,7 @@ $(document).ready(function() {
              
         </div>
          <div>
-           <span><strong>Supplier</strong>  : <?php echo Util::getSupplierName($arrResult['supplier_id']);?></span><br /><br />
+           <!-- <span><strong>Supplier</strong>  : <?php echo Util::getSupplierName($arrResult['supplier_id']);?></span><br /><br /> -->
           
         </div>
        

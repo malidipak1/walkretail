@@ -1,10 +1,6 @@
 <?php
-define ( "DB_HOST", '192.168.0.104' );
-define ( "DB_NAME", 'walkreta_walk' );
-define ( 'DB_PASSWD', '' );
-define ( 'DB_USER', 'walkreta_walk' );
-define ( 'UPLOAD_IMAGE_DIR', 'C:/Users/dipakm/Documents/Dipak/img/');
 
+include_once 'lib/config.php';
 include ("lib/class.db.mysql.php");
 class DBUtil {
 	private $dbConn;
@@ -61,7 +57,6 @@ class DBUtil {
 	
 	public function getCategories($arrSearch = array()) {
 		$sql = "SELECT * FROM product_categories WHERE " . $this->getWhereClause($arrSearch);
-		
 		return $this->getAll($sql);
 	}
 	
@@ -82,7 +77,7 @@ class DBUtil {
 	
 	public function getProducts($arrSearch = array()) {
 		//print_r($arrSearch);
-		$sql = "SELECT * FROM PRODUCT WHERE " . $this->getWhereClause($arrSearch);
+		$sql = "SELECT * FROM product WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
 	}
 
@@ -91,7 +86,7 @@ class DBUtil {
 		$sql = "select * from product where 1=1 and prod_name like '%" . $prodName . "%' ";
 				
 		if($min > 0 || $max > 0) {
-			$sql .= " AND price between $min AND $max";
+			$sql .= " AND (min_quantity between $min and $max or max_quantity between $min and $max)";
 		}
 		//echo $sql;
 		return $this->getAll($sql);
@@ -136,14 +131,14 @@ class DBUtil {
 		return $this->executeUpdate($sql, $arrData);
 	}
 	
-	public function addEditProduct($prod_name,$category,$desc,$TOS,$price,$quantity,$stock_availability,$supplier_id,$image,
+	public function addEditProduct($prod_name,$category,$desc,$TOS,$price,$min_quantity,$max_quantity,$stock_availability,$supplier_id,$image,
 			$order_range, $supply_ability, $home_delivery, $prod_id = null) {
 		$sql = "";
 		if ($prod_id == 0) {
-			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `price`, `quantity`, `stock_availability`, `supplier_id`, `image`,`order_range`, `supply_ability`, `home_delivery`) VALUES 
-					(:prod_id, :prod_name, :category, :desc, :TOS, :price, :quantity, :stock_availability, :supplier_id, :image, :order_range, :supply_ability, :home_delivery)";
+			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `price`, `min_quantity`,`max_quantity`, `stock_availability`, `supplier_id`, `image`,`order_range`, `supply_ability`, `home_delivery`) VALUES 
+					(:prod_id, :prod_name, :category, :desc, :TOS, :price, :min_quantity,:max_quantity, :stock_availability, :supplier_id, :image, :order_range, :supply_ability, :home_delivery)";
 		} else {
-			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`price`=:price,`quantity`=:quantity,
+			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`price`=:price,`min_quantity`=:min_quantity, `max_quantity`=:max_quantity,
 					`stock_availability`=:stock_availability,`supplier_id`=:supplier_id,`image`=:image,`order_range`=:order_range, `supply_ability`=:supply_ability,`home_delivery`=:home_delivery
 					WHERE `prod_id`=:prod_id";
 		}
@@ -154,7 +149,8 @@ class DBUtil {
 			':desc'	 => $desc,
 			':TOS'	 => $TOS,
 			':price'	 => $price,
-			':quantity'	 => $quantity,
+			':min_quantity'	 => $min_quantity,
+			':max_quantity' => $max_quantity,
 			':stock_availability' => $stock_availability,
 			':supplier_id'	 => $supplier_id,
 			':image'	 => $image,
