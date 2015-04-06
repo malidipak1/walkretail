@@ -41,7 +41,7 @@ $image = Util::getImage($arrResult['image']);
 			alert("Please select Quantity");
 			return false;
 		}
-		if(form.category.value == 0) {
+		if(form.category.value == 0 || form.category.value = '') {
 			alert("Please select Category");
 			return false;
 		}
@@ -81,6 +81,7 @@ $image = Util::getImage($arrResult['image']);
                   <input name="name" type="text" class="sell2" />
                    <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
                   <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
+                  <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
                 </span> </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Email-Id</span> <span class="poperty-panel-right">
                   <input name="emailid" type="text" class="sell2" />
@@ -105,7 +106,7 @@ $image = Util::getImage($arrResult['image']);
 	             		$selected = "";
 	             		if($arrProduct['category'] == $id) { $selected = "selected='selected'"; }?>
 	             	
-	             		<option <?php echo $selected?> value="<?php echo $id?>"><?php echo $name?></option>
+	             		<option <?php echo $selected?> value="<?php echo $name?>"><?php echo $name?></option>
 	             	<?php } ?>
 	             	</optgroup>
 	             	<?php }	?>

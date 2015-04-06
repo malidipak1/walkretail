@@ -11,8 +11,8 @@ $dbObj = new DBUtil();
 
 if(!empty($_POST)) {
 
-	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 1, $_POST['mobile'], $_POST['email'], $_POST['company'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['category'],
-			$_POST['company_pan'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
+	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 1, $_POST['mobile'], $_POST['email'], $_POST['company'], 
+			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
 
 	header("Location: view-clients.php");
 }
@@ -118,7 +118,7 @@ if(!empty($_REQUEST['id'])) {
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
-             <div class="supplier-panel-right"><input name="pancard" type="text" class="field" id="pancard" /></div>
+             <div class="supplier-panel-right"><input name="company_pan" type="text" class="field" id="company_pan" /></div>
           </div>
           <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Gumasta Licence</div>

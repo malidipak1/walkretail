@@ -97,15 +97,29 @@ class DBUtil {
 		return $this->getAll($sql);
 	}
 	
-	public function  addEditSupplier($id,$name,$user_name,$password,$status,$mobile,$email,$company,$address,$city,$state,$zipcode,$category,$company_pan,$gumasta_lic,$registration_lic,$is_partner,$website) {
+	public function addMenu($catname,$parent_id=0,$status=1,$catid=0) {
+		$sql = "";
+		if ($catid == 0) {
+			$sql = "INSERT INTO `product_categories`(`catid`, `parent_id`, `catname`, `cat_link`, `disp`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])";
+		} else {
+			$sql = "UPDATE `product_categories` SET `parent_id`=[value-2],`catname`=[value-3],`cat_link`=[value-4],`disp`=[value-5] WHERE `catid`=:catid";
+		}
+		$arrData = array (
+				':id'  => $id
+				
+		);
+		return $this->executeUpdate($sql, $arrData);
+	}
+	
+	public function  addEditSupplier($id,$name,$user_name,$password,$status,$mobile,$email,$company,$address,$city,$state,$zipcode,$company_pan,$gumasta_lic,$registration_lic,$is_partner,$website) {
 		$sql = "";
 		if ($id == 0) {
 			$sql = "INSERT INTO `supplier`(`id`, `name`, `user_name`, `password`, `status`, `mobile`, `email`, `company`, `address`, `city`, `state`, `zipcode`,
-					 `category`, `company_pan`, `gumasta_lic`, `registration_lic`, `is_partner`, `website`) VALUES (:id, :name, :user_name, :password, :status,
-					 :mobile, :email, :company, :address, :city, :state, :zipcode, :category, :company_pan, :gumasta_lic, :registration_lic, :is_partner, :website))";
+					 `company_pan`, `gumasta_lic`, `registration_lic`, `is_partner`, `website`) VALUES (:id, :name, :user_name, :password, :status,
+					 :mobile, :email, :company, :address, :city, :state, :zipcode, :company_pan, :gumasta_lic, :registration_lic, :is_partner, :website)";
 		} else {
 			$sql = "UPDATE `supplier` SET `name`=:name,`user_name`=:user_name,`password`=:password,`status`=:status,`mobile`=:mobile,`email`=:email,
-				`company`=:company,`address`=:address,`city`=:city,`state`=:state,`zipcode`=:zipcode,`category`=:category,`company_pan`=:company_pan,
+				`company`=:company,`address`=:address,`city`=:city,`state`=:state,`zipcode`=:zipcode,`company_pan`=:company_pan,
 				`gumasta_lic`=:gumasta_lic,`registration_lic`=:registration_lic,`is_partner`=:is_partner,`website`=:website WHERE `id`=:id";
 		}
 		$arrData = array (
@@ -121,7 +135,6 @@ class DBUtil {
 				':city'  => $city,
 				':state'  => $state,
 				':zipcode'  => $zipcode,
-				':category'  => $category,
 				':company_pan'  => $company_pan,
 				':gumasta_lic'  => $gumasta_lic,
 				':registration_lic'  => $registration_lic,
