@@ -21,6 +21,7 @@ if(!empty($_REQUEST['search']) ){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Walk Retail</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -63,6 +64,17 @@ $(document).ready(function($){
 </head>
 
 <body>
+<!--FB Page-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--FB Page-->
 <div id="tgray-bg">
   <div class="middle">
      <div class="middle-inner">
@@ -105,7 +117,7 @@ $(document).ready(function($){
               <td width="33%">
              <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr valign="top" align="center">
-                <td><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>"><img src="<?php echo Util::getImage($result['image']);?>" width="101" height="151" alt="" /></a></td>
+                <td><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>"><img src="<?php echo Util::getImage($result['image']);?>" width="170"  alt="" /></a></td>
               </tr>
              <tr valign="top" align="center">
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>

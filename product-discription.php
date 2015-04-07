@@ -15,6 +15,7 @@ $image = Util::getImage($arrResult['image']);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Walk Retail</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -57,6 +58,17 @@ $(document).ready(function() {
 </head>
 
 <body>
+<!--FB Page-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--FB Page-->
 <!--tabbedpanel-js-->
 
 <!--tabbedpanel-js-->
@@ -82,7 +94,7 @@ $(document).ready(function() {
           <div style="float:left;">
     <div class="clearfix">
         <a href="<?php echo $image?>" class="jqzoom" rel='gal1'  title="triumph" >
-            <img src="<?php echo $image?>"  title="triumph" height="300" width="300" >
+            <img src="<?php echo $image?>"  title="triumph"  width="300" >
     </a></div>
 	<br/>
  <div class="clearfix" >
@@ -94,28 +106,21 @@ $(document).ready(function() {
 		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li> -->
 	</ul>
 	</div>
-</div>
-          
+          </div>
         </div>
         <div class="prod2">
              <div class="head"><?php echo $arrResult['prod_name']?></div>
           <div class="prod2-left">
             <span>Product Price :</span>
-            <span>Min. Order Quantity : </span>
-            <span>Max. Order Quantity : </span>
+            <span>Order Quantity : </span>
             <span>Stock Availability : </span>
             <span>Home Delivery : </span>
           </div>
              <div class="prod2-middle">
                 <span>Rs. <?php echo $arrResult['price']?>/-</span>
-                <span><?php echo $arrResult['min_quantity']?>&nbsp;</span>
-                <span><?php echo $arrResult['max_quantity']?>&nbsp;</span>
+                <span>Min <?php echo $arrResult['min_quantity']?>&nbsp; &ndash; Max <?php echo $arrResult['max_quantity']?>&nbsp;</span>
                 <span><?php $stock = ($arrResult['stock_availability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
                 <span><?php echo $arrResult['home_delivery']?>&nbsp;</span>
-             </div>
-             <div class="prod2-right" align="center">
-                <span><img src="images/trusted.png" width="86" height="88" alt="" /></span>
-               
              </div>
              <div class="buy-now">
                <p>

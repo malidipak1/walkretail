@@ -4,33 +4,31 @@
         <div class="footer-bg-left">
           <div class="footer">
             <ul>
-        <li>
-          <h2>Company Profile</h2>
+        <li><br />
+          <h2>Company</h2>
           <ul>
-            <li style="background:none;"><a href="faq.php"> FAQ </a></li>
+            <li style="background:none;"><a href="faq.php"> About US </a></li>
             <li><a href="terms-and-conditions.php">Terms & Conditions </a></li>
             <li><a href="privacy-policy.php">Privacy Policy</a></li>
-            <li><a href="#">Contact Us</a></li>
            </ul>
         </li>
 
-        <li>
-          <h2>Payment Options</h2>
+        <li><br />
+          <h2>Help</h2>
           <ul>
-            <li style="background:none;"><a href="#">Credit Card / Debit Card </a><br /> <br /></li>
+            <li style="background:none;"><a href="contact-us.php">Contact Us </a><br /> </li>
+            <li style="background:none;"><a href="#">How it Works </a><br /> </li>
+            <li style="background:none;"><a href="#">FAQ's </a><br /> </li>
           </ul>
           
-          <h2>Payment Options</h2>
+          <h2><br />Payment Options</h2>
           <ul>
-            <li style="background:none;"><a href="#">Credit Card / Debit Card </a></li>
-            <li><a href="#">Net Banking </a></li>
-            <li><a href="#">Credit Card EMI</a></li>
-            <li><a href="#">PAYBACK</a></li>
+            <li style="background:none;"><a href="#">Cash on Delivery  </a></li>
           </ul>
           
         </li>
         <li>
-        fACEBOOK HERE
+       <div class="fb-page" data-href="https://www.facebook.com/WALKRETAIL" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
         </li>
         
        </ul>
@@ -38,7 +36,7 @@
         </div>
          <div class="footer-bg-right">
          <br />
-           <div><img src="images/logo.jpg" width="279" height="59" alt="" /></div>
+           <div><h2>Social Media Networking</h2></div>
            <div class="social-icons">
   <ul>
 <li class="twitter" style="background-color: #f0f0f0">
@@ -66,7 +64,7 @@
 </li> -->
 
 <li class="linkedin" style="background-color: #f0f0f0">
-<a href="http://www.twitter.com/techandallcom" target="_blank">LinkedIN</a>
+<a href="https://www.linkedin.com/hp/?dnr=nIya1xG4Flk0OU86_4Xp08soWlPk4Qcx-6y8" target="_blank">LinkedIN</a>
 </li>
 
 <!--<li class="flickr" style="background-color: #f0f0f0">

@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8" />
-    
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <title>Walk Retail</title>
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>

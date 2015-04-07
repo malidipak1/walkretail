@@ -53,6 +53,17 @@ $image = Util::getImage($arrResult['image']);
 </head>
 
 <body>
+<!--FB Page-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--FB Page-->
 <div id="tgray-bg">
   <div class="middle">
      <div class="middle-inner">
@@ -132,12 +143,14 @@ $image = Util::getImage($arrResult['image']);
                 <br /><br /><br />
         <div class="property-panel-bg"> 
                   <span class="property-panel-left">&nbsp;</span> 
-                     <span class="poperty-panel-right">
-                     <br /><br />
-                       <input name="submit"  style="text-align:center" type="submit" src="images/get-quotation.png"/>
-                        <span><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/back.png" width="184" height="36" alt="" /></a></span>
-                     
-                     </span> 
+                    <div class="poperty-panel-right">
+    <table width="50%" border="0" cellspacing="10" cellpadding="0">
+    <tr>
+        <td><input name="submit" type="submit" class="get-quote-btn"  style="text-align:center" value="." src="images/get-quotation.png"/></td>
+        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/back.png" width="184" height="36" alt="" /></a></td>
+    </tr>
+    </table>
+</div> 
           </div>
                 
                 
