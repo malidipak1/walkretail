@@ -33,7 +33,7 @@ if(!empty($_POST)) {
 	}
 	
 	if($uploadOk == 1) {
-		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['price'], $_POST['min_quantity'], 
+		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
 				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $image ,
 				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['prod_id']);
 		
@@ -67,8 +67,12 @@ $arrParent = Util::getCategoryList();
 			alert("Please enter Product Name");
 			return false;
 		}
-		if(form.price.value == '') {
-			alert("Please enter Product Price");
+		if(form.min_price.value == '') {
+			alert("Please enter Min. Product Price");
+			return false;
+		}
+		if(form.max_price.value == '') {
+			alert("Please enter Max. Product Price");
 			return false;
 		}
 		if(form.min_quantity.value == '') {
@@ -151,8 +155,12 @@ $arrParent = Util::getCategoryList();
              	</div>
           </div>
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Price</div>
-             <div class="supplier-panel-right1"><input name="price" type="text" class="field" value="<?php echo $arrProduct['price']?>" /></div>
+             <div class="supplier-panel-left1">Min. Price</div>
+             <div class="supplier-panel-right1"><input name="min_price" type="text" class="field" value="<?php echo $arrProduct['min_price']?>" /></div>
+          </div>
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Max. Price</div>
+             <div class="supplier-panel-right1"><input name="max_price" type="text" class="field" value="<?php echo $arrProduct['max_price']?>" /></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Min Quantity</div>

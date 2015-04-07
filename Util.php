@@ -83,11 +83,11 @@ class Util {
 		$return_array = array();
 		
 		$dbObj = new DBUtil();
-		$param = array('parent_id' => 0);
+		$param = array('parent_id' => 0, 'status' => 1);
 		$arrParent = $dbObj->getCategories($param);
 	
 		foreach ($arrParent as $parent) {
-			$param = array('parent_id' => $parent['catid']);
+			$param = array('parent_id' => $parent['catid'], 'status' => 1);
 			$arrChild = $dbObj->getCategories($param);
 			
 			foreach ($arrChild as $child) {

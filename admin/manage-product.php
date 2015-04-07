@@ -29,6 +29,42 @@ if(!isset($_SESSION['login']))
 <script src="js/tabbed.js" type="text/javascript"></script>
 <script src="js/tabbed-index.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script language="JavaScript">
+	function valid(form) {
+		if(form.prod_name.value == '') {
+			alert("Please enter Product Name");
+			return false;
+		}
+		if(form.min_price.value == '') {
+			alert("Please enter Min. Product Price");
+			return false;
+		}
+		if(form.max_price.value == '') {
+			alert("Please enter Max. Product Price");
+			return false;
+		}
+		if(form.min_quantity.value == '') {
+			alert("Please enter Product Order Min Quantity");
+			return false;
+		}
+		if(form.max_quantity.value == '') {
+			alert("Please enter Product Order Max Quantity");
+			return false;
+		}	
+
+		if(form.desc.value == '') {
+			alert("Please enter Product Description");
+			return false;
+		}
+		
+		if(form.category.value == 0) {
+			alert("Please select product category");
+			return false;
+		}
+		return true;
+	}
+
+</script>
 <?php include("common_tinymce.php");?>
 </head>
 <body>
@@ -96,7 +132,7 @@ if(!isset($_SESSION['login']))
 </table>
  
         </div>
-<form action="edit-product.php" >
+<form action="edit-product.php"  enctype="multipart/form-data"  onsubmit ="return valid(this);" method="post" name="header" id="header">
         <div class="tab_content" id="tabcontent2">
             <h3>Add New Products</h3>
             
@@ -115,8 +151,12 @@ if(!isset($_SESSION['login']))
              	</div>
           </div>
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Price</div>
-             <div class="supplier-panel-right1"><input name="price" type="text" class="field" value="<?php echo $arrProduct['price']?>" /></div>
+             <div class="supplier-panel-left1">Min. Price</div>
+             <div class="supplier-panel-right1"><input name="min_price" type="text" class="field" value="<?php echo $arrProduct['min_price']?>" /></div>
+          </div>
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Max. Price</div>
+             <div class="supplier-panel-right1"><input name="max_price" type="text" class="field" value="<?php echo $arrProduct['max_price']?>" /></div>
           </div>
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Min Quantity</div>
@@ -183,7 +223,7 @@ if(!isset($_SESSION['login']))
           </div>
           </div>
         
-        <div align="center"><input name="Submit" type="button" value="Submit"></div>
+        <div align="center"><input name="Submit" type="submit" value="Submit"></div>
         </div>
 </form>
         <div class="tab_content" id="tabcontent3">

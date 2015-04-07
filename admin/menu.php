@@ -5,9 +5,16 @@ if(!isset($_SESSION['login']))
 	header('Location: index.php');
 	exit;
 }
-
+require_once '../DBUtil.php';
+$dbObj = new DBUtil();
 if(!empty($_POST)) {
-	
+	$dbObj->addMenu($_POST['catname'], $_POST['parent_id'],$_POST['status'], $_POST['catid']);
+}
+
+if(!empty($_REQUEST['catid'])) {
+	$arrParam = array('catid' => $_REQUEST['catid']);
+	$arrMenu = $dbObj->getMenu($arrParam);
+	$arrMenu = $arrMenu[0];
 }
 
 require_once '../Util.php';
@@ -59,21 +66,43 @@ function validate()
                     <td width="64%" colspan="-2" align="left" nowrap="nowrap">
                     	<select name="parent_id">
                     		<option value="0">-SELECT-</option>
-                    		<?php foreach ($arrCat as $cat) {?>
-                    		<option value="<?php echo $cat['catid']?>"><?php echo $cat['catname']?></option>
+                    		<?php foreach ($arrCat as $cat) {
+                    			$selected = "";
+                    			if($cat['catid'] == $arrMenu['parent_id']) {$selected = "selected='selected'";}
+                    		?>
+                    		<option <?php echo $selected?> value="<?php echo $cat['catid']?>"><?php echo $cat['catname']?></option>
                     		<?php }?>
                     	</select>
 					</td>
                   </tr>
                   <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><strong>Enter Category Name</strong></td>
-                    <td colspan="-2" align="left" nowrap="nowrap" ><input name="txtcat" type="text" size="22" /></td>
+                    <td colspan="-2" align="left" nowrap="nowrap" ><input name="catname" type="text" size="22" value="<?php echo $arrMenu['catname']?>" />
+                    	<input type="hidden" name="catid" value="<?php echo $arrMenu['catid']?>" />
+                    </td>
+                  </tr>
+                  
+                  <tr align="center" bgcolor="#FFFFFF" >
+                    <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><strong>Status</strong></td>
+                    <td colspan="-2" align="left" nowrap="nowrap" >
+                    	<select name="status">
+                    		<?php 
+                    		$select1 = ""; $select2 = "";
+                     		if ( $arrMenu['status'] == '1') { 
+                    				$select1 = "selected = 'selected'"; 
+                    			} else {
+                    				$select2 = "selected = 'selected'";
+                    			}?>		
+                    		<option <?php echo $select1?> value="1">Active</option>
+                    		<option <?php echo $select2?> value="0">Inactive</option>
+                    	</select>
+                    </td>
                   </tr>
                   <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" colspan="2" align="center" valign="middle" nowrap="nowrap" bgcolor="#FFFFFF"><em>
                         <input name="submit" type="submit" value="Save" />
                         &nbsp;
-                        <INPUT name="submit" TYPE="submit" value="Reset">
+                        <INPUT name="reset" TYPE="reset" value="Reset">
                     </em></td>
                     </tr>
                   <tr align="center" bgcolor="#C28FC0" >
