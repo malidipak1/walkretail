@@ -123,7 +123,7 @@ $(document).ready(function($){
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>
               </tr>
               <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : Rs <?php echo $result['price']?></td>
+                <td height="26" valign="middle" class="price1">Price : Min. Rs <?php echo $result['min_price']?> - Max. Rs <?php echo $result['max_price']?></td>
               </tr>
              <tr valign="top" align="center">
                  <td valign="middle" class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?></td>

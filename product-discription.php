@@ -117,23 +117,24 @@ $(document).ready(function() {
             <span>Home Delivery : </span>
           </div>
              <div class="prod2-middle">
-                <span>Rs. <?php echo $arrResult['price']?>/-</span>
-                <span>Min <?php echo $arrResult['min_quantity']?>&nbsp; &ndash; Max <?php echo $arrResult['max_quantity']?>&nbsp;</span>
+                <span>Min Rs. <?php echo $arrResult['min_price']?>/- Max Rs. <?php echo $arrResult['max_price']?></span>
+                <span>Min <?php echo $arrResult['min_quantity']?>&nbsp; &ndash; Max <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span>
                 <span><?php $stock = ($arrResult['stock_availability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
                 <span><?php echo $arrResult['home_delivery']?>&nbsp;</span>
              </div>
              <div class="buy-now">
                <p>
-                 <span><a href="buy-now.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/buy-now.png" width="95" height="35" alt="" /></a></span>
-                 <span>( For up to 3 Products )</span>
-               </p>
+                 <span><a href="buy-now.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/buy-now.png" alt="" width="95" height="35" class="buy-now-btn" /></a></span></p>
               <p>
-                 <span><a href="get-quote.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/get-quotation.png" width="105" height="36" alt="" /></a></span>
-                 <span>( For Bulk Quantity )</span>
-              </p>
+                 <span><a href="get-quote.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/get-quotation.png" width="105" height="36" alt="" /></a></span></p>
              </div>
              
+             
         </div>
+        <div class="note">
+          <p><strong><br />
+            Note :</strong> * For up to 3 Products<br /><span style="padding:0 0 0 44px;">** For Bulk Quantity</span>
+          </p></div>
          <div>
            <!-- <span><strong>Supplier</strong>  : <?php echo Util::getSupplierName($arrResult['supplier_id']);?></span><br /><br /> -->
           

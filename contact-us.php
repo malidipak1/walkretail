@@ -32,19 +32,19 @@
   
         <td class="con-text">Head Office</td>
     <td>:</td>
-    <td>Address will be come here</td>
+    <td>Grace View Ss, Mata Vaishnodevi Road, Sector 2, Vashi, Navi Mumbai, Maharashtra 400703</td>
   </tr>
   <tr>
    
     <td class="con-text">Contact No.</td>
     <td>:</td>
-    <td>123 456 7890</td>
+    <td>+91 9561 083 605</td>
   </tr>
   <tr>
   
     <td class="con-text">Email</td>
     <td>:</td>
-    <td>abc@xyz.com</td>
+    <td>enquiry@walkretail.com</td>
   </tr>
   <tr>
    

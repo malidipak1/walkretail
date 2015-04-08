@@ -167,6 +167,19 @@ if(!isset($_SESSION['login']))
              <div class="supplier-panel-left1">Max Quantity</div>
              <div class="supplier-panel-right1"><input name="max_quantity" type="text" class="field" value="<?php echo $arrProduct['max_quantity']?>" /></div>
           </div>
+          
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Quantity Type</div>
+             <div class="supplier-panel-right1"><select name="quntity_type">
+             		<option>Peice</option>
+             		<option>Peices</option>
+             		<option>Pack</option>
+             		<option>Packs</option>
+             		<option>Dosen</option>
+             	</select></div>
+          </div>
+          
+          
                    <!--  <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Upload Related Product</div>
             <div class="supplier-panel-right1"><input type="file" name="image" style="width:200px" >

@@ -32,10 +32,11 @@ if(!empty($_POST)) {
 // 		/echo "Possible file upload attack!\n";
 	}
 	
+	
 	if($uploadOk == 1) {
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
 				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $image ,
-				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['prod_id']);
+				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
 		
 		$uri = "manage-product.php?supplier_id=" . $_POST['supplier_id'] . "&category=" . $_POST['category'];
 		header("Location: $uri");
@@ -170,6 +171,20 @@ $arrParent = Util::getCategoryList();
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Max Quantity</div>
              <div class="supplier-panel-right1"><input name="max_quantity" type="text" class="field" value="<?php echo $arrProduct['max_quantity']?>" /></div>
+          </div>
+          
+          <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Quantity Type</div>
+             <div class="supplier-panel-right1">
+             
+             	<select name="quntity_type">
+             		<option>Peice</option>
+             		<option>Peices</option>
+             		<option>Pack</option>
+             		<option>Packs</option>
+             		<option>Dosen</option>
+             	</select>
+             </div>
           </div>
           
           

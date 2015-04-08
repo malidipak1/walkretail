@@ -7,7 +7,7 @@
         <li><br />
           <h2>Company</h2>
           <ul>
-            <li style="background:none;"><a href="faq.php"> About US </a></li>
+            <li style="background:none;"><a href="about-us.php"> About US </a></li>
             <li><a href="terms-and-conditions.php">Terms & Conditions </a></li>
             <li><a href="privacy-policy.php">Privacy Policy</a></li>
            </ul>
@@ -18,12 +18,12 @@
           <ul>
             <li style="background:none;"><a href="contact-us.php">Contact Us </a><br /> </li>
             <li style="background:none;"><a href="#">How it Works </a><br /> </li>
-            <li style="background:none;"><a href="#">FAQ's </a><br /> </li>
+            <li style="background:none;"><a href="faq.php">FAQ's </a><br /> </li>
           </ul>
           
           <h2><br />Payment Options</h2>
           <ul>
-            <li style="background:none;"><a href="#">Cash on Delivery  </a></li>
+            <li style="background:none; color:#fff;">Cash on Delivery  </li>
           </ul>
           
         </li>
