@@ -11,7 +11,7 @@ include_once '../Util.php';
 
 $dbObj = new DBUtil();
 if(!empty($_POST)) {
-	$uploadOk = -1;
+	/*$uploadOk = -1;
 	
 	$check = getimagesize($_FILES["image"]["tmp_name"]);
 	if($check !== false) {
@@ -31,9 +31,9 @@ if(!empty($_POST)) {
 	} else {
 // 		/echo "Possible file upload attack!\n";
 	}
-	
-	
-	if($uploadOk == 1) {
+	*/
+	$image = Util::uploadImage("image");
+	if($image != "") {
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
 				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $image ,
 				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
@@ -118,7 +118,7 @@ $arrParent = Util::getCategoryList();
                       <td width="399" height="57" class="head_ing"> 
                        
                         Add / Edit Product</td>
-                                              <td width="368"  align="right">&nbsp;</td>
+                                              <td width="368"  align="right">&nbsp;<a href="uploadimage.php?prod_id=<?php $_REQUEST['prod_id']?>&supplier_id=<?php echo $_REQUEST['supplier_id']?>">Upload Image</a></td>
                                             </tr>
                                         </table></td>
                                       </tr>
@@ -176,15 +176,26 @@ $arrParent = Util::getCategoryList();
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Quantity Type</div>
              <div class="supplier-panel-right1">
-             
-             	<select name="quntity_type">
-             		<option>Peice</option>
-             		<option>Peices</option>
-             		<option>Pack</option>
-             		<option>Packs</option>
-             		<option>Dosen</option>
+             	<select name="quntity_type" id="quntity_type">
+             		<option value="Peice">Peice</option>
+             		<option value="Peices">Peices</option>
+             		<option value="Pack">Pack</option>
+             		<option value="Packs">Packs</option>
+             		<option value="Dosen">Dosen</option>
              	</select>
              </div>
+             <script type="text/javascript">
+				var defaultVal = '<?php echo $arrProduct['quntity_type']?>';
+				var obj = document.getElementById("quntity_type");
+				var len = obj.length;
+
+				for(var i=0; i<len; i++) {
+					if(defaultVal == obj.options[i].value) {
+						obj.selectedIndex = i;
+					}
+				}
+             </script>
+             
           </div>
           
           

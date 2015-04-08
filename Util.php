@@ -5,22 +5,25 @@ class Util {
 	
 	public static function uploadImage($fileName) {
 		$image = "";
-		$check = getimagesize($_FILES[$fileName]["tmp_name"]);
-		if($check !== false) {
-			
-			$target_dir = UPLOAD_IMAGE_DIR;
-			$image = date('Ymd_Hms') . "_" . basename($_FILES[$fileName]["name"]);
-			$target_file = $target_dir . $image;
-			
-			if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $target_file)) {
-				//echo "File is valid, and was successfully uploaded.\n";
+		if(!empty($_FILES[$fileName]["tmp_name"])) {
+			$check = getimagesize($_FILES[$fileName]["tmp_name"]);
+			if($check !== false) {
+				
+				$target_dir = UPLOAD_IMAGE_DIR;
+				$image = date('Ymd_Hms') . "_" . basename($_FILES[$fileName]["name"]);
+				$target_file = $target_dir . $image;
+				
+				if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $target_file)) {
+					//echo "File is valid, and was successfully uploaded.\n";
+				} else {
+					// 		/echo "Possible file upload attack!\n";
+					$image = "";
+				}
+				$uploadOk = true;
 			} else {
-				// 		/echo "Possible file upload attack!\n";
+				//echo "File is not an image.";
+				$uploadOk = false;
 			}
-			$uploadOk = true;
-		} else {
-			//echo "File is not an image.";
-			$uploadOk = false;
 		}
 		return $image;
 	}

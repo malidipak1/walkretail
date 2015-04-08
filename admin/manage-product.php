@@ -170,13 +170,27 @@ if(!isset($_SESSION['login']))
           
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Quantity Type</div>
-             <div class="supplier-panel-right1"><select name="quntity_type">
-             		<option>Peice</option>
-             		<option>Peices</option>
-             		<option>Pack</option>
-             		<option>Packs</option>
-             		<option>Dosen</option>
-             	</select></div>
+             <div class="supplier-panel-right1">
+             	<select name="quntity_type" id="quntity_type">
+             		<option value="Peice">Peice</option>
+             		<option value="Peices">Peices</option>
+             		<option value="Pack">Pack</option>
+             		<option value="Packs">Packs</option>
+             		<option value="Dosen">Dosen</option>
+             	</select>
+             </div>
+             	 <script type="text/javascript">
+				var defaultVal = '<?php echo $arrProduct['quntity_type']?>';
+				var obj = document.getElementById("quntity_type");
+				var len = obj.length;
+
+				for(var i=0; i<len; i++) {
+					if(defaultVal == obj.options[i].value) {
+						obj.selectedIndex = i;
+					}
+				}
+
+             </script>
           </div>
           
           

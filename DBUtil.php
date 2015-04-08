@@ -151,32 +151,30 @@ class DBUtil {
 		return $this->executeUpdate($sql, $arrData);
 	}
 	
-	public function updateImage($image, $image1,$image2,$image3,$image4, $prod_id) {
+	public function getImages($prod_id) {
+		$arrSearch = array('prod_id' => $prod_id);
+		$sql = "SELECT * FROM product_image WHERE " . $this->getWhereClause($arrSearch);
+		return $this->getAll($sql);
+	}
+	
+	public function updateImage($image1, $image2,$image3,$image4,$image5, $prod_id) {
 		$sql = "";
-		if ($prod_id == 0) {
-			$sql = "INSERT INTO `product_image`(`prod_id`, `image`,`order_range`, `quntity_type`, `home_delivery`) VALUES
-					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :stock_availability, :supplier_id, :image, :order_range, :quntity_type, :home_delivery)";
+		
+		$arrImage = $this->getImages($prod_id);
+		if (count($arrImage) <= 0) {
+			$sql = "INSERT INTO `product_image`(`prod_id`, `image5`,`image1`, `image2`, `image3`, `image4`) VALUES
+					(:prod_id, :image5, :image1, :image2, :image3, :image4)";
 		} else {
-			$sql = "UPDATE `product_image` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`min_price`=:min_price,`max_price`=:max_price,`min_quantity`=:min_quantity, `max_quantity`=:max_quantity,
-					`stock_availability`=:stock_availability,`supplier_id`=:supplier_id,`image`=:image,`order_range`=:order_range, `quntity_type`=:quntity_type,`home_delivery`=:home_delivery
+			$sql = "UPDATE `product_image` SET `image5`=:image5,`image1`=:image1,`image2`=:image2,`image3`=:image3,`image4`=:image4
 					WHERE `prod_id`=:prod_id";
 		}
 		$arrData = array (
-				':prod_id'	 => $prod_id ,
-				':prod_name'	 => $prod_name,
-				':category'	 => $category,
-				':desc'	 => $desc,
-				':TOS'	 => $TOS,
-				':min_price'	 => $minPrice,
-				':max_price'	 => $maxPrice,
-				':min_quantity'	 => $min_quantity,
-				':max_quantity' => $max_quantity,
-				':stock_availability' => $stock_availability,
-				':supplier_id'	 => $supplier_id,
-				':image'	 => $image,
-				':order_range' => $order_range,
-				':quntity_type' => $quntity_type,
-				':home_delivery' => $home_delivery
+				':prod_id'	=> $prod_id ,
+				':image5'	=> $image5,
+				':image1'	=> $image1,
+				':image2' 	=> 	$image2,
+				':image3' 	=> 	$image3,
+				':image4' 	=> 	$image4
 		);
 		
 		return $this->executeUpdate($sql, $arrData);
