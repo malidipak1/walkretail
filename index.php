@@ -130,9 +130,7 @@ $(document).ready(function($){
       <span><a href="request-quote.php"><img src="images/quote.jpg" width="250" height="163" alt="" /></a></span>
       <span><img src="images/offer.jpg" width="250" height="145" alt="" /></span>
  
- 
- <div class="fb-like" data-href="https://facebook.com/WALKRETAIL" data-width="250" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-    </div>
+    <img src="images/side-img.jpg" width="248" height="167" border="0" alt="" /> </div>
     
      <!-- right panel end -->
      

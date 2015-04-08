@@ -124,9 +124,9 @@ $(document).ready(function() {
              </div>
              <div class="buy-now">
                <p>
-                 <span><a href="buy-now.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/buy-now.png" alt="" width="95" height="35" class="buy-now-btn" /></a></span></p>
+                 <span><a href="buy-now.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/buy-now.png" alt=""  class="buy-now-btn" /></a></span></p>
               <p>
-                 <span><a href="get-quote.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/get-quotation.png" width="105" height="36" alt="" /></a></span></p>
+                 <span><a href="get-quote.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/get-quotation.png" alt="" /></a></span></p>
              </div>
              
              

@@ -23,9 +23,8 @@
   <div class="middle-inner">
       <div class="bg-reg">
         <div class="con" align="center">Thank You</div>
-        <div align="center" class="gr-font">some Text will be come here</div>
+        <div align="center" class="gr-font">Thank you for Visiting Walk Retail our Executive will contact you soon...</div>
       </div>
-      Thank You.....
   </div>
 </div>
  <!-- middle panel end -->

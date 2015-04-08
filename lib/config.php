@@ -10,4 +10,5 @@ define ( 'UPLOAD_IMAGE_DIR', 'c:\wamp\www');
 define('MAILTO',"enquiry@walkretail.com");
 //define('MAILTO',"malidipak1@gmail.com, bcmhatre@gmail.com");;
 define('FILEPATH', "/home/walkreta/");
+define( 'MIN_BUYNOW', 3);
 ?>
