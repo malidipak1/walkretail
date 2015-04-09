@@ -117,7 +117,7 @@ $(document).ready(function() {
             <span>Home Delivery : </span>
           </div>
              <div class="prod2-middle">
-                <span>Min Rs. <?php echo $arrResult['min_price']?>/- Max Rs. <?php echo $arrResult['max_price']?></span>
+                <span>Min &#8377; <?php echo $arrResult['min_price']?>/- Max &#8377; <?php echo $arrResult['max_price']?></span>
                 <span>Min <?php echo $arrResult['min_quantity']?>&nbsp; &ndash; Max <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span>
                 <span><?php $stock = ($arrResult['stock_availability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
                 <span><?php echo $arrResult['home_delivery']?>&nbsp;</span>
