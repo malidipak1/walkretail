@@ -6,9 +6,6 @@ if(!empty($_REQUEST['prod_id'])) {
 	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
 	$arrResult = $dbObj->getProducts($arrParam);
 	$arrResult = $arrResult[0];
-	
-	$arrImages = $dbObj->getImages($_REQUEST['prod_id']);
-	$arrImages = $arrImages[0];
 }
 
 $image = Util::getImage($arrResult['image']);
@@ -102,16 +99,7 @@ $(document).ready(function() {
 	<br/>
  <div class="clearfix" >
 	<ul id="thumblist" class="clearfix" >
-		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo $image?>',largeimage: '<?php echo $image?>'}"><img src='<?php echo $image?>' width="50" height="50" ></a></li>
-		<?php 
-		for ($i = 1; $i <= 5; $i++) {
-			$imageName = "image" . $i;	
-		
-		if(!empty($arrImages[$imageName])) {?>
-		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo Util::getImage($arrImages[$imageName])?>',largeimage: '<?php echo Util::getImage($arrImages[$imageName])?>'}"><img src='<?php echo Util::getImage($arrImages[$imageName])?>' width="50" height="50" ></a></li>
-		<?php }
-		}?>
-		
+		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo $image?>',largeimage: '<?php echo $image?>'}"><img src='<?php echo $image?>' width="50" ></a></li>
 		<!-- <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
 		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li>
        <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
