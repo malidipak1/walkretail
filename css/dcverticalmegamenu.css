@@ -14,24 +14,19 @@ ul{list-style:none;}
 .mega-menu{
 font: bold 13px Arial, sans-serif; 
 line-height: 16px; 
-background: #333;
-border-left: 1px solid #1B1B1B; 
+background: #f6f6f5;
 position: relative; /* Required */
 }
 .mega-menu li a {
 display: block; 
-color: #fff; 
+color: #000000; 
 padding: 12px 38px 12px 25px; 
-text-shadow: 1px 1px 1px #000; 
 text-decoration: none;  
-border-top: 1px solid #555; 
-border-bottom: 1px solid #222; 
-border-right: 1px solid #1B1B1B;
+
 }
 .mega-menu li a:hover, .mega-menu li.mega-hover a {
-background: #4b4b4b; 
-color: #fff; 
-border-right: 1px solid #4b4b4b;
+background: #f0f0f0; 
+color: #000000; 
 }
 .mega-menu li a.dc-mega {
 position: relative;
@@ -49,9 +44,8 @@ background: url(images/arrow_right.png) no-repeat 0 0;
 /* Mega menu container */
 .mega-menu li .sub-container {
 position: absolute; /* Required */
-background: #4B4B4B;
+background: #eeeeee;
 padding: 10px 10px 0 10px; 
-border: 1px solid #4b4b4b; 
 border-left: none;
 }
 .mega-menu li .sub-container .sub {}
@@ -74,34 +68,31 @@ background: none;
 border: none; 
 text-shadow: none;
 float: none;
-color: #fff; 
+color: #000000; 
 padding: 7px 10px; 
 display: block;
 text-decoration: none; 
 font-size: 0.9em;
 }
-/*.mega-menu li .sub li.mega-hdr a.mega-hdr-a {
+.mega-menu li .sub li.mega-hdr a.mega-hdr-a {
 padding: 5px 5px 5px 15px; 
 margin-bottom: 5px; 
 background: #E88221; 
 text-transform: uppercase; 
 font-weight: bold; 
 color: #fff; 
-text-shadow: 1px 1px 1px #333;
-}*/
-
+}
 .mega-menu li .sub li.mega-hdr a.mega-hdr-a:hover {
 color: #000; 
 text-shadow: none;
 }
 .mega-menu .sub li.mega-hdr li a {
 padding: 4px 5px 4px 20px; 
-background: url(images/arrow_white.png) no-repeat 5px 8px; 
 font-weight: normal;
 }
 .mega-menu .sub li.mega-hdr li a:hover {
-color: #a32403; 
-background: #efefef url(images/arrow_on.png) no-repeat 5px 8px;
+color: #56a10b; 
+background: #efefef;
 }
 .mega-menu .sub ul li {
 padding-right: 0;
@@ -116,9 +107,8 @@ width: 150px;
 }
 .mega-menu li .sub-container.non-mega li a {
 padding: 7px 5px 7px 22px; 
-background: url(images/arrow_white.png) no-repeat 7px 10px;
 }
 .mega-menu li .sub-container.non-mega li a:hover {
 color: #a32403; 
-background: #efefef url(images/arrow_on.png) no-repeat 7px 10px;
+background: #efefef ;
 }
