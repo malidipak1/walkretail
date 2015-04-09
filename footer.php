@@ -17,7 +17,7 @@
           <h2>Help</h2>
           <ul>
             <li style="background:none;"><a href="contact-us.php">Contact Us </a><br /> </li>
-            <li style="background:none;"><a href="#">How it Works </a><br /> </li>
+            <!--<li style="background:none;"><a href="#">How it Works </a><br /> </li>-->
             <li style="background:none;"><a href="faq.php">FAQ's </a><br /> </li>
           </ul>
           

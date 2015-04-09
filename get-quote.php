@@ -78,6 +78,7 @@ function MM_validateForm() { //v4.0
            
       <div class="property-panel-bg" align="center"> 
           <table width="550" border="0" align="left" cellpadding="0" cellspacing="10">
+          <tr><td colspan="2" align="center" class="buy-get-heading">Please Fill For to Get Quotation</td></tr>
   <tr>
     <td width="200" rowspan="4"><img src="<?php echo $image?>" width="227" alt="<?php echo $arrResult['prod_name']?>" /></td>
     <td><span class="head"><?php echo $arrResult['prod_name']?></span></td>
@@ -108,7 +109,7 @@ function MM_validateForm() { //v4.0
                      <textarea name="address" rows="4" class="sell3" id="address"></textarea>
                      </span> 
           </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Category</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Sub-Category</span> <span class="poperty-panel-right">
                   <select id="category" name="category">
 	             	<option value="0">-SELECT-</option>
 	                   	<?php 

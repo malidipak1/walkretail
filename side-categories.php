@@ -8,7 +8,7 @@ $arrMenu = Util::getCategoryList();
 <div class="left-panel">
     
     
-     <div id="cat-bg">Categories</div>
+     <div id="cat-bg">CATEGORIES</div>
     <div class="demo-container clear">
 <div class="test">
 

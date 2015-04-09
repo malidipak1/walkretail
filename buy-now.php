@@ -112,7 +112,7 @@ function MM_validateForm() { //v4.0
       <div class="form-pad1">
       <div class="property-panel-bg" align="center" style="padding:0 0 0 28px;"><table width="550" border="0" align="left" cellpadding="0" cellspacing="10">
   <tr>
-    <td width="200" rowspan="4"><img src="<?php echo $image?>" width="227" height="128" alt="<?php echo $arrResult['prod_name']?>" /></td>
+    <td width="200" rowspan="4"><img src="<?php echo $image?>" width="227" alt="<?php echo $arrResult['prod_name']?>" /></td>
     <td><span class="head"><?php echo $arrResult['prod_name']?></span></td>
   </tr>
   <tr>
@@ -162,7 +162,7 @@ function MM_validateForm() { //v4.0
                      </span> 
           </div>
                    <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Comments</span> 
+                  <span class="property-panel-left">Suggestions</span> 
                      <span class="poperty-panel-right">
                      <textarea name="message" rows="4" class="sell3" id="message"></textarea>
                      </span> 

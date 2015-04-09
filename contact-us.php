@@ -24,7 +24,7 @@
       <h3>&nbsp;</h3>
     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom:1px dashed #666666">
   <tr valign="top">
-    <td width="24%" rowspan="5"><img src="images/con-us.png" width="301" height="208" alt="" /></td>
+    <td width="27%" rowspan="5"><img src="images/con-us.png" width="301" height="208" alt="" /></td>
     <td width="13%" height="22" class="con-text">Company Name</td>
     <td width="3%">:</td>
     <td width="60%">Walk Retail</td>

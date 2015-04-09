@@ -16,7 +16,7 @@ h2{color:#FFF; padding:0 0 10px 0; font-size:1.55em; font-weight:normal;}
 h3{color:#000000; font-size:25px; padding:10px 0;}
 .logo{width:970px; float:left; padding:20px 0 0 0;}
 .supplier{float:right; width:230px;}
-#cat-bg{ background:#9f0203; color:#FFF; font-size:16px; padding:10px 20px;}
+#cat-bg{ background:#f6f6f5; font-weight:bold;  color:#4c9209; font-size:16px; padding:10px 20px;}
 .list{}
 .list ul{ margin:0; padding:0; list-style-type:none;}
 .list li{ line-height:30px; background:url(images/arrow.jpg) no-repeat 0 10px; padding:0 0 0 15px;}
@@ -40,11 +40,11 @@ h3{color:#000000; font-size:25px; padding:10px 0;}
 .ad-box li div span p, .inner-ad-box span p{padding:5px 0; display:inline;}
 .v-height{height:250px; width:227px;}
 .v-height img{vertical-align:central;}
-.g-text{color:#403f3f; font-size:12px; font-weight:normal;}
+.g-text{color:#403f3f; font-size:12px; font-weight:normal; text-align:center;}
 .copy1{float:right;}
-.pro-head{font-size:12px; font-weight: normal; color:#232323; height:30px; vertical-align:bottom;}
-.price{font-size:14px; font-weight:normal; color:#900406; padding:50px 0 0 0;}
-.price1{font-size:14px; font-weight: normal; color:#900406; padding:0;}
+.pro-head{font-size:13px; font-weight: normal; color:#232323; height:30px; vertical-align:bottom; text-align:center;}
+.price{font-size:14px; font-weight:normal; color:#900406; padding:50px 0 0 0; text-align:center;}
+.price1{font-size:12px; font-weight: normal; color:#900406; padding:0;}
 .footer{ float:left;}
 .v-height-scroll{height:150px; width:150px;}
 #footer-bg{ float:left; height:230px;}
@@ -347,7 +347,8 @@ h3{color:#000000; font-size:25px; padding:10px 0;}
 .search{ height:38px; width:318px; float:left; margin:0 5px 0 5px; padding:0 0 0 10px;}
 .sell5{width:60px; margin:0px 0 0 0; height:40px;  border:1px solid #d5d2d2; margin:0 0 0 5px; }
 .buy-now-btn{ padding:0px; margin:0px; border:none; color:#fff;}
-.buy-now-btn-inn{ background:url(images/buy-now-new.png) no-repeat center; width:90px; height:31px;  padding:0px; margin:0px; border:none; color:#fff;}
+.buy-now-btn-inn{ background:url(images/buy-now-new.png) no-repeat center; width:90px; height:31px; padding:0px; margin:0px; border:none; color:#fff;}
 .get-quote-btn-inn{ background:url(images/get-quote-inn.png) no-repeat center; width:108px; height:31px;  padding:0px; margin:0px; border:none; color:#fff;}
 .get-quote-btn{ background:url(images/get-quotation.png) no-repeat center;  padding:0px; margin:0px; border:none; color:#fff;}
 .note{padding:0 0 0 45px; width:400px; line-height:22px; font-family:Verdana; font-size:12px; color:#333; float:left;}
+.buy-get-heading{font-family:verdana; font-size:18px; color:#333; padding:10px 0 10px 0;}
