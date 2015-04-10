@@ -152,7 +152,7 @@ $(document).ready(function($){
                     </tr>
                     </table>
                     <span class="pro-head">Pedal steel Dustbin 7" x 10"</span>
-                    <span class="price">Price : Rs 250 - Rs 350</span>
+                    <span class="price">Price : &#8377; 250 - &#8377; 350</span>
                     <span class="g-text">Order Range : 1-10 Pieces</span>
                 </div>
                   <div>
@@ -162,7 +162,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Face Pillow</span>
-                    <span class="price">Price : Rs190 - Rs 270</span>
+                    <span class="price">Price : &#8377;190 - &#8377; 270</span>
                     <span class="g-text">Order Range : 1-100 Pieces</span>
                 </div>
                  <div>
@@ -172,7 +172,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head"> Iphone 5 earphone handsfree OEM Good Quality  </span>
-                    <span class="price">Price : Rs370 - Rs 500</span>
+                    <span class="price">Price : &#8377;370 - &#8377; 500</span>
                     <span class="g-text">Order Range : 1-50 Pieces</span>
                 </div>
                  
@@ -185,7 +185,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Butterfly cloth dryer stand</span>
-                    <span class="price">Price : Rs 1550 - Rs 1700 </span>
+                    <span class="price">Price : &#8377; 1550 - &#8377; 1700 </span>
                     <span class="g-text">Order Range : 1-20 Pieces</span>
                 </div>
                   <div>
@@ -195,7 +195,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Tweety</span>
-                    <span class="price">Price : Rs220 - Rs 280</span>
+                    <span class="price">Price : &#8377;220 - &#8377; 280</span>
                     <span class="g-text">Order Range : 1-100 Pieces</span>
                 </div>
                   <div>
@@ -205,7 +205,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Belkin Auxiliary OEM</span>
-                    <span class="price">Price : Rs250 - Rs 300</span>
+                    <span class="price">Price : &#8377;250 - &#8377; 300</span>
                     <span class="g-text">Order Range : 1-50 Pieces</span>
                 </div>
                  
@@ -218,7 +218,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Multipurpose table green adjustable</span>
-                    <span class="price">Price : Rs 800 - Rs 1200</span>
+                    <span class="price">Price : &#8377; 800 - &#8377; 1200</span>
                     <span class="g-text">Order Range : 1-20 Pieces</span>
                 </div>
                   <div>
@@ -228,7 +228,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Metoo toy</span>
-                    <span class="price">Price : Rs270 - Rs 330</span>
+                    <span class="price">Price : &#8377;270 - &#8377; 330</span>
                     <span class="g-text">Order Range : 1-100 Pieces</span>
                 </div>
                  <div>
@@ -238,7 +238,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Griffin 4 in 1 set OEM</span>
-                    <span class="price">Price : Rs 300 - Rs 350</span>
+                    <span class="price">Price : &#8377; 300 - &#8377; 350</span>
                     <span class="g-text">Order Range : 1-50 Pieces</span>
                 </div>
                  
@@ -251,7 +251,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                     <span class="pro-head">Purple Purse</span>
-                    <span class="price">Price : Rs130 - Rs 200</span>
+                    <span class="price">Price : &#8377;130 - &#8377; 200</span>
                     <span class="g-text">Order Range : 1-100 Pieces</span>
                 </div>
                  <div>
@@ -261,7 +261,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Swing Dustbin steel </span>
-                    <span class="price">Price : Rs800 - Rs 900</span>
+                    <span class="price">Price : &#8377;800 - &#8377; 900</span>
                     <span class="g-text">Order Range : 1-10 Pieces</span>
                 </div>
                   <div>
@@ -271,7 +271,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Samsung Note 1 Body (N7000) OEM </span>
-                    <span class="price">Price : Rs 220 - Rs 280</span>
+                    <span class="price">Price : &#8377; 220 - &#8377; 280</span>
                     <span class="g-text">Order Range : 1-50 Pieces</span>
                 </div>
                  
@@ -284,7 +284,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">Heart fur red</span>
-                    <span class="price">Price : Rs150 - Rs 210</span>
+                    <span class="price">Price : &#8377;150 - &#8377; 210</span>
                     <span class="g-text">Order Range : 1-100 Pieces</span>
                 </div>
                   <div>
@@ -294,7 +294,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head">JBL 6000mah OEM Black</span>
-                    <span class="price">Price : Rs 260 - Rs 350</span>
+                    <span class="price">Price : &#8377; 260 - &#8377; 350</span>
                     <span class="g-text">Order Range : 1-50 Pieces</span>
                 </div>
                   <div>
@@ -304,7 +304,7 @@ $(document).ready(function($){
                       </tr>
                     </table>
                      <span class="pro-head"> Fruit Trolley square 3shelf black</span>
-                    <span class="price">Price : Rs500 - Rs 650</span>
+                    <span class="price">Price : &#8377;500 - &#8377; 650</span>
                     <span class="g-text">Order Range : 1-10 Pieces</span>
                 </div>
                  

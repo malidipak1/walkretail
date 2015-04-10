@@ -194,7 +194,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -206,7 +206,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                            
@@ -218,7 +218,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -230,7 +230,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                              
@@ -242,7 +242,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                            
@@ -254,7 +254,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -266,7 +266,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -278,7 +278,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -290,7 +290,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -302,7 +302,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                              
@@ -315,7 +315,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -327,7 +327,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                            
@@ -339,7 +339,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                            
@@ -351,7 +351,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             
@@ -363,7 +363,7 @@ $(document).ready(function() {
                     </table>
                                 <br />
                                 <span class="thumbnail-text">1080 P Car Video Recorder</span>
-                                <span class="thumbnail-text-red">Price : Rs100 - Rs 300</span>
+                                <span class="thumbnail-text-red">Price : &#8377;100 - &#8377; 300</span>
                                 <span class="thumbnail-text">Order Range : 1-100 Pieces</span>
                             </div>
                             

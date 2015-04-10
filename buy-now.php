@@ -106,7 +106,7 @@ function MM_validateForm() { //v4.0
 <div class="middle">
   <div class="middle-inner">
   	<div align="center" style="color: red"><?php echo $message?></div>
-  
+  <div class="buy-get-heading">Buy Now and Get Free Home Delivery</div>
     <div class="form-con1">
      <form name="buynow" method="post" onsubmit="MM_validateForm('emailid','','RisEmail','phone','','RisNum','name','','R','address','','R','pincode','','RisNum','message','','R');return document.MM_returnValue">
       <div class="form-pad1">

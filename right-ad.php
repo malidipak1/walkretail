@@ -10,7 +10,7 @@
                         <td class="pro-head">1080 P Car Video Recorder</td>
                     </tr>
                     <tr valign="middle">
-                        <td class="price1">Price : Rs100 - Rs 300</td>
+                        <td class="price1">Price : &#8377;100 - &#8377; 300</td>
                     </tr>
                     <tr valign="middle">
                         <td class="g-text">Order Range : 1-100 Pieces</td>
@@ -28,7 +28,7 @@
                         <td class="pro-head">1080 P Car Video Recorder</td>
                     </tr>
                     <tr valign="middle">
-                        <td class="price1">Price : Rs100 - Rs 300</td>
+                        <td class="price1">Price : &#8377;100 - &#8377; 300</td>
                     </tr>
                     <tr valign="middle">
                         <td class="g-text">Order Range : 1-100 Pieces</td>
@@ -45,7 +45,7 @@
                         <td class="pro-head">1080 P Car Video Recorder</td>
                     </tr>
                     <tr valign="middle">
-                        <td class="price1">Price : Rs100 - Rs 300</td>
+                        <td class="price1">Price : &#8377;100 - &#8377; 300</td>
                     </tr>
                     <tr valign="middle">
                         <td class="g-text">Order Range : 1-100 Pieces</td>
@@ -62,7 +62,7 @@
                         <td class="pro-head">1080 P Car Video Recorder</td>
                     </tr>
                     <tr valign="middle">
-                        <td class="price1">Price : Rs100 - Rs 300</td>
+                        <td class="price1">Price : &#8377;100 - &#8377; 300</td>
                     </tr>
                     <tr valign="middle">
                         <td class="g-text">Order Range : 1-100 Pieces</td>
