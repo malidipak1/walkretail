@@ -49,7 +49,8 @@ function changeSelectOption(selobj, value) {
                        
            </select></div>
         <div style="float:left">
-        <input type="submit" value="." src="images/search.jpg" align="right" class="search-btn" />
-  <input name="search" type="text" value=" <?php echo $_REQUEST['search']?>" class="search" placeholder="Search by Product Title" /></div>
+       
+  <input name="search" type="text" value=" <?php echo $_REQUEST['search']?>" class="search" placeholder="Search by Product Title" />
+   <input type="submit" value="." src="images/search.jpg" align="right" class="search-btn" /></div>
           <div style="float:left"></div>
       </form> 
