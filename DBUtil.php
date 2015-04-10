@@ -154,7 +154,7 @@ class DBUtil {
 	public function getImages($prod_id) {
 		$arrSearch = array('prod_id' => $prod_id);
 		$sql = "SELECT * FROM product_image WHERE " . $this->getWhereClause($arrSearch);
-		return $this->getAll($sql);
+		return $this->getRow($sql);
 	}
 	
 	public function updateImage($image1, $image2,$image3,$image4,$image5, $prod_id) {
@@ -180,7 +180,15 @@ class DBUtil {
 		return $this->executeUpdate($sql, $arrData);
 	}
 	
-	public function addEditProduct($prod_name,$category,$desc,$TOS,$minPrice,$maxPrice,$min_quantity,$max_quantity,$stock_availability,$supplier_id,$image,
+	public function updateProductImage($image,$prod_id) {
+			$sql = "UPDATE `product` SET `image`=:image WHERE `prod_id`=:prod_id";
+			$arrData = array (
+				':prod_id'	 => $prod_id ,
+				':image'	 => $image
+			);
+		return $this->executeUpdate($sql, $arrData);
+	}
+	public function addEditProduct($prod_name,$category,$desc,$TOS,$minPrice,$maxPrice,$min_quantity,$max_quantity,$stock_availability,$supplier_id,
 			$order_range, $supply_ability, $home_delivery,$quntity_type, $prod_id = null) {
 		$sql = "";
 		if ($prod_id == 0) {

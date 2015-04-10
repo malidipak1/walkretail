@@ -20,7 +20,7 @@ if($_POST) {
 	if(!empty($_POST['prod_id']) && $image != "") {
 		$id = $dbObj->updateImage($image, $image1, $image2, $image3, $image4, $_POST['prod_id']);
 		$message = "Images Uploaded Successfully!";
-		//$uri = "manage-product.php?supplier_id=" . $_POST['supplier_id'] . "&category=" . $_POST['category'];
+		$uri = "edit-product.php?prod_id=" . $_REQUEST['prod_id'] . "&category=" . $_POST['category'];
 		//header("Location: $uri");
 	}
 }
@@ -39,7 +39,7 @@ if($_POST) {
 <input type="file" name="image3">
 <input type="file" name="image4">
 <input type="file" name="image5">
-<input type="submit">
+<input type="submit" name="Upload Image">
 </form>
 
 </body>

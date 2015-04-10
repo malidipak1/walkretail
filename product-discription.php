@@ -6,6 +6,8 @@ if(!empty($_REQUEST['prod_id'])) {
 	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
 	$arrResult = $dbObj->getProducts($arrParam);
 	$arrResult = $arrResult[0];
+	
+	$arrImage = $dbObj->getImages($_REQUEST['prod_id']);
 }
 
 $image = Util::getImage($arrResult['image']);
@@ -100,8 +102,16 @@ $(document).ready(function() {
  <div class="clearfix" >
 	<ul id="thumblist" class="clearfix" >
 		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo $image?>',largeimage: '<?php echo $image?>'}"><img src='<?php echo $image?>' width="50" ></a></li>
-		<!-- <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
-		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li>
+		
+		<?php for ($i =1; $i <= 5 ; $i++) {
+			$imgNameKey = "image" . $i;
+			if(!empty($arrImage[$imgNameKey])) {
+		?>
+		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo Util::getImage($arrImage[$imgNameKey])?>',largeimage: '<?php echo Util::getImage($arrImage[$imgNameKey])?>'}"><img src='<?php echo Util::getImage($arrImage[$imgNameKey])?>' width="50" ></a></li>
+		<?php }
+			}
+		?>
+		<!-- <li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li>
        <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small2.jpg',largeimage: './imgProd/triumph_big2.jpg'}"><img src='imgProd/thumbs/triumph_thumb2.jpg'></a></li>
 		<li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './imgProd/triumph_small3.jpg',largeimage: './imgProd/triumph_big3.jpg'}"><img src='imgProd/thumbs/triumph_thumb3.jpg'></a></li> -->
 	</ul>

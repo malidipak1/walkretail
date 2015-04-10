@@ -36,7 +36,7 @@ function setPrice(quantity) {
 			document.getElementById("price").value = '';
 			return;
 		}
-		var price = '<?php echo  $arrResult['min_price']?>';
+		var price = '<?php echo $arrResult['max_price']?>';
 		var totalPrice = quantity * price;
 
 		document.getElementById("price").value = totalPrice;

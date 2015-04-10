@@ -30,6 +30,11 @@ if(!isset($_SESSION['login']))
 <script src="js/tabbed-index.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <script language="JavaScript">
+	function myPopup(url)
+	{
+	    mywindow = window.open(url, "ProductDesc", "location=1,status=1,scrollbars=1,  width=600,height=700");
+	    mywindow.moveTo(0, 0);
+	}
 	function valid(form) {
 		if(form.prod_name.value == '') {
 			alert("Please enter Product Name");
@@ -117,7 +122,7 @@ if(!isset($_SESSION['login']))
         <th colspan="2" scope="row"><img src="<?php echo Util::getImage($product['image']);?>" width="180" height="120" alt=""></th>
         </tr>
       <tr>
-        <td align="center" valign="middle" class="border-bg"><a href="product-discription.php?prod_id=<?php echo $product['prod_id']?>">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a onclick="javascript:myPopup('/product-discription.php?prod_id=<?php echo $product['prod_id']?>')" href="#">View</a></td>
         <td align="center" valign="middle" class="border-bg"><a href="edit-product.php?prod_id=<?php echo $product['prod_id']?>&supplier_id=<?php echo $product['supplier_id']?>">Edit</a></td>
         </tr>
     </table>

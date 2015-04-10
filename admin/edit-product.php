@@ -11,38 +11,21 @@ include_once '../Util.php';
 
 $dbObj = new DBUtil();
 if(!empty($_POST)) {
-	/*$uploadOk = -1;
 	
-	$check = getimagesize($_FILES["image"]["tmp_name"]);
-	if($check !== false) {
-		//echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
-	} else {
-		//echo "File is not an image.";
-		$uploadOk = 0;
-	}
-	
-	$target_dir = UPLOAD_IMAGE_DIR;
-	$image = date('Ymd_Hms') . "_" . basename($_FILES["image"]["name"]);
-	$target_file = $target_dir . $image;
-	
-	if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-		//echo "File is valid, and was successfully uploaded.\n";
-	} else {
-// 		/echo "Possible file upload attack!\n";
-	}
-	*/
-	$image = Util::uploadImage("image");
-	if($image != "") {
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
-				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $image ,
-				$_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
+				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
 		
+		if(!empty($_FILES["image"])) { //if image is uploaded
+			$image = Util::uploadImage("image");
+			if($image != "") {	
+				$dbObj->updateProductImage($image, $id);
+			} else {
+				//image could not be uploaded
+			}
+		}
+
 		$uri = "manage-product.php?supplier_id=" . $_POST['supplier_id'] . "&category=" . $_POST['category'];
 		header("Location: $uri");
-	} else {
-		//image could not be uploaded
-	}
 }
 
 if(!empty($_REQUEST['prod_id'])) {
@@ -145,7 +128,7 @@ $arrParent = Util::getCategoryList();
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">&nbsp;</div>
              <div class="supplier-panel-right1"> 
-        <input type="file" name="image" style="width:200px" >
+        <img src="<?php echo Util::getImage($arrProduct['image'])?>"  title="triumph"  width="300" ><input type="file" name="image" style="width:200px" >
         </div>
           </div>
           <div class="supplier-panel-bg1">

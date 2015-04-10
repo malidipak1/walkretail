@@ -111,7 +111,7 @@ function MM_validateForm() { //v4.0
                      </span> 
           </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Sub-Category</span> <span class="poperty-panel-right">
-                  <select id="category" name="category" multiple="multiple"> 9*-9*-1
+                  <select id="category" name="category" multiple="multiple"> 
 	             	<option value="0">-SELECT-</option>
 	                   	<?php 
 	                   	$arrParent = Util::getCategoryList();
