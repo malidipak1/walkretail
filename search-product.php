@@ -65,6 +65,6 @@
         <div style="float:left">
        
   <input name="search" type="text" value="<?php if(!empty($_REQUEST['search'])) { echo $_REQUEST['search']; }?>" class="search" placeholder="Search by Product Title" />
-   <input type="submit" value="Search" src="images/search.jpg" align="right" class="search-btn" /></div>
+   <input type="submit" value="." src="images/search.jpg" align="right" class="search-btn" /></div>
           <div style="float:left"></div>
       </form> 
