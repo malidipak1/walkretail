@@ -103,7 +103,7 @@ $arrParent = Util::getCategoryList();
                       <td width="399" height="57" class="head_ing"> 
                        
                         Add / Edit Product</td>
-                                              <td width="368"  align="right">&nbsp;<a href="uploadimage.php?prod_id=<?php $_REQUEST['prod_id']?>&supplier_id=<?php echo $_REQUEST['supplier_id']?>">Upload Image</a></td>
+                                              <td width="368"  align="right">&nbsp;<a href="uploadimage.php?prod_id=<?php echo $_REQUEST['prod_id']?>&supplier_id=<?php echo $_REQUEST['supplier_id']?>">Upload Image</a></td>
                                             </tr>
                                         </table></td>
                                       </tr>

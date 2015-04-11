@@ -6,7 +6,7 @@ class Util {
 	public static function uploadImage($fileName) {
 		$image = "";
 		if(!empty($_FILES[$fileName]["tmp_name"])) {
-			$check = getimagesize($_FILES[$fileName]["tmp_name"]);
+			$check = getimagesize($_FILES[$fileName]["tmp_name"]);			
 			if($check !== false) {
 	
 				$image = date('Ymd_Hms') . "_" . basename($_FILES[$fileName]["name"]);

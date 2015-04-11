@@ -4,12 +4,12 @@ if (! isset ( $_SESSION ['login'] )) {
 	header ( 'Location: index.php' );
 	exit ();
 }
-include_once '../DBUtil.php';
+include_once '../DBUtil.php'; 
 include_once '../Util.php';
 
 $message = "";
 $dbObj = new DBUtil ();
-if ($_POST) {
+if (!empty($_POST)) {
 	$image = Util::uploadImage ( "image1" );
 	$image1 = Util::uploadImage ( "image2" );
 	$image2 = Util::uploadImage ( "image3" );

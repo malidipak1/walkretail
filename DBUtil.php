@@ -82,7 +82,7 @@ class DBUtil {
 		$sql = "INSERT INTO `walkreta_walk`.`advertise` (`prodid`, `adv_id`, `sequence`) VALUES (:prodid, :adv_id , :sequence)";
 		foreach ($arrProdSeq as $prodId => $seq) {
 			$arrData = array (
-				':adv_id' => $pageTitle,
+				':adv_id' => $pageTitle, 
 				':prodid'  => $prodId,
 				':sequence' => $seq
 			);
