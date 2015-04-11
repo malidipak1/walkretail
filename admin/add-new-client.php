@@ -11,7 +11,7 @@ $dbObj = new DBUtil();
 
 if(!empty($_POST)) {
 
-	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 1, $_POST['mobile'], $_POST['email'], $_POST['company'], 
+	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], 
 			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
 
 	header("Location: view-clients.php");
@@ -20,7 +20,7 @@ if(!empty($_POST)) {
 if(!empty($_REQUEST['id'])) {
 	$arrParam = array('id' => $_REQUEST['id']);
 	$arrSupplier = $dbObj->getSupplier($arrParam);
-	$arrSupplier = $arrProduct[0];
+	$arrSupplier = $arrSupplier[0];
 }
 //print_r($arrSupplier);
 ?>
@@ -65,29 +65,29 @@ if(!empty($_REQUEST['id'])) {
         <div class="supp-left">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Name</div>
-             <div class="supplier-panel-right"><input name="name" type="text" class="field" id="name" />
-             	<input type="hidden" name="supplier_id" value="<?php echo $_REQUEST['supplier_id']?>">
+             <div class="supplier-panel-right"><input name="name" type="text" class="field" id="name" value="<?php echo $arrSupplier['name']?>" />
+             	<input type="hidden" name="supplier_id" value="<?php echo $arrSupplier['id']?>">
              </div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Name</div>
-             <div class="supplier-panel-right"><input name="company" type="text" class="field" id="company" /></div>
+             <div class="supplier-panel-right"><input name="company" type="text" class="field" id="company" value="<?php echo $arrSupplier['company']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Email Id</div>
-             <div class="supplier-panel-right"><input name="email" type="text" class="field" id="email" /></div>
+             <div class="supplier-panel-right"><input name="email" type="text" class="field" id="email" value="<?php echo $arrSupplier['email']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Website (If any)</div>
-             <div class="supplier-panel-right"><input name="website" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="website" type="text" class="field" value="<?php echo $arrSupplier['website']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Mobile</div>
-            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" /></div>
+            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" value="<?php echo $arrSupplier['mobile']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
-             <div class="supplier-panel-right"><input name="address" type="text" class="field" id="address" /></div>
+             <div class="supplier-panel-right"><input name="address" type="text" class="field" id="address" value="<?php echo $arrSupplier['address']?>" /></div>
           </div>
          <!-- <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Category</div>
@@ -95,30 +95,43 @@ if(!empty($_REQUEST['id'])) {
           </div>-->
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">User Name</div>
-             <div class="supplier-panel-right"><input name="user_name" type="text" class="field" id="user_name" /></div>
+             <div class="supplier-panel-right"><input name="user_name" type="text" class="field" id="user_name" value="<?php echo $arrSupplier['user_name']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
-             <div class="supplier-panel-right"><input name="password" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="password" type="text" class="field" value="<?php echo $arrSupplier['password']?>" /></div>
           </div>
          
         </div>
         <div class="supp-right">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">City</div>
-             <div class="supplier-panel-right"><input name="city" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="city" type="text" class="field" value="<?php echo $arrSupplier['city']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
-             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" /></div>
+             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" value="<?php echo $arrSupplier['zipcode']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
-             <div class="supplier-panel-right"><input name="state" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="state" type="text" class="field" value="<?php echo $arrSupplier['state']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
-             <div class="supplier-panel-right"><input name="company_pan" type="text" class="field" id="company_pan" /></div>
+             <div class="supplier-panel-right"><input name="company_pan" type="text" class="field" id="company_pan" value="<?php echo $arrSupplier['company_pan']?>" /></div>
+          </div>
+          
+          <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Status</div>
+             <div class="supplier-panel-right">
+             	<select name="status">
+             		<?php $y = ""; $n = "";
+             		if($arrSupplier['status'] == 1) $y = "selected='selected'";
+             		else $n = "selected='selected'";?>
+             		<option <?php echo $y?> value="1">Yes</option>
+             		<option <?php echo $n?> value="0">No</option>
+             	</select>
+             </div>
           </div>
           <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Gumasta Licence</div>

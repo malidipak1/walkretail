@@ -1,4 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php 
+include_once 'DBUtil.php';
+$dbObj = new DBUtil();
+$message = "";
+if(!empty($_POST)) {
+	
+	$arrParam = array('email' =>  $_POST['email']);
+	$arrRecords = $dbObj->getSupplier($arrParam);
+	
+	if(count($arrRecords) <= 0) {
+		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 0, $_POST['mobile'], $_POST['email'], $_POST['company'], 
+				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
+
+		header("Location: /thanksregistraion.php");
+	} else {
+		$message = "Supplier is Already Exist. Contact us more details.";
+	}
+}
+
+if(!empty($_REQUEST['id'])) {
+	$arrParam = array('id' => $_REQUEST['id']);
+	$arrSupplier = $dbObj->getSupplier($arrParam);
+	$arrSupplier = $arrSupplier[0];
+}
+//print_r($arrSupplier);
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -40,7 +65,7 @@ function MM_validateForm() { //v4.0
 <div class="middle">
   <div class="middle-inner">
     <div class="left-2-panel">
-     <form action="" method="get" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
+     <form action="" method="POST" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
      <div class="supp-con1">
         <div class="supp-left">
           <div class="supplier-panel-bg">
@@ -63,7 +88,7 @@ function MM_validateForm() { //v4.0
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Mobile No.</div>
-            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" /></div>
+            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" maxlength="10" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
@@ -90,7 +115,7 @@ function MM_validateForm() { //v4.0
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
-             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" /></div>
+             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" maxlength="6" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
