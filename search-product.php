@@ -1,19 +1,33 @@
 <script type="text/javascript">
-function changeSelectOption(selobj, value) {
-    var length = selobj.length;
-    for(var i=0; i<length; i++) {
-            if(selobj.options[i].value.toLowerCase()== value.toLowerCase()) {
-                    selobj.selectedIndex = i;
-            }
-    }
-}
+	function changeSelectOption(selobj, value) {
+	    var length = selobj.length;
+	    for(var i=0; i<length; i++) {
+	            if(selobj.options[i].value.toLowerCase()== value.toLowerCase()) {
+	                    selobj.selectedIndex = i;
+	            }
+	    }
+	}
 
     document.body.onload = function() {
-        changeSelectOption(document.search.min, '<?php echo $_REQUEST['min']?>');
-    	changeSelectOption(document.search.max, '<?php echo $_REQUEST['max']?>');
+    	var min = '', max = '';
+    	<?php if(!empty($_REQUEST['min'])) {?>
+        	min = '<?php echo $_REQUEST['min']?>';
+        <?php } ?>
+        <?php if(!empty($_REQUEST['max'])) {?>
+        	max = '<?php echo $_REQUEST['max']?>'
+        <?php } ?>
+        changeSelectOption(document.search.min, min);
+    	changeSelectOption(document.search.max, max);
      }
 
   function val(form) {
+
+	var searchTxt = document.search.search.value;
+	if(searchTxt.trim() == '') {
+		alert("Please Enter Product Name");
+		return false;
+	}
+	  
 	  var min = parseInt(form.min.value);
 	  var max = parseInt(form.max.value);
 	if(min >= max) {
@@ -50,7 +64,7 @@ function changeSelectOption(selobj, value) {
            </select></div>
         <div style="float:left">
        
-  <input name="search" type="text" value=" <?php echo $_REQUEST['search']?>" class="search" placeholder="Search by Product Title" />
-   <input type="submit" value="." src="images/search.jpg" align="right" class="search-btn" /></div>
+  <input name="search" type="text" value="<?php if(!empty($_REQUEST['search'])) { echo $_REQUEST['search']; }?>" class="search" placeholder="Search by Product Title" />
+   <input type="submit" value="Search" src="images/search.jpg" align="right" class="search-btn" /></div>
           <div style="float:left"></div>
       </form> 

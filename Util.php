@@ -9,15 +9,16 @@ class Util {
 			$check = getimagesize($_FILES[$fileName]["tmp_name"]);
 			if($check !== false) {
 	
-				$target_dir = UPLOAD_IMAGE_DIR;
 				$image = date('Ymd_Hms') . "_" . basename($_FILES[$fileName]["name"]);
-				$target_file = $target_dir . $image;
+				$target_file = UPLOAD_IMAGE_DIR . $image;
 	
 				if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $target_file)) {
 					//echo "File is valid, and was successfully uploaded.\n";
+					//echo " image moved....";
 				} else {
 					// 		/echo "Possible file upload attack!\n";
 					$image = "";
+					//echo "here..";
 				}
 				$uploadOk = true;
 			} else {
@@ -102,6 +103,13 @@ class Util {
 		$param = array('id' => $supplier_id);
 		$arrSupplier = $dbObj->getSupplier($param);
 		return $arrSupplier[0]['company'];
+	}
+	
+	public static function getCategoryName($catid) {
+		$dbObj = new DBUtil();
+		$param = array('catid' => $catid);
+		$arrCat = $dbObj->getCategories($param);
+		return $arrCat[0]['catname'];
 	}
 	
 	public static function getCategoryList() {

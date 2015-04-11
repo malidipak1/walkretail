@@ -5,7 +5,6 @@ if(!isset($_SESSION['login']))
 	header('Location: index.php');
 	exit;
 }
-
 include_once '../DBUtil.php';
 include_once '../Util.php';
 
@@ -15,6 +14,9 @@ if(!empty($_POST)) {
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
 				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
 		
+		if(!empty($_POST['prod_id'])) {
+			$id = $_POST['prod_id'];
+		}
 		if(!empty($_FILES["image"])) { //if image is uploaded
 			$image = Util::uploadImage("image");
 			if($image != "") {	

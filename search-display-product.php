@@ -103,12 +103,22 @@ $(document).ready(function($){
       <!-- producct start here-->
       <div class="spro">
       <div style="height:50px;"></div>
-      <?php if(count($arrResult) <= 0) {?>
-      
-      Products are coming soon!
-      
-      <?php } else {?>
+      <?php if(count($arrResult) <= 0) {
+      if(!empty($_REQUEST['search'])) { 
+          	echo "Products are coming soon!"; 
+          } else if(!empty($_REQUEST['category'])) {
+          	echo "No Products found!";
+          }
+       } else {?>
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+          <td><?php if(!empty($_REQUEST['search'])) { 
+          	echo $_REQUEST['search']; 
+          } else if(!empty($_REQUEST['category'])) {
+          	echo Util::getCategoryName($_REQUEST['category']);
+          }
+          ?></td>
+          </tr>
           <tr valign="middle"  align="center">
           
              <?php 
@@ -123,7 +133,7 @@ $(document).ready(function($){
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>
               </tr>
               <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['price']?></td>
+                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['min_price']?></td>
               </tr>
              <tr valign="top" align="center">
                  <td valign="middle" class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?></td>
