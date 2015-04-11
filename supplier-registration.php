@@ -4,6 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Walk Retail</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function MM_validateForm() { //v4.0
+  if (document.getElementById){
+    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
+      if (val) { nm=val.name; if ((val=val.value)!="") {
+        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+          if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+        } else if (test!='R') { num = parseFloat(val);
+          if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
+          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+            min=test.substring(8,p); max=test.substring(p+1);
+            if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+    } if (errors) alert('The following error(s) occurred:\n'+errors);
+    document.MM_returnValue = (errors == '');
+} }
+</script>
 </head>
 
 <body>
@@ -22,14 +40,13 @@
 <div class="middle">
   <div class="middle-inner">
     <div class="left-2-panel">
-     <form action="" method="get">
+     <form action="" method="get" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
      <div class="supp-con1">
         <div class="supp-left">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Name</div>
              <div class="supplier-panel-right">
-               <p>&nbsp;</p>
-               <p>&nbsp;  </p>
+               <input name="name" type="text" class="field" id="name" />
              </div>
           </div>
           <div class="supplier-panel-bg">
@@ -69,7 +86,7 @@
         <div class="supp-right">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">City</div>
-             <div class="supplier-panel-right"><input name="city" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="city" type="text" class="field" id="city" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
@@ -77,13 +94,13 @@
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
-             <div class="supplier-panel-right"><input name="state" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="state" type="text" class="field" id="state" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
              <div class="supplier-panel-right"><input name="pancard" type="text" class="field" id="pancard" /></div>
           </div>
-          <!--<div class="supplier-panel-bg">
+          <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Gumasta Licence</div>
             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
           </div>
@@ -95,7 +112,7 @@
              <div class="supplier-panel-left">Company is in Partnership<br />
              or Propertier</div>
              <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
-          </div>-->
+          </div>
            <div class="supplier-panel-bg">
              <div class="supplier-panel-left"><br />
              </div>
