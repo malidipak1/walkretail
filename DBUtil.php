@@ -74,6 +74,37 @@ class DBUtil {
 		return $return_array;
 	}
 	
+	public function addAdsProduct($arrProdSeq, $pageTitle) {
+		$arrData = array('adv_id' => $pageTitle);
+		$sql = "DELETE FROM `walkreta_walk`.`advertise` WHERE adv_id=:adv_id";
+		$this->executeUpdate($sql, $arrData);
+		
+		$sql = "INSERT INTO `walkreta_walk`.`advertise` (`prodid`, `adv_id`, `sequence`) VALUES (:prodid, :adv_id , :sequence)";
+		foreach ($arrProdSeq as $prodId => $seq) {
+			$arrData = array (
+				':adv_id' => $pageTitle,
+				':prodid'  => $prodId,
+				':sequence' => $seq
+			);
+			
+			$this->executeUpdate($sql, $arrData);
+		}
+		return;
+	}
+	
+	public function getAdsProductByPage($pageTitle = 'HOME_PAGE') {
+		
+		$arrParam = array('adv_id' => $pageTitle);
+		
+		$sql = "select * from product, advertise where prodid = prod_id and " . $this->getWhereClause($arrParam) ." order by sequence " ;
+		return $this->getAll($sql);
+	}
+	
+	public function getAds($arrSearch = array()) {
+		
+		$sql = "SELECT * FROM advertise WHERE " . $this->getWhereClause($arrSearch);
+		return $this->getAll($sql);
+	}
 	
 	public function getProducts($arrSearch = array()) {
 		//print_r($arrSearch);
@@ -83,7 +114,7 @@ class DBUtil {
 
 	
 	public function searchProductByName($prodName, $min = 0, $max = 0) {
-		$sql = "select * from product where 1=1 and prod_name like '%" . $prodName . "%' ";
+		$sql = "select * from product, product_categories where catid=category and (prod_name like '%" . $prodName . "%' OR catname like '%" . $prodName . "%' )";
 				
 		if($min > 0 || $max > 0) {
 			$sql .= " AND (min_quantity between $min and $max or max_quantity between $min and $max)";

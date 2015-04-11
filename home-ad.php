@@ -1,14 +1,10 @@
+<?php 
+include_once 'DBUtil.php';
+$dbObj = new DBUtil();
+$arrResult = $dbObj->getAdsProductByPage('HOME_PAGE');
+?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-          <td><?php if(!empty($_REQUEST['search'])) { 
-          	echo $_REQUEST['search']; 
-          } else if(!empty($_REQUEST['category'])) {
-          	echo Util::getCategoryName($_REQUEST['category']);
-          }
-          ?></td>
-          </tr>
           <tr valign="middle"  align="center">
-          
              <?php 
              $count=1;
              foreach ($arrResult as $result) {?>
@@ -30,7 +26,7 @@
             </table>
             </td>
             <?php 
-            if($count%3 == 0) {?>
+            if($count%5 == 0) {?>
             	 </tr><tr valign="middle"  align="center">
             <?php }
              $count++; 

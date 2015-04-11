@@ -390,7 +390,7 @@ $(document).ready(function() {
     
      
      
-    <?php include("right-ad.php");?>
+    <?php include("desc-right-ad.php");?>
     
      <!-- right panel end -->
      

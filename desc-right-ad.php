@@ -1,7 +1,7 @@
 <?php 
 include_once 'DBUtil.php';
 $dbObj = new DBUtil();
-$arrResult = $dbObj->getAdsProductByPage('SEARCH_PAGE');
+$arrResult = $dbObj->getAdsProductByPage('DESC_PAGE');
 ?>
 <div class="right-panel">
     <div class="side-ad">

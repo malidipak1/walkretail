@@ -1,4 +1,5 @@
 <?php
+include_once '../lib/config.php';
 class database_connection{
   function database_connection($database_name,$host,$userid,$password){
     MySQL_connect($host,$userid,$password);
@@ -14,7 +15,7 @@ class database_connection{
 #################################### FOR SERVER CONNECTION ############################################
 
 //$conection     =  new database_connection('walkreta_walk','localhost','walkreta_walk','db@walk#558');
-$conection     =  new database_connection('walkreta_walk','localhost','root','');
+$conection     =  new database_connection(DB_NAME,DB_HOST,DB_USER,DB_PASSWD);
 
 ########################################################################################################
 ?>
