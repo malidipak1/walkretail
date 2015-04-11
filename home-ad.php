@@ -15,7 +15,8 @@
               <td width="33%">
              <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr valign="top" align="center">
-                <td><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>"><img src="<?php echo Util::getImage($result['image']);?>" width="170"  alt="" /></a></td>
+                <td><p>&nbsp;</p>
+                <p><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>">  <img src="<?php echo Util::getImage($result['image']);?>" width="170"  alt="" /></a></p></td>
               </tr>
              <tr valign="top" align="center">
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>

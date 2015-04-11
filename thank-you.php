@@ -25,6 +25,11 @@
         <div class="con" align="center">Thank You</div>
         <div align="center" class="gr-font">Thank you for Visiting Walk Retail our Executive will contact you soon...</div>
       </div>
+      <div id="white-bg">
+          <div class="ad-box">
+            <?php include("thank-you-ad.php");?>
+          </div>
+        </div>
   </div>
 </div>
  <!-- middle panel end -->
