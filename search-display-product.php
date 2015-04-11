@@ -164,7 +164,7 @@ $(document).ready(function($){
     
      <!-- middle panel end -->
      here
-    <?php include("right-ad.php");?>
+    <?php include("ad-right.php");?>
     
      <!-- right panel end -->
      

@@ -107,7 +107,7 @@
     
     
     
-     <?php include("right-ad.php");?>
+     <?php include("ad-right.php");?>
     
      <!-- right panel end -->
      

@@ -391,7 +391,7 @@ $(document).ready(function() {
     
      
      
-    <?php include("desc-right-ad.php");?>
+    <?php include("ad-right-desc.php");?>
     
      <!-- right panel end -->
      
