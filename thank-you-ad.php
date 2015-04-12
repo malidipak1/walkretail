@@ -1,14 +1,9 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-          <td><?php if(!empty($_REQUEST['search'])) { 
-          	echo $_REQUEST['search']; 
-          } else if(!empty($_REQUEST['category'])) {
-          	echo Util::getCategoryName($_REQUEST['category']);
-          }
-          ?></td>
-          </tr>
+<?php 
+include_once 'DBUtil.php';
+$dbObj = new DBUtil();
+$arrResult = $dbObj->getAdsProductByPage('THANKS_PAGE');
+?><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr valign="middle"  align="center">
-          
              <?php 
              $count=1;
              foreach ($arrResult as $result) {?>
@@ -22,7 +17,7 @@
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>
               </tr>
               <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['min_price']?></td>
+                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['max_price']?></td>
               </tr>
              <tr valign="top" align="center">
                  <td valign="middle" class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?></td>
@@ -30,7 +25,7 @@
             </table>
             </td>
             <?php 
-            if($count%3 == 0) {?>
+            if($count%5 == 0) {?>
             	 </tr><tr valign="middle"  align="center">
             <?php }
              $count++; 
