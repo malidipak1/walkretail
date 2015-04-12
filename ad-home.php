@@ -18,7 +18,7 @@ $arrResult = $dbObj->getAdsProductByPage('HOME_PAGE');
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>
               </tr>
               <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['min_price']?></td>
+                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['max_price']?></td>
               </tr>
              <tr valign="top" align="center">
                  <td valign="middle" class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?></td>
