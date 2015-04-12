@@ -21,6 +21,13 @@ if(!isset($_SESSION['login']))
 <link rel="stylesheet" href="css/tabbed-style.css">
 <script src="js/tabbed.js" type="text/javascript"></script>
 <script src="js/tabbed-index.js" type="text/javascript"></script>
+<script type="text/javascript">
+function loadPage(){
+	window.location = "add-new-client.php?id=<?php echo $_REQUEST['supplier_id']?>";	
+}
+
+   </script>
+
 </head>
 <body>
 <table width="100%" height="100%" align="center" cellpadding="0" cellspacing="0"  bordercolor="#5181BF">
@@ -41,14 +48,11 @@ if(!isset($_SESSION['login']))
                                       </tr>
                                       
                                       <tr>
-									   <?php if(isset($_REQUEST['message'])){ ?>
-									   
-										<?php }?>	
-      	<td colspan="2" align="left" valign="top">
+	  	<td colspan="2" align="left" valign="top">
        <div class="wrapper">
     <ul class="tabs">
         <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Services</a></li>
-        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Profile</a></li>
+        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab" onclick="javascript:loadPage();">Profile</a></li>
         <li><a href="view-clients.php" class="tab"><span>Back To Client List</span></a></li>
          <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent3" class="tab"><span>Back To Client List</span></a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent4" class="tab">TAB 4</a></li>

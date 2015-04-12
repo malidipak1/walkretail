@@ -11,16 +11,18 @@ if(!empty($_POST)) {
 	
 	if(count($arrRecords) <= 0 || !empty($_POST['supplier_id'])) {
 		
+		$logo = Util::uploadImage("logo");
 		$gumasta_lic = Util::uploadDocument("licence");
 		$is_partner = Util::uploadDocument("partner");
 		$registration_lic = Util::uploadDocument("registration");
 		
+		$logo = (empty($gumasta_lic)) ? $arrRecords['logo'] : $logo;
 		$gumasta_lic = (empty($gumasta_lic)) ? $arrRecords['gumasta_lic'] : $gumasta_lic;
 		$registration_lic = (empty($registration_lic)) ? $arrRecords['registration_lic'] : $registration_lic;
 		$is_partner = (empty($is_partner)) ? $arrRecords['is_partner'] : $is_partner;
 		
 		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 0, $_POST['mobile'], $_POST['email'], $_POST['company'], 
-				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website']);
+				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], $logo);
 
 		header("Location: /thanksregistraion.php");
 	} else {
@@ -143,7 +145,7 @@ function MM_validateForm() { //v4.0
              <div class="supplier-panel-left">Gumasta Licence
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['gumasta_lic'];
-             if (file_exists($fileLic)) { ?>
+             if (file_exists($fileLic) && !empty($arrSupplier['gumasta_lic'])) { ?>
              	<a href="/download.php?fileName=<?php echo $arrSupplier['gumasta_lic'];?>">Download</a>
              <?php }?>
              </div>
@@ -153,7 +155,7 @@ function MM_validateForm() { //v4.0
              <div class="supplier-panel-left">Company if Registered
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
-             if (file_exists($fileLic)) { ?>
+             if (file_exists($fileLic) && !empty($arrSupplier['registration_lic'])) { ?>
              	<a href="/download.php?fileName=<?php echo $arrSupplier['registration_lic'];?>">Download</a>
              <?php }?>
              </div>
@@ -164,10 +166,20 @@ function MM_validateForm() { //v4.0
              or Propertier
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
-             if (file_exists($fileLic)) { ?>
+             if (file_exists($fileLic) && !empty($arrSupplier['is_partner'])) { ?>
              	<a href="/download.php?fileName=<?php echo $arrSupplier['is_partner'];?>">Download</a>
              <?php }?></div>
              <div class="supplier-panel-right"><input name="partner" type="file"  id="partner" /></div>
+          </div>
+          <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Logo
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['logo'];
+             if (file_exists($fileLic) && !empty($arrSupplier['logo'])) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['logo'];?>">Download</a>
+             <?php }?>
+             </div>
+             <div class="supplier-panel-right"><input name="logo" type="file"  /></div>
           </div>
            <div class="supplier-panel-bg">
              <div class="supplier-panel-left"><br />

@@ -108,7 +108,7 @@ $(document).ready(function() {
 			$imgNameKey = "image" . $i;
 			if(!empty($arrImage[$imgNameKey])) {
 		?>
-		<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo Util::getImage($arrImage[$imgNameKey])?>',largeimage: '<?php echo Util::getImage($arrImage[$imgNameKey])?>'}"><img src='<?php echo Util::getImage($arrImage[$imgNameKey])?>' width="50" ></a></li>
+		<li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo Util::getImage($arrImage[$imgNameKey])?>',largeimage: '<?php echo Util::getImage($arrImage[$imgNameKey])?>'}"><img src='<?php echo Util::getImage($arrImage[$imgNameKey])?>' width="50" ></a></li>
 		<?php }
 			}
 		?>

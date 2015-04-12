@@ -30,9 +30,6 @@ if(!isset($_SESSION['login']))
   	
   } 
   
-  
-  
-  
   if(!empty($_REQUEST['adv_id']))
   	$arrResult = $dbObj->getAdsProductByPage($_REQUEST['adv_id']);
   
@@ -72,11 +69,19 @@ if(!isset($_SESSION['login']))
 	  	<form name="advs" method="post" action="">
 <script language="javascript">function addRow(tableID){var table=document.getElementById(tableID);var rowCount=table.rows.length;var row=table.insertRow(rowCount);var colCount=table.rows[0].cells.length;for(var i=0;i<colCount;i++){var newcell=row.insertCell(i);newcell.innerHTML=table.rows[0].cells[i].innerHTML;switch(newcell.childNodes[0].type){case"text":newcell.childNodes[0].value="";break;case"checkbox":newcell.childNodes[0].checked=false;break;case"select-one":newcell.childNodes[0].selectedIndex=0;break;}}}
 function deleteRow(tableID){try{var table=document.getElementById(tableID);var rowCount=table.rows.length;for(var i=0;i<rowCount;i++){var row=table.rows[i];var chkbox=row.cells[0].childNodes[0];if(null!=chkbox&&true==chkbox.checked){if(rowCount<=1){alert("Cannot delete all the rows.");break;}
-table.deleteRow(i);rowCount--;i--;}}}catch(e){alert(e);}}</script>
+table.deleteRow(i);rowCount--;i--;}}}catch(e){alert(e);}}
+</script>
+<script language="javascript" type="text/javascript">
+function loadPage(val) {
+	if(val != '') {
+		window.location = 'ad-management.php?adv_id=' + val;
+	}
+}
+</script>
     <div style="float:right;"><input value="Add Row" onclick="addRow('dataTable')" type="button">
     <input value="Delete Row" onclick="deleteRow('dataTable')" type="button"></div>
     
-    <div><select name="adv_id" >
+    <div><select name="adv_id" onchange="javascript:loadPage(this.value);">
       <option value="">Select Page</option>
      <?php foreach ($arrAdv as $key => $val) {
      		$selected = "";
