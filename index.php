@@ -143,7 +143,7 @@ $(document).ready(function($){
       <div class="middle-inner">
         <div id="white-bg">
           <div class="ad-box">
-             <?php include("home-ad.php");?>
+             <?php include("ad-home.php");?>
 
           </div>
         </div>

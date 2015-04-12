@@ -67,14 +67,6 @@ if(!isset($_SESSION['login']))
 </tr>-->
 <tr>
     <td bgcolor="#3c7701"><strong>
-    <div class="white">Manage Contact Us</div>
-    </strong></td> 
-</tr>
-<tr>
-    <td class="menuleft" onclick="window.location.href='view_right_link.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">View Contact Us   </td>
-</tr>
-<tr>
-    <td bgcolor="#3c7701"><strong>
       <div class="white">Admin Options</div>
       </strong></td> 
 </tr>
