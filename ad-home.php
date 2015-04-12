@@ -9,7 +9,7 @@ $arrResult = $dbObj->getAdsProductByPage('HOME_PAGE');
              $count=1;
              foreach ($arrResult as $result) {?>
               <td width="33%">
-             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="prod-border" >
               <tr valign="top" align="center">
                 <td><p>&nbsp;</p>
                 <p><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>">  <img src="<?php echo Util::getImage($result['image']);?>" width="170"  alt="" /></a></p></td>

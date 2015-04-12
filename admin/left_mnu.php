@@ -87,19 +87,4 @@ if(!isset($_SESSION['login']))
 <tr>
    <td class="menuleft" onclick="window.location.href='logout.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Sign Out </td>
 </tr>
-
-<tr>
-    <td bgcolor="#3c7701"><strong>
-      <div class="white">Settings</div>
-      </strong></td> 
-</tr>
-<tr>
-    <td class="menuleft"  onclick="window.location.href='change_email_id.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Change Email Id</td>
-</tr>
-<tr>
-    <td class="menuleft"  onclick="window.location.href='change_password.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Change Password</td>
-</tr>
-<tr>
-   <td class="menuleft" onclick="window.location.href='logout.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Sign Out </td>
-</tr>
 </table>
