@@ -386,10 +386,6 @@ $(document).ready(function() {
     </div>
     
     <!-- left panel end -->
-    
-    
-    
-     
      
     <?php include("ad-right-desc.php");?>
     

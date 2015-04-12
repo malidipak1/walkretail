@@ -1,26 +1,38 @@
 <?php 
 include_once 'DBUtil.php';
+include_once 'Util.php';
 $dbObj = new DBUtil();
 $message = "";
+$arrSupplier = array();
 if(!empty($_POST)) {
 	
 	$arrParam = array('email' =>  $_POST['email']);
 	$arrRecords = $dbObj->getSupplier($arrParam);
 	
-	if(count($arrRecords) <= 0) {
+	if(count($arrRecords) <= 0 || !empty($_POST['supplier_id'])) {
+		
+		$gumasta_lic = Util::uploadDocument("licence");
+		$is_partner = Util::uploadDocument("partner");
+		$registration_lic = Util::uploadDocument("registration");
+		
+		$gumasta_lic = (empty($gumasta_lic)) ? $arrRecords['gumasta_lic'] : $gumasta_lic;
+		$registration_lic = (empty($registration_lic)) ? $arrRecords['registration_lic'] : $registration_lic;
+		$is_partner = (empty($is_partner)) ? $arrRecords['is_partner'] : $is_partner;
+		
 		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 0, $_POST['mobile'], $_POST['email'], $_POST['company'], 
-				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
+				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website']);
 
 		header("Location: /thanksregistraion.php");
 	} else {
 		$message = "Supplier is Already Exist. Contact us more details.";
 	}
 }
-
+$userNameReadOnly = "";
 if(!empty($_REQUEST['id'])) {
 	$arrParam = array('id' => $_REQUEST['id']);
 	$arrSupplier = $dbObj->getSupplier($arrParam);
 	$arrSupplier = $arrSupplier[0];
+	$userNameReadOnly = "readonly='readonly'";
 }
 //print_r($arrSupplier);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -64,35 +76,37 @@ function MM_validateForm() { //v4.0
 
 <div class="middle">
   <div class="middle-inner">
+  	<div class="error"><?php echo $message?></div>
     <div class="left-2-panel">
-     <form action="" method="POST" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
+     <form action="" enctype="multipart/form-data"  method="POST" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
      <div class="supp-con1">
         <div class="supp-left">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Name</div>
              <div class="supplier-panel-right">
-               <input name="name" type="text" class="field" id="name" />
+               <input name="name" type="text" class="field" id="name" value="<?php echo $arrSupplier['name']?>" />
+               <input type="hidden" name="supplier_id" value="<?php echo $arrSupplier['id']?>">
              </div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Name</div>
-             <div class="supplier-panel-right"><input name="company" type="text" class="field" id="company" /></div>
+             <div class="supplier-panel-right"><input name="company" value="<?php echo $arrSupplier['company']?>" type="text" class="field" id="company" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Email Id</div>
-             <div class="supplier-panel-right"><input name="email" type="text" class="field" id="email" /></div>
+             <div class="supplier-panel-right"><input name="email" <?php echo $userNameReadOnly?> type="text" class="field" id="email" value="<?php echo $arrSupplier['email']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Website (If any)</div>
-             <div class="supplier-panel-right"><input name="website" type="text" class="field" /></div>
+             <div class="supplier-panel-right"><input name="website" value="<?php echo $arrSupplier['website']?>" type="text" class="field" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Mobile No.</div>
-            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" maxlength="10" /></div>
+            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" value="<?php echo $arrSupplier['mobile']?>" id="mobile" maxlength="10" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
-             <div class="supplier-panel-right"><input name="address" type="text" class="field" id="address" /></div>
+             <div class="supplier-panel-right"><input name="address" value="<?php echo $arrSupplier['address']?>" type="text" class="field" id="address" /></div>
           </div>
           <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Category</div>
@@ -100,43 +114,60 @@ function MM_validateForm() { //v4.0
           </div>-->
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">User Name</div>
-             <div class="supplier-panel-right"><input name="user_name" type="text" class="field" id="user_name" /></div>
+             <div class="supplier-panel-right"><input value="<?php echo $arrSupplier['user_name']?>" name="user_name" <?php echo $userNameReadOnly?> type="text" class="field" id="user_name" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
-             <div class="supplier-panel-right"><input name="password" type="text" class="field" id="password" /></div>
+             <div class="supplier-panel-right"><input name="password" value="<?php echo $arrSupplier['password']?>" type="text" class="field" id="password" /></div>
           </div>
          
         </div>
         <div class="supp-right">
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">City</div>
-             <div class="supplier-panel-right"><input name="city" type="text" class="field" id="city" /></div>
+             <div class="supplier-panel-right"><input value="<?php echo $arrSupplier['city']?>" name="city" type="text" class="field" id="city" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
-             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" maxlength="6" /></div>
+             <div class="supplier-panel-right"><input name="zipcode" value="<?php echo $arrSupplier['zipcode']?>" type="text" class="field" id="zipcode" maxlength="6" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
-             <div class="supplier-panel-right"><input name="state" type="text" class="field" id="state" /></div>
+             <div class="supplier-panel-right"><input name="state" value="<?php echo $arrSupplier['state']?>" type="text" class="field" id="state" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
-             <div class="supplier-panel-right"><input name="pancard" type="text" class="field" id="pancard" /></div>
+             <div class="supplier-panel-right"><input name="pancard" value="<?php echo $arrSupplier['company_pan']?>" type="text" class="field" id="pancard" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Gumasta Licence</div>
-            <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
+             <div class="supplier-panel-left">Gumasta Licence
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['gumasta_lic'];
+             if (file_exists($fileLic)) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['gumasta_lic'];?>">Download</a>
+             <?php }?>
+             </div>
+            <div class="supplier-panel-right"><input name="licence"  type="file"  id="licence" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company if Registered</div>
-             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
+             <div class="supplier-panel-left">Company if Registered
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
+             if (file_exists($fileLic)) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['registration_lic'];?>">Download</a>
+             <?php }?>
+             </div>
+             <div class="supplier-panel-right"><input name="registration" type="file"  id="registration" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company is in Partnership<br />
-             or Propertier</div>
-             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
+             or Propertier
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
+             if (file_exists($fileLic)) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['is_partner'];?>">Download</a>
+             <?php }?></div>
+             <div class="supplier-panel-right"><input name="partner" type="file"  id="partner" /></div>
           </div>
            <div class="supplier-panel-bg">
              <div class="supplier-panel-left"><br />

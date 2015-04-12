@@ -1,5 +1,5 @@
 <?php
-
+include_once 'lib/ini_settings.php';
 include_once 'lib/config.php';
 include ("lib/class.db.mysql.php");
 class DBUtil {
@@ -155,10 +155,11 @@ class DBUtil {
 					 `company_pan`, `gumasta_lic`, `registration_lic`, `is_partner`, `website`) VALUES (:id, :name, :user_name, :password, :status,
 					 :mobile, :email, :company, :address, :city, :state, :zipcode, :company_pan, :gumasta_lic, :registration_lic, :is_partner, :website)";
 		} else {
-			$sql = "UPDATE `supplier` SET `name`=:name,`user_name`=:user_name,`password`=:password,`status`=:status,`mobile`=:mobile,`email`=:email,
-				`company`=:company,`address`=:address,`city`=:city,`state`=:state,`zipcode`=:zipcode,`company_pan`=:company_pan,
-				`gumasta_lic`=:gumasta_lic,`registration_lic`=:registration_lic,`is_partner`=:is_partner,`website`=:website WHERE `id`=:id";
+			$sql = "UPDATE `supplier` SET `name`=:name,`password`=:password,`status`=:status,`mobile`=:mobile,`company`=:company,`address`=:address,
+					`city`=:city,`state`=:state,`zipcode`=:zipcode,`company_pan`=:company_pan,`gumasta_lic`=:gumasta_lic,`registration_lic`=:registration_lic,
+					`is_partner`=:is_partner,`website`=:website WHERE `id`=:id and `user_name`=:user_name and `email`=:email";
 		}
+		
 		$arrData = array (
 				':id'  => $id,
 				':name'  => $name,

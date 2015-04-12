@@ -5,22 +5,43 @@ if(!isset($_SESSION['login']))
 	header('Location: index.php');
 	exit;
 }
+
 include_once '../DBUtil.php';
+include_once '../Util.php';
 
 $dbObj = new DBUtil();
 
+$message = "";
+
 if(!empty($_POST)) {
 
-	$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], 
-			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $_POST['gumasta_lic'], $_POST['registration_lic'], $_POST['is_partner'], $_POST['website']);
+	$arrParam = array('email' =>  $_POST['email']);
+	$arrRecords = $dbObj->getSupplier($arrParam);
+	
+	if(count($arrRecords) <= 0 || !empty($_POST['supplier_id'])) {
+	
+		$gumasta_lic = Util::uploadDocument("licence");
+		$is_partner = Util::uploadDocument("partner");
+		$registration_lic = Util::uploadDocument("registration");
+	
+		$gumasta_lic = (empty($gumasta_lic)) ? $arrRecords['gumasta_lic'] : $gumasta_lic;
+		$registration_lic = (empty($registration_lic)) ? $arrRecords['registration_lic'] : $registration_lic;
+		$is_partner = (empty($is_partner)) ? $arrRecords['is_partner'] : $is_partner;
+	
+		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], 
+			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website']);
 
-	header("Location: view-clients.php");
+		header("Location: view-clients.php");
+	} else {
+		$message = "Supplier is Already Exist. Contact us more details.";
+	}
 }
-
+$userNameReadOnly = "";
 if(!empty($_REQUEST['id'])) {
 	$arrParam = array('id' => $_REQUEST['id']);
 	$arrSupplier = $dbObj->getSupplier($arrParam);
 	$arrSupplier = $arrSupplier[0];
+	$userNameReadOnly = "readonly='readonly'";	
 }
 //print_r($arrSupplier);
 ?>
@@ -44,7 +65,7 @@ if(!empty($_REQUEST['id'])) {
                                     
                                     <td width="182" align="left" valign="top" bgcolor="#D6E7F6" class="red" style="padding:0px; margin:0px;"><?php include('left_mnu.php');?></td>
                                     <td width="100%" align="center" valign="top" bgcolor="" class="red">
-                                    <form action="" method="post">
+                                    <form action="" method="post" enctype="multipart/form-data"  >
                                     <table width="100%" border="0"  align="center" cellpadding="0" cellspacing="0"  bordercolor="#000000">
                                       <tr>
                                         <td valign="middle" height="20"  align="left"><table width="767" border="0" cellspacing="0" cellpadding="0">
@@ -56,7 +77,14 @@ if(!empty($_REQUEST['id'])) {
                                         </table></td>
                                       </tr>
                                       <tr>
-                                        <td bordercolor="#FFFFFF"  valign="top" align="center"><table width="100%" border="0" cellspacing="4" cellpadding="0">
+                                      <td class="error"><?php echo $message?></td>
+                                      </tr>
+                                      
+                                      <tr>
+                                        <td bordercolor="#FFFFFF"  valign="top" align="center">
+                                        
+                                        
+                                        <table width="100%" border="0" cellspacing="4" cellpadding="0">
                                               
                                               <tr>	
                                               <td valign="top" >
@@ -83,7 +111,7 @@ if(!empty($_REQUEST['id'])) {
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Mobile</div>
-            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" id="mobile" value="<?php echo $arrSupplier['mobile']?>" /></div>
+            <div class="supplier-panel-right"><input name="mobile" type="text" maxlength="10" class="field" id="mobile" value="<?php echo $arrSupplier['mobile']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
@@ -95,7 +123,7 @@ if(!empty($_REQUEST['id'])) {
           </div>-->
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">User Name</div>
-             <div class="supplier-panel-right"><input name="user_name" type="text" class="field" id="user_name" value="<?php echo $arrSupplier['user_name']?>" /></div>
+             <div class="supplier-panel-right"><input name="user_name" <?php echo $userNameReadOnly?> type="text" class="field" id="user_name" value="<?php echo $arrSupplier['user_name']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
@@ -110,7 +138,7 @@ if(!empty($_REQUEST['id'])) {
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Zip Code</div>
-             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" id="zipcode" value="<?php echo $arrSupplier['zipcode']?>" /></div>
+             <div class="supplier-panel-right"><input name="zipcode" type="text" class="field" maxlength="6" id="zipcode" value="<?php echo $arrSupplier['zipcode']?>" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">State</div>
@@ -118,7 +146,7 @@ if(!empty($_REQUEST['id'])) {
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company PanCard</div>
-             <div class="supplier-panel-right"><input name="company_pan" type="text" class="field" id="company_pan" value="<?php echo $arrSupplier['company_pan']?>" /></div>
+             <div class="supplier-panel-right"><input name="company_pan" type="text" maxlength="10" class="field" id="company_pan" value="<?php echo $arrSupplier['company_pan']?>" /></div>
           </div>
           
           <div class="supplier-panel-bg">
@@ -133,19 +161,37 @@ if(!empty($_REQUEST['id'])) {
              	</select>
              </div>
           </div>
-          <!--<div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Gumasta Licence</div>
-            <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
+          <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Gumasta Licence
+             <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['gumasta_lic'];
+             if (file_exists($fileLic)) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['gumasta_lic'];?>">Download</a>
+             <?php }?>
+             </div>
+            <div class="supplier-panel-right"><input name="licence" type="file"  id="licence" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company if Registered</div>
-             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
+             <div class="supplier-panel-left">Company if Registered
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
+             if (file_exists($fileLic)) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['registration_lic'];?>">Download</a>
+             <?php }?>
+             </div>
+             <div class="supplier-panel-right"><input name="registration" type="file"  id="registration" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company is in Partnership<br />
-             or Propertier</div>
-             <div class="supplier-panel-right"><input name="Attachment[]" type="file"  id="Attachment[]" /></div>
-          </div>-->
+             or Propertier
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
+             if (file_exists($fileLic)) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['is_partner'];?>">Download</a>
+             <?php }?>
+             </div>
+             <div class="supplier-panel-right"><input name="partner" type="file"  id="partner" /></div>
+          </div>
          <!-- <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Make Payment Online</div>
              <div class="supplier-panel-right"><input name="make-payment-online" type="text" class="field" /></div>

@@ -29,6 +29,19 @@ class Util {
 		return $image;
 	}
 	
+	public static function uploadDocument($fileName) {
+		$docName = "";
+		if(!empty($_FILES[$fileName]["tmp_name"])) {
+			$docName = date('Ymd_Hms') . "_" . basename($_FILES[$fileName]["name"]);
+			$target_file = UPLOAD_DOCS_DIR . $docName;
+			if (!move_uploaded_file($_FILES[$fileName]['tmp_name'], $target_file)) {
+				$docName = "";
+			}
+		}
+		return $docName;
+	}
+	
+	
 	public static function getMailHeader() {
 		$headers = 'From: enquiry@walkretail.com' . "\r\n" .
 		    'Reply-To: enquiry@walkretail.com' . "\r\n".
@@ -79,7 +92,7 @@ class Util {
 	
 	
 	public static function getImage($image) {
-		$image = "/supplier/image/" . $image;
+		$image = DOWNLOAD_IMAGE_DIR . $image;
 		return $image;	
 	}
 	

@@ -163,7 +163,7 @@ $(document).ready(function($){
       </div>
     
      <!-- middle panel end -->
-     here
+    
     <?php include("ad-right.php");?>
     
      <!-- right panel end -->
