@@ -90,9 +90,7 @@ if(!empty($_REQUEST['id'])) {
                                       
                                       <tr>
                                         <td bordercolor="#FFFFFF"  valign="top" align="center">
-                                        
-                                        
-                                        <table width="100%" border="0" cellspacing="4" cellpadding="0">
+                                         <table width="100%" border="0" cellspacing="4" cellpadding="0">
                                               
                                               <tr>	
                                               <td valign="top" >

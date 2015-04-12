@@ -7,7 +7,7 @@ if(!isset($_SESSION['login']))
 }
 require_once '../DBUtil.php';
 $dbObj = new DBUtil();
-if(!empty($_POST)) {
+if(!empty($_POST) && !empty($_POST['catname'])) {
 	$dbObj->addMenu($_POST['catname'], $_POST['parent_id'],$_POST['status'], $_POST['catid']);
 }
 
@@ -30,12 +30,13 @@ $arrCat = Util::getParentCategoryList();
 function validate()
 {
 	var doc=document.form1;
-	if(doc.txtcat.value=="")
+	if(doc.catname.value=="")
 	{
-			alert("Please enter Sub category name.");
-			doc.txtcat.focus();
-			return false;
+		alert("Please enter category name.");
+		doc.catname.focus();
+		return false;
 	}
+	return true;
 }
 </script>
 </head>
@@ -50,7 +51,7 @@ function validate()
 	 <td width="17" align="left" valign="top" bgcolor="#b5f971" class="red" style="padding:0px; margin:0px;"><?php include('left_mnu.php');?></td>
                                     
           <td width="1392" align="center" valign="top" bgcolor="" class="red">
-	<form method="post"  name="form1" id="form1" onSubmit="return validate()">
+	<form method="post"  name="form1" id="form1" onsubmit="return validate();">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td height="40"><span class="head_ing">&nbsp;&nbsp;<strong>&nbsp;Add Menus</strong></span></td>
