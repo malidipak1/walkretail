@@ -15,26 +15,11 @@ if(!isset($_SESSION['login']))
     </strong></td> 
 </tr>
 <tr>
-    <td class="menuleft"  onclick="window.location.href='main-slider.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Main Slider</td>
-</tr>
-<tr>
-<td class="menuleft"  onclick="window.location.href='premium-ad.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Premium Ad</td>
+  <td class="menuleft"  onclick="window.location.href='premium-ad.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Premium Ad</td>
 </tr>
 
 <tr>
-<td class="menuleft"  onclick="window.location.href='homepage-ad.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Home Page Ad</td>
-</tr>
-
-<tr>
-<td class="menuleft"  onclick="window.location.href='search-page-ad.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Search Page Ad</td>
-</tr>
-
-<tr>
-<td class="menuleft"  onclick="window.location.href='product-discription-ad.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Product Discription Ad</td>
-</tr>
-
-<tr>
-<td class="menuleft"  onclick="window.location.href='congratulation-ad.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Congratulation Ad</td>
+<td class="menuleft"  onclick="window.location.href='ad-management.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Ad Management</td>
 </tr>
 
 <tr >
