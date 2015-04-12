@@ -78,7 +78,7 @@ if(!isset($_SESSION['login']))
                                           
                                           
                                           <tr>
-                                            <td  height="33" colspan="10" align="center" bgcolor="#3c7701"><input name="add" type="button" value="Add new Record"  onClick="navigate('add_new_team.php');" /></td>
+                                            <td  height="33" colspan="10" align="center" bgcolor="#3c7701"><input name="add" type="button" value="Add new Record"  onClick="navigate('add-new-client.php');" /></td>
                                           </tr>
                                           <!-----------------------End your loop here---------------------------->
                                         </table>
