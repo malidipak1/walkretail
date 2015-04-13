@@ -3,12 +3,12 @@ include_once 'DBUtil.php';
 $dbObj = new DBUtil();
 $arrResult = $dbObj->getAdsProductByPage('HOME_PAGE');
 ?>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
           <tr valign="middle"  align="center">
              <?php 
              $count=1;
              foreach ($arrResult as $result) {?>
-              <td width="33%">
+              <td width="36%" class="border">
              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="prod-border" >
               <tr valign="top" align="center">
                 <td><p>&nbsp;</p>

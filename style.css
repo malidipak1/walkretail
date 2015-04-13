@@ -38,6 +38,8 @@ h3{color:#000000; font-size:25px; padding:10px 0;}
 .ad-box li div, .inner-ad-box li div{ padding:0; float:left; margin:10px 0 10px 0;}
 .ad-box li div span, .inner-ad-box span{padding:5px 0; display:block;}
 .ad-box li div span p, .inner-ad-box span p{padding:5px 0; display:inline;}
+.border{background:none; border:1px solid #ffffff;}
+.border:hover{background:none; border:1px solid #d8d6d6;}
 .v-height{height:250px; width:227px;}
 .v-height img{vertical-align:central;}
 .g-text{color:#403f3f; font-size:12px; font-weight:normal; text-align:center;}
