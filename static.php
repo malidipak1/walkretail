@@ -1,16 +1,19 @@
-<?php 
+<?php
 include_once 'DBUtil.php';
 $dbObj = new DBUtil();
 
-	$arrDetails = $dbObj->getStaticPageByPage('CONACT_US');
+$arrPage = array('ABOUT_US' => 'About Us', 'CONTACT_US' => 'Contact Us','TERMS' => 'Terms & Condition',
+		'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery','HOW_WORKS' => 'How It Works');
+if(array_key_exists($_REQUEST['page'], $arrPage)){
+	$arrDetails = $dbObj->getStaticPageByPage($_REQUEST['page']);
 	$arrDetails = $arrDetails[0];
-
+}
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Walk Retail</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -21,34 +24,28 @@ $dbObj = new DBUtil();
      </div>
   </div>
 </div>
-<?php include("header.php");?>
-
+<div id="tgreen-bg">
+  <div class="middle">
+     <div class="middle-inner">
+       <span class="logo"><a href="index.php"><img src="/images/logo.jpg" alt="" /></a></span>
+     <!-- <span class="supplier"><a href="supplier-registration.php"><img src="images/supplier.jpg" width="173" height="87" alt="" /></a></span>-->
+     </div>
+  </div>
+</div>
 
 <!-- end green bg -->
 
 <div class="middle">
   <div class="middle-inner">
-      <h3>&nbsp;</h3>
-   	<?php echo $arrDetails['page_description']?>
-<br /><br />
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><h4>Google Map<br/></h4></td>
-  </tr>
-   <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="google-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d942.6997728436723!2d72.99617900000001!3d19.072569000000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14a880c27d3%3A0xde9846b24af80487!2swalkretail!5e0!3m2!1sen!2sin!4v1427888687500" width="100%" height="300" frameborder="0" style="border:0"></iframe></td>
-  </tr>
-</table>
-<br /><br />
-
+  
+    <h3><?php echo $arrDetails['page_title']?></h3>
+   
+   <?php echo $arrDetails['page_description']?>
+   <p>&nbsp;&nbsp;</p>
+   <p>&nbsp;&nbsp;</p>
   </div>
 </div>
  <!-- middle panel end -->
- 
- 
  
  <!-- light gray bg end -->
  

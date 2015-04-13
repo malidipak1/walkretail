@@ -7,9 +7,9 @@
         <li><br />
           <h2>Company</h2>
           <ul>
-            <li style="background:none;"><a href="about-us.php"> About US </a></li>
-            <li><a href="terms-and-conditions.php">Terms & Conditions </a></li>
-            <li><a href="privacy-policy.php">Privacy Policy</a></li>
+            <li style="background:none;"><a href="/static/ABOUT_US"> About US </a></li>
+            <li><a href="/static/TERMS">Terms & Conditions </a></li>
+            <li><a href="/static/PRIVACY">Privacy Policy</a></li>
            </ul>
         </li>
 
@@ -18,7 +18,7 @@
           <ul>
             <li style="background:none;"><a href="contact-us.php">Contact Us </a><br /> </li>
             <!--<li style="background:none;"><a href="#">How it Works </a><br /> </li>-->
-            <li style="background:none;"><a href="faq.php">FAQ's </a><br /> </li>
+            <li style="background:none;"><a href="/static/FAQS">FAQ's </a><br /> </li>
           </ul>
           
           <h2><br />Payment Options</h2>

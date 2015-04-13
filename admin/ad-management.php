@@ -102,8 +102,7 @@ function loadPage(val) {
         </tr>
         <?php } else {
         	foreach ($arrResult as $result) {
-        		
-        ?>
+         ?>
         <tr>
             <td><input name="chk" type="checkbox"></td>
             <td><input name="prodid[]" type="text" value="<?php echo $result['prod_id']?>" /></td>

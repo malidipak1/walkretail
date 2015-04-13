@@ -55,6 +55,39 @@ class DBUtil {
 		return $whereClause;
 	}
 	
+	public function addStaticPage($pageId,$pageTitle,$desc,$pageCode) {
+		$sql = "";
+		if ($pageId == 0) {
+			$sql = "INSERT INTO `static_page`(`page_id`, `page_title`, `page_description`, `page_code`) VALUES (:page_id,:page_title,:page_description,:page_code)";
+		} else {
+			$sql = "UPDATE `static_page` SET `page_title`=:page_title,`page_description`=:page_description
+					WHERE `page_code`=:page_code AND `page_id`=:page_id";
+		}
+		$arrData = array (
+				':page_id'  => $pageId,
+				':page_title' => $pageTitle,
+				':page_description' => $desc,
+				':page_code' => $pageCode
+		);
+		return $this->executeUpdate($sql, $arrData);
+	}
+	
+	
+	public function getStaticPageByPage($pageTitle = 'ABOUT_US') {
+	
+		$arrParam = array('page_code' => $pageTitle);
+	
+		$sql = "select * from static_page where " . $this->getWhereClause($arrParam);
+		return $this->getAll($sql);
+	}
+	
+	public function getStaticPage($arrSearch = array()) {
+	
+		$sql = "SELECT * FROM static_page WHERE " . $this->getWhereClause($arrSearch);
+		return $this->getAll($sql);
+	}
+	
+	
 	public function getCategories($arrSearch = array()) {
 		$sql = "SELECT * FROM product_categories WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
