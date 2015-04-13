@@ -67,6 +67,14 @@ if(!isset($_SESSION['login']))
 </tr>-->
 <tr>
     <td bgcolor="#3c7701"><strong>
+    <div class="white">Manage Categories</div>
+    </strong></td> 
+</tr>
+<tr>
+    <td class="menuleft" onclick="window.location.href='menu.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add Categories</td>
+</tr>
+<tr>
+    <td bgcolor="#3c7701"><strong>
       <div class="white">Admin Options</div>
       </strong></td> 
 </tr>
