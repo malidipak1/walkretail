@@ -2,8 +2,6 @@
 include_once 'DBUtil.php';
 $dbObj = new DBUtil();
 
-$arrPage = array('ABOUT_US' => 'About Us', 'CONTACT_US' => 'Contact Us','TERMS' => 'Terms & Condition',
-		'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery','DISCLAIMER' => 'Disclaimer');
 
 	$arrDetails = $dbObj->getStaticPageByPage('TERMS');
 	$arrDetails = $arrDetails[0];

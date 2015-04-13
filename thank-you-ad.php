@@ -1,5 +1,6 @@
 <?php 
 include_once 'DBUtil.php';
+include_once 'Util.php';
 $dbObj = new DBUtil();
 $arrResult = $dbObj->getAdsProductByPage('THANKS_PAGE');
 ?><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -11,7 +12,7 @@ $arrResult = $dbObj->getAdsProductByPage('THANKS_PAGE');
              <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr valign="top" align="center">
                 <td><p>&nbsp;</p>
-                <p><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>">  <img src="<?php echo Util::getImage($result['image']);?>" width="170"  alt="" /></a></p></td>
+                <p><a href="product-discription.php?prod_id=<?php echo $result['prod_id']?>"><img src="<?php echo Util::getImage($result['image'])?>" width="170"  alt="" /></a></p></td>
               </tr>
              <tr valign="top" align="center">
                 <td height="40" valign="middle" class="pro-head"><?php echo $result['prod_name']?></td>

@@ -73,12 +73,18 @@ class Util {
 	}
 	
 	public static function enquiryMail ($type, $arrPost) {
+		$category = implode(",", $arrPost['category']);
 		
 		$strFile = Util::readMailFile($type);
 		
 		foreach ($arrPost as $key => $value) {
 			$search = "{" . strtoupper ($key) . "}";
-			$strFile = str_replace($search, $value, $strFile);
+			
+			if($key == 'category') {
+				$strFile = str_replace($search, $category, $strFile);
+			} else {
+				$strFile = str_replace($search, $value, $strFile);
+			}
 		}
 		
 		if("quote" == $type ) {

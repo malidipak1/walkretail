@@ -73,6 +73,9 @@ function MM_validateForm() { //v4.0
   <div class="buy-get-heading">Please Fill For to Get Quotation</div>
     <div class="form-con1">
        <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
+        <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
+                  <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
+                  <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
       <div class="form-pad1">
            
            
@@ -111,7 +114,7 @@ function MM_validateForm() { //v4.0
                      </span> 
           </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Sub-Category</span> <span class="poperty-panel-right">
-                  <select id="category" name="category" multiple="multiple"> 
+                  <select id="category" name="category[]" multiple="multiple"> 
 	             	<option value="0">-SELECT-</option>
 	                   	<?php 
 	                   	$arrParent = Util::getCategoryList();
