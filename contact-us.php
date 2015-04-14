@@ -2,7 +2,7 @@
 include_once 'DBUtil.php';
 $dbObj = new DBUtil();
 
-	$arrDetails = $dbObj->getStaticPageByPage('CONACT_US');
+	$arrDetails = $dbObj->getStaticPageByPage('CONTACT_US');
 	$arrDetails = $arrDetails[0];
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
