@@ -55,7 +55,7 @@ if(!isset($_SESSION['login']))
     <td class="menuleft"  onclick="window.location.href='view_static_page.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">View Pages</td>
 </tr>
 <tr>
-<td class="menuleft"  onclick="window.location.href='add_static_page.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add New Page</td>
+<td class="menuleft"  onclick="window.location.href='add_static_page.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Edit Pages</td>
 </tr>
 <!--<tr>
     <td bgcolor="#3270B4"><strong>
