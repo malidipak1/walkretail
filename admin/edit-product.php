@@ -202,10 +202,10 @@ $arrParent = Util::getCategoryList();
             <div class="supplier-panel-left1">Description</div>
              <div class="supplier-panel-right1"><textarea name="desc" id="case_study" cols="80" rows="10" style="width:750px; height:400px;"><?php echo $arrProduct['desc']?></textarea></div>
         </div>
-          <div class="supplier-panel-bg1">
+          <!--<div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Terms</div>
              <div class="supplier-panel-right1"><textarea name="TOS" cols="42" rows="" style="width:750px; height:100px;"><?php echo $arrProduct['TOS']?></textarea></div>
-          </div>
+          </div>-->
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Category</div>
              <div class="supplier-panel-right1">
