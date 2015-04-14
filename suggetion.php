@@ -1,23 +1,4 @@
-<?php 
-include_once 'DBUtil.php';
-include_once 'Util.php';
-$dbObj = new DBUtil();
-
-$message = "";
-if(!empty($_POST)) {
-	Util::enquiryMail("quote", $_POST);
-	$message = "Thank you for your quotation request. We will get back to you soon.";
-	header("Location: /thank-you.php?ref=quote");
-	exit();
-}
-
-if(!empty($_REQUEST['prod_id'])) {
-	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
-	$arrResult = $dbObj->getProducts($arrParam);
-	$arrResult = $arrResult[0];
-}
-$image = Util::getImage($arrResult['image']);
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
