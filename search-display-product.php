@@ -102,7 +102,7 @@ $(document).ready(function($){
       
       <!-- producct start here-->
       <div class="spro">
-      <div style="height:50px;"></div>
+      <div style="height:10px;"></div>
       <?php if(count($arrResult) <= 0) {
       if(!empty($_REQUEST['search'])) { 
           	echo "Products are coming soon!"; 
@@ -112,7 +112,7 @@ $(document).ready(function($){
        } else {?>
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-          <td><?php if(!empty($_REQUEST['search'])) { 
+          <td style="padding:0 0 10px 60px; font-size:16px; color:#4c9209; font-family:'Century Gothic';"><?php if(!empty($_REQUEST['search'])) { 
           	echo $_REQUEST['search']; 
           } else if(!empty($_REQUEST['category'])) {
           	echo Util::getCategoryName($_REQUEST['category']);
