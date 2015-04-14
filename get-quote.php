@@ -88,10 +88,10 @@ function MM_validateForm() { //v4.0
     <td><span class="head"><?php echo $arrResult['prod_name']?></span></td>
   </tr>
   <tr>
-    <td><span class="price1">Price &#8377; <?php echo $arrResult['min_price']?>/- &#8377; <?php echo $arrResult['max_price']?></span></td>
+    <td><span style="color:#333;">Price Range: &#8377; <?php echo $arrResult['min_price']?>/- &#8377; <?php echo $arrResult['max_price']?>/-</span></td>
   </tr>
   <tr>
-    <td><span>Order Range <?php echo $arrResult['min_quantity']?>&nbsp; &ndash;  <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span></td>
+    <td><span>Order Range : <?php echo $arrResult['min_quantity']?>&nbsp; &ndash;  <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
