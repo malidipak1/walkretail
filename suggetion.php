@@ -53,7 +53,7 @@ function MM_validateForm() { //v4.0
   	<div align="center" style="color: red"></div>
   <div class="buy-get-heading">Please give Your Suggetion</div>
     <div class="form-con1">
-       <form action="contact_submit.php" method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
+       <form action="contact_submit.php" method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','suggestions','','R');return document.MM_returnValue">
        
       <div class="form-pad1">
            
@@ -74,7 +74,7 @@ function MM_validateForm() { //v4.0
                 <div class="property-panel-bg"> 
                   <span class="property-panel-left">Your Suggetion</span> 
                      <span class="poperty-panel-right">
-                     <textarea name="address" rows="4" class="sell3" id="address"></textarea>
+                     <textarea name="suggestions" rows="4" class="sell3" id="suggestions"></textarea>
                      </span> 
           </div>
                 
@@ -95,7 +95,7 @@ function MM_validateForm() { //v4.0
                     <div class="poperty-panel-right">
     <table width="50%" border="0" cellspacing="10" cellpadding="0">
       <tr>
-        <td align="center" valign="middle"><input type="submit" name="button" id="button" value="Submit" /></td>
+        <td align="center" valign="middle"><input type="submit" name="submit" id="submit" value="Submit" /></td>
       </tr>
     </table>
 </div> 
