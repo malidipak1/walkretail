@@ -33,19 +33,6 @@ if(!isset($_SESSION['login']))
 <tr>
     <td class="menuleft"  onclick="window.location.href='add-new-client.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Ada New Client</td>
 </tr>
-
-<tr >
-    <td bgcolor="#3c7701"><strong>
-    <div class="white">Manage Menus</div>
-    </strong></td> 
-</tr>
-<tr>
-    <td class="menuleft"  onclick="window.location.href='view_menu.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">View Menu</td>
-</tr>
-
-<tr>
-<td class="menuleft"  onclick="window.location.href='add_menu.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add New Menus</td>
-</tr>
 <tr >
     <td bgcolor="#3c7701"><strong>
     <div class="white">Manage Pages</div>
