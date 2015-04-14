@@ -14,6 +14,18 @@ if(!isset($_SESSION['login']))
    		$dbObj->deleteProducts($_REQUEST['prod_id']);
    		header("Location: product-list.php");
    }
+   $arrCatList = array();
+   $arrSupplierList = array();
+   $arrCat = $dbObj->getCategories();
+   foreach ($arrCat as $cat) {
+   		$arrCatList[$cat['catid']] = $cat['catname'];
+   }
+   
+   $arrSupplier = $dbObj->getSupplier();
+   foreach ($arrSupplier as $supplier) {
+   		$arrSupplierList[$supplier['id']] = $supplier['name'];
+   }
+   
    $arrProduct = $dbObj->getProducts();
   ?>
 <html>
@@ -41,7 +53,7 @@ function deleteCat(val) {
                                     <td width="182" align="left" valign="top" bgcolor="#4c9309" class="red" style="padding:0px; margin:0px;"><?php include('left_mnu.php');?></td>
                                     <td width="100%" align="left" valign="top" bgcolor="" class="red"><table width="100%" border="0"  align="center" cellpadding="0" cellspacing="0"  bordercolor="#111111">
                                       <tr>
-                                        <td height="57" colspan="2" align="left"  valign="middle" class="head_ing">Clients List</td>
+                                        <td height="57" colspan="2" align="left"  valign="middle" class="head_ing">Product List</td>
                                       </tr>
                                       <tr>
                                         <td colspan="2" align="left"  valign="top" class="red">                                            </td>
@@ -65,8 +77,8 @@ function deleteCat(val) {
                                           <?php foreach ($arrProduct as $prod) {?>
                                            <tr align="center">	
                                             
-                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $prod['supplier_id']?></td>
-                               				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['category']?></td>
+                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $arrSupplierList[$prod['supplier_id']]?></td>
+                               				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $arrCatList[$prod['category']]?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_id']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">
