@@ -1,23 +1,4 @@
-<?php 
-include_once 'DBUtil.php';
-include_once 'Util.php';
-$dbObj = new DBUtil();
-
-$message = "";
-if(!empty($_POST)) {
-	Util::enquiryMail("quote", $_POST);
-	$message = "Thank you for your quotation request. We will get back to you soon.";
-	header("Location: /thank-you.php?ref=quote");
-	exit();
-}
-
-if(!empty($_REQUEST['prod_id'])) {
-	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
-	$arrResult = $dbObj->getProducts($arrParam);
-	$arrResult = $arrResult[0];
-}
-$image = Util::getImage($arrResult['image']);
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,13 +50,10 @@ function MM_validateForm() { //v4.0
 
 <div class="middle">
   <div class="middle-inner">
-  	<div align="center" style="color: red"><?php echo $message?></div>
+  	<div align="center" style="color: red"></div>
   <div class="buy-get-heading">Please Fill For to Request Quotation</div>
     <div class="form-con1">
-       <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
-        <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
-                  <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
-                  <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
+       <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">        
       <div class="form-pad1">
            
            
@@ -128,9 +106,8 @@ function MM_validateForm() { //v4.0
                     <div class="poperty-panel-right">
     <table width="50%" border="0" cellspacing="10" cellpadding="0">
     <tr>
-        <td><input name="submit" type="submit" class="get-quote-btn-inn"  style="text-align:center" value="." src="images/get-quotation.png"/></td>
-        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/submit.png" alt="" /></a></td>
-    </tr>
+        <td align="center" valign="middle"><input type="submit" name="button" id="button" value="Submit" /></td>
+        </tr>
     </table>
 </div> 
           </div>

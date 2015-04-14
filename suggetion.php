@@ -50,13 +50,11 @@ function MM_validateForm() { //v4.0
 
 <div class="middle">
   <div class="middle-inner">
-  	<div align="center" style="color: red"><?php echo $message?></div>
+  	<div align="center" style="color: red"></div>
   <div class="buy-get-heading">Please give Your Suggetion</div>
     <div class="form-con1">
        <form action="contact_submit.php" method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
-        <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
-                  <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
-                  <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
+       
       <div class="form-pad1">
            
            
@@ -96,10 +94,9 @@ function MM_validateForm() { //v4.0
                   <span class="property-panel-left">&nbsp;</span> 
                     <div class="poperty-panel-right">
     <table width="50%" border="0" cellspacing="10" cellpadding="0">
-    <tr>
-        <td><input name="submit" type="submit" class="get-quote-btn-inn"  style="text-align:center" value="." src="images/get-quotation.png"/></td>
-        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/submit.png" alt="" /></a></td>
-    </tr>
+      <tr>
+        <td align="center" valign="middle"><input type="submit" name="button" id="button" value="Submit" /></td>
+      </tr>
     </table>
 </div> 
           </div>
