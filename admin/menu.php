@@ -19,6 +19,9 @@ if(!empty($_REQUEST['catid'])) {
 
 require_once '../Util.php';
 $arrCat = Util::getParentCategoryList();
+
+
+
 ?>
 <html>
 <head>

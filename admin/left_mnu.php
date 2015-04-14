@@ -71,6 +71,10 @@ if(!isset($_SESSION['login']))
     </strong></td> 
 </tr>
 <tr>
+    <td class="menuleft"  onclick="window.location.href='menulist.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">View Categories</td>
+</tr>
+
+<tr>
     <td class="menuleft" onclick="window.location.href='menu.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add Categories</td>
 </tr>
 <tr>
