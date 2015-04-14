@@ -127,8 +127,8 @@ $(document).ready(function($){
      <!-- middle panel end -->
      
     <div class="right-panel">
-      <span><a href="request-quote.php"><img src="images/quote.jpg" width="250" height="163" alt="" /></a></span>
-      <span><img src="images/offer.jpg" width="250" height="145" alt="" /></span>
+      <span><a href="request-quote.php"><a href="request-quote.php" target="_blank"><img src="images/quote.jpg" width="250" height="163" alt="" border="0" /></a></span>
+      <span><a href="suggetion.php" target="_blank" ><img src="images/offer.jpg" width="250" height="145" alt="" border="0" /></a></span>
  
     <img src="images/side-img.jpg" width="248" height="167" border="0" alt="" /> </div>
     

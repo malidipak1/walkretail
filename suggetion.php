@@ -72,7 +72,7 @@ function MM_validateForm() { //v4.0
   	<div align="center" style="color: red"><?php echo $message?></div>
   <div class="buy-get-heading">Please give Your Suggetion</div>
     <div class="form-con1">
-       <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
+       <form action="contact_submit.php" method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
         <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
                   <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
                   <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
