@@ -12,7 +12,7 @@ ul{list-style:none;}
 
 /* Vertical Mega Menu Styles */
 .mega-menu{
-font: bold 13px Arial, sans-serif; 
+font: 13px "Century Gothic"; 
 line-height: 16px; 
 background: #f6f6f5;
 position: relative; /* Required */
@@ -79,7 +79,6 @@ padding: 5px 5px 5px 15px;
 margin-bottom: 5px; 
 background: #E88221; 
 text-transform: uppercase; 
-font-weight: bold; 
 color: #fff; 
 }
 .mega-menu li .sub li.mega-hdr a.mega-hdr-a:hover {

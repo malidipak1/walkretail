@@ -16,7 +16,7 @@ h2{color:#FFF; padding:0 0 10px 0; font-size:1.55em; font-weight:normal;}
 h3{color:#000000; font-size:25px; padding:10px 0;}
 .logo{width:970px; float:left; padding:20px 0 0 0;}
 .supplier{float:right; width:230px;}
-#cat-bg{ background:#f6f6f5; font-weight:bold;  color:#4c9209; font-size:16px; padding:10px 20px;}
+#cat-bg{ background:#f6f6f5; font-family:"Century Gothic";  color:#4c9209; font-size:16px; padding:10px 20px;}
 .list{}
 .list ul{ margin:0; padding:0; list-style-type:none;}
 .list li{ line-height:30px; background:url(images/arrow.jpg) no-repeat 0 10px; padding:0 0 0 15px;}
