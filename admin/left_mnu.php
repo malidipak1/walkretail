@@ -66,6 +66,14 @@ if(!isset($_SESSION['login']))
 </tr>
 <tr>
     <td bgcolor="#3c7701"><strong>
+    <div class="white">Manage Products</div>
+    </strong></td> 
+</tr>
+<tr>
+    <td class="menuleft" onclick="window.location.href='manage-products.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Manage Products</td>
+</tr>
+<tr>
+    <td bgcolor="#3c7701"><strong>
       <div class="white">Admin Options</div>
       </strong></td> 
 </tr>
