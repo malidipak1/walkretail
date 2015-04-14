@@ -8,7 +8,7 @@ $arrResult = $dbObj->getAdsProductByPage('HOME_PAGE');
              <?php 
              $count=1;
              foreach ($arrResult as $result) {?>
-              <td width="300" class="border">
+              <td width="200" class="border">
              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="prod-border" >
               <tr valign="top" align="center">
                 <td><p>&nbsp;</p>
