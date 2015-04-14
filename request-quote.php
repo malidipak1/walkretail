@@ -129,7 +129,7 @@ function MM_validateForm() { //v4.0
     <table width="50%" border="0" cellspacing="10" cellpadding="0">
     <tr>
         <td><input name="submit" type="submit" class="get-quote-btn-inn"  style="text-align:center" value="." src="images/get-quotation.png"/></td>
-        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/back.png" alt="" /></a></td>
+        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/submit.png" alt="" /></a></td>
     </tr>
     </table>
 </div> 

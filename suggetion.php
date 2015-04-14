@@ -93,29 +93,17 @@ function MM_validateForm() { //v4.0
                   <input name="phone" type="text" class="sell2" id="phone" />
                 </span> </div>
                 <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Address</span> 
+                  <span class="property-panel-left">Your Suggetion</span> 
                      <span class="poperty-panel-right">
                      <textarea name="address" rows="4" class="sell3" id="address"></textarea>
                      </span> 
           </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Category</span> <span class="poperty-panel-right">
-                    <input name="category" type="text" class="sell2" id="category" />                </span> </div>
+                
                
         
-          <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Message</span> 
-                     <span class="poperty-panel-right">
-                     <textarea name="message" rows="4" class="sell3" id="message"></textarea>
-                     </span> 
-          </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Quantity</span> <span class="poperty-panel-right">
-                  <input name="quantity" type="text" class="sell2" id="quantity" />
-                </span> </div>
-                <div class="property-panel-bg"> 
-                <span class="property-panel-left">Attach File :</span><input name="Attachment[]" type="file"  id="Attachment[]" />
-                <br /><br/>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File Format: Jpeg, Jpg, Gif, Png, PDF, PPT, Word, Excel, mp3. Maximum File Size: 2MB</span>
-                </div>
+          
+                
+                
                       <div class="property-panel-bg"> 
                   <!-- <span class="property-panel-left">Comment</span> 
                      <span class="poperty-panel-right">
@@ -129,7 +117,7 @@ function MM_validateForm() { //v4.0
     <table width="50%" border="0" cellspacing="10" cellpadding="0">
     <tr>
         <td><input name="submit" type="submit" class="get-quote-btn-inn"  style="text-align:center" value="." src="images/get-quotation.png"/></td>
-        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/back.png" alt="" /></a></td>
+        <td><a href="product-discription.php?prod_id=<?php echo $arrResult['prod_id']?>"><img src="images/submit.png" alt="" /></a></td>
     </tr>
     </table>
 </div> 
