@@ -7,6 +7,12 @@ if(!isset($_SESSION['login']))
 }
 require_once '../DBUtil.php';
 $dbObj = new DBUtil();
+
+if($_REQUEST['action'] == 'delete') {
+	$dbObj->deleteMenu($_REQUEST['catid']);
+	header("Location: menulist.php");
+}
+
 if(!empty($_POST) && !empty($_POST['catname'])) {
 	$dbObj->addMenu($_POST['catname'], $_POST['parent_id'],$_POST['status'], $_POST['catid']);
 }
@@ -20,8 +26,6 @@ if(!empty($_REQUEST['catid'])) {
 require_once '../Util.php';
 $arrCat = Util::getParentCategoryList();
 
-
-
 ?>
 <html>
 <head>
@@ -29,7 +33,7 @@ $arrCat = Util::getParentCategoryList();
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../css/css.css" rel="stylesheet" type="text/css">
 <script language="javascript" src="ajax_js.js"></script>
-<script language="javascript">
+<script language="javascript" type="text/javascript">
 function validate()
 {
 	var doc=document.form1;
@@ -40,6 +44,13 @@ function validate()
 		return false;
 	}
 	return true;
+}
+
+function deleteCat() {
+	var catid = document.form1.catid.value;
+	if(confirm ("Are you sure to Delete?")) {
+		window.location = "menu.php?action=delete&catid=" + catid;
+	}
 }
 </script>
 </head>
@@ -107,6 +118,8 @@ function validate()
                         <input name="submit" type="submit" value="Save" />
                         &nbsp;
                         <INPUT name="reset" TYPE="reset" value="Reset">
+                        &nbsp;
+                        <INPUT name="delete" TYPE="button" value="Delete" onclick="deleteCat();">
                     </em></td>
                     </tr>
                   <tr align="center" bgcolor="#C28FC0" >

@@ -42,10 +42,12 @@ $dbObj = new DBUtil();
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><strong>Category Name</strong></td>
                     <td colspan="-2" align="left" nowrap="nowrap" >Status</td>
                   </tr>
-              		<?php foreach ($arrMenu as $menu) {?>
+              		<?php foreach ($arrMenu as $menu) {
+              		$status = ($menu['status'] == 1) ? "Active" : "Inactive";
+              		?>
                   <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><a href="menu.php?catid=<?php echo $menu['catid']?>"><?php echo $menu['catname']?></a></td>
-                    <td colspan="-2" align="left" nowrap="nowrap" ><?php echo $menu['status']?></td>
+                    <td colspan="-2" align="left" nowrap="nowrap" ><?php echo $status?></td>
                   </tr>
                  <?php }?>
                   <tr align="center" bgcolor="#C28FC0" >

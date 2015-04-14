@@ -164,6 +164,15 @@ class DBUtil {
 		$sql = "SELECT * FROM product_categories WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
 	}
+	
+	public function deleteMenu($catid=0) {
+		$sql = "delete from  `product_categories` WHERE `catid`=:catid";
+		
+		$arrData = array ( ':catid'  => $catid );
+
+		return $this->executeUpdate($sql, $arrData);
+	}
+	
 	public function addMenu($catname,$parent_id=0,$status=1,$catid=0) {
 		$sql = "";
 		if ($catid == 0) {

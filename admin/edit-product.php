@@ -26,7 +26,8 @@ if(!empty($_POST)) {
 			}
 		}
 
-		$uri = "manage-product.php?supplier_id=" . $_POST['supplier_id'] . "&category=" . $_POST['category'];
+		//$uri = "manage-product.php?supplier_id=" . $_POST['supplier_id'] . "&category=" . $_POST['category'];
+		$uri = "uploadimage.php?prod_id=" .$_REQUEST['prod_id'] . "&supplier_id=" . $_REQUEST['supplier_id'];
 		header("Location: $uri");
 }
 
