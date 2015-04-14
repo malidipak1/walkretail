@@ -121,7 +121,7 @@ $(document).ready(function($){
     </script>
 <!-- end of header-->
       <span style="float:left;"><img src="images/watch-ad.jpg" width="336" height="154" alt="" /></span>
-      <span style="float:right;"><img src="images/yolo-ad.jpg" width="338" height="157" alt="" /></span>
+      <span style="float:right;"><a href="http://walkretail.com/product-discription.php?prod_id=17"><img src="images/yolo-ad.jpg" border="0" width="338" height="157" alt="" /></a></span>
     </div>
     
      <!-- middle panel end -->
