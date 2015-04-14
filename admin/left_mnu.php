@@ -70,7 +70,7 @@ if(!isset($_SESSION['login']))
     </strong></td> 
 </tr>
 <tr>
-    <td class="menuleft" onclick="window.location.href='manage-products.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Manage Products</td>
+    <td class="menuleft" onclick="window.location.href='producr-list.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Products List</td>
 </tr>
 <tr>
     <td bgcolor="#3c7701"><strong>
