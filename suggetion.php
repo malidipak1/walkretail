@@ -53,7 +53,7 @@ function MM_validateForm() { //v4.0
   	<div align="center" style="color: red"></div>
   <div class="buy-get-heading">Please give Your Suggetion</div>
     <div class="form-con1">
-       <form action="contact_submit.php" method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','suggestions','','R');return document.MM_returnValue">
+       <form action="contact_submit.php" method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','suggestions','','R');return document.MM_returnValue">
        
       <div class="form-pad1">
            
@@ -68,9 +68,7 @@ function MM_validateForm() { //v4.0
                 <div class="property-panel-bg"> <span class="property-panel-left">Email-Id</span> <span class="poperty-panel-right">
                   <input name="emailid" type="text" class="sell2" id="emailid" />
         </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Phone No.</span> <span class="poperty-panel-right">
-                  <input name="phone" type="text" class="sell2" id="phone" />
-                </span> </div>
+                
                 <div class="property-panel-bg"> 
                   <span class="property-panel-left">Your Suggetion</span> 
                      <span class="poperty-panel-right">
