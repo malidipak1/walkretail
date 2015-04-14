@@ -49,6 +49,13 @@ $(document).ready(function($){
 <!--CATEGORY MENU END-->
     
     
+ <!--Floating Menu-->   
+ 
+ 
+ 
+ <!--Floating Menu End-->
+    
+    
 </head>
 <body>
 <!--FB Page-->
@@ -76,7 +83,7 @@ $(document).ready(function($){
 
 <div class="middle">
   <div class="middle-inner">
-   <?php include("side-categories.php");?>
+   <div><?php include("side-categories.php");?></div>
 
     
     <!-- left panel end -->
