@@ -158,7 +158,7 @@ $(document).ready(function() {
          <div class="wrapper">
     <ul class="tabs">
         <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Product Description</a></li>
-        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Terms of Services</a></li>
+        <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Terms of Services</a></li>-->
         <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent4" class="tab">TAB 4</a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent5" class="tab">TAB 5</a></li>-->
     </ul>
