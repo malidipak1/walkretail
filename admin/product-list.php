@@ -9,18 +9,25 @@ if(!isset($_SESSION['login']))
    include_once '../DBUtil.php';
     
    $dbObj = new DBUtil();
-    
-   $arrSupplier = $dbObj->getSupplier();
    
-   //print_r($arrSupplier );
-    
-   
+   if($_REQUEST['action'] == 'delete' && !empty($_REQUEST['prod_id'])) {
+   		$dbObj->deleteProducts($_REQUEST['prod_id']);
+   		header("Location: product-list.php");
+   }
+   $arrProduct = $dbObj->getProducts();
   ?>
 <html>
 <head>
 <title>:::(Admin Panel) :::</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="css/css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function deleteCat(val) {
+	if(confirm ("Are you sure to Delete?")) {
+		window.location = 'product-list.php?prod_id=' + val+ '&action=delete';
+	}
+}
+</script>
 </head>
 <body>
 <table width="100%" height="100%" align="center" cellpadding="0" cellspacing="0"  bordercolor="#5181BF">
@@ -55,30 +62,31 @@ if(!isset($_SESSION['login']))
                                          
                    					    </tr>
                                           <!----------------------Start your loop------------------------------->
-                                          <?php foreach ($arrSupplier as $supplier) {?>
+                                          <?php foreach ($arrProduct as $prod) {?>
                                            <tr align="center">	
                                             
-                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;</td>
-                               <td width="16%"  bgcolor="#FFFFFF">&nbsp;</td>
-                                            <td width="16%"  bgcolor="#FFFFFF">&nbsp;</td>
-                                            <td width="8%"  bgcolor="#FFFFFF">&nbsp;</td>
-                                            <td width="8%"  bgcolor="#FFFFFF"><a href="clients-profile.php?supplier_id=<?php echo $supplier['id']?>"> <img src="images/Edit.gif" width="12" height="12" alt="Edit" border="0" /></a></td>
-                                            <td width="8%"  bgcolor="#FFFFFF"><img src="images/b_drop.gif" width="12" height="10" alt=""></td>
-                                          
+                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $prod['supplier_id']?></td>
+                               				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['category']?></td>
+                                            <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
+                                            <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_id']?></td>
+                                            <td width="8%"  bgcolor="#FFFFFF">
+                                            <a href="edit-product.php?prod_id=<?php echo $prod['prod_id']?>&supplier_id=<?php echo $prod['supplier_id']?>"> 
+                                            	<img width="12" height="12" border="0" alt="Edit" src="images/Edit.gif">
+                                            </a>
+                                            </td>
+                                            <td width="8%"  bgcolor="#FFFFFF">
+                                            <a href="javascript:void(0);" onclick="deleteCat('<?php echo $prod['prod_id']?>');"> 
+                                            	<img width="12" height="12" border="0" alt="Edit" src="images/b_drop.gif">
+                                            </a>
+                                            </td>
+                                          	
                                           </tr>
                                           <?php }?>
                                 	
 									<!-- Paging starts here  -->
 									<?php include("paging/paging_row.inc.php") ?> 
 									<!-- Paging ends starts here  -->	
-                                          
-                                          
-                                          
-                                          
-                                          
-                                          <tr>
-                                            <td  height="33" colspan="11" align="center" bgcolor="#3c7701"><input name="add" type="button" value="Add new Record"  onClick="navigate('add-new-client.php');" /></td>
-                                          </tr>
+                                         
                                           <!-----------------------End your loop here---------------------------->
                                         </table>
                 </form></td>

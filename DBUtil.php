@@ -144,8 +144,13 @@ class DBUtil {
 		$sql = "SELECT * FROM product WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
 	}
-
 	
+	public function deleteProducts($prodId) {
+		$sql = "DELETE FROM product WHERE prod_id = :prod_id";
+		$arrData = array ( ':prod_id'  => $prodId );
+		return $this->executeUpdate($sql, $arrData);
+	}
+
 	public function searchProductByName($prodName, $min = 0, $max = 0) {
 		$sql = "select * from product, product_categories where catid=category and (prod_name like '%" . $prodName . "%' OR catname like '%" . $prodName . "%' )";
 				

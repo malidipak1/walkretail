@@ -117,9 +117,10 @@ if (!empty($_POST)) {
 																</td>
 															</tr>
 															<tr bgcolor="#7D4B00">
-																<td height="33" colspan="5" align="center"
-																	bgcolor="#3c7701"><input name="submit" type="submit"
-																	value="Upload Image" /></td>
+																<td height="33" colspan="5" align="center" bgcolor="#3c7701">
+																	<input name="submit" type="submit" value="Upload Image" />
+																	<a href="manage-product.php?supplier_id=<?php echo $_REQUEST['supplier_id']?>">Skip</a>	
+																</td>
 															</tr>
 														</table>
 													</form>
