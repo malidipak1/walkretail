@@ -68,6 +68,21 @@ function deleteCat(val) {
 	  	<form name="search_product" method="post" action="">
 			<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
 						
+										 <tr align="center" style="color:#060; background:#FFF;">
+										   <td colspan="6"><table width="50%" border="0" align="center" cellpadding="0" cellspacing="10">
+										     <tr>
+										       <td height="30" align="center" valign="middle">Search By</td>
+										       <td height="30" align="center" valign="middle"><label for="select2"></label>
+										         <select name="select" id="select2">
+										           <option>Supplier</option>
+										           <option>Product</option>
+							                   </select></td>
+										       <td height="30" align="center" valign="middle"><label for="textfield"></label>
+									           <input type="text" name="textfield" id="textfield"></td>
+										       <td height="30" align="center" valign="middle"><input name="button" type="submit" class="search-btn" id="button" value="."></td>
+									         </tr>
+									       </table></td>
+				      </tr>
 										 <tr align="center"  bgcolor="#3c7701">									
 
 										 <td width="22%" class="white">Client Name</td>
@@ -92,7 +107,7 @@ function deleteCat(val) {
                                             </a>
                                             </td>
                                             <td width="8%"  bgcolor="#FFFFFF">
-                                            <a href="javascript:void(0);" onclick="deleteCat('<?php echo $prod['prod_id']?>');"> 
+                                            <a href="javascript:void(0);" onClick="deleteCat('<?php echo $prod['prod_id']?>');"> 
                                             	<img width="12" height="12" border="0" alt="Edit" src="images/b_drop.gif">
                                             </a>
                                             </td>
