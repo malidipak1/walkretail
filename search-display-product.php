@@ -158,9 +158,8 @@ $(document).ready(function($){
           </tr>
           
          </table>
-         <?php }?>
          
-         <br /><br />
+           <br /><br />
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
           <td style="font-size:16px; color:#4c9209; font-family:'Century Gothic';">
@@ -168,6 +167,9 @@ $(document).ready(function($){
 				<div class="pagination"><?=Util::getPagination($page, $lastPage)?></div>
 			</div>
        </td></tr></table>  
+         <?php }?>
+         
+       <br /><br />
          
 
        

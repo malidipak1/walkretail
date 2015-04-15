@@ -160,12 +160,7 @@ class Util {
 				$pagingUrl .= $key . "=" . $val . "&";
 		}
 		
-		/* if(strpos("?", $_SERVER['REQUEST_URI']) === false)
-			$pagingUrl = $_SERVER['REQUEST_URI'] . "?";
-		else 
-			$pagingUrl = $_SERVER['REQUEST_URI']; */
-	
-		if($lastPage != 1) {
+		if($lastPage > 1) {
 	
 			$centerPages = "";
 			$sub1 = $page - 1;
