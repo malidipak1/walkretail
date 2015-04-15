@@ -155,13 +155,19 @@ function MM_validateForm() { //v4.0
                   	<?php }?>
                   </select>
                 </span> </div>
+                
+                
+                
         <div class="property-panel-bg"> 
                   <span class="property-panel-left">Price</span> 
                      <span class="poperty-panel-right">
                     <input id="price" name="price" type="text" class="sell2" readonly="readonly" />
                      </span> 
           </div>
-                   <div class="property-panel-bg"> 
+          
+          <div class="property-panel-bg"> 
+          <span class="property-panel-left-full">Payment Mode : Cash on Delivery (COD)</span></div>
+          <div class="property-panel-bg"> 
                   <span class="property-panel-left">Suggestions</span> 
                      <span class="poperty-panel-right">
                      <textarea name="message" rows="4" class="sell3" id="message"></textarea>

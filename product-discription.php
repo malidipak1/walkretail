@@ -96,8 +96,8 @@ $(document).ready(function() {
           <div style="float:left;">
     <div class="clearfix">
     
-        <a href="<?php echo $image?>" class="jqzoom" rel='gal1'  title="triumph" >
-            <img src="<?php echo $image?>"  title="triumph"  width="300" >
+        <a href="<?php echo $image?>" class="jqzoom" rel='gal1'  title="WalkRetail" >
+            <img src="<?php echo $image?>"  title="WalkRetail"  width="300" >
     </a></div>
 	<br/>
  <div class="clearfix" >
