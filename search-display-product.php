@@ -6,6 +6,8 @@ include_once 'DBUtil.php';
 include_once 'Util.php';
 $dbObj = new DBUtil();
 $dbObj->isPaging = true;
+$dbObj->pagingPerPage = PRODUCT_PER_PAGE;
+
 if(!empty($_REQUEST['category'])) {
 	$arrParam = array('category' => $_REQUEST['category']);
 	$arrResult = $dbObj->getProducts($arrParam);
