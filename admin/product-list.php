@@ -26,8 +26,13 @@ if(!isset($_SESSION['login']))
    		$arrSupplierList[$supplier['id']] = $supplier['name'];
    }
    
+   $dbObj->isPaging = true;
    $arrProduct = $dbObj->getProducts();
-  ?>
+   $page = $dbObj->page;
+   $totalRecords = $dbObj->totalRecords;
+   $lastPage = $dbObj->lastPage;
+  
+   ?>
 <html>
 <head>
 <title>:::(Admin Panel) :::</title>
@@ -94,11 +99,14 @@ function deleteCat(val) {
                                           	
                                           </tr>
                                           <?php }?>
-                                	
+                                		<tr><td colspan="6" bgcolor="#FFFFFF">
 									<!-- Paging starts here  -->
-									<?php include("paging/paging_row.inc.php") ?> 
+										<div class="clear">&nbsp;</div>
+										<div id="container">
+											<div class="pagination"><?=Util::getPagination($page, $lastPage)?></div>
+										</div>
 									<!-- Paging ends starts here  -->	
-                                         
+                                       </td>  </tr>
                                           <!-----------------------End your loop here---------------------------->
                                         </table>
                 </form></td>

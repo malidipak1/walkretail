@@ -1,12 +1,15 @@
 <?php 
+//print_r($_SERVER);
+//exit;
 $arrResult = array();
 include_once 'DBUtil.php';
+include_once 'Util.php';
 $dbObj = new DBUtil();
+$dbObj->isPaging = true;
 if(!empty($_REQUEST['category'])) {
 	$arrParam = array('category' => $_REQUEST['category']);
 	$arrResult = $dbObj->getProducts($arrParam);
 }
-
 if(!empty($_REQUEST['search']) ){
 	
 	$min = empty($_REQUEST['min']) ? 0 : $_REQUEST['min'];
@@ -15,6 +18,9 @@ if(!empty($_REQUEST['search']) ){
 	$arrResult = $dbObj->searchProductByName($_REQUEST['search'], $min, $max);
 }
 
+$page = $dbObj->page;
+$totalRecords = $dbObj->totalRecords;
+$lastPage = $dbObj->lastPage;
 //print_r($arrResult);
 
 ?>
@@ -153,8 +159,13 @@ $(document).ready(function($){
          <?php }?>
          
          <br /><br />
-        
-         
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+          <td style="font-size:16px; color:#4c9209; font-family:'Century Gothic';">
+	        <div id="container">
+				<div class="pagination"><?=Util::getPagination($page, $lastPage)?></div>
+			</div>
+       </td></tr></table>  
          
 
        

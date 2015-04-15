@@ -10,8 +10,11 @@ if(!isset($_SESSION['login']))
     
    $dbObj = new DBUtil();
     
+   $dbObj->isPaging = true;
    $arrSupplier = $dbObj->getSupplier();
-   
+   $page = $dbObj->page;
+   $totalRecords = $dbObj->totalRecords;
+   $lastPage = $dbObj->lastPage;
    //print_r($arrSupplier );
     
    
@@ -69,17 +72,18 @@ if(!isset($_SESSION['login']))
                                           </tr>
                                           <?php }?>
                                 	
+									<tr><td colspan="6" bgcolor="#FFFFFF">
 									<!-- Paging starts here  -->
-									<?php include("paging/paging_row.inc.php") ?> 
+										<div class="clear">&nbsp;</div>
+										<div id="container">
+											<div class="pagination"><?=Util::getPagination($page, $lastPage)?></div>
+										</div>
 									<!-- Paging ends starts here  -->	
+                                       </td>  </tr>
                                           
-                                          
-                                          
-                                          
-                                          
-                                          <tr>
+                                          <!-- <tr>
                                             <td  height="33" colspan="10" align="center" bgcolor="#3c7701"><input name="add" type="button" value="Add new Record"  onClick="navigate('add-new-client.php');" /></td>
-                                          </tr>
+                                          </tr> -->
                                           <!-----------------------End your loop here---------------------------->
                                         </table>
                 </form></td>

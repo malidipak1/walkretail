@@ -1,6 +1,5 @@
- <?php error_reporting(~E_ALL); ?>
  <link href="css/css.css" rel="stylesheet" type="text/css">
-  
+ <link href="css/paging.css" rel="stylesheet" type="text/css">
  
  <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>

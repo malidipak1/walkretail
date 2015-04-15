@@ -1,19 +1,69 @@
 <?php
 include_once 'lib/ini_settings.php';
 include_once 'lib/config.php';
-include ("lib/class.db.mysql.php");
+include_once ("lib/class.db.mysql.php");
+include_once 'Util.php';
+
 class DBUtil {
 	private $dbConn;
+	
+	public $isPaging = false;
+	public $pagingPerPage = 0;
+	public $page = 0;
+	public $lastPage = 0;
+	public $totalRecords = 0;
 	
 	function DBUtil() {
 		$this->dbConn = DbMysql::getConnection ();
 	}
 	
+	public function getCount($query = '') {
+		
+		$pos = strpos($query, "FROM");
+		
+		if ($pos !== false) {
+			$query = "SELECT count(1) as count " .  substr($query, $pos);
+		}
+		
+		$stmt = $this->dbConn->query ( $query );
+		$arrCount = $stmt->fetchAll ( PDO::FETCH_ASSOC);
+		
+		return $arrCount[0]['count'];
+	}
 	public function getAll($query = '') {
 		if (empty ( $query )) {
 			return;
 		}
+		
+		if($this->isPaging) {
+			if($this->pagingPerPage == 0) {
+				$perPage = PER_PAGE;
+			} else {
+				$perPage = $this->pagingPerPage;
+			}
+			$totalCount = $this->getCount($query);
+			$arrOffset = Util::getPagingOffset();
+			$page = $arrOffset['page'];
+			$offSet = $arrOffset['offset'];
+				
+			$recLeft = $totalCount - ($page * $perPage);
+				
+			//$arrReturn['total_count'] = $totalCount;
+			//$arrReturn['page'] = $page;
+			//$arrReturn['offset'] = $offSet;
+			//$arrReturn['per_page'] = $perPage;
+			//$arrReturn['record_left'] = $recLeft;
+			//$arrReturn['first_page'] = 1;
+			//$arrReturn['last_page'] = ceil($totalCount / $perPage);
+			$this->totalRecords = $totalCount;
+			$this->page = $page;
+			$this->lastPage = ceil($totalCount / $perPage);
+			
+			$query .= " limit " . $offSet . ", " . $perPage;
+		}
+		
 		$stmt = $this->dbConn->query ( $query );
+		
 		return $stmt->fetchAll ( PDO::FETCH_ASSOC );
 	}
 	public function getRow($query = '') {

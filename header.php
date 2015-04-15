@@ -1,3 +1,4 @@
+<link href="css/paging.css" rel="stylesheet" type="text/css" />
 <div id="tgreen-bg">
   <div class="middle">
      <div class="middle-inner">
