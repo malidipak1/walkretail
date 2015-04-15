@@ -148,4 +148,4 @@ border:#FF0033;
 .border-bg:hover{ background:#900;}
 .message{color:navy;text-align: center;}
 .error{color:red; text-align: center;}
-.search-btn{height:40px; margin:0 0 0 4px; border:none; width:96px; background:url(images/search-button.jpg); color:#ffffff; font-weight:bold; float:left; cursor:pointer;}
+.search-btn{height:40px; margin:0 0 0 4px; border:none; width:96px; background:url(../images/search-button.jpg); color:#ffffff; font-weight:bold; float:left; cursor:pointer;} 
