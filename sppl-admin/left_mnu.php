@@ -15,6 +15,7 @@ if(!isset($_SESSION['login']))
 <tr>
     <td class="menuleft"  onclick="window.location.href='clients-profile.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">View Profile</td>
 </tr>
+
 <!--<tr>
     <td bgcolor="#3270B4"><strong>
     <div class="white">Manage Home page text</div>
