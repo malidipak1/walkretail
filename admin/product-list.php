@@ -69,16 +69,16 @@ function deleteCat(val) {
 			<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
 						
 										 <tr align="center" style="color:#060; background:#FFF;">
-										   <td colspan="6"><table width="50%" border="0" align="center" cellpadding="0" cellspacing="10">
+										   <td colspan="6"><table width="60%" border="0" align="center" cellpadding="0" cellspacing="10" style="background:#ebfadd; border:solid 1px #060;">
 										     <tr>
-										       <td height="30" align="center" valign="middle">Search By</td>
+										       <td height="30" align="center" valign="middle" class="btn-search">Search By</td>
 										       <td height="30" align="center" valign="middle"><label for="select2"></label>
-										         <select name="select" id="select2">
+										         <select name="select" id="select2" class="sell5">
 										           <option>Supplier</option>
 										           <option>Product</option>
 							                   </select></td>
-										       <td height="30" align="center" valign="middle"><label for="textfield"></label>
-									           <input type="text" name="textfield" id="textfield"></td>
+										       <td height="30" align="center" valign="middle" ><label for="textfield"></label>
+									           <input type="text" name="textfield" id="textfield" class="search" ></td>
 										       <td height="30" align="center" valign="middle"><input name="button" type="submit" class="search-btn" id="button" value="."></td>
 									         </tr>
 									       </table></td>

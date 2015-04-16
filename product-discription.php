@@ -23,7 +23,7 @@ $image = Util::getImage($arrResult['image']);
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/tabbed-style.css">
 
-<br />
+
 
 <!-- product display js start -->
 <script src="js/jquery-1.6.js" type="text/javascript"></script>

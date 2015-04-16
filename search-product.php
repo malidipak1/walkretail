@@ -39,7 +39,7 @@
 </script>
 
 <form onsubmit="javascript: return val(this);" action="search-display-product.php" method="get" style="padding:0 0 10px 0; width:100%; float:left;" name="search">
-          <div class="btn">Select Quantity</div>
+          <div class="btn-search">Select Quantity</div>
          <div style="float:left;">
             <select name="min" class="sell5">      
                         <option value="">Min</option>
