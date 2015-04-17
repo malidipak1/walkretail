@@ -91,9 +91,9 @@ class DBUtil {
 		$flag = false;
 		foreach ($param as $key => $value) {
 			if($flag) {
-				$whereClause .= " and " . $key . " = '" . $value . "' " ;
+				$whereClause .= " and " . $key . " = '" . addslashes($value) . "' " ;
 			} else {
-				$whereClause .= " " . $key . " = '" . $value . "' " ;
+				$whereClause .= " " . $key . " = '" . addslashes($value) . "' " ;
 				$flag = true;
 			}
 		}
