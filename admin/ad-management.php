@@ -78,10 +78,9 @@ function loadPage(val) {
 	}
 }
 </script>
-    <div style="float:right;"><input value="Add Row" onclick="addRow('dataTable')" type="button">
-    <input value="Delete Row" onclick="deleteRow('dataTable')" type="button"></div>
     
-    <div><select name="adv_id" onchange="javascript:loadPage(this.value);">
+    
+    <div class="select-ad-bg"><select name="adv_id" class="select-ad" onChange="javascript:loadPage(this.value);">
       <option value="">Select Page</option>
      <?php foreach ($arrAdv as $key => $val) {
      		$selected = "";
@@ -89,8 +88,11 @@ function loadPage(val) {
      	?>
       <option <?php echo $selected?> value="<?php echo $key?>"><?php echo $val?></option>
       <?php }?>
-    </select></div>
+    </select>
 
+    <input value="Add Row" onClick="addRow('dataTable')" type="button" class="ad-delete-row">
+    <input value="Delete Row" onClick="deleteRow('dataTable')" type="button" class="ad-delete-row">
+    </div>
     <div style="padding:0 0 0 0;"><span>Product ID</span><span style="padding:0 0 0 85px;">Sequence</span></div>
     <table id="dataTable" border="1" width="350px">
         <tbody>
