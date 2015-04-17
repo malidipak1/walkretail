@@ -90,39 +90,37 @@ function loadPage(val) {
       <?php }?>
     </select>
 
-    <input value="Add Row" onClick="addRow('dataTable')" type="button" class="ad-delete-row">
-    <input value="Delete Row" onClick="deleteRow('dataTable')" type="button" class="ad-delete-row">
+    <input value="Add Row" onClick="addRow('dataTable')" type="button" class="ad-row">
+    <input value="Delete Row" onClick="deleteRow('dataTable')" type="button" class="delete-row">
     </div>
     <div style="padding:0 0 0 0;"><span>Product ID</span><span style="padding:0 0 0 85px;">Sequence</span></div>
-    <table id="dataTable" border="1" width="350px">
+    <table width="250" border="0" cellpadding="0" cellspacing="10" id="dataTable">
         <tbody>
         <?php if(count($arrResult) <= 0) {?>
         <tr>
             <td><input name="chk" type="checkbox"></td>
-            <td><input name="prodid[]" type="text" value="" /></td>
-            <td><input name="sequence[]" type="text" value="" /></td>
+            <td><input name="prodid[]" type="text" value="" class="manage-ad-seq" /></td>
+            <td><input name="sequence[]" type="text" value="" class="manage-ad-seq" /></td>
         </tr>
         <?php } else {
         	foreach ($arrResult as $result) {
          ?>
         <tr>
             <td><input name="chk" type="checkbox"></td>
-            <td><input name="prodid[]" type="text" value="<?php echo $result['prod_id']?>" /></td>
-            <td><input name="sequence[]" type="text" value="<?php echo $result['sequence']?>" /></td>
+            <td><input name="prodid[]" type="text" value="<?php echo $result['prod_id']?>" class="manage-ad-seq" /></td>
+            <td><input name="sequence[]" type="text" value="<?php echo $result['sequence']?>" class="manage-ad-seq" /></td>
         </tr>
         <?php }
         } ?>
         
-        <tr>
-            <td colspan="3"><input name="submit" type="submit"></td>
-        </tr>
+
         
         
     </tbody></table>
-        
+        <div style="margin:0 auto; padding:10px 0"><input name="submit" type="submit" class="submit-query"></div>
 	  	</form></td>
-                                      </tr>
-                                    </table></td>
+ </tr>
+ </table></td>
   </tr>
 </table></td>
   </tr>
