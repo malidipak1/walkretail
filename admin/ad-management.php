@@ -93,7 +93,7 @@ function loadPage(val) {
     <input value="Add Row" onClick="addRow('dataTable')" type="button" class="ad-row">
     <input value="Delete Row" onClick="deleteRow('dataTable')" type="button" class="delete-row">
     </div>
-    <div style="padding:0 0 0 0;"><span>Product ID</span><span style="padding:0 0 0 85px;">Sequence</span></div>
+    <div style="margin:0 auto;"><span class="manage-ad-txt">Product ID</span><span class="manage-ad-txt1">Sequence</span></div>
     <table width="250" border="0" cellpadding="0" cellspacing="10" id="dataTable">
         <tbody>
         <?php if(count($arrResult) <= 0) {?>

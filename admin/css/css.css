@@ -158,4 +158,5 @@ border:#FF0033;
 .delete-row{height:40px; width:100px; border:none; border-radius:10px; cursor:pointer;}
 .submit-query{height:40px; width:100px; border:none; border-radius:10px; cursor:pointer; border: solid 1px #009900;}
 .manage-ad-seq{width:70px; height:30px; text-align:center; border-radius:10px; border:solid 1px #006600; background:#e2ffc7;}
-.manage-ad-txt{ font-family:"Century Gothic"}
+.manage-ad-txt{ font-family:"Century Gothic"; font-size:14px; color:#900; font-weight:bold; margin:0 0 0 30px;}
+.manage-ad-txt1{ font-family:"Century Gothic"; font-size:14px; color:#900; margin:0 0 0 30px; font-weight:bold;}
