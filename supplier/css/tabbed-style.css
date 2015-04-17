@@ -1,0 +1,11 @@
+html, body { margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; }
+.wrapper { width:1000px; float:left; border:1px solid #cccccc; margin:0 0 0 20px; height:1500px;}
+ul.tabs { margin:0; padding:0; float:left; }
+ul.tabs li { float:left; display:inline; margin-right:1px; cursor:pointer; font-weight:bold;  }
+ul.tabs li a { width:179px; line-height:30px; background:#9f0203; text-align:center; float:left; text-decoration:none; color:#fff; }
+ul.tabs li a:hover, ul.tabs li a.active { background:#000000; color:#ffffff; }
+
+.tab_content_container { width:990px; height:320px; float:left; padding:20px; margin-top:1px; font-size:14px; border-radius:0 0 10px 10px; -moz-border-radius:0 0 10px 10px; -webkit-border-radius:0 0 10px 10px; display:block;}
+.tab_content { display:none; position:absolute;  width:990px; min-height:300px; overflow:auto; overflow-x:hidden;}
+.tab_content_active { display:block; position:absolute; width:990px; height:auto;}
+.tab_content_active span { float:left; width:100px; margin-right:20px; }

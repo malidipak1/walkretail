@@ -1,0 +1,51 @@
+.table-style {
+	BORDER-RIGHT: #a0a0a0 1px solid; BORDER-TOP: #a0a0a0 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #a0a0a0 1px solid; BORDER-BOTTOM: #a0a0a0 1px solid; FONT-FAMILY: arial; BACKGROUND-COLOR: #ffffff
+}
+.div-style {
+	Z-INDEX: 999; VISIBILITY: hidden; POSITION: absolute
+}
+.title-style {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; COLOR: black; PADDING-TOP: 2px; FONT-FAMILY: arial
+}
+.title-background-style {
+	BACKGROUND-COLOR: gainsboro
+}
+.title-control-normal-style {
+	BORDER-RIGHT: #3a6ea5 1px solid; BORDER-TOP: #3a6ea5 1px solid; BORDER-LEFT: #3a6ea5 1px solid; BORDER-BOTTOM: #3a6ea5 1px solid
+}
+.title-control-select-style {
+	BORDER-RIGHT: #3a6ea5 1px solid; BORDER-TOP: #3a6ea5 1px solid; BORDER-LEFT: #3a6ea5 1px solid; BORDER-BOTTOM: #3a6ea5 1px solid
+}
+.dropdown-style {
+	BORDER-RIGHT: #a0a0a0 1px solid; BORDER-TOP: #a0a0a0 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #a0a0a0 1px solid; BORDER-BOTTOM: #a0a0a0 1px solid; FONT-FAMILY: arial; BACKGROUND-COLOR: #f9f8f7
+}
+.dropdown-select-style {
+	BACKGROUND-COLOR: lightgrey
+}
+.dropdown-normal-style {
+	
+}
+.body-style {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; FONT-FAMILY: verdana; BACKGROUND-COLOR: white
+}
+.current-day-style {
+	FONT-WEIGHT: bold; COLOR: red; BACKGROUND-COLOR: white; TEXT-DECORATION: none
+}
+.end-of-weekday-style {
+	COLOR: #909090; TEXT-DECORATION: none
+}
+.normal-day-style {
+	COLOR: black; TEXT-DECORATION: none
+}
+.selected-day-style {
+	BORDER-RIGHT: #a0a0a0 1px solid; BORDER-TOP: #a0a0a0 1px solid; BORDER-LEFT: #a0a0a0 1px solid; BORDER-BOTTOM: #a0a0a0 1px solid
+}
+.holiday-style {
+	BACKGROUND-COLOR: #ffdddd
+}
+.today-style {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; COLOR: black; PADDING-TOP: 0px; BACKGROUND-COLOR: gainsboro; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.weeknumber-div-style {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #d0d0d0
+}
