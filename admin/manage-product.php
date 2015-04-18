@@ -92,7 +92,8 @@ include_once 'access_check.php';
        <div class="wrapper">
     <ul class="tabs">
         <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Products</a></li>
-        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Add New Products</a></li>
+        <li><a href="edit-product.php" class="tab">Add New Products</a></li>
+        <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab">Add New Products</a></li>-->
         <li><a href="clients-profile.php?supplier_id=<?php echo $_REQUEST['supplier_id']?>" class="tab">Back to Services and Profile</a></li>
         <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent3" class="tab">Back to Services and Profile</a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent4" class="tab">TAB 4</a></li>
@@ -116,7 +117,7 @@ include_once 'access_check.php';
         <th colspan="2" scope="row"><img src="<?php echo Util::getImage($product['image']);?>" width="180" height="120" alt=""></th>
         </tr>
       <tr>
-        <td align="center" valign="middle" class="border-bg"><a onclick="javascript:myPopup('/product-discription.php?prod_id=<?php echo $product['prod_id']?>')" href="#">View</a></td>
+        <td align="center" valign="middle" class="border-bg"><a onClick="javascript:myPopup('/product-discription.php?prod_id=<?php echo $product['prod_id']?>')" href="#">View</a></td>
         <td align="center" valign="middle" class="border-bg"><a href="edit-product.php?prod_id=<?php echo $product['prod_id']?>&supplier_id=<?php echo $product['supplier_id']?>">Edit</a></td>
         </tr>
     </table>
