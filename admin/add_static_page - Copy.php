@@ -1,14 +1,7 @@
 <?php
+include_once 'access_check.php';
 ob_start(); 
-//error_reporting(~E_ALL);
 include("database.inc.php");
-session_start();
-//echo $_SESSION['uid'];
-if(!isset($_SESSION['login']))
-{
-	header('Location: index.php');
-	exit;
-}
 $sql      =  mysql_query("select * from categories where parent_id='0'");
 $result   =  mysql_num_rows($sql);
 $button_value		=	"INSERT";

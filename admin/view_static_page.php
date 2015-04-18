@@ -1,19 +1,10 @@
 <?php
-include("database.inc.php"); 
-session_start();
-if(!isset($_SESSION['login']))
-   {
-     header('Location: index.php');
-	 exit;
-   }
-
+include_once 'access_check.php';
 include_once '../DBUtil.php';
 include_once '../Util.php';
    
-   $dbObj = new DBUtil();
-   $arrPage = $dbObj->getStaticPage();
-    
-   
+$dbObj = new DBUtil();
+$arrPage = $dbObj->getStaticPage();
 ?>
 <html>
 <head>

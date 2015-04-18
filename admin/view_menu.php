@@ -1,13 +1,7 @@
 <?php
+include_once 'access_check.php';
 ob_start(); 
-error_reporting(~E_ALL);
 include("database.inc.php");
-session_start();
-if(!isset($_SESSION['login']))
-   {
-    header('Location: index.php');
-        exit;
-   }
 if(isset($_REQUEST['action']) && $_REQUEST['action']=='delete')
 {       
         $cats_id=$_REQUEST['catid'];

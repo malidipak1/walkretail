@@ -1,12 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['login']))
-   {
-     header('Location: index.php');
-	 exit;
-   }
-
-   include_once '../DBUtil.php';
+include_once 'access_check.php';
+include_once '../DBUtil.php';
     
    $dbObj = new DBUtil();
     

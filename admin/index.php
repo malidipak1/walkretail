@@ -9,6 +9,7 @@ if(isset($_REQUEST['action']) && $_REQUEST['action']=='check_login')
 	$sql=mysql_query("select * from admin where uname ='".addslashes($user_name)."' and password='".addslashes($password)."'");
 	$num=mysql_num_rows($sql);
 	if($num >0){
+		$_SESSION['admin'] = true;
 		$_SESSION['login']=$user_name;
 		header('Location: admin_page.php');
 		exit;

@@ -1,14 +1,6 @@
 <?php
+include_once 'access_check.php';
 include("database.inc.php"); //database.inc.php is databse connection file which will be included
-session_start();  
-error_reporting(~E_ALL);
-// this condition will check whether the admin has logged in or not 
-// if he has not logged in or session has expired it will take you at the login page(index.php)
-if(!isset($_SESSION['login']))   
-   {							
-     header('Location: index.php');
-	 exit;
-   }
 ###########################################  PAGING WITH PER PAGE            #####################################
 $file_name			=	"category.php"; // this is file name which is used during paging  , included at the bottom of the page
 $paging_table_name	=	"category";

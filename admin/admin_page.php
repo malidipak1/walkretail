@@ -1,14 +1,6 @@
 <?php
-ob_start(); 
-error_reporting(~E_ALL);
-include("database.inc.php");
-session_start();
-if(!isset($_SESSION['login']))
-   {
-     header('Location: index.php?l=2');
-	 exit;
-   }
-   ?>
+include_once 'access_check.php';
+?>
 <html>
 <head>
 <title>::: (Admin Panel) :::</title>

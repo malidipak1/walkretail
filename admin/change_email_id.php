@@ -1,11 +1,6 @@
 <?php 
+include_once 'access_check.php';
 include("database.inc.php");
-session_start();
-if(!isset($_SESSION['login']))
-   {
-     header('Location: index.php');
-	 exit;
-   }
 if(isset($_REQUEST['action']) && $_REQUEST['action']=='change_admin_email'){
 
 $current			=	$_REQUEST['current'];

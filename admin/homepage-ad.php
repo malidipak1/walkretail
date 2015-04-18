@@ -1,12 +1,6 @@
 <?php
-session_start();
+include_once 'access_check.php';
 include("database.inc.php");
-error_reporting(~E_ALL);
-if(!isset($_SESSION['login']))
-   {
-     header('Location: index.php');
-	 exit;
-   }
 
 ###########################################  PAGING WITH PER PAGE            #####################################
 $file_name			=	"view_teams.php"; // this is file name which is used during paging  , included at the bottom of the page

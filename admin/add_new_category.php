@@ -1,12 +1,6 @@
 <?php 
+include_once 'access_check.php';
 include("database.inc.php");    		// database.inc.php is databse connection file which will be included 
-session_start();
-error_reporting(~E_ALL);
-if(!isset($_SESSION['login']))  
-   {                            
-     header('Location: index.php');
-	 exit;
-   }
 
 $form_action	=	"insert"; 			
 $button_value	=	"INSERT"; 

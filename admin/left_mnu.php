@@ -1,9 +1,5 @@
 <?php
-if(!isset($_SESSION['login']))
-{
-    header('Location: index.php');
-	exit;
-}
+include_once 'access_check.php';
 ?> 
 <table width="189" border="0" cellpadding="5"   cellspacing="1"  bordercolor="#000000">
 

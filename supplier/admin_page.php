@@ -3,12 +3,11 @@ ob_start();
 error_reporting(~E_ALL);
 include("database.inc.php");
 session_start();
-if(!isset($_SESSION['login']))
-   {
+if(!isset($_SESSION['login']) && $_SESSION['supplier']) {
      header('Location: index.php?l=2');
 	 exit;
-   }
-   ?>
+}
+?>
 <html>
 <head>
 <title>::: (Admin Panel) :::</title>

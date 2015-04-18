@@ -1,10 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['login']))
-   {
-     header('Location: index.php');
-	 exit;
-   }
+include_once 'access_check.php';
 
   $arrAdv = array('HOME_PAGE' => 'Home Page Ads',
   					'SEARCH_PAGE' => 'Search Page Ads',

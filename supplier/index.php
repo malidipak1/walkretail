@@ -1,8 +1,7 @@
 <?php 
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='check_login')
-{
-	include_once '../DBUtils.php';
-	session_start();
+if(!empty($_POST)) {
+	include_once '../DBUtil.php';
+	
 	$user_name		= $_REQUEST['user_name'];
 	$password		= $_REQUEST['password'];
 	
@@ -11,21 +10,17 @@ if(isset($_REQUEST['action']) && $_REQUEST['action']=='check_login')
 	$objDbUtil = new DBUtil(); 
 	
 	$arrUser = $objDbUtil->getSupplier($param );
-	
 	if(count($arrUser) > 0){
-		if($arrUser['password'] == $password) {	
-				
-			$_SESSION['login']=$arrUser['user_name'];
+		if($arrUser[0]['password'] == $password) {	
+			session_start();
+			$_SESSION['supplier'] = true;
+			$_SESSION['login'] = $arrUser[0]['user_name'];
 			header('Location: admin_page.php');
 			exit;
 		}
 	}
-	header("Location: index.php?message=Invalid login. Please try again");
-	exit;
-} // end
-
+}
 ?>
-
 <html>
 <head>
 <title>::: (Admin Panel)  :::</title>
