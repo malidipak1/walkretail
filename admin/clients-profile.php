@@ -47,7 +47,9 @@ function loadPage(){
        <div class="wrapper">
     <ul class="tabs">
         <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Services</a></li>
-        <li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab" onclick="javascript:loadPage();">Profile</a></li>
+        
+        <li><a href="add-new-client.php" class="tab"><span>Profile</span></a></li>
+        <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab" onClick="javascript:loadPage();">Profile</a></li>-->
         <li><a href="view-clients.php" class="tab"><span>Back To Client List</span></a></li>
          <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent3" class="tab"><span>Back To Client List</span></a></li>
         <li><a href="javascript:void(0); return false;" rel="#tabcontent4" class="tab">TAB 4</a></li>
