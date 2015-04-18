@@ -119,13 +119,15 @@ $userNameReadOnly = "readonly='readonly'";
           </div>-->
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">User Name</div>
-             <div class="supplier-panel-right"><input name="user_name" <?php echo $userNameReadOnly?> type="text" class="field" id="user_name" value="<?php echo $arrSupplier['user_name']?>" /></div>
+             <div class="supplier-panel-right">
+             	<input name="user_name" <?php echo $userNameReadOnly?> type="text" class="field" id="user_name" value="<?php echo $arrSupplier['user_name']?>" />
+             	<input name="password" type="hidden" class="field" value="<?php echo $arrSupplier['password']?>" />
+             </div>
           </div>
-          <div class="supplier-panel-bg">
+          <!-- <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Password</div>
              <div class="supplier-panel-right"><input name="password" type="text" class="field" value="<?php echo $arrSupplier['password']?>" /></div>
-          </div>
-         
+          </div>-->
         </div>
         <div class="supp-right">
           <div class="supplier-panel-bg">

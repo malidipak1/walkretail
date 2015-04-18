@@ -1,10 +1,5 @@
 <?php 
-session_start();
-if(!isset($_SESSION['login']))
-{
-	header('Location: index.php');
-	exit;
-}
+include_once 'supplier_check.php';
 include_once '../DBUtil.php';
 include_once '../Util.php';
 
@@ -12,7 +7,7 @@ $dbObj = new DBUtil();
 if(!empty($_POST)) {
 	
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
-				$_POST['max_quantity'],$_POST['stock_availability'], $_POST['supplier_id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
+				$_POST['max_quantity'],$_POST['prod_status'], $_SESSION['id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
 		
 		if(!empty($_POST['prod_id'])) {
 			$id = $_POST['prod_id'];
@@ -25,17 +20,23 @@ if(!empty($_POST)) {
 				//image could not be uploaded
 			}
 		}
-
-		$uri = "manage-product.php?supplier_id=" . $_POST['supplier_id'] . "&category=" . $_POST['category'];
+		$uri = "product-list.php";
 		header("Location: $uri");
+		exit;
 }
 
 if(!empty($_REQUEST['prod_id'])) {
-	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
+	$arrParam = array('prod_id' => $_REQUEST['prod_id'], 'supplier_id' => $_SESSION['id']);
 	$arrProduct = $dbObj->getProducts($arrParam);
 	$arrProduct = $arrProduct[0];
-}
-$arrParent = Util::getCategoryList();
+	
+	if(count($arrProduct) <= 0) {
+		$uri = "product-list.php";
+		header("Location: $uri");
+		exit;
+	}
+	
+}$arrParent = Util::getCategoryList();
 //print_r($arrProduct);
 ?>
 <html>
@@ -226,12 +227,20 @@ $arrParent = Util::getCategoryList();
              </div>
              </div>
           <div class="supplier-panel-bg1">
-             <div class="supplier-panel-left1">Stock Availibility</div>
-             <div class="supplier-panel-right1"><select name="stock_availability">
-             	<option>Yes</option>
-             	<option>No</option>
+             <div class="supplier-panel-left1">Status</div>
+             <div class="supplier-panel-right1">
+             <input type="hidden" name="prod_status" value="<?php echo $arrProduct['prod_status']?>">
+            <?php $selectY = ""; $selectN ="";
+            	if($arrProduct['prod_status'] == 'Yes'){
+            		$selectY = "selected='selected'";
+            	} else {
+            		$selectN = "selected='selected'";
+            	}
+            	?>
+             <select name="prod_status1" disabled="disabled">
+            	<option <?php echo $selectY?> value="Yes">Yes</option>
+             	<option <?php echo $selectN?> value="No">No</option>
              </select>
-             
              </div>
           </div>
           </div>

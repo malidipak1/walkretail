@@ -224,10 +224,17 @@ $arrParent = Util::getCategoryList();
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Status</div>
              <div class="supplier-panel-right1">
-             
+            	<?php $selectY = ""; $selectN ="";
+            	if($arrProduct['prod_status'] == 'Yes'){
+            		$selectY = "selected='selected'";
+            	} else {
+            		$selectN = "selected='selected'";
+            	}
+            	?>
+            	
              <select name="prod_status">
-             	<option  value="Yes">Yes</option>
-             	<option value="No">No</option>
+             	<option <?php echo $selectY?> value="Yes">Yes</option>
+             	<option <?php echo $selectN?> value="No">No</option>
              </select>
              
              </div>
