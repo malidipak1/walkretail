@@ -99,7 +99,7 @@ function search(form) {
                                           <!----------------------Start your loop------------------------------->
                                           <?php foreach ($arrProduct as $prod) {?>
                                            <tr align="center">	
-                                            <td width="16%"  bgcolor="#FFFFFF">&nbsp;<img alt="<?php echo $prod['prod_name']?>" src="<?php echo Util::getImage($prod['image'])?>" /></td>
+                                            <td width="16%"  bgcolor="#FFFFFF">&nbsp;<img width="100px" height="100px" alt="<?php echo $prod['prod_name']?>" src="<?php echo Util::getImage($prod['image'])?>" /></td>
                                             <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $prod['name']?></td>
                                				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['catname']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
