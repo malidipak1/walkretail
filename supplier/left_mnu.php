@@ -15,10 +15,10 @@
 </tr>
 
 <tr>
-    <td class="menuleft"  onclick="window.location.href='clients-profile.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add Product</td>
+    <td class="menuleft"  onclick="window.location.href='edit-product.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add Product</td>
 </tr>
 <tr>
-    <td class="menuleft"  onclick="window.location.href='clients-profile.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Product List</td>
+    <td class="menuleft"  onclick="window.location.href='product-list.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Product List</td>
 </tr>
 
 <!--<tr>

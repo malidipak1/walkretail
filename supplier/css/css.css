@@ -146,3 +146,6 @@ border:#FF0033;
 .border-bg{border:1px solid #224401; background-color:#4c9309; color:#FFF;}
 .border-bg a{color:#FFF; font-size:13px;}
 .border-bg:hover{ background:#900;}
+
+.message{color:navy;text-align: center;}
+.error{color:red; text-align: center;}

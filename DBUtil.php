@@ -272,11 +272,10 @@ class DBUtil {
 					 `company_pan`, `gumasta_lic`, `registration_lic`, `is_partner`, `website`, `logo`) VALUES (:id, :name, :user_name, :password, :status,
 					 :mobile, :email, :company, :address, :city, :state, :zipcode, :company_pan, :gumasta_lic, :registration_lic, :is_partner, :website, :logo)";
 		} else {
-			$sql = "UPDATE `supplier` SET `name`=:name,`password`=:password,`status`=:status,`mobile`=:mobile,`company`=:company,`address`=:address,
+			$sql = "UPDATE `supplier` SET `name`=:name,`password`=:password,`status`=:status,`mobile`=:mobile,`company`=:company,`address`=:address,`email`=:email,
 					`city`=:city,`state`=:state,`zipcode`=:zipcode,`company_pan`=:company_pan,`gumasta_lic`=:gumasta_lic,`registration_lic`=:registration_lic,
-					`is_partner`=:is_partner,`website`=:website, `logo`=:logo WHERE `id`=:id and `user_name`=:user_name and `email`=:email";
+					`is_partner`=:is_partner,`website`=:website, `logo`=:logo WHERE `id`=:id and `user_name`=:user_name ";
 		}
-		
 		$arrData = array (
 				':id'  => $id,
 				':name'  => $name,

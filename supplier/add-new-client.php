@@ -9,10 +9,7 @@ $message = "";
 
 if(!empty($_POST)) {
 
-	$arrParam = array('email' =>  $_POST['email']);
-	$arrRecords = $dbObj->getSupplier($arrParam);
-	
-	if(count($arrRecords) <= 0) {
+	if(true) {
 	
 		$logo = Util::uploadImage("logo");
 		$gumasta_lic = Util::uploadDocument("licence");
@@ -23,11 +20,11 @@ if(!empty($_POST)) {
 		$gumasta_lic = (empty($gumasta_lic)) ? $arrRecords['gumasta_lic'] : $gumasta_lic;
 		$registration_lic = (empty($registration_lic)) ? $arrRecords['registration_lic'] : $registration_lic;
 		$is_partner = (empty($is_partner)) ? $arrRecords['is_partner'] : $is_partner;
-	
+
 		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], 
 			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], $logo);
 
-		header("Location: view-clients.php");
+		$message = "Updated Successfuly!";
 	} else {
 		$message = "Supplier Email is Already Exist. Try with different email.";
 	}
@@ -78,7 +75,7 @@ $userNameReadOnly = "readonly='readonly'";
                                         </table></td>
                                       </tr>
                                       <tr>
-                                      <td class="error"><?php echo $message?></td>
+                                      <td align="center" width="100%" class="message"><?php echo $message?></td>
                                       </tr>
                                       
                                       <tr>
