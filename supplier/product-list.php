@@ -21,6 +21,7 @@ include_once 'supplier_check.php';
    $totalRecords = $dbObj->totalRecords;
    $lastPage = $dbObj->lastPage;
    ?>
+   
 <html>
 <head>
 <title>:::(Admin Panel) :::</title>

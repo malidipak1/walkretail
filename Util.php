@@ -73,7 +73,8 @@ class Util {
 	}
 	
 	public static function enquiryMail ($type, $arrPost) {
-		$category = implode(",", $arrPost['category']);
+		if(!empty($arrPost['category']))
+			$category = implode(",", $arrPost['category']);
 		
 		$strFile = Util::readMailFile($type);
 		
@@ -201,7 +202,7 @@ class Util {
 		return $paginationDisplay;
 	}
 	
-	static function getPagingOffset() {
+	public static function getPagingOffset($perPage ) {
 		$arrResult = array();
 	
 		if (isset($_GET['page'])) {
@@ -210,14 +211,38 @@ class Util {
 			$page = 1;
 		}
 	
-		$perPage = PER_PAGE;
-		
 		$offset = $perPage * ($page-1) ;
 		$arrResult['page'] = $page;
 		$arrResult['offset'] = $offset;
-	
 		return $arrResult;
 	}
+	
+	public static function validateSize() {
+		$flag = true;
+		
+		$max_allowed_file_size = 2048; // size in KB
+		
+		if($size_of_uploaded_file > $max_allowed_file_size ) {
+			$flag = false;
+			//$errors .= "\n Size of file should be less than $max_allowed_file_size";
+		}
+		
+		return $flag;
+	}
+	public static function validateFormat() {
+	
+		$allowed_extensions = array("jpg", "jpeg", "gif", "bmp");
+	
+		//------ Validate the file extension -----
+		$allowed_ext = false;
+		for($i=0; $i<sizeof($allowed_extensions); $i++) {
+			if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file) == 0) {
+				$allowed_ext = true;
+			}
+		}
+		return $allowed_ext;
+	}
+	
 	
 }
 

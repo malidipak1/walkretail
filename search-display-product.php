@@ -5,7 +5,7 @@ $arrResult = array();
 include_once 'DBUtil.php';
 include_once 'Util.php';
 $dbObj = new DBUtil();
-$dbObj->isPaging = true;
+$dbObj->isPaging = false;
 $dbObj->pagingPerPage = PRODUCT_PER_PAGE;
 
 if(!empty($_REQUEST['category'])) {

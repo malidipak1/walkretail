@@ -9,7 +9,7 @@ if($_REQUEST['action'] == 'delete') {
 }
 
 if(!empty($_POST) && !empty($_POST['catname'])) {
-	$dbObj->addMenu($_POST['catname'], $_POST['parent_id'],$_POST['status'], $_POST['catid']);
+	$dbObj->addMenu($_POST['catname'], $_POST['parent_id'],$_POST['cat_status'], $_POST['catid']);
 }
 
 if(!empty($_REQUEST['catid'])) {
@@ -95,10 +95,10 @@ function deleteCat() {
                   <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><strong>Status</strong></td>
                     <td colspan="-2" align="left" nowrap="nowrap" >
-                    	<select name="status">
+                    	<select name="cat_status">
                     		<?php 
                     		$select1 = ""; $select2 = "";
-                     		if ( $arrMenu['status'] == '1') { 
+                     		if ( $arrMenu['cat_status'] == '1') { 
                     				$select1 = "selected = 'selected'"; 
                     			} else {
                     				$select2 = "selected = 'selected'";

@@ -42,7 +42,7 @@ class DBUtil {
 				$perPage = $this->pagingPerPage;
 			}
 			$totalCount = $this->getCount($query);
-			$arrOffset = Util::getPagingOffset();
+			$arrOffset = Util::getPagingOffset($perPage);
 			$page = $arrOffset['page'];
 			$offSet = $arrOffset['offset'];
 				
@@ -61,7 +61,7 @@ class DBUtil {
 			
 			$query .= " limit " . $offSet . ", " . $perPage;
 		}
-		
+
 		$stmt = $this->dbConn->query ( $query );
 		
 		return $stmt->fetchAll ( PDO::FETCH_ASSOC );
@@ -197,8 +197,8 @@ class DBUtil {
 	
 	public function getActiveProducts($arrSearch = array()) {
 		
-		$sql = "SELECT id, name, catid, catname, product.* FROM product,supplier,product_categories WHERE catid=category and id=supplier_id and " 
-				. " prod_status = 'Yes' and status=1 and cat_status = 1 "	
+		$sql = "SELECT id, name, catid, catname, product.* FROM product,supplier,product_categories WHERE catid=category and id=supplier_id  " 
+				. " and prod_status = 'Yes' and status=1 and cat_status = 1 and "	
 				. $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);
 	}
@@ -211,7 +211,7 @@ class DBUtil {
 
 	public function searchProductByName($prodName, $min = 0, $max = 0) {
 		$sql = "select * from product, product_categories,supplier where catid=category and id=supplier_id and (prod_name like '%" . $prodName . "%' OR catname like '%" . $prodName . "%' )"
-				. " prod_status = 'Yes' and status=1 and cat_status = 1 ";
+				. " and prod_status = 'Yes' and status=1 and cat_status = 1 ";
 					
 		if($min > 0 || $max > 0) {
 			$sql .= " AND (min_quantity between $min and $max or max_quantity between $min and $max)";
