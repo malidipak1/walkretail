@@ -210,6 +210,17 @@ class DBUtil {
 		return $this->getAll($sql);
 	}	
 		
+	public function getProductList($prodName = '', $arrSearch = array()) {
+		//print_r($arrSearch);
+		$sql = "SELECT id, name, catid, catname, product.* FROM product,supplier,product_categories WHERE catid=category and id=supplier_id and " . $this->getWhereClause($arrSearch);
+
+		if(!empty($prodName)) {
+			$sql .= " and (prod_name like '%" . $prodName . "%' OR name like '%" . $prodName . "%' )";
+		}
+		//echo $sql;
+		return $this->getAll($sql);
+	}
+	
 	public function getSupplier($arrSearch = array()) {
 		$sql = "SELECT * FROM supplier WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);

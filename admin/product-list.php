@@ -8,24 +8,18 @@ include_once 'access_check.php';
    		$dbObj->deleteProducts($_REQUEST['prod_id']);
    		header("Location: product-list.php");
    }
-   $arrCatList = array();
-   $arrSupplierList = array();
-   $arrCat = $dbObj->getCategories();
-   foreach ($arrCat as $cat) {
-   		$arrCatList[$cat['catid']] = $cat['catname'];
-   }
-   
-   $arrSupplier = $dbObj->getSupplier();
-   foreach ($arrSupplier as $supplier) {
-   		$arrSupplierList[$supplier['id']] = $supplier['name'];
+  
+   $arrParam = array();
+   $search = "";
+   if(!empty($_REQUEST['search'])) {
+   		$search = $_REQUEST['search'];
    }
    
    $dbObj->isPaging = true;
-   $arrProduct = $dbObj->getProducts();
+   $arrProduct = $dbObj->getProductList($search, $arrParam);
    $page = $dbObj->page;
    $totalRecords = $dbObj->totalRecords;
    $lastPage = $dbObj->lastPage;
-  
    ?>
 <html>
 <head>
@@ -38,6 +32,14 @@ function deleteCat(val) {
 		window.location = 'product-list.php?prod_id=' + val+ '&action=delete';
 	}
 }
+function search(form) {
+	if(form.search.value == '') {
+		alert('Please enter Product/Supplier Name to search');
+		return false;
+	}
+	return true;
+}
+
 </script>
 </head>
 <body>
@@ -59,23 +61,29 @@ function deleteCat(val) {
                                       </tr>
                                       
 	      	<td colspan="2" align="center" valign="top">
-	  	<form name="search_product" method="post" action="">
-			<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
+	  	<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
 						
 										 <tr align="center" style="color:#060; background:#FFF;">
-										   <td colspan="6"><table width="60%" border="0" align="center" cellpadding="0" cellspacing="10" style="background:#ebfadd; border:solid 1px #060;">
+										   <td colspan="6">
+										   
+								<form name="search_product" method="get" onsubmit="return search(this);">
+										   
+										   <table width="60%" border="0" align="center" cellpadding="0" cellspacing="10" style="background:#ebfadd; border:solid 1px #060;">
 										     <tr>
-										       <td height="30" align="center" valign="middle" class="btn-search">Search By</td>
-										       <td height="30" align="center" valign="middle"><label for="select2"></label>
-										         <select name="select" id="select2" class="sell5">
+										        <td height="30" align="center" valign="middle" class="btn-search">Search&nbsp;&nbsp;&nbsp; </td>
+										       <!--<td height="30" align="center" valign="middle"><label for="select2"></label>
+										         <select name="searchBy" id="searchBy" class="sell5">
 										           <option>Supplier</option>
 										           <option>Product</option>
-							                   </select></td>
+							                   </select></td> -->
 										       <td height="30" align="center" valign="middle" ><label for="textfield"></label>
-									           <input type="text" name="textfield" id="textfield" class="search" ></td>
-										       <td height="30" align="center" valign="middle"><input name="button" type="submit" class="search-btn" id="button" value="."></td>
+									           <input type="text" name="search" id="search" class="search" value="<?php echo $search?>" placeholder="Enter product/supplier name" ></td>
+										       <td height="30" align="center" valign="middle">
+										       <input name="button" type="submit" class="search-btn" id="button" value="." ></td>
 									         </tr>
-									       </table></td>
+									       </table>
+									       </form>
+									       </td>
 				      </tr>
 										 <tr align="center"  bgcolor="#3c7701">									
 
@@ -91,8 +99,8 @@ function deleteCat(val) {
                                           <?php foreach ($arrProduct as $prod) {?>
                                            <tr align="center">	
                                             
-                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $arrSupplierList[$prod['supplier_id']]?></td>
-                               				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $arrCatList[$prod['category']]?></td>
+                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $prod['name']?></td>
+                               				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['catname']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_id']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">
@@ -118,7 +126,7 @@ function deleteCat(val) {
                                        </td>  </tr>
                                           <!-----------------------End your loop here---------------------------->
                                         </table>
-                </form></td>
+                </td>
                                       </tr>
                                     </table></td>
   </tr>
