@@ -3,6 +3,7 @@ body{margin:0; padding:0; font-size:12px; font-family:"Century Gothic";}
 *{margin:0; padding:0;}
 h2{color:#FFF; padding:0 0 10px 0; font-size:1.55em; font-weight:normal;}
 #tgray-bg, #footer-gray{background:#333333; width:100%; height:35px; float:left;}
+.tgray-bg, .footer-gray{background:#333333; width:100%; height:35px; float:left;}
 .middle-inner{width:1200px; float:left;}
 .middle{margin:0 auto; max-width:1200px;}
 .menu{}

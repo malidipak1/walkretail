@@ -70,7 +70,7 @@ $(document).ready(function($){
 
 <!--FB Page-->
 
-<div id="tgray-bg">
+<div class="tgray-bg">
   <div class="middle">
      <div class="middle-inner">
         <?php include("menu.php");?>
