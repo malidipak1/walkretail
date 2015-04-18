@@ -251,16 +251,16 @@ class DBUtil {
 	public function addMenu($catname,$parent_id=0,$status=1,$catid=0) {
 		$sql = "";
 		if ($catid == 0) {
-			$sql = "INSERT INTO `product_categories`(`catid`, `parent_id`, `catname`, `cat_link`, `status`) VALUES (:catid,:parent_id,:catname,:cat_link,:status)";
+			$sql = "INSERT INTO `product_categories`(`catid`, `parent_id`, `catname`, `cat_link`, `cat_status`) VALUES (:catid,:parent_id,:catname,:cat_link,:cat_status)";
 		} else {
-			$sql = "UPDATE `product_categories` SET `parent_id`=:parent_id,`catname`=:catname,`cat_link`=:cat_link,`status`=:status WHERE `catid`=:catid";
+			$sql = "UPDATE `product_categories` SET `parent_id`=:parent_id,`catname`=:catname,`cat_link`=:cat_link,`cat_status`=:cat_status WHERE `catid`=:catid";
 		}
 		$arrData = array (
 				':catid'  => $catid,
 				':catname' => $catname,
 				':parent_id' => $parent_id,
 				':cat_link' => "",
-				':status' => $status
+				':cat_status' => $status
 		);
 		return $this->executeUpdate($sql, $arrData);
 	}
