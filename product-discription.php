@@ -130,7 +130,7 @@ $(document).ready(function() {
              <div class="prod2-middle">
                 <span>Min &#8377; <?php echo $arrResult['min_price']?>/- Max &#8377; <?php echo $arrResult['max_price']?></span>
                 <span>Min <?php echo $arrResult['min_quantity']?>&nbsp; &ndash; Max <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span>
-                <span><?php $stock = ($arrResult['stock_availability'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
+                <span><?php $stock = ($arrResult['prod_status'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
                 <span>&nbsp;</span>
              </div>
              <div class="buy-now">
@@ -147,7 +147,7 @@ $(document).ready(function() {
             Note :</strong> * For up to 3 Products<br /><span style="padding:0 0 0 44px;">** For Bulk Quantity</span>
           </p></div>
          <div>
-           <!-- <span><strong>Supplier</strong>  : <?php echo Util::getSupplierName($arrResult['supplier_id']);?></span><br /><br /> -->
+           <!-- <span><strong>Supplier</strong>  : <?php echo $arrResult['name'];?></span><br /><br /> -->
           
         </div>
        

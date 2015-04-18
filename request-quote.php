@@ -2,7 +2,9 @@
 error_reporting(E_ALL ^ E_NOTICE);
 include_once('Mail.php');
 include_once('Mail_Mime/mime.php');
-	
+include_once('Util.php');
+
+
 $docName = "";
 	if(!empty($_FILES['attachment']["tmp_name"])) {
 		$docName = date('Ymd_Hms') . "_" . basename($_FILES['attachment']["name"]);
