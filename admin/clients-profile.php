@@ -48,7 +48,7 @@ function loadPage(){
     <ul class="tabs">
         <li><a href="javascript:void(0); return false;" rel="#tabcontent1" class="tab active">Services</a></li>
         
-        <li><a href="add-new-client.php" class="tab"><span>Profile</span></a></li>
+        <li><a href="add-new-client.php?id=<?php echo $_REQUEST['supplier_id']?>" class="tab"><span>Profile</span></a></li>
         <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent2" class="tab" onClick="javascript:loadPage();">Profile</a></li>-->
         <li><a href="view-clients.php" class="tab"><span>Back To Client List</span></a></li>
          <!--<li><a href="javascript:void(0); return false;" rel="#tabcontent3" class="tab"><span>Back To Client List</span></a></li>
