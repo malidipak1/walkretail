@@ -7,6 +7,6 @@ if(!ini_get('display_errors'))
 	ini_set('display_errors', '1');
 
 error_reporting(0); //turn off error reporting
-//error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE);
 
 ?>

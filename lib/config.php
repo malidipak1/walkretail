@@ -11,4 +11,6 @@ define('MAILTO',"enquiry@walkretail.com");
 //define('MAILTO',"malidipak1@gmail.com, bcmhatre@gmail.com");;
 define('FILEPATH', "/home/walkreta/");
 define( 'MIN_BUYNOW', 3);
+define( 'PER_PAGE', 10);
+define( 'PRODUCT_PER_PAGE', 12);
 ?>

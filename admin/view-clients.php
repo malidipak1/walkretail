@@ -46,7 +46,6 @@ include_once '../DBUtil.php';
 										 <td width="22%" class="white">Name</td>
                                           <td width="16%" class="white">Email Id</td>
                                          <td width="16%" class="white">Contact No.</td>
-                                         <td width="8%" class="white">Product</td>
                                          <td width="8%" class="white">View</td>
                                          
                       					</tr>
@@ -60,7 +59,6 @@ include_once '../DBUtil.php';
                                <td width="16%"  bgcolor="#FFFFFF"><?php echo $supplier['email']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">
                                                 <?php echo $supplier['mobile']?>                        </td>
-                                            <td width="8%"  bgcolor="#FFFFFF">count</td>
                                             <td width="8%"  bgcolor="#FFFFFF"><a href="clients-profile.php?supplier_id=<?php echo $supplier['id']?>"> <img src="images/Edit.gif" width="12" height="12" alt="Edit" border="0" /></a></td>
                                           
                                           </tr>
