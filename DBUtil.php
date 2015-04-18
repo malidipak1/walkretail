@@ -195,6 +195,14 @@ class DBUtil {
 		return $this->getAll($sql);
 	}
 	
+	public function getActiveProducts($arrSearch = array()) {
+		
+		$sql = "SELECT id, name, catid, catname, product.* FROM product,supplier,product_categories WHERE catid=category and id=supplier_id and " 
+				. " prod_status = 'Yes' and status=1 and cat_status = 1 "	
+				. $this->getWhereClause($arrSearch);
+		return $this->getAll($sql);
+	}
+	
 	public function deleteProducts($prodId) {
 		$sql = "DELETE FROM product WHERE prod_id = :prod_id";
 		$arrData = array ( ':prod_id'  => $prodId );
@@ -202,8 +210,9 @@ class DBUtil {
 	}
 
 	public function searchProductByName($prodName, $min = 0, $max = 0) {
-		$sql = "select * from product, product_categories where catid=category and (prod_name like '%" . $prodName . "%' OR catname like '%" . $prodName . "%' )";
-				
+		$sql = "select * from product, product_categories,supplier where catid=category and id=supplier_id and (prod_name like '%" . $prodName . "%' OR catname like '%" . $prodName . "%' )"
+				. " prod_status = 'Yes' and status=1 and cat_status = 1 ";
+					
 		if($min > 0 || $max > 0) {
 			$sql .= " AND (min_quantity between $min and $max or max_quantity between $min and $max)";
 		}
@@ -217,7 +226,7 @@ class DBUtil {
 		if(!empty($prodName)) {
 			$sql .= " and (prod_name like '%" . $prodName . "%' OR name like '%" . $prodName . "%' )";
 		}
-		//echo $sql;
+
 		return $this->getAll($sql);
 	}
 	
@@ -328,15 +337,15 @@ class DBUtil {
 			);
 		return $this->executeUpdate($sql, $arrData);
 	}
-	public function addEditProduct($prod_name,$category,$desc,$TOS,$minPrice,$maxPrice,$min_quantity,$max_quantity,$stock_availability,$supplier_id,
+	public function addEditProduct($prod_name,$category,$desc,$TOS,$minPrice,$maxPrice,$min_quantity,$max_quantity,$prod_status,$supplier_id,
 			$order_range, $supply_ability, $home_delivery,$quntity_type, $prod_id = 0) {
 		$sql = "";
 		if ($prod_id == 0) {
-			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `min_price`,`max_price`, `min_quantity`,`max_quantity`, `stock_availability`, `supplier_id`, `order_range`, `quntity_type`, `home_delivery`) VALUES 
-					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :stock_availability, :supplier_id,  :order_range, :quntity_type, :home_delivery)";
+			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `min_price`,`max_price`, `min_quantity`,`max_quantity`, `prod_status`, `supplier_id`, `order_range`, `quntity_type`, `home_delivery`) VALUES 
+					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :prod_status, :supplier_id,  :order_range, :quntity_type, :home_delivery)";
 		} else {
 			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`min_price`=:min_price,`max_price`=:max_price,`min_quantity`=:min_quantity, `max_quantity`=:max_quantity,
-					`stock_availability`=:stock_availability,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`home_delivery`=:home_delivery
+					`prod_status`=:prod_status,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`home_delivery`=:home_delivery
 					WHERE `prod_id`=:prod_id";
 		}
 		$arrData = array (
@@ -349,7 +358,7 @@ class DBUtil {
 			':max_price'	 => $maxPrice,
 			':min_quantity'	 => $min_quantity,
 			':max_quantity' => $max_quantity,
-			':stock_availability' => $stock_availability,
+			':prod_status' => $prod_status,
 			':supplier_id'	 => $supplier_id,
 			':order_range' => $order_range,
 			':quntity_type' => $quntity_type,

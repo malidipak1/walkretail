@@ -1,4 +1,3 @@
- <?php error_reporting(~E_ALL); ?>
  <link href="css/css.css" rel="stylesheet" type="text/css">
   
  

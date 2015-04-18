@@ -4,7 +4,7 @@ include_once 'Util.php';
 $dbObj = new DBUtil();
 if(!empty($_REQUEST['prod_id'])) {
 	$arrParam = array('prod_id' => $_REQUEST['prod_id']);
-	$arrResult = $dbObj->getProducts($arrParam);
+	$arrResult = $dbObj->getActiveProducts($arrParam);
 	$arrResult = $arrResult[0];
 	
 	$arrImage = $dbObj->getImages($_REQUEST['prod_id']);

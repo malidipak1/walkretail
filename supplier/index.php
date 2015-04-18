@@ -14,6 +14,7 @@ if(!empty($_POST)) {
 		if($arrUser[0]['password'] == $password) {	
 			session_start();
 			$_SESSION['supplier'] = true;
+			$_SESSION['id'] = $arrUser[0]['id'];
 			$_SESSION['login'] = $arrUser[0]['user_name'];
 			header('Location: admin_page.php');
 			exit;

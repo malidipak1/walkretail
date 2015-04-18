@@ -1,5 +1,5 @@
 <?php 
-include_once 'access_check.php';
+include_once 'supplier_check.php';
 include_once '../DBUtil.php';
 include_once '../Util.php';
 
@@ -12,7 +12,7 @@ if(!empty($_POST)) {
 	$arrParam = array('email' =>  $_POST['email']);
 	$arrRecords = $dbObj->getSupplier($arrParam);
 	
-	if(count($arrRecords) <= 0 || !empty($_POST['supplier_id'])) {
+	if(count($arrRecords) <= 0) {
 	
 		$logo = Util::uploadImage("logo");
 		$gumasta_lic = Util::uploadDocument("licence");
@@ -29,16 +29,15 @@ if(!empty($_POST)) {
 
 		header("Location: view-clients.php");
 	} else {
-		$message = "Supplier is Already Exist. Contact us for more details.";
+		$message = "Supplier Email is Already Exist. Try with different email.";
 	}
 }
 $userNameReadOnly = "";
-if(!empty($_REQUEST['id'])) {
-	$arrParam = array('id' => $_REQUEST['id']);
-	$arrSupplier = $dbObj->getSupplier($arrParam);
-	$arrSupplier = $arrSupplier[0];
-	$userNameReadOnly = "readonly='readonly'";	
-}
+
+$arrParam = array('id' => $_SESSION['id']);
+$arrSupplier = $dbObj->getSupplier($arrParam);
+$arrSupplier = $arrSupplier[0];
+$userNameReadOnly = "readonly='readonly'";	
 //print_r($arrSupplier);
 ?>
 <html>
@@ -152,7 +151,8 @@ if(!empty($_REQUEST['id'])) {
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Status</div>
              <div class="supplier-panel-right">
-             	<select name="status">
+             	<input type="hidden" name="status" value="<?php echo $arrSupplier['status']?>">
+             	<select name="status1" disabled="disabled">
              		<?php $y = ""; $n = "";
              		if($arrSupplier['status'] == 1) $y = "selected='selected'";
              		else $n = "selected='selected'";?>

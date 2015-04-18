@@ -91,6 +91,7 @@ function search(form) {
                                           <td width="16%" class="white">Sub - Category</td>
                                          <td width="16%" class="white">Product Name</td>
                                          <td width="8%" class="white">Product ID</td>
+                                         <td width="8%" class="white">Product Status</td>
                                          <td width="8%" class="white">Edit</td>
                                          <td width="8%" class="white">Delete</td>
                                          
@@ -103,6 +104,7 @@ function search(form) {
                                				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['catname']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_id']?></td>
+                                            <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_status']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">
                                             <a href="edit-product.php?prod_id=<?php echo $prod['prod_id']?>&supplier_id=<?php echo $prod['supplier_id']?>"> 
                                             	<img width="12" height="12" border="0" alt="Edit" src="images/Edit.gif">

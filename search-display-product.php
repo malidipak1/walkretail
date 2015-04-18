@@ -10,7 +10,7 @@ $dbObj->pagingPerPage = PRODUCT_PER_PAGE;
 
 if(!empty($_REQUEST['category'])) {
 	$arrParam = array('category' => $_REQUEST['category']);
-	$arrResult = $dbObj->getProducts($arrParam);
+	$arrResult = $dbObj->getActiveProducts($arrParam);
 }
 if(!empty($_REQUEST['search']) ){
 	
