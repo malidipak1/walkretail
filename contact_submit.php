@@ -1,6 +1,6 @@
 <?php 
 # You can use this script to submit your forms or to receive orders by email.
-$MailToAddress = "enquirywalkretail@gmail.com,bcmhatre@gmail.com"; // your email address.
+$MailToAddress = "enquirywalkretail@gmail.com,bcmhatre@gmail.com,enquiry@walkretail.com"; // your email address.
 $MailToAddress2 = "bcmhatre@gmail.com";//second mail id
 $redirectURL = "thank_you_suggestions.php"; // the URL of the thank you page.
 $MailSubject = "Suggestion"; // the subject of the email
