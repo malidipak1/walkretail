@@ -15,6 +15,18 @@ if(!isset($_SESSION['login']))
 <tr>
     <td class="menuleft"  onclick="window.location.href='clients-profile.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">View Profile</td>
 </tr>
+<tr >
+    <td bgcolor="#3c7701"><strong>
+    <div class="white">Manage Product</div>
+    </strong></td> 
+</tr>
+
+<tr>
+    <td class="menuleft"  onclick="window.location.href='clients-profile.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Add Product</td>
+</tr>
+<tr>
+    <td class="menuleft"  onclick="window.location.href='clients-profile.php'"  onmouseover="this.className='menuleftover';" onmouseout="this.className='menuleft';">Product List</td>
+</tr>
 
 <!--<tr>
     <td bgcolor="#3270B4"><strong>
