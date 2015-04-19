@@ -23,7 +23,7 @@ $dbObj = new DBUtil();
 	 <td width="17" align="left" valign="top" bgcolor="#b5f971" class="red" style="padding:0px; margin:0px;"><?php include('left_mnu.php');?></td>
                                     
           <td width="1392" align="center" valign="top" bgcolor="" class="red">
-	<form method="post"  name="form1" id="form1" onsubmit="return validate();">
+	<form method="post"  name="form1" id="form1" onSubmit="return validate();">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td height="40"><span class="head_ing">&nbsp;&nbsp;<strong>&nbsp;Add Menus</strong></span></td>
@@ -31,7 +31,7 @@ $dbObj = new DBUtil();
               <tr bgcolor="#FFFFFF">
                 <td align="center" valign="top"><table width="50%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
                   <tr>
-                    <td height="27" bgcolor="#3c7701"><strong class="white">&nbsp;List Category </strong></td>
+                    <td height="27" colspan="2" align="center" valign="middle" bgcolor="#3c7701"><strong class="white">&nbsp;List Category </strong></td>
                   </tr>
                    <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><strong>Category Name</strong></td>

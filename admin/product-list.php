@@ -64,9 +64,9 @@ function search(form) {
 	  	<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
 						
 										 <tr align="center" style="color:#060; background:#FFF;">
-										   <td colspan="6">
+										   <td colspan="8">
 										   
-								<form name="search_product" method="get" onsubmit="return search(this);">
+								<form name="search_product" method="get" onSubmit="return search(this);">
 										   
 										   <table width="60%" border="0" align="center" cellpadding="0" cellspacing="10" style="background:#ebfadd; border:solid 1px #060;">
 										     <tr>
@@ -99,7 +99,7 @@ function search(form) {
                                           <!----------------------Start your loop------------------------------->
                                           <?php foreach ($arrProduct as $prod) {?>
                                            <tr align="center">	
-                                            <td width="16%"  bgcolor="#FFFFFF">&nbsp;<img width="100px" height="100px" alt="<?php echo $prod['prod_name']?>" src="<?php echo Util::getImage($prod['image'])?>" /></td>
+                                            <td width="16%"  bgcolor="#FFFFFF">&nbsp;<img width="50px"  alt="<?php echo $prod['prod_name']?>" src="<?php echo Util::getImage($prod['image'])?>" /></td>
                                             <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $prod['name']?></td>
                                				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['catname']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
@@ -118,7 +118,7 @@ function search(form) {
                                           	
                                           </tr>
                                           <?php }?>
-                                		<tr><td colspan="6" bgcolor="#FFFFFF">
+                                		<tr><td colspan="8" bgcolor="#FFFFFF">
 									<!-- Paging starts here  -->
 										<div class="clear">&nbsp;</div>
 										<div id="container">
