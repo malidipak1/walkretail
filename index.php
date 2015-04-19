@@ -137,7 +137,7 @@ $(document).ready(function($){
       <span><a href="request-quote.php"><a href="request-quote.php" target="_blank"><img src="images/quote.jpg" width="250" height="163" alt="" border="0" /></a></span>
       <span><a href="suggetion.php" target="_blank" ><img src="images/offer.jpg" width="250" height="145" alt="" border="0" /></a></span>
  
-    <a href="http://walkretail.com/request-quote.php" target="_blank"><img src="images/side-img.jpg" border="0" width="248" height="167" border="0" alt="" /></a> </div>
+    <a href="http://walkretail.com/request-quote.php" target="_blank"><img src="images/side-img.jpg" border="0" width="248" height="167" alt="" /></a> </div>
     
      <!-- right panel end -->
      

@@ -1,50 +1,3 @@
-<?php 
-error_reporting(E_ALL ^ E_NOTICE);
-include_once('Mail.php');
-include_once('Mail_Mime/mime.php');
-include_once('Util.php');
-
-
-$docName = "";
-	if(!empty($_FILES['attachment']["tmp_name"])) {
-		$docName = date('Ymd_Hms') . "_" . basename($_FILES['attachment']["name"]);
-		$target_file = UPLOAD_DOCS_DIR . $docName;
-		if (!move_uploaded_file($_FILES['attachment']['tmp_name'], $target_file)) {
-			$docName = "";
-		}
-	}
-
-	if(!empty($arrPost['category']))
-		$category = implode(",", $arrPost['category']);
-	
-	$strFile = Util::readMailFile("request-quote.txt");
-	
-	foreach ($arrPost as $key => $value) {
-		$search = "{" . strtoupper ($key) . "}";
-	
-		if($key == 'category') {
-			$strFile = str_replace($search, $category, $strFile);
-		} else {
-			$strFile = str_replace($search, $value, $strFile);
-		}
-	}
-	
-	$message = new Mail_mime();
-	$message->setTXTBody($strFile);
-	if(!empty($docName)) {
-		$message->addAttachment($target_file);
-	}
-	$body = $message->get();
-	$subject = "Want Quotation Request";
-	$replyMail = "enquiry@walkretail.com";
-	$extraheaders = array("From"=>$replyMail, "Subject"=>$subject,"Reply-To"=>$replyMail);
-	
-	$headers = $message->headers($extraheaders);
-	$mail = Mail::factory("mail");
-	$mail->send(MAILTO, $headers, $body);
-
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -100,7 +53,7 @@ function MM_validateForm() { //v4.0
   	<div align="center" style="color: red"></div>
   <div class="buy-get-heading">Please Fill For to Request Quotation</div>
     <div class="form-con1">
-       <form method="post" enctype="multipart/form-data" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">        
+       <form action="request-quote-submit.php" method="post" enctype="multipart/form-data" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">        
       <div class="form-pad1">
            
            
@@ -124,21 +77,10 @@ function MM_validateForm() { //v4.0
                      </span> 
           </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Category</span> <span class="poperty-panel-right">
-                      <select id="category" name="category[]" multiple="multiple"> 
-	             	<option value="0">-SELECT-</option>
-	                   	<?php 
-	                   	$arrParent = Util::getCategoryList();
-	                   	foreach ($arrParent as $parent => $arrSubCat) { ?>
-	             	<optgroup label="<?php echo $parent?>">
-	             	<?php foreach ($arrSubCat as $id => $name) {  
-	             		$selected = "";
-	             		if($arrProduct['category'] == $id) { $selected = "selected='selected'"; }?>
-	             	
-	             		<option <?php echo $selected?> value="<?php echo $name?>"><?php echo $name?></option>
-	             	<?php } ?>
-	             	</optgroup>
-	             	<?php }	?>
-	             	</select>              </span> </div>
+                <label for="select"></label>
+                <label for="textfield"></label>
+                <input name="textfield" type="text" class="sell2" id="textfield" />
+                </span> </div>
                
         
           <div class="property-panel-bg"> 
@@ -153,7 +95,7 @@ function MM_validateForm() { //v4.0
                 <div class="property-panel-bg"> 
                 <span class="property-panel-left">Attach File :</span><input name="attachment" type="file"  id="attachment" />
                 <br /><br/>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File Format: Jpeg, Jpg, Gif, Png, PDF, PPT, Word, Excel, mp3. Maximum File Size: 2MB</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File Format: Jpeg, Jpg,  Png, PDF, Word, Excel, mp3. Maximum File Size: 2MB</span>
                 </div>
                       <div class="property-panel-bg"> 
                   <!-- <span class="property-panel-left">Comment</span> 
