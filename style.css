@@ -111,14 +111,14 @@ h3{color:#000000; font-size:25px; padding:10px 0;}
 .supp2-left{width:250px; float:left;}
 .supp2-right{width:510px; float:left;}
 .supp3{ width:80px;}
-.head{font-size:24px; color:#000000;}
+.head{font-size:24px; color:#000000; font-family:"Century Gothic";}
 
 /* product discription */
 
 .prod1, .prod2{ float:left; padding:0 20px 20px 20px;}
 .prod1{width:300px; background:#FFF; border:1px solid #aaaaaa; padding:20px 0; min-height:176px;}
 .prod2{width:518px; margin:0 0 0 20px;;}
-.prod2-left span, .prod2-middle span, .prod2-right span{ display:block; padding:20px 0 0 0;}
+.prod2-left span, .prod2-middle span, .prod2-right span{ display:block; padding:20px 0 0 0; font-family:"Century Gothic";}
 .prod2-left, .prod2-middle, .prod2-right{float:left;}
 .prod2-left{width:150px; font-weight:bold; color:#000000; font-size:13px;}
 .prod2-middle{width:320px; font-size:13px; font-weight:bold; color:#3C3A3A;}

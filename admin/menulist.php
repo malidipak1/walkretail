@@ -35,7 +35,7 @@ $dbObj = new DBUtil();
                   </tr>
                    <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF"><strong>Category Name</strong></td>
-                    <td colspan="-2" align="left" nowrap="nowrap" >Status</td>
+                    <td colspan="-2" align="left" nowrap="nowrap" ><strong>Status</strong></td>
                   </tr>
               		<?php foreach ($arrMenu as $menu) {
               		$status = ($menu['cat_status'] == 1) ? "Active" : "Inactive";
