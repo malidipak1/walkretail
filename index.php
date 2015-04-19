@@ -158,6 +158,9 @@ $(document).ready(function($){
    </div>
  </div>
  
+
+ 
+ 
  <!-- light gray bg end -->
  
  <?php include("footer.php");?>
@@ -171,7 +174,7 @@ $(document).ready(function($){
      </div>
    </div>
  </div>
- 
+
 
 </body>
 </html>
