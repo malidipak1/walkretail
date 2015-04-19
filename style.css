@@ -5,7 +5,7 @@ h2{color:#FFF; padding:0 0 10px 0; font-size:1.55em; font-weight:normal;}
 #tgray-bg, #footer-gray{background:#333333; height:35px; float:left; width:100%;}
 .middle-inner{width:1200px; float:left;}
 .middle{margin:0 auto; max-width:1200px;}
-.menu{}
+.menu{ width:100%; float:left;}
 .menu ul{ margin:0; padding:0; list-style-type:none;}
 .menu li{ }
 .menu a{ text-decoration:none; color:#4b8f07; float:left; padding:10px 30px 10px 0; font-weight:bold;}
