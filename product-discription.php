@@ -23,7 +23,49 @@ $image = Util::getImage($arrResult['image']);
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/tabbed-style.css">
 
+<!--floting menu-->
+<script type="text/javascript" src="js/floating-1.12.js"></script>
+<!--Floating Menu Ends--> 
 
+ <!-- CATEGORY MENU START-->
+    <link href="css/dcverticalmegamenu.css" rel="stylesheet" type="text/css" />
+
+<script type='text/javascript' src='js/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='js/jquery.dcverticalmegamenu.1.3.js'></script>
+<script type="text/javascript">
+$(document).ready(function($){
+
+	$('#mega-1').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'show',
+		direction: 'right'
+	});
+	$('#mega-2').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'slow',
+		effect: 'fade',
+		direction: 'left'
+	});
+	$('#mega-3').dcVerticalMegaMenu({
+		rowItems: '4',
+		speed: 'slow',
+		effect: 'slide',
+		direction: 'right'
+	});
+	$('#mega-4').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'slide',
+		direction: 'left'
+	});
+
+});
+</script>
+<!--CATEGORY MENU END-->
+
+
+ 
 
 <!-- product display js start -->
 <script src="js/jquery-1.6.js" type="text/javascript"></script>
@@ -60,6 +102,16 @@ $(document).ready(function() {
 </head>
 
 <body>
+<!--Floating Menu-->
+    <div id="floatdiv" class="floating-menu">  
+    <?php include("side-categories.php");?>  
+    </div>  
+      
+    <script type="text/javascript">  
+        floatingMenu.add('floatdiv',  
+        { targetLeft:0, targetTop: 10, centerY: true,  snap: true });  
+    </script> 
+<!--Floating Menu End-->
 <!--FB Page-->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

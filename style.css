@@ -358,3 +358,4 @@ h3{color:#000000; font-size:25px; padding:10px 0;}
 .scrolling-head{padding:10px 30px 10px 400px; color:#cccccc;}
 .message{color:navy;text-align: center;}
 .error{color:red; text-align: center;}
+.floating-menu{position:absolute; width:200px;height:50px;top:10px;right:10px; padding:16px;background:#FFFFFF; border:2px solid #2266AA; z-index:100;}
