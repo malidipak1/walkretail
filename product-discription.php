@@ -24,7 +24,7 @@ $image = Util::getImage($arrResult['image']);
 <link rel="stylesheet" href="css/tabbed-style.css">
 
 <!--floting menu-->
-<script type="text/javascript" src="js/floating-1.12.js"></script>
+
 <!--Floating Menu Ends--> 
 
  <!-- CATEGORY MENU START-->
@@ -103,14 +103,7 @@ $(document).ready(function() {
 
 <body>
 <!--Floating Menu-->
-    <div id="floatdiv" class="floating-menu">  
-    <?php include("side-categories.php");?>  
-    </div>  
-      
-    <script type="text/javascript">  
-        floatingMenu.add('floatdiv',  
-        { targetLeft:0, targetTop: 10, centerY: true,  snap: true });  
-    </script> 
+   
 <!--Floating Menu End-->
 <!--FB Page-->
 <div id="fb-root"></div>
