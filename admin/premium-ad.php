@@ -4,10 +4,10 @@ include_once '../DBUtil.php';
 include_once '../Util.php';
 
 $dbObj = new DBUtil();
-if(!empty($_REQUEST['id']) && !empty($_REQUEST['action'] == 'delete')) {
+if(!empty($_REQUEST['id']) && ($_REQUEST['action'] == 'delete')) {
 	$dbObj->deletePremiumAds($_REQUEST['id']);
 	header("Location: premium-ad.php?ads_type=" . $_REQUEST['ads_type']);
-	
+	exit;	
 }
 
 $arrAds = array();
