@@ -3,15 +3,26 @@ include_once 'lib/config.php';
 include_once 'DBUtil.php';
 class Util {
 	
-	public static function uploadImage($fileName) {
+	public static function getAdsImage($image) {
+		$image = DOWNLOAD_IMAGE_ADS . $image;
+		return $image;
+	}
+	
+	
+	public static function uploadImage($fileName, $ads=false) {
 		$image = "";
 		if(!empty($_FILES[$fileName]["tmp_name"])) {
 			$check = getimagesize($_FILES[$fileName]["tmp_name"]);			
 			if($check !== false) {
 	
 				$image = date('Ymd_Hms') . "_" . basename($_FILES[$fileName]["name"]);
-				$target_file = UPLOAD_IMAGE_DIR . $image;
-	
+				
+				if($ads) {
+					$target_file = UPLOAD_IMAGE_ADS . $image;
+				} else {
+					$target_file = UPLOAD_IMAGE_DIR . $image;	
+				}
+				
 				if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $target_file)) {
 					//echo "File is valid, and was successfully uploaded.\n";
 					//echo " image moved....";
@@ -103,6 +114,7 @@ class Util {
 		return $image;	
 	}
 	
+
 	public static function redirect($url, $admin = false) {
 		$urlStr = "/";
 		if($admin) {

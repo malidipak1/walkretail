@@ -105,6 +105,12 @@ class DBUtil {
 		return $whereClause;
 	}
 	
+	public function deletePremiumAds($id) {
+		$arrData = array('id' => $id);
+		$sql = "DELETE FROM `ads` WHERE id=:id";
+		return $this->executeUpdate($sql, $arrData);
+	}
+	
 	public function addStaticPage($pageId,$pageTitle,$desc,$pageCode) {
 		$sql = "";
 		if ($pageId == 0) {
@@ -120,6 +126,32 @@ class DBUtil {
 				':page_code' => $pageCode
 		);
 		return $this->executeUpdate($sql, $arrData);
+	}
+	
+	public function getPremiumAds($ads_type='MAIN_ADS') {
+		
+		$arrParam = array('ads_type' => $ads_type);
+		$sql = "SELECT * FROM `ads` WHERE " . $this->getWhereClause($arrParam);
+		return $this->getAll($sql);
+		
+	}
+	
+	public function addEditAds($image_name, $image_alt,$image_link,$ads_type='MAIN_ADS', $id=0) {
+		
+		if(empty($id)) {
+			$sql = "INSERT INTO `ads`(`id`, `image_name`, `image_alt`, `image_link`, `ads_type`) VALUES (:id, :image_name, :image_alt, :image_link, :ads_type)";
+		} else {
+			$sql = "UPDATE `ads` SET `image_name`=:image_name,`image_alt`=:image_alt,`image_link`=:image_link,`ads_type`=:ads_type WHERE `id`=:id";
+		}
+		
+		$arrData = array (
+				':id' => $id,
+				':image_name'  => $image_name,
+				':image_alt' => $image_alt,
+				':image_link' => $image_link,
+				':ads_type' => $ads_type
+			);
+		$this->executeUpdate($sql, $arrData);
 	}
 	
 	

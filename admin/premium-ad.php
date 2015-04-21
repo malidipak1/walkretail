@@ -1,71 +1,32 @@
 <?php
 include_once 'access_check.php';
-include("database.inc.php");
+include_once '../DBUtil.php';
+include_once '../Util.php';
 
-###########################################  PAGING WITH PER PAGE            #####################################
-$file_name			=	"view_teams.php"; // this is file name which is used during paging  , included at the bottom of the page
-$paging_table_name	=	"team";
-include("paging/paging_query.inc.php");
-
-############################################ END PAGING WITH PER PAGE       ##############################################
-
-/*if(isset($_REQUEST['category_id']) && $_REQUEST['category_id']!='')
-{
-	$query2="SELECT * FROM books WHERE book_category_id = '".$_REQUEST['category_id']."'";
-	$rec=mysql_query($query2);
-	$nume=mysql_num_rows($rec);
-}*/
-############################################ END PAGING WITH PER PAGE       ##############################################
-
-
-if(!isset($_REQUEST['action']))		
-{
+$dbObj = new DBUtil();
+if(!empty($_REQUEST['id']) && !empty($_REQUEST['action'] == 'delete')) {
+	$dbObj->deletePremiumAds($_REQUEST['id']);
+	header("Location: premium-ad.php?ads_type=" . $_REQUEST['ads_type']);
 	
-	$sql=mysql_query("select * from team ORDER BY header_id LIMIT $eu, $limit");
-	$result=mysql_num_rows($sql);
 }
 
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='delete')
-{
-	$sql	=	"DELETE FROM team where header_id ='".$_REQUEST['image_id']."' ";
-	mysql_query($sql);
-	
-	if(file_exists("teams/".$_REQUEST['image_name']))
-	{
-		unlink("teams/".$_REQUEST['image_name']);
-	}
-	if(file_exists("teams/thumb1/".$_REQUEST['image_name']))
-	{
-		unlink("teams/thumb1/".$_REQUEST['image_name']);
-	}
-	if(file_exists("teams/thumb2/".$_REQUEST['image_name']))
-	{
-		unlink("teams/thumb2/".$_REQUEST['image_name']);
-	}
-	header("location:view_teams.php?message=Image deleted successfully&action=search_product");
-	exit;
+$arrAds = array();
+if(!empty($_REQUEST['ads_type'])) {
+	$arrAds = $dbObj->getPremiumAds($_REQUEST['ads_type']);
 }
-################################################### END DELETE ########################
-
-############################################################## SEARCH ########################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='search_product')		
-{
-	$sql=mysql_query("select * from team ORDER BY team_name");
-	$result=mysql_num_rows($sql);
-}
-##############################################################END SEARCH ########################
-
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='view'){
-$sql=mysql_query("select * from team ORDER BY team_name  ");
-$result=mysql_num_rows($sql);
-}
-############################################## DELELE ########################
- ?>
+?>
 <html>
 <head>
 <title>:::(Admin Panel) :::</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="css/css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+ function change (val) {
+	if(val != '')
+	 	window.location = "premium-ad.php?ads_type=" + val;
+ }
+
+ </script>
 </head>
 <body>
 <table width="100%" height="100%" align="center" cellpadding="0" cellspacing="0"  bordercolor="#5181BF">
@@ -82,102 +43,68 @@ $result=mysql_num_rows($sql);
                                         <td height="57" colspan="2" align="left"  valign="middle" class="head_ing">Manage Premium Advertise</td>
                                       </tr>
                                       <tr>
-                                        <td colspan="2" align="left"  valign="top" class="red">                                            </td>
+                                        <td colspan="2" align="left"  valign="top" class="red">&nbsp; </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" align="center"  valign="top" class="red">
+                                        <select name="ads_type" onchange="change(this.value)">
+                                        	<?php 
+                                        	$select1 = ""; $select2 = "";
+                                        		if($_REQUEST['ads_type'] == 'MAIN_ADS') {
+                                        			$select1 = "selected=selected";
+                                        		} else if($_REQUEST['ads_type'] == 'SUB_ADS') {
+                                        			$select2 = "selected=selected";
+                                        		}
+                                        	?>
+                                        	<option value="">- SELECT -</option>
+                                        	<option <?php echo $select1?> value="MAIN_ADS">Main Ads</option>
+                                        	<option <?php echo $select2?> value="SUB_ADS">Sub Ads</option>
+                                        </select>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" align="left"  valign="top" class="red">&nbsp; </td>
                                       </tr>
                                       
                                       <tr>
-									   <?php if(isset($_REQUEST['message'])){ ?>
+									   <?php if(count($arrAds) <= 0){ ?>
 									   <tr align="right"  bgcolor="#ffffff">
-                                            <td colspan="10" height="" class="red"><div align="center">
-                                              <?php echo $_REQUEST['message'];?>
-                                            </div>                                            </td>
-                                            </tr>
-										<?php }?>	
-      	<td colspan="2" align="center" valign="top">
-	  	<form name="search_product" method="post" action="view_images.php?action=search_product">
-			<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
-			<?php if($result > 0) { ?>
-			<tr align="right"  bgcolor="#5b6c0c">
-            	<td height="" colspan="9" bgcolor="#FFFFFF" class="red">&nbsp;
-                              <?php /*include("paging/no_of_records.inc.php");*/ ?>
-				</td>
-            </tr>
-			<?php }?>
-											 
-
-										 <tr align="center"  bgcolor="#3c7701">									
-											<?php if($result > 0) { ?>
-                                                                                    
+                                            <td colspan="10" height="" class="red">
+	                                            <div align="center"> No Ads Yet! <br />
+	                                            </div>
+                                            </td>
+	                                    </tr>
+											<?php } else {?>	
+								      	<td colspan="2" align="center" valign="top">
+									  	<form name="search_product" method="post" action="view_images.php?action=search_product">
+											<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
+										<tr align="center"  bgcolor="#3c7701">									
+			                                                                        
                                           <td width="22%" class="white">Image</td>
-                                          <td width="16%" class="white">Display Image</td>
-                                         <td width="16%" class="white">Image Alt</td>
-                                           <!-- <td width="12%" bgcolor="#FFFFFF"><div align="center">
-                        <div align="center">
-                          <div align="center"><b>Detail</b></div>
-                        </div>
-                      </div></td> -->
-                                              <!--  <td width="62%" align="left" bgcolor="#FFFFFF"><b>Newsletter 
-                        Detail </b></td> -->
-                                              <!--  <TD width="43%"><div align="center"><B>Description</B></div></TD> -->
+                                          <td width="16%" class="white">Image Alt</td>
+                                         <td width="16%" class="white">Image Link</td>
                                          <td width="8%" class="white">Edit</td>
                                             <td width="11%" class="white">Delete</td>
-                      </tr>
+                     					 </tr>
                                           <!----------------------Start your loop------------------------------->
-                                          <?php
-			  while($row_product=mysql_fetch_array($sql))
-                 {
-					 $image_name=$row_product['team_name'];
-												
-											$image_folder	=	"teams/thumb1/";
-											$product_image	=	$row_product['team_name'];
-											$image_path		=	$image_folder.$product_image;
-									
-											if(!file_exists($image_path)){
-												$book_image	="image_not_found.jpg";
-												$image_path		=	$image_folder.$book_image;
-											}
-				?>
+            
+                                       <?php foreach ($arrAds as $eachAds) {?>
                                            <tr align="center">	
                                             
                                             <td width="22%" height="57" bgcolor="#FFFFFF">
-											<img src="<?php echo $image_path;?>" style="border: solid 0px #98a754;"  alt="<?php echo $row_product['team_name']?>" >
+											<img height="100px" width="100px" src="<?php echo Util::getAdsImage($eachAds['image_name']);?>" style="border: solid 0px #98a754;"  alt="<?php echo $eachAds['image_alt']?>" />
 											</td>
-                               <td width="16%"  bgcolor="#FFFFFF"><?php echo $row_product['header_heading'];?></td>
-                                            <td width="16%"  bgcolor="#FFFFFF">
-                                                <?php echo $row_product['header_description'];?>                                            </td>
-                                            <td width="8%"  bgcolor="#FFFFFF"><a href="add_new_premium-ad.php?action=edit&image_id=<?php echo $row_product['header_id']?>&image_name=<?php echo $row_product['team_name']?>"> <img src="images/Edit.gif" width="12" height="12" alt="Edit"   border="0" /></a></td>
-                                            <td width="11%"   bgcolor="#FFFFFF"><a href="main-slider.php?action=delete&image_id=<?php echo $row_product['header_id']?>&image_name=<?php echo $row_product['team_name']?>"  onClick=" javascript: return confirm('Are you sure You want to delete the image ');"><img src="images/del.gif" width="12" height="10" border="0" /></a> </td>
+                               <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['image_alt']?></td>
+                                            <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['image_link'];?></td>
+                                            <td width="8%"  bgcolor="#FFFFFF"><a href="add_new_premium-ad.php?ads_type=<?php echo $_REQUEST['ads_type']?>&id=<?php echo $eachAds['id']?>"> <img src="images/Edit.gif" width="12" height="12" alt="Edit"   border="0" /></a></td>
+                                            <td width="11%"   bgcolor="#FFFFFF"><a href="premium-ad.php?action=delete&id=<?php echo $eachAds['id']?>" onClick="javascript: return confirm('Are you sure You want to delete the image ');"><img src="images/del.gif" width="12" height="10" border="0" /></a> </td>
                                           </tr>
-                                          <?php }
-											}else{
-											?>
+                                          
+                                      <?php }}?>    
                                           <tr>
-                                            <td  height="29" colspan="9" align="center" bgcolor="#ffffff" class="head_ing">No Header Image Exists !</td>
+                                          	<td colspan="6" ><a href="add_new_premium-ad.php?ads_type=<?php echo $_REQUEST['ads_type']?>">Click here</a> to add advs.</td>
                                           </tr>
-                                          <?php }										  
-										   ################################?>
-                                          
-                                          
-                                          
-                                          
-                                          
-                                          <!-- this code will show paging in the . When record s are more -->
-									<?php if($nume >$limit){ ?>
-									
-										<?php }?>   
-									<!-- End Paging Code -->	
-									
-									<!-- Paging starts here  -->
-									<?php include("paging/paging_row.inc.php") ?> 
-									<!-- Paging ends starts here  -->	
-                                          
-                                          
-                                          
-                                          
-                                          
-                                          <tr>
-                                            <td  height="33" colspan="9" align="center" bgcolor="#3c7701"><input name="add" type="button" value="Add new Record"  onClick="navigate('add_new_team.php');" /></td>
-                                          </tr>
+                                         
                                           <!-----------------------End your loop here---------------------------->
                                         </table>
                 </form></td>
@@ -192,26 +119,4 @@ $result=mysql_num_rows($sql);
 </table>
 </body>
 </html>
-<script language="JavaScript" type="text/JavaScript">
-function MM_openBrWindow(theURL,winName,features) { //v2.0
-  window.open(theURL,winName,features);
-}
-function navigate(file_name){
-window.location	= file_name;	
-//alert(file_name);
-}
-
-function paging_function(file_name,start){
-document.search_product.action=file_name+"?action=search_product&start="+start;
-document.search_product.submit();
-}
-
-function set_page_limit(records){
-document.search_product.action="<?php echo $file_name?>?action=search_product&per_page="+records;
-document.search_product.submit();
-}
-function paging_function(file_name,start){
-document.search_product.action=file_name+"?action=search_product&start="+start;
-document.search_product.submit();
-}
-</script>
+<script language="JavaScript" type="text/JavaScript"></script>

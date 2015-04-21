@@ -1,123 +1,30 @@
 <?php 
 include_once 'access_check.php';
-include("database.inc.php");
-include("thumb.php");
-$form_action="insert";
-$button_value="INSERT";
-
-$image_id				= "";
-$image_detail			= ""; 
-$image_name				= "";
-$image_heading			= "";
-
-#################################   INSERT    #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='insert')
-{
-  $image_name	=	$_FILES['image']['name'];
-  $dir			=	"teams/";
-  $image1		=	$dir.$image_name;
-  
-  $sql="SELECT * from team WHERE team_name ='".$image_name."' ";
-  $result=mysql_query($sql);
-  $row=mysql_num_rows($result);
-  
-		 if(file_exists($image1))
-		 {
-			 header('location:add_new_team.php?message=Image Already Exists');
-			 exit;
-		 }
-		move_uploaded_file($_FILES['image']['tmp_name'], $image1);
-  		
-		$thumb_image_name='teams/'.$image_name;
-        $th11='teams/thumb1/'.$image_name;
-        $th22='teams/thumb2/'.$image_name;
-
-    	createthumb11($thumb_image_name, $th11,100,100);
-		createthumb11($thumb_image_name, $th22,454,266);
-		############################################################	 
-		
-		$sq2="INSERT INTO team VALUES('','".addslashes(ucfirst($_REQUEST['header_heading']))."','".addslashes($image_name)."','".addslashes(ucfirst($_REQUEST['image_detail']))."','".$_SERVER['REMOTE_ADDR']."')";
-		mysql_query($sq2);
-		header("location:view_teams.php?action=search_product&message=Image added sucessfully");
-		exit();	
-}
-#################################      END INSERT    #########################################
-
-#################################      EDIT         #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit')
-{
-	if(isset($_REQUEST['image_name']) && $_REQUEST['image_name']!=''){
-		$image_name=$_REQUEST['image_name'];
-		$form_action="update&old_image_name=$image_name";
-	}else{
-		$form_action="update";
+include_once '../DBUtil.php';
+$arrAds = array();
+$dbObj = new DBUtil();
+$image = "";
+if(!empty($_POST)) {
+	if(!empty($_FILES['image'])) {
+		$image = Util::uploadImage ( "image" , true);
+	} else {
+		$image = $_POST['hidden_image'];
 	}
-
-$button_value="Update";
-$sql_edit				=	mysql_query("select  * from team where header_id='".$_REQUEST['image_id']."' ");
-$result_edit			=	mysql_num_rows($sql_edit);
-$row_edit 				=	mysql_fetch_array($sql_edit);
-$image_id				=  $row_edit['header_id'];
-$image_heading			=  $row_edit['header_heading'];
-$image_detail			=  $row_edit['header_description'];
-$team_name		=  $row_edit['team_name'];
-
-##########################################################################
-}
-
-#################################  	END	  #########################################
-
-
-#################################   UPDATE    #########################################
-if(isset($_REQUEST['action']) && $_REQUEST['action']=='update')
-{
-$form_action		=	"update";
-$button_value		=	"Update";
-
-$old_image_name		=	$_REQUEST['old_image_name'];
-$dir				=	"teams/";
-$old_image			=	$dir.$old_image_name;
-
-$image_name			=	$_FILES['image']['name'];
-
-if($image_name=='')
-{
-$dir				=	"teams/";
-$image1				=	$dir.$image_name;
-
-$image_name			=	$_REQUEST['hidden_image'];
-}else{
-
-unlink("teams/".$_REQUEST['hidden_image']);
-unlink("teams/thumb1/".$_REQUEST['hidden_image']);
-unlink("teams/thumb2/".$_REQUEST['hidden_image']);
-
-$dir			=	"teams/";
-$image1			=	$dir.$image_name;
-
-if(file_exists($image1)){
-}else{
-	move_uploaded_file($_FILES['image']['tmp_name'], $image1);
-	$thumb_image_name='teams/'.$image_name;
-	$th11='teams/thumb1/'.$image_name;
-	$th22='teams/thumb2/'.$image_name;	
-	createthumb11($thumb_image_name, $th11,100,100);
-	createthumb11($thumb_image_name, $th22,454,266);
+	if(!empty($image)) {
+		$dbObj->addEditAds($image, $_POST['image_alt'], $_POST['image_link'], $_POST['ads_type'], $_POST['id']);
+	
+		header("Location: premium-ad.php?ads_type=".$_REQUEST['ads_type']);
 	}
-				
-}
-###################################################################	 
-$sql	=	"UPDATE team SET header_heading='".$_REQUEST['header_heading']."' , header_description='".$_REQUEST['image_detail']."',team_name='$image_name',ip_address='".$_SERVER['REMOTE_ADDR']."' where header_id='".$_REQUEST['image_id']."'";
-mysql_query($sql);
-header("location:view_teams.php?message=Image updated successfully");
-exit();
 }
 
-#################################  END update    #########################################
-/*echo "<pre>";
-echo count($result);
-var_dump($result);*/
-//echo $result['country_id'];
+
+if(!empty($_REQUEST['id'])) {
+	
+	$arrAds = $dbObj->getPremiumAds($_REQUEST['id']);
+	$arrAds = $arrAds[0];
+}
+
+
 ?>
 <html>
 <head>
@@ -156,13 +63,9 @@ var_dump($result);*/
                                                 <td  align="center" class="red">
                                               </tr>
                                               <tr>	<td align="center" valign="top" >
-		<form action="add_new_slider.php?action=<?php echo $form_action; ?>" enctype="multipart/form-data"  onsubmit ="return check_form();" method="post" name="header" id="header">
+		<form action="" enctype="multipart/form-data"  onsubmit ="return check_form();" method="post" name="header" id="header">
  <table width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
-<?php if(isset($_REQUEST['message'])){?>
- <tr align="center" bgcolor="#2F87E8" >
-   <td height="25" colspan="2" align="center" bgcolor="#7D4B00" class="white"><?php echo $_REQUEST['message'];?></td>
- </tr>
-<?php }?>
+
  <tr align="center" bgcolor="#7D4B00" >
    <td height="25" colspan="2" align="center" bgcolor="#3c7701">
      <div class="white">Add Image</div></td>
@@ -170,26 +73,30 @@ var_dump($result);*/
     <tr align="center" bgcolor="#FFFFFF">
       <td width="18%" height="33" align="left" valign="middle">Image</td>
       <td width="82%"  align="left">
-        <?php if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit'){?>
-        <img src="teams/thumb1/<?php echo $team_name;?>"> 
+        <?php if(isset($arrAds['image_name'])){?>
+        <img src="teams/thumb1/<?php echo $arrAds['image_name'];?>"> 
         <?php }?>
         <input type="file" name="image" style="width:200px" >
-        <input type="hidden" name="hidden_image" value="<?php echo $team_name;?>"></td>
+        <input type="hidden" name="hidden_image" value="<?php echo $arrAds['image_name']?>">
+        <input type="hidden" name="ads_type" value="<?php echo $_REQUEST['ads_type']?>">
+        </td>
     </tr>
    
     <tr align="center" bgcolor="#FFFFFF" valign="top">
-      <td height="33" align="left">Order</td>
-      <td  align="left">2</td>
+      <td height="33" align="left">Image Alt</td>
+      <td  align="left">
+      	<input type="text" name="image_alt" value="<?php echo $arrAds['image_alt']?>" />
+      </td>
       </tr>
     <tr align="center" bgcolor="#FFFFFF" valign="top">
-      <td height="33" align="left" valign="top">Check Box</td>
-      <td  align="left"><input type="checkbox" name="checkbox" id="checkbox">
-        <label for="checkbox"></label></td>
+      <td height="33" align="left" valign="top">Image Url</td>
+      <td  align="left"><input type="text" name="image_link" id="image_link" value="<?php echo $arrAds['image_link']?>" />
+        </td>
     </tr>
     <tr bgcolor="#7D4B00">
-                                                        <!--  <td height="25%" align="right" valign="top"  >&nbsp;</td> -->
-    	<td height="33" colspan="5" align="center" bgcolor="#3c7701"><input name="submit" type="submit" value="<?php echo $button_value;?>"/>
-    	  <input type="hidden" name="image_id" value="<?php echo $image_id?>">
+    	<td height="33" colspan="5" align="center" bgcolor="#3c7701">
+    		<input name="submit" type="submit" value="Upload"/>
+    	  	<input type="hidden" name="id" value="<?php echo $arrAds['id']?>">
     	  </td>
     </tr>
     </table>
