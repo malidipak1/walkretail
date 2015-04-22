@@ -369,14 +369,14 @@ class DBUtil {
 		return $this->executeUpdate($sql, $arrData);
 	}
 	public function addEditProduct($prod_name,$category,$desc,$TOS,$minPrice,$maxPrice,$min_quantity,$max_quantity,$prod_status,$supplier_id,
-			$order_range, $supply_ability, $home_delivery,$quntity_type, $prod_id = 0) {
+			$order_range, $supply_ability, $home_delivery,$quntity_type,$price_type='', $prod_id = 0) {
 		$sql = "";
 		if ($prod_id == 0) {
-			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `min_price`,`max_price`, `min_quantity`,`max_quantity`, `prod_status`, `supplier_id`, `order_range`, `quntity_type`, `home_delivery`) VALUES 
-					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :prod_status, :supplier_id,  :order_range, :quntity_type, :home_delivery)";
+			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `min_price`,`max_price`, `min_quantity`,`max_quantity`, `prod_status`, `supplier_id`, `order_range`, `quntity_type`,`price_type`, `home_delivery`) VALUES 
+					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :prod_status, :supplier_id,  :order_range, :quntity_type,:price_type, :home_delivery)";
 		} else {
 			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`min_price`=:min_price,`max_price`=:max_price,`min_quantity`=:min_quantity, `max_quantity`=:max_quantity,
-					`prod_status`=:prod_status,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`home_delivery`=:home_delivery
+					`prod_status`=:prod_status,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`price_type`=:price_type, home_delivery`=:home_delivery
 					WHERE `prod_id`=:prod_id";
 		}
 		$arrData = array (
@@ -393,6 +393,7 @@ class DBUtil {
 			':supplier_id'	 => $supplier_id,
 			':order_range' => $order_range,
 			':quntity_type' => $quntity_type,
+			':price_type' => $price_type,
 			':home_delivery' => $home_delivery
 		);
 		

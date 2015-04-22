@@ -7,7 +7,8 @@ $dbObj = new DBUtil();
 if(!empty($_POST)) {
 	
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
-				$_POST['max_quantity'],$_POST['prod_status'], $_SESSION['id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],$_POST['prod_id']);
+				$_POST['max_quantity'],$_POST['prod_status'], $_SESSION['id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],
+				$_POST['price_type'],$_POST['prod_id']);
 		
 		if(!empty($_POST['prod_id'])) {
 			$id = $_POST['prod_id'];
@@ -149,6 +150,32 @@ if(!empty($_REQUEST['prod_id'])) {
              <div class="supplier-panel-left1">Max. Price</div>
              <div class="supplier-panel-right1"><input name="max_price" type="text" class="field" value="<?php echo $arrProduct['max_price']?>" /></div>
           </div>
+            <div class="supplier-panel-bg1">
+             <div class="supplier-panel-left1">Price Type</div>
+             <div class="supplier-panel-right1">
+             	<select name="price_type" id="price_type">
+             		<option value="Peice">Peice</option>
+             		<option value="Peices">Peices</option>
+             		<option value="Pack">Pack</option>
+             		<option value="Packs">Packs</option>
+             		<option value="Dosen">Dosen</option>
+             	</select>
+             </div>
+             <script type="text/javascript">
+				var defaultVal = '<?php echo $arrProduct['price_type']?>';
+				var obj = document.getElementById("price_type");
+				var len = obj.length;
+
+				for(var i=0; i<len; i++) {
+					if(defaultVal == obj.options[i].value) {
+						obj.selectedIndex = i;
+					}
+				}
+             </script>
+             
+          </div>
+          
+          
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Min Quantity</div>
              <div class="supplier-panel-right1"><input name="min_quantity" type="text" class="field" value="<?php echo $arrProduct['min_quantity']?>" /></div>
