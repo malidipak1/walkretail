@@ -24,7 +24,7 @@ if(!empty($_POST)) {
 		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 0, $_POST['mobile'], $_POST['email'], $_POST['company'], 
 				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], $logo);
 
-		header("Location: /thanksregistraion.php");
+		header("Location: /registration-form-successful.php");
 	} else {
 		$message = "Supplier is Already Exist. Contact us more details.";
 	}
