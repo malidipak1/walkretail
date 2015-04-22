@@ -13,7 +13,7 @@ if(!empty($_POST)) {
 	if(!empty($image)) {
 		$dbObj->addEditAds($image, $_POST['image_alt'], $_POST['image_link'], $_POST['ads_type'], $_POST['id']);
 	
-		header("Location: premium-ad.php?ads_type=".$_REQUEST['ads_type']);
+		header("Location: premium-ad.php?ads_type=".$_POST['ads_type']);
 	}
 }
 
@@ -96,6 +96,7 @@ if(!empty($_REQUEST['id'])) {
     <tr bgcolor="#7D4B00">
     	<td height="33" colspan="5" align="center" bgcolor="#3c7701">
     		<input name="submit" type="submit" value="Upload"/>
+    		<input type="hidden" name="ads_type" value="<?php echo $_REQUEST['ads_type']?>">
     	  	<input type="hidden" name="id" value="<?php echo $arrAds['id']?>">
     	  </td>
     </tr>
