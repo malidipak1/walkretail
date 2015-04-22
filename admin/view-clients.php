@@ -4,6 +4,13 @@ include_once '../DBUtil.php';
     
    $dbObj = new DBUtil();
     
+   
+   $dbObj = new DBUtil();
+   if(!empty($_REQUEST['id']) && ($_REQUEST['action'] == 'delete')) {
+	   	$dbObj->deleteSupplier($_REQUEST['id']);
+	   	header("Location: view-clients.php");
+	   	exit;
+   }
    $dbObj->isPaging = true;
    $arrSupplier = $dbObj->getSupplier();
    $page = $dbObj->page;
@@ -47,7 +54,7 @@ include_once '../DBUtil.php';
                                           <td width="16%" class="white">Email Id</td>
                                          <td width="16%" class="white">Contact No.</td>
                                          <td width="8%" class="white">View</td>
-                                         
+                                          <td width="11%" class="white">Delete</td>
                       					</tr>
                                           <!----------------------Start your loop------------------------------->
                                           <?php foreach ($arrSupplier as $supplier) {?>
@@ -60,7 +67,7 @@ include_once '../DBUtil.php';
                                             <td width="16%"  bgcolor="#FFFFFF">
                                                 <?php echo $supplier['mobile']?>                        </td>
                                             <td width="8%"  bgcolor="#FFFFFF"><a href="clients-profile.php?supplier_id=<?php echo $supplier['id']?>"> <img src="images/Edit.gif" width="12" height="12" alt="Edit" border="0" /></a></td>
-                                          
+                                           <td width="11%"   bgcolor="#FFFFFF"><a href="view-clients.php?action=delete&id=<?php echo $supplier['id']?>" onClick="javascript: return confirm('Are you sure You want to delete the Supplier ');"><img src="images/del.gif" width="12" height="10" border="0" /></a> </td>
                                           </tr>
                                           <?php }?>
                                 	

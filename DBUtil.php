@@ -262,6 +262,13 @@ class DBUtil {
 		return $this->getAll($sql);
 	}
 	
+	public function deleteSupplier($id) {
+	
+		$sql = "delete from  `supplier` WHERE `id`=:id";
+		$arrData = array ( ':id'  => $id );
+		return $this->executeUpdate($sql, $arrData);
+	}
+	
 	public function getSupplier($arrSearch = array()) {
 		$sql = "SELECT * FROM supplier WHERE " . $this->getWhereClause($arrSearch);
 		return $this->getAll($sql);

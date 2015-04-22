@@ -24,7 +24,6 @@ if(!empty($_REQUEST['id'])) {
 	$arrAds = $arrAds[0];
 }
 
-
 ?>
 <html>
 <head>
@@ -34,6 +33,13 @@ if(!empty($_REQUEST['id'])) {
 
 <script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <?php include("common_tinymce.php");?>
+<script type="text/javascript">
+ function change (val) {
+	if(val != '')
+	 	window.location = "add_new_premium-ad.php?ads_type=" + val;
+ }
+
+ </script>
 </head>
 <body>
 <table width="100%" height="100%" align="center" cellpadding="0" cellspacing="0"  bordercolor="#5181BF">
@@ -57,8 +63,27 @@ if(!empty($_REQUEST['id'])) {
                                             </tr>
                                         </table></td>
                                       </tr>
+                                      
+									  <tr>
+                                        <td colspan="2" align="center"  valign="top" class="red">
+                                        <select name="ads_type" onchange="change(this.value)">
+                                        	<?php 
+                                        	$select1 = ""; $select2 = "";
+                                        		if($_REQUEST['ads_type'] == 'MAIN_ADS') {
+                                        			$select1 = "selected=selected";
+                                        		} else if($_REQUEST['ads_type'] == 'SUB_ADS') {
+                                        			$select2 = "selected=selected";
+                                        		}
+                                        	?>
+                                        	<option value="">- SELECT -</option>
+                                        	<option <?php echo $select1?> value="MAIN_ADS">Main Ads</option>
+                                        	<option <?php echo $select2?> value="SUB_ADS">Sub Ads</option>
+                                        </select>
+                                      
                                       <tr>
-                                        <td bordercolor="#FFFFFF"  valign="top" align="center"><table width="100%" border="0" cellspacing="4" cellpadding="0">
+                                        <td bordercolor="#FFFFFF"  valign="top" align="center">
+                                     <?php if(!empty($_REQUEST['ads_type'])) {?>   
+                                        <table width="100%" border="0" cellspacing="4" cellpadding="0">
                                               <tr>
                                                 <td  align="center" class="red">
                                               </tr>
@@ -103,7 +128,9 @@ if(!empty($_REQUEST['id'])) {
     </table>
     </form></td>
     </tr>
-    </table></td>
+    </table>
+    <?php }?>
+    </td>
     </tr>
     </table></td>
   </tr>
