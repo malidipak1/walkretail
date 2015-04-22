@@ -1,3 +1,14 @@
+<?php 
+include_once 'DBUtil.php';
+include_once 'Util.php';
+
+$dbObj = new DBUtil();
+
+$mainAds = $dbObj->getPremiumAds();
+$subAds = $dbObj->getPremiumAds('SUB_ADS');
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" class="no-js">
 <head>
@@ -100,16 +111,17 @@ $(document).ready(function($){
       
      <div class="slider-wrapper">
         <div id="slider">
-            <div class="slide1">
-                 
-                 <img src="slider/1.jpg" alt="" /> 
+        	<?php foreach ($mainAds as $eachAd) {?>
+            <div class="slide">
+                 <img height="300px;" width="400px" src="<?php echo Util::getAdsImage($eachAd['image_name'])?>" alt="<?php echo $eachAd['image_alt']?>" /> 
             </div>
-            <div class="slide2">
+            <?php }?>
+            <!-- <div class="slide">
               <img src="slider/2.jpg" alt="" />
             </div>
-            <div class="slide3">
+            <div class="slide">
               <img src="slider/3.jpg" alt="" />
-            </div>
+            </div> -->
             <!--<div class="slide4">
                 <img src="slider/5.jpg" alt="" />
             </div>-->
@@ -127,8 +139,8 @@ $(document).ready(function($){
     });
     </script>
 <!-- end of header-->
-      <span style="float:left;"><a href="http://walkretail.com/product-discription.php?prod_id=60" target="_blank"><img src="images/watch-ad.jpg" border="0" width="336" height="154" alt="" /></a></span>
-      <span style="float:right;"><a href="http://walkretail.com/product-discription.php?prod_id=17"><img src="images/yolo-ad.jpg" border="0" width="338" height="157" alt="" /></a></span>
+      <span style="float:left;"><a href="<?php echo $subAds[0]['image_link']?>" target="_blank"><img src="<?php echo Util::getAdsImage($subAds[0]['image_name'])?>" border="0" width="336" height="154" alt="" /></a></span>
+      <span style="float:right;"><a href="<?php echo $subAds[1]['image_link']?>"><img src="<?php echo Util::getAdsImage($subAds[1]['image_name'])?>" border="0" width="338" height="157" alt="" /></a></span>
     </div>
     
      <!-- middle panel end -->
