@@ -24,7 +24,7 @@ $image = Util::getImage($arrResult['image']);
 <link rel="stylesheet" href="css/tabbed-style.css">
 
 <!--floting menu-->
-<script type="text/javascript" src="js/floating-1.12.js"> </script>
+
 <!--Floating Menu Ends--> 
 
  <!-- CATEGORY MENU START-->
@@ -104,20 +104,8 @@ $(document).ready(function() {
 <body>
 
 <!--Floating Menu-->
-       <div id="floatdiv" style="  
-        position:absolute;  
-        width:200px;height:50px;top:10px;right:10px;  
-        padding:16px;background:#FFFFFF;  
-        border:2px solid #2266AA;  
-        z-index:100">  
-    This is a floating javascript menu.
-    <?php include("side-categories.php");?>  
-    </div>  
-      
-    <script type="text/javascript">  
-        floatingMenu.add('floatdiv',  
-            { targetLeft: 0, targetTop: 10, centerY: true,  snap: true });  
-    </script> 
+
+
 <!--Floating Menu End-->
 
 <!--FB Page-->
@@ -188,7 +176,7 @@ $(document).ready(function() {
             <span>Free Home Delivery </span>
           </div>
              <div class="prod2-middle">
-                <span>Min &#8377; <?php echo $arrResult['min_price']?>/- Max &#8377; <?php echo $arrResult['max_price']?> Per <?php echo $arrResult['price_type']?></span>
+                <span>Min &#8377; <?php echo $arrResult['min_price']?>/- Max &#8377; <?php echo $arrResult['max_price']?> /-Per <?php echo $arrResult['price_type']?></span>
                 <span>Min <?php echo $arrResult['min_quantity']?>&nbsp; &ndash; Max <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span>
                 <span><?php $stock = ($arrResult['prod_status'] == 'Yes') ? "In Stock" : "Out of Stock"; echo $stock;?>&nbsp; </span>
                 <span>&nbsp;</span>
