@@ -158,12 +158,12 @@ $arrParent = Util::getCategoryList();
              <div class="supplier-panel-left1">Quantity Type</div>
              <div class="supplier-panel-right1">
              	<select name="quntity_type" id="quntity_type">
-             		<option value="Peice">Peice</option>
-             		<option value="Peices">Peices</option>
+             	  <option value="Piece">piece</option>
+             	  <option value="pieces">Pieces</option>
              		<option value="Pack">Pack</option>
              		<option value="Packs">Packs</option>
-             		<option value="Dosen">Dosen</option>
-             	</select>
+             		<option value="Dozen">Dozen</option>
+                </select>
              </div>
              <script type="text/javascript">
 				var defaultVal = '<?php echo $arrProduct['quntity_type']?>';
