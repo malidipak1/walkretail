@@ -15,8 +15,7 @@ if (!empty($_POST)) {
 	if (! empty ( $_POST ['prod_id'] ) && $image != "") {
 		$id = $dbObj->updateImage ( $image, $image1, $image2, $image3, $image4, $_POST ['prod_id'] );
 		$message = "Images Uploaded Successfully!";
-		$uri = "edit-product.php?prod_id=" . $_REQUEST ['prod_id'] . "&category=" . $_POST ['category'];
-		// header("Location: $uri");
+		 header("Location: product-list.php");
 	}
 }
 ?>

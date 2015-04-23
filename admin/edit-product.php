@@ -183,7 +183,7 @@ $arrParent = Util::getCategoryList();
           <div class="supplier-panel-bg1">
              <div class="supplier-panel-left1">Quantity Type</div>
              <div class="supplier-panel-right1">
-             	<select name="price_type" id="price_type">
+             	<select name="quntity_type" id="quntity_type">
              	  <option value="Piece">Piece</option>
              	  <option value="Pieces">Pieces</option>
              		<option value="Pack">Pack</option>
