@@ -311,16 +311,19 @@ class DBUtil {
 		return $this->executeUpdate($sql, $arrData);
 	}
 	
-	public function  addEditSupplier($id,$name,$user_name,$password,$status,$mobile,$email,$company,$address,$city,$state,$zipcode,$company_pan,$gumasta_lic,$registration_lic,$is_partner,$website, $logo) {
+	public function  addEditSupplier($id,$name,$user_name,$password,$status,$mobile,$email,$company,$address,$city,$state,$zipcode,$company_pan,$gumasta_lic,
+			$registration_lic,$is_partner,$website, $logo, $company_type, $registration) {
 		$sql = "";
 		if ($id == 0) {
 			$sql = "INSERT INTO `supplier`(`id`, `name`, `user_name`, `password`, `status`, `mobile`, `email`, `company`, `address`, `city`, `state`, `zipcode`,
-					 `company_pan`, `gumasta_lic`, `registration_lic`, `is_partner`, `website`, `logo`) VALUES (:id, :name, :user_name, :password, :status,
-					 :mobile, :email, :company, :address, :city, :state, :zipcode, :company_pan, :gumasta_lic, :registration_lic, :is_partner, :website, :logo)";
+					 `company_pan`, `gumasta_lic`, `registration_lic`, `is_partner`, `website`, `logo`,`company_type`, `registration`) VALUES (:id, :name, :user_name, :password, :status,
+					 :mobile, :email, :company, :address, :city, :state, :zipcode, :company_pan, :gumasta_lic, :registration_lic, :is_partner, :website, 
+					:logo, :company_type, :registration)";
 		} else {
 			$sql = "UPDATE `supplier` SET `name`=:name,`password`=:password,`status`=:status,`mobile`=:mobile,`company`=:company,`address`=:address,`email`=:email,
 					`city`=:city,`state`=:state,`zipcode`=:zipcode,`company_pan`=:company_pan,`gumasta_lic`=:gumasta_lic,`registration_lic`=:registration_lic,
-					`is_partner`=:is_partner,`website`=:website, `logo`=:logo WHERE `id`=:id and `user_name`=:user_name ";
+					`is_partner`=:is_partner,`website`=:website, `logo`=:logo, `company_type`=:company_type, `registration`=:registration  
+					WHERE `id`=:id and `user_name`=:user_name ";
 		}
 		$arrData = array (
 				':id'  => $id,
@@ -340,7 +343,10 @@ class DBUtil {
 				':registration_lic'  => $registration_lic,
 				':is_partner'  => $is_partner,
 				':website'  => $website,
-				':logo'  => $logo
+				':logo'  => $logo,
+				':company_type' => $company_type,
+				':registration' => $registration
+				
 		);
 		return $this->executeUpdate($sql, $arrData);
 	}

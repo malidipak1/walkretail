@@ -22,7 +22,8 @@ if(!empty($_POST)) {
 		$is_partner = (empty($is_partner)) ? $arrRecords['is_partner'] : $is_partner;
 
 		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], $_POST['status'], $_POST['mobile'], $_POST['email'], $_POST['company'], 
-			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], $logo);
+			$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['company_pan'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], 
+				$_POST['company_type'], $_POST['is_registration'], $logo);
 
 		$message = "Updated Successfuly!";
 	} else {
@@ -170,8 +171,27 @@ $userNameReadOnly = "readonly='readonly'";
              </div>
             <div class="supplier-panel-right"><input name="licence" type="file"  id="licence" /></div>
           </div>
+            <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Company is Registered</div>
+             <div class="supplier-panel-right">
+             <select name="is_registration" id="is_registration">
+               <option>YES</option>
+               <option>NO</option>
+             </select></div>
+              <script type="text/javascript">
+				var defaultVal = '<?php echo $arrSupplier['is_registration']?>';
+				var obj = document.getElementById("is_registration");
+				var len = obj.length;
+
+				for(var i=0; i<len; i++) {
+					if(defaultVal == obj.options[i].value) {
+						obj.selectedIndex = i;
+					}
+				}
+             </script>
+          </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company if Registered
+             <div class="supplier-panel-left">Registeration Document
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
              if (file_exists($fileLic) && !empty( $arrSupplier['registration_lic'])) { ?>
@@ -180,9 +200,29 @@ $userNameReadOnly = "readonly='readonly'";
              </div>
              <div class="supplier-panel-right"><input name="registration" type="file"  id="registration" /></div>
           </div>
+            <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Company is in Partnership<br />or Propertier</div>
+             <div class="supplier-panel-right">
+               <label for="select"></label>
+               <select name="company_type" id="company_type">
+                 <option value="Partnership">Partnership</option>
+                 <option value="Propertier">Propertier</option>
+               </select>
+             </div>
+              <script type="text/javascript">
+				var defaultVal = '<?php echo $arrSupplier['company_type']?>';
+				var obj = document.getElementById("company_type");
+				var len = obj.length;
+
+				for(var i=0; i<len; i++) {
+					if(defaultVal == obj.options[i].value) {
+						obj.selectedIndex = i;
+					}
+				}
+             </script>
+          </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company is in Partnership<br />
-             or Propertier
+             <div class="supplier-panel-left">Company Documents
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
              if (file_exists($fileLic) && !empty($arrSupplier['is_partner'])) { ?>

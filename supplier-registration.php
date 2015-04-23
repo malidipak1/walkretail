@@ -22,7 +22,8 @@ if(!empty($_POST)) {
 		$is_partner = (empty($is_partner)) ? $arrRecords['is_partner'] : $is_partner;
 		
 		$id = $dbObj->addEditSupplier($_POST['supplier_id'], $_POST['name'], $_POST['user_name'], $_POST['password'], 0, $_POST['mobile'], $_POST['email'], $_POST['company'], 
-				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], $logo);
+				$_POST['address'], $_POST['city'], $_POST['state'], $_POST['zipcode'], $_POST['pancard'], $gumasta_lic, $registration_lic, $is_partner, $_POST['website'], 
+				$_POST['company_type'], $_POST['is_registration'], $logo);
 
 		header("Location: /registration-form-successful.php");
 	} else {
@@ -91,7 +92,7 @@ function MM_validateForm() { //v4.0
   <div class="middle-inner">
   	<div class="error"><?php echo $message?></div>
     <div class="left-2-panel">
-     <form action="" enctype="multipart/form-data"  method="POST" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
+     <form enctype="multipart/form-data"  method="post" onsubmit="MM_validateForm('name','','R','company','','R','email','','RisEmail','mobile','','RisNum','address','','R','user_name','','R','password','','R','city','','R','zipcode','','RisNum','state','','R','pancard','','R');return document.MM_returnValue">
      <div class="supp-con1">
         <div class="supp-left">
           <div class="supplier-panel-bg">
@@ -165,14 +166,9 @@ function MM_validateForm() { //v4.0
             <div class="supplier-panel-right"><input name="licence"  type="file"  id="licence" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company is Registered
-              <?php 
-             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
-             if (file_exists($fileLic) && !empty($arrSupplier['registration_lic'])) { ?>
-             	<a href="/download.php?fileName=<?php echo $arrSupplier['registration_lic'];?>">Download</a>
-             <?php }?>
-             </div>
-             <div class="supplier-panel-right"><select name="">
+             <div class="supplier-panel-left">Company is Registered</div>
+             <div class="supplier-panel-right">
+             <select name="is_registration">
                <option>YES</option>
                <option>NO</option>
              </select></div>
@@ -188,18 +184,12 @@ function MM_validateForm() { //v4.0
              <div class="supplier-panel-right"><input name="registration" type="file"  id="registration" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company is in Partnership<br />
-             or Propertier
-              <?php 
-             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
-             if (file_exists($fileLic) && !empty($arrSupplier['is_partner'])) { ?>
-             	<a href="/download.php?fileName=<?php echo $arrSupplier['is_partner'];?>">Download</a>
-             <?php }?></div>
+             <div class="supplier-panel-left">Company is in Partnership<br />or Propertier</div>
              <div class="supplier-panel-right">
                <label for="select"></label>
-               <select name="select" id="select">
-                 <option>Partnership</option>
-                 <option>Propertier</option>
+               <select name="company_type" id="company_type">
+                 <option value="Partnership">Partnership</option>
+                 <option value="Propertier">Propertier</option>
                </select>
              </div>
           </div>
