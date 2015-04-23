@@ -132,17 +132,17 @@ class DBUtil {
 	public function getPremiumAds($ads_type='MAIN_ADS') {
 		
 		$arrParam = array('ads_type' => $ads_type);
-		$sql = "SELECT * FROM `ads` WHERE " . $this->getWhereClause($arrParam);
+		$sql = "SELECT * FROM `ads` WHERE " . $this->getWhereClause($arrParam) . " order by seq ";
 		return $this->getAll($sql);
 		
 	}
 	
-	public function addEditAds($image_name, $image_alt,$image_link,$ads_type='MAIN_ADS', $id=0) {
+	public function addEditAds($image_name, $image_alt,$image_link,$ads_type='MAIN_ADS',$seq=0, $id=0) {
 		
 		if(empty($id)) {
-			$sql = "INSERT INTO `ads`(`id`, `image_name`, `image_alt`, `image_link`, `ads_type`) VALUES (:id, :image_name, :image_alt, :image_link, :ads_type)";
+			$sql = "INSERT INTO `ads`(`id`, `image_name`, `image_alt`, `image_link`, `ads_type`, `seq`) VALUES (:id, :image_name, :image_alt, :image_link, :ads_type,:seq)";
 		} else {
-			$sql = "UPDATE `ads` SET `image_name`=:image_name,`image_alt`=:image_alt,`image_link`=:image_link,`ads_type`=:ads_type WHERE `id`=:id";
+			$sql = "UPDATE `ads` SET `image_name`=:image_name,`image_alt`=:image_alt,`image_link`=:image_link,`ads_type`=:ads_type, `seq`=:seq WHERE `id`=:id";
 		}
 		
 		$arrData = array (
@@ -150,7 +150,8 @@ class DBUtil {
 				':image_name'  => $image_name,
 				':image_alt' => $image_alt,
 				':image_link' => $image_link,
-				':ads_type' => $ads_type
+				':ads_type' => $ads_type,
+				':seq' => $seq
 			);
 		$this->executeUpdate($sql, $arrData);
 	}

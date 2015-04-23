@@ -89,7 +89,7 @@ if(!empty($_REQUEST['ads_type'])) {
                                           <td width="22%" class="white">Image</td>
                                           <td width="16%" class="white">Image Alt</td>
                                          <td width="16%" class="white">Image Link</td>
-                                         
+                                          <td width="16%" class="white">Sequence</td>
                                             <td width="11%" class="white">Delete</td>
                      					 </tr>
                                           <!----------------------Start your loop------------------------------->
@@ -102,6 +102,7 @@ if(!empty($_REQUEST['ads_type'])) {
 											</td>
                                <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['image_alt']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['image_link'];?></td>
+                                            <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['seq'];?></td>
                                             <td width="11%"   bgcolor="#FFFFFF"><a href="premium-ad.php?action=delete&id=<?php echo $eachAds['id']?>" onClick="javascript: return confirm('Are you sure You want to delete the image ');"><img src="images/del.gif" width="12" height="10" border="0" /></a> </td>
                                           </tr>
                                           

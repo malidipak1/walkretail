@@ -11,7 +11,7 @@ if(!empty($_POST)) {
 		$image = $_POST['hidden_image'];
 	}
 	if(!empty($image)) {
-		$dbObj->addEditAds($image, $_POST['image_alt'], $_POST['image_link'], $_POST['ads_type'], $_POST['id']);
+		$dbObj->addEditAds($image, $_POST['image_alt'], $_POST['image_link'], $_POST['ads_type'],$_POST['seq'], $_POST['id']);
 	
 		header("Location: premium-ad.php?ads_type=".$_POST['ads_type']);
 	}
@@ -80,6 +80,7 @@ if(!empty($_REQUEST['id'])) {
                                         	<option <?php echo $select2?> value="SUB_ADS">Sub Ads</option>
                                         </select>
                                       
+                                      
                                       <tr>
                                         <td bordercolor="#FFFFFF"  valign="top" align="center">
                                      <?php if(!empty($_REQUEST['ads_type'])) {?>   
@@ -118,6 +119,11 @@ if(!empty($_REQUEST['id'])) {
       <td  align="left"><input type="text" name="image_link" id="image_link" value="<?php echo $arrAds['image_link']?>" />
         </td>
     </tr>
+    <tr align="center" bgcolor="#FFFFFF" valign="top">
+      <td height="33" align="left" valign="top">Sequence</td>
+      <td  align="left"><input type="text" name="seq" id="seq" value="<?php echo $arrAds['seq']?>" />
+        </td>
+    </tr>
     <tr bgcolor="#7D4B00">
     	<td height="33" colspan="5" align="center" bgcolor="#3c7701">
     		<input name="submit" type="submit" value="Upload"/>
@@ -145,8 +151,16 @@ if(!empty($_REQUEST['id'])) {
 
 </html>
 <script language="JavaScript">
-function check_form()
-{	
+function check_form() {
+	var flag = isNaN(document.header.seq.value);
+	if( flag ) {
+		alert("Sequence: Only Number allowed");
+		document.header.seq.value= "";
+		document.header.seq.focus();
+		return false;
+	} else {
+		return true;
+	}
 	
 }
 
