@@ -47,7 +47,7 @@ if(!empty($_REQUEST['ads_type'])) {
                                       </tr>
                                       <tr>
                                         <td colspan="2" align="center"  valign="top" class="red">
-                                        <select name="ads_type" onchange="change(this.value)">
+                                        <select name="ads_type" onChange="change(this.value)">
                                         	<?php 
                                         	$select1 = ""; $select2 = "";
                                         		if($_REQUEST['ads_type'] == 'MAIN_ADS') {
@@ -83,7 +83,7 @@ if(!empty($_REQUEST['ads_type'])) {
                                           <td width="22%" class="white">Image</td>
                                           <td width="16%" class="white">Image Alt</td>
                                          <td width="16%" class="white">Image Link</td>
-                                         <td width="8%" class="white">Edit</td>
+                                         
                                             <td width="11%" class="white">Delete</td>
                      					 </tr>
                                           <!----------------------Start your loop------------------------------->
@@ -96,13 +96,12 @@ if(!empty($_REQUEST['ads_type'])) {
 											</td>
                                <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['image_alt']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF"><?php echo $eachAds['image_link'];?></td>
-                                            <td width="8%"  bgcolor="#FFFFFF"><a href="add_new_premium-ad.php?ads_type=<?php echo $_REQUEST['ads_type']?>&id=<?php echo $eachAds['id']?>"> <img src="images/Edit.gif" width="12" height="12" alt="Edit"   border="0" /></a></td>
                                             <td width="11%"   bgcolor="#FFFFFF"><a href="premium-ad.php?action=delete&id=<?php echo $eachAds['id']?>" onClick="javascript: return confirm('Are you sure You want to delete the image ');"><img src="images/del.gif" width="12" height="10" border="0" /></a> </td>
                                           </tr>
                                           
                                       <?php }}?>    
                                           <tr>
-                                          	<td colspan="6" ><a href="add_new_premium-ad.php?ads_type=<?php echo $_REQUEST['ads_type']?>">Click here</a> to add advs.</td>
+                                          	<td colspan="4" ><a href="add_new_premium-ad.php?ads_type=<?php echo $_REQUEST['ads_type']?>">Click here</a> to add advs.</td>
                                           </tr>
                                          
                                           <!-----------------------End your loop here---------------------------->
