@@ -165,7 +165,20 @@ function MM_validateForm() { //v4.0
             <div class="supplier-panel-right"><input name="licence"  type="file"  id="licence" /></div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company if Registered
+             <div class="supplier-panel-left">Company is Registered
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
+             if (file_exists($fileLic) && !empty($arrSupplier['registration_lic'])) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['registration_lic'];?>">Download</a>
+             <?php }?>
+             </div>
+             <div class="supplier-panel-right"><select name="">
+               <option>YES</option>
+               <option>NO</option>
+             </select></div>
+          </div>
+          <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Registeration Document
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['registration_lic'];
              if (file_exists($fileLic) && !empty($arrSupplier['registration_lic'])) { ?>
@@ -182,11 +195,16 @@ function MM_validateForm() { //v4.0
              if (file_exists($fileLic) && !empty($arrSupplier['is_partner'])) { ?>
              	<a href="/download.php?fileName=<?php echo $arrSupplier['is_partner'];?>">Download</a>
              <?php }?></div>
-             <div class="supplier-panel-right"><input name="partner" type="file"  id="partner" /></div>
+             <div class="supplier-panel-right">
+               <label for="select"></label>
+               <select name="select" id="select">
+                 <option>Partnership</option>
+                 <option>Propertier</option>
+               </select>
+             </div>
           </div>
           <div class="supplier-panel-bg">
-             <div class="supplier-panel-left">Company Documents<br />
-             or Propertier
+             <div class="supplier-panel-left">Company Documents
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
              if (file_exists($fileLic) && !empty($arrSupplier['is_partner'])) { ?>
