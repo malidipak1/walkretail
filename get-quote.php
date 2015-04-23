@@ -117,25 +117,6 @@ function MM_validateForm() { //v4.0
                      <textarea name="address" rows="4" class="sell3" id="address"></textarea>
                      </span> 
           </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Sub-Category</span> <span class="poperty-panel-right">
-                  <select id="category" name="category[]" multiple="multiple"> 
-	             	<option value="0">-SELECT-</option>
-	                   	<?php 
-	                   	$arrParent = Util::getCategoryList();
-	                   	foreach ($arrParent as $parent => $arrSubCat) { ?>
-	             	<optgroup label="<?php echo $parent?>">
-	             	<?php foreach ($arrSubCat as $id => $name) {  
-	             		$selected = "";
-	             		if($arrProduct['category'] == $id) { $selected = "selected='selected'"; }?>
-	             	
-	             		<option <?php echo $selected?> value="<?php echo $name?>"><?php echo $name?></option>
-	             	<?php } ?>
-	             	</optgroup>
-	             	<?php }	?>
-	             	</select>
-                </span> </div>
-               
-        
           <div class="property-panel-bg"> 
                   <span class="property-panel-left">Message</span> 
                      <span class="poperty-panel-right">
