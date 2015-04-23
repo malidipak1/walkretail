@@ -106,7 +106,7 @@ function MM_validateForm() { //v4.0
 <div class="middle">
   <div class="middle-inner">
   	<div align="center" style="color: red"><?php echo $message?></div>
-  <div class="buy-get-heading">Buy Now and Get Free Home Delivery</div>
+  <div class="buy-get-heading">BUY NOW and Get Free Home Delivery</div>
     <div class="form-con1">
      <form name="buynow" method="post" onsubmit="MM_validateForm('emailid','','RisEmail','phone','','RisNum','name','','R','address','','R','pincode','','RisNum','message','','R');return document.MM_returnValue">
       <div class="form-pad1">
@@ -170,7 +170,7 @@ function MM_validateForm() { //v4.0
           </div>
           
           <div class="property-panel-bg"> 
-          <span class="property-panel-left-full">Payment Mode : Cash on Delivery (COD)</span></div>
+          <span class="property-panel-left-full">Payment Mode :&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cash on Delivery (COD)</span></div>
           <div class="property-panel-bg"> 
                   <span class="property-panel-left">Suggestions</span> 
                      <span class="poperty-panel-right">

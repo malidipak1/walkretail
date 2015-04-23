@@ -59,6 +59,7 @@ if(!empty($_REQUEST['ads_type'])) {
                                         	<option value="">- SELECT -</option>
                                         	<option <?php echo $select1?> value="MAIN_ADS">Main Ads</option>
                                         	<option <?php echo $select2?> value="SUB_ADS">Sub Ads</option>
+                                        	<option value="SIDE_ADS">Side Ads</option>
                                         </select>
                                         </td>
                                       </tr>

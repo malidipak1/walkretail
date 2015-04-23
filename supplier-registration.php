@@ -115,11 +115,13 @@ function MM_validateForm() { //v4.0
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Mobile No.</div>
-            <div class="supplier-panel-right"><input name="mobile" type="text" class="field" value="<?php echo $arrSupplier['mobile']?>" id="mobile" maxlength="10" /></div>
+            <div class="supplier-panel-right"><input name="mobile" style="padding:0 0 0 10px;" type="text" class="field" value="<?php echo $arrSupplier['mobile']?>" id="mobile" maxlength="10" /></div>
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company Address</div>
-             <div class="supplier-panel-right"><input name="address" value="<?php echo $arrSupplier['address']?>" type="text" class="field" id="address" /></div>
+             <div class="supplier-panel-right">
+               <textarea name="address" class="field" id="address" style="height:70px;"><?php echo $arrSupplier['address']?></textarea>
+             </div>
           </div>
           <!--<div class="supplier-panel-bg">
              <div class="supplier-panel-left">Category</div>
@@ -174,6 +176,16 @@ function MM_validateForm() { //v4.0
           </div>
           <div class="supplier-panel-bg">
              <div class="supplier-panel-left">Company is in Partnership<br />
+             or Propertier
+              <?php 
+             $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
+             if (file_exists($fileLic) && !empty($arrSupplier['is_partner'])) { ?>
+             	<a href="/download.php?fileName=<?php echo $arrSupplier['is_partner'];?>">Download</a>
+             <?php }?></div>
+             <div class="supplier-panel-right"><input name="partner" type="file"  id="partner" /></div>
+          </div>
+          <div class="supplier-panel-bg">
+             <div class="supplier-panel-left">Company Documents<br />
              or Propertier
               <?php 
              $fileLic = UPLOAD_DOCS_DIR . $arrSupplier['is_partner'];
