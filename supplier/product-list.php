@@ -87,8 +87,8 @@ function search(form) {
 									       </td>
 				      </tr>
 										 <tr align="center"  bgcolor="#3c7701">									
-<td>Product Image</td>
-										 <td width="22%" class="white">Client Name</td>
+										<td class="white">Product Image</td>
+										 <td width="22%" class="white">Price Range</td>
                                           <td width="16%" class="white">Sub - Category</td>
                                          <td width="16%" class="white">Product Name</td>
                                          <td width="8%" class="white">Product ID</td>
@@ -101,7 +101,7 @@ function search(form) {
                                           <?php foreach ($arrProduct as $prod) {?>
                                            <tr align="center">	
                                              <td width="16%"  bgcolor="#FFFFFF">&nbsp;<img width="100px" height="100px" alt="<?php echo $prod['prod_name']?>" src="<?php echo Util::getImage($prod['image'])?>" /></td>
-                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;<?php echo $prod['name']?></td>
+                                            <td width="22%" height="40" bgcolor="#FFFFFF">&nbsp;&#8377; <?php echo $prod['min_price']?> - &#8377; <?php echo $prod['max_price']?> Per <?php echo $prod['price_type']?></td>
                                				<td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['catname']?></td>
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_id']?></td>

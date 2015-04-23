@@ -5,7 +5,7 @@ if(!empty($_POST)) {
 	$user_name		= $_REQUEST['user_name'];
 	$password		= $_REQUEST['password'];
 	
-	$param = array('user_name' => $user_name, 'password' => $password);
+	$param = array('user_name' => $user_name, 'password' => $password , 'status' => 1);
 	
 	$objDbUtil = new DBUtil(); 
 	

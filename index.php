@@ -6,7 +6,7 @@ $dbObj = new DBUtil();
 
 $mainAds = $dbObj->getPremiumAds();
 $subAds = $dbObj->getPremiumAds('SUB_ADS');
-
+$sideAds = $dbObj->getPremiumAds('SIDE_ADS');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -95,14 +95,9 @@ $(document).ready(function($){
 <div class="middle">
   <div class="middle-inner">
    <div><?php include("side-categories.php");?></div>
-
-    
     <!-- left panel end -->
     
     <div class="middle-panel">
-    
-    
-    
        <?php include("search-product.php");?>
       
       <!-- end search form-->
@@ -116,15 +111,6 @@ $(document).ready(function($){
                  <img height="300px;" width="400px" src="<?php echo Util::getAdsImage($eachAd['image_name'])?>" alt="<?php echo $eachAd['image_alt']?>" /> 
             </div>
             <?php }?>
-            <!-- <div class="slide">
-              <img src="slider/2.jpg" alt="" />
-            </div>
-            <div class="slide">
-              <img src="slider/3.jpg" alt="" />
-            </div> -->
-            <!--<div class="slide4">
-                <img src="slider/5.jpg" alt="" />
-            </div>-->
         </div>
         <div id="slider-direction-nav"></div>
         <div id="slider-control-nav"></div>
@@ -146,11 +132,12 @@ $(document).ready(function($){
      <!-- middle panel end -->
      
     <div class="right-panel">
-      <span><a href="request-quote.php"><a href="request-quote.php" target="_blank"><img src="images/quote.jpg" width="250" height="163" alt="" border="0" /></a></span>
-      <span><a href="suggetion.php" target="_blank" ><img src="images/offer.jpg" width="250" height="145" alt="" border="0" /></a></span>
- 
+    <?php foreach ($sideAds as $eachSideAd) {?>
+      <span><a href="<?php echo $eachSideAd['image_link']?>" target="_blank"><img src="<?php echo Util::getAdsImage($eachSideAd['image_name'])?>" width="250" height="163" alt="" border="0" /></a></span>
+      <?php }?>
+ <!--      <span><a href="suggetion.php" target="_blank" ><img src="images/offer.jpg" width="250" height="145" alt="" border="0" /></a></span>
     <a href="http://walkretail.com/request-quote.php" target="_blank"><img src="images/side-img.jpg" border="0" width="248" height="167" alt="" /></a> </div>
-    
+  -->   
      <!-- right panel end -->
      
   </div>

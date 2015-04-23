@@ -137,6 +137,7 @@ function MM_validateForm() { //v4.0
                   <input name="max_quantity" type="hidden" value="<?php echo $arrResult['max_quantity']?>" />
                   <input name="min_price" type="hidden" value="<?php echo $arrResult['min_price']?>" />
                   <input name="max_price" type="hidden" value="<?php echo $arrResult['max_price']?>" />
+                  <input name="max_price" type="hidden" value="<?php echo $arrResult['price_type']?>" />
                   
                 </span> </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Phone No.</span> <span class="poperty-panel-right">

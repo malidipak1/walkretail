@@ -47,20 +47,25 @@ if(!empty($_REQUEST['ads_type'])) {
                                       </tr>
                                       <tr>
                                         <td colspan="2" align="center"  valign="top" class="red">
-                                        <select name="ads_type" onChange="change(this.value)">
-                                        	<?php 
-                                        	$select1 = ""; $select2 = "";
-                                        		if($_REQUEST['ads_type'] == 'MAIN_ADS') {
-                                        			$select1 = "selected=selected";
-                                        		} else if($_REQUEST['ads_type'] == 'SUB_ADS') {
-                                        			$select2 = "selected=selected";
-                                        		}
-                                        	?>
+                                        <select id="ads_type" name="ads_type" onChange="change(this.value)">
                                         	<option value="">- SELECT -</option>
-                                        	<option <?php echo $select1?> value="MAIN_ADS">Main Ads</option>
-                                        	<option <?php echo $select2?> value="SUB_ADS">Sub Ads</option>
+                                        	<option value="MAIN_ADS">Main Ads</option>
+                                        	<option value="SUB_ADS">Sub Ads</option>
                                         	<option value="SIDE_ADS">Side Ads</option>
                                         </select>
+                                  <script type="text/javascript">
+										var defaultVal = '<?php echo $_REQUEST['ads_type']?>';
+										var obj = document.getElementById("ads_type");
+										var len = obj.length;
+						
+										for(var i=0; i<len; i++) {
+											if(defaultVal == obj.options[i].value) {
+												obj.selectedIndex = i;
+											}
+										}
+						             </script>
+						                    
+                                        
                                         </td>
                                       </tr>
                                       <tr>

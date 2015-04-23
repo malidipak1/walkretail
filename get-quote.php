@@ -78,8 +78,11 @@ function MM_validateForm() { //v4.0
                   <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
                   <input name="min_quantity" type="hidden" value="<?php echo $arrResult['min_quantity']?>" />
                   <input name="max_quantity" type="hidden" value="<?php echo $arrResult['max_quantity']?>" />
+                  <input name="max_price" type="hidden" value="<?php echo $arrResult['quantity_type']?>" />
                   <input name="min_price" type="hidden" value="<?php echo $arrResult['min_price']?>" />
                   <input name="max_price" type="hidden" value="<?php echo $arrResult['max_price']?>" />
+                  <input name="max_price" type="hidden" value="<?php echo $arrResult['price_type']?>" />
+                  <input name="max_price" type="hidden" value="<?php echo $arrResult['quantity_type']?>" />
       <div class="form-pad1">
            
            
