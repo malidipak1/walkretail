@@ -109,7 +109,7 @@ $(document).ready(function($){
         	<?php foreach ($mainAds as $eachAd) {?>
             <div  style="cursor: pointer;" class="slide">
                  <a style="cursor: pointer;" href="<?php echo $eachAd['image_link']?>" target="_blank">
-                 	<img style="cursor: pointer;" height="300px;" width="400px" src="<?php echo Util::getAdsImage($eachAd['image_name'])?>" alt="<?php echo $eachAd['image_alt']?>" /> 
+                 	<img style="cursor:pointer;" height="300px;" width="400px" src="<?php echo Util::getAdsImage($eachAd['image_name'])?>" alt="<?php echo $eachAd['image_alt']?>" /> 
                  </a>
             </div>
             <?php }?>
