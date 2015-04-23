@@ -78,11 +78,10 @@ function MM_validateForm() { //v4.0
                   <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
                   <input name="min_quantity" type="hidden" value="<?php echo $arrResult['min_quantity']?>" />
                   <input name="max_quantity" type="hidden" value="<?php echo $arrResult['max_quantity']?>" />
-                  <input name="max_price" type="hidden" value="<?php echo $arrResult['quantity_type']?>" />
                   <input name="min_price" type="hidden" value="<?php echo $arrResult['min_price']?>" />
                   <input name="max_price" type="hidden" value="<?php echo $arrResult['max_price']?>" />
-                  <input name="max_price" type="hidden" value="<?php echo $arrResult['price_type']?>" />
-                  <input name="max_price" type="hidden" value="<?php echo $arrResult['quantity_type']?>" />
+                  <input name="price_type" type="hidden" value="<?php echo $arrResult['price_type']?>" />
+                  <input name=quantity_type type="hidden" value="<?php echo $arrResult['quantity_type']?>" />
       <div class="form-pad1">
            
            
@@ -95,7 +94,7 @@ function MM_validateForm() { //v4.0
     <td><span class="head"><?php echo $arrResult['prod_name']?></span></td>
   </tr>
   <tr>
-    <td><span style="color:#333;">Price Range: &#8377; <?php echo $arrResult['min_price']?>/- &#8377; <?php echo $arrResult['max_price']?>/-</span></td>
+    <td><span style="color:#333;">Price Range: &#8377; <?php echo $arrResult['min_price']?>/- &#8377; <?php echo $arrResult['max_price']?>/- Per <?php echo $arrResult['price_type']?> </span></td>
   </tr>
   <tr>
     <td><span>Order Range : <?php echo $arrResult['min_quantity']?>&nbsp; &ndash;  <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span></td>
