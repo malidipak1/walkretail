@@ -170,6 +170,12 @@ class DBUtil {
 		return $this->getAll($sql);
 	}
 	
+	public function deleteCategories($catId) {
+		$sql = "DELETE FROM product_categories WHERE catid = :catid";
+		$arrData = array ( ':catid'  => $catId );
+		return $this->executeUpdate($sql, $arrData);
+	}
+	
 	
 	public function getCategories($arrSearch = array()) {
 		$sql = "SELECT * FROM product_categories WHERE " . $this->getWhereClause($arrSearch);

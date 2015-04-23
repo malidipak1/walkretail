@@ -7,6 +7,7 @@ include_once 'access_check.php';
    if($_REQUEST['action'] == 'delete' && !empty($_REQUEST['prod_id'])) {
    		$dbObj->deleteProducts($_REQUEST['prod_id']);
    		header("Location: product-list.php");
+   		exit;
    }
   
    $arrParam = array();
