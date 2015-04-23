@@ -21,7 +21,7 @@ if(!empty($_POST)) {
 				//image could not be uploaded
 			}
 		}
-		$uri = "product-list.php";
+		$uri = "uploadimage.php?prod_id=" .$id . "&supplier_id=" . $_REQUEST['supplier_id'];
 		header("Location: $uri");
 		exit;
 }
