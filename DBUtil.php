@@ -67,13 +67,14 @@ class DBUtil {
 		return $stmt->fetchAll ( PDO::FETCH_ASSOC );
 	}
 	public function getRow($query = '') {
-		$result = DBUtil::getAll ( $query );
+		$result = $this->getAll ( $query );
 		return $result [0];
 	}
 	public  function executeUpdate($sql, $data) {
 		$stmt = $this->dbConn->prepare ( $sql );
 		
 		foreach ( $data as $key => $val ) {
+			
 			$stmt->bindValue ( $key, $val ); // should not use bindParam();
 		}
 		$flag = $stmt->execute ();
@@ -383,7 +384,7 @@ class DBUtil {
 					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :prod_status, :supplier_id,  :order_range, :quntity_type,:price_type, :home_delivery)";
 		} else {
 			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`min_price`=:min_price,`max_price`=:max_price,`min_quantity`=:min_quantity, `max_quantity`=:max_quantity,
-					`prod_status`=:prod_status,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`price_type`=:price_type, home_delivery`=:home_delivery
+					`prod_status`=:prod_status,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`price_type`=:price_type, `home_delivery`=:home_delivery
 					WHERE `prod_id`=:prod_id";
 		}
 		$arrData = array (
