@@ -115,7 +115,7 @@ $(document).ready(function($){
             <?php }?>
         </div>
         <div id="slider-direction-nav"></div>
-        <div id="slider-control-nav"></div>
+        <!--<div id="slider-control-nav"></div>-->
     </div>
     
     <script type="text/javascript">
@@ -143,7 +143,7 @@ $(document).ready(function($){
      <!-- right panel end -->
      
   </div>
-</div>
+</div></div>
  <!-- middle panel end -->
  
  <div id="light-gray-bg">
@@ -158,7 +158,7 @@ $(document).ready(function($){
       </div>
    </div>
  </div>
- 
+ </div>
 
  
  

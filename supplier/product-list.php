@@ -65,9 +65,9 @@ function search(form) {
 	  	<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
 						
 										 <tr align="center" style="color:#060; background:#FFF;">
-										   <td colspan="6">
+										   <td colspan="8">
 										   
-								<form name="search_product" method="get" onsubmit="return search(this);">
+								<form name="search_product" method="get" onSubmit="return search(this);">
 										   
 										   <table width="60%" border="0" align="center" cellpadding="0" cellspacing="10" style="background:#ebfadd; border:solid 1px #060;">
 										     <tr>
