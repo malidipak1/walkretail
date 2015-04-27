@@ -70,7 +70,7 @@ function MM_validateForm() { //v4.0
 <div class="middle">
   <div class="middle-inner">
   	<div align="center" style="color: red"><?php echo $message?></div>
-  <div class="buy-get-heading">Please Fill For to Get Quotation</div>
+  <div class="buy-get-heading">Get Quotation</div>
     <div class="form-con1">
        <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
         <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
