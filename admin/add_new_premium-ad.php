@@ -99,7 +99,7 @@ if(!empty($_REQUEST['id'])) {
       <td width="18%" height="33" align="left" valign="middle">Image</td>
       <td width="82%"  align="left">
         <?php if(isset($arrAds['image_name'])){?>
-        <img src="teams/thumb1/<?php echo $arrAds['image_name'];?>"> 
+        <img height="300px" width="500px" src="/imgProd/<?php echo $arrAds['image_name'];?>"> 
         <?php }?>
         <input type="file" name="image" style="width:200px" >
         <input type="hidden" name="hidden_image" value="<?php echo $arrAds['image_name']?>">

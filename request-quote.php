@@ -1,3 +1,9 @@
+<?php error_reporting(E_ALL ^ E_NOTICE);
+include_once 'Util.php';
+$arrParent = Util::getCategoryList();
+	
+//print_r($arrParent );
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -79,7 +85,16 @@ function MM_validateForm() { //v4.0
                 <div class="property-panel-bg"> <span class="property-panel-left">Category</span> <span class="poperty-panel-right">
                 <label for="select"></label>
                 <label for="textfield"></label>
-                <input name="textfield" type="text" class="sell2" id="textfield" />
+                <select name="category[]" multiple="multiple">
+                <?php
+                foreach ($arrParent as $parentKey => $childVal) {?>
+                		<optgroup label="<?php echo $parentKey?>">
+                			<?php foreach ($childVal as $key => $val) { ?>
+                			<option value="<?php echo $key?>"><?php echo $val?></option>			
+                			<?php } ?>
+               			</optgroup>
+               <?php } ?>
+                </select>
                 </span> </div>
                
         
