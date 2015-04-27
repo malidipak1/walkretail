@@ -5,14 +5,13 @@ $arrAds = array();
 $dbObj = new DBUtil();
 $image = "";
 if(!empty($_POST)) {
-	if(!empty($_FILES['image'])) {
+	if(!empty($_FILES['image']['tmp_name'])) {
 		$image = Util::uploadImage ( "image" , true);
 	} else {
 		$image = $_POST['hidden_image'];
 	}
 	if(!empty($image)) {
 		$dbObj->addEditAds($image, $_POST['image_alt'], $_POST['image_link'], $_POST['ads_type'],$_POST['seq'], $_POST['id']);
-	
 		header("Location: premium-ad.php?ads_type=".$_POST['ads_type']);
 	}
 }
