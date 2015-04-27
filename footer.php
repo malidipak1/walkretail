@@ -10,6 +10,7 @@
             <li style="background:none;"><a href="/static/ABOUT_US"> About US </a></li>
             <li><a href="/static/TERMS">Terms & Conditions </a></li>
             <li><a href="/static/PRIVACY_POLICY">Privacy Policy</a></li>
+            <li><a href="#">Return policy</a></li>
            </ul>
         </li>
 
