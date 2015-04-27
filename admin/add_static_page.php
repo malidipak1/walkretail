@@ -13,7 +13,8 @@ $message = "";
 	
 	
 	$arrPage = array('ABOUT_US' => 'About Us', 'CONTACT_US' => 'Contact Us','TERMS' => 'Terms & Condition',
-						'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery','HOW_WORKS' => 'How It Works');
+						'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery',
+						'HOW_WORKS' => 'How It Works', 'RETURN_POLICY' => 'Return Policy');
 	if(!empty($_REQUEST['page_code'])) {
 		$arrDetails = $dbObj->getStaticPageByPage($_REQUEST['page_code']);
 		$arrDetails = $arrDetails[0];

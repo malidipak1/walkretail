@@ -17,10 +17,9 @@ if(!empty($_POST)) {
 	}
 }
 
-
 if(!empty($_REQUEST['id'])) {
 	
-	$arrAds = $dbObj->getPremiumAds($_REQUEST['id']);
+	$arrAds = $dbObj->getPremiumAdsById($_REQUEST['id']);
 	$arrAds = $arrAds[0];
 }
 

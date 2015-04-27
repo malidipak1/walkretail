@@ -134,9 +134,14 @@ class DBUtil {
 		$arrParam = array('ads_type' => $ads_type);
 		$sql = "SELECT * FROM `ads` WHERE " . $this->getWhereClause($arrParam) . " order by seq ";
 		return $this->getAll($sql);
-		
 	}
 	
+	public function getPremiumAdsById($id) {
+		
+		$arrParam = array('id' => $id);
+		$sql = "SELECT * FROM `ads` WHERE " . $this->getWhereClause($arrParam) . " order by seq ";
+		return $this->getAll($sql);
+	}
 	public function addEditAds($image_name, $image_alt,$image_link,$ads_type='MAIN_ADS',$seq=0, $id=0) {
 		
 		if(empty($id)) {

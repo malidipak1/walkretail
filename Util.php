@@ -105,15 +105,35 @@ class Util {
 			$subject = "Want to Buy Product - " . $arrPost['prod_name'];
 		}
 		
-		mail(MAILTO, $subject, $strFile, Util::getMailHeader());
+		self::sendMail(MAILTO, $subject, $strFile, Util::getMailHeader());
 	}
 	
+	
+	public static function sendMail ($to, $subject, $body, $header = '') {
+		if(empty($header)) {
+			$header = Util::getMailHeader();
+		}
+		
+		mail($to, $subject, $body, $header);
+	}
 	
 	public static function getImage($image) {
 		$image = DOWNLOAD_IMAGE_DIR . $image;
 		return $image;	
 	}
-	
+
+	public static function sendNotification($type, $arrParam) {
+		$subject = "";
+		switch ($type) {
+			case 'NEW_PRODUCT' : 
+				$subject = "New Product Added by " . Util::getSupplierName($arrParam['supplier_id']);
+				$body = "New Product Added by " . Util::getSupplierName($arrParam['supplier_id']);
+				$body .= "<br> Product Name: " . $arrParam['prod_name'];
+				break;
+		}
+		
+		self::sendMail(MAILTO, $subject, $body);
+	}
 
 	public static function redirect($url, $admin = false) {
 		$urlStr = "/";

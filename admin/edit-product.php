@@ -12,6 +12,8 @@ if(!empty($_POST)) {
 		
 		if(!empty($_POST['prod_id'])) {
 			$id = $_POST['prod_id'];
+		} else {
+			//Util::sendNotification('NEW_PRODUCT', $_POST);
 		}
 		if(!empty($_FILES["image"])) { //if image is uploaded
 			$image = Util::uploadImage("image");

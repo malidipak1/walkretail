@@ -6,12 +6,15 @@ include_once '../Util.php';
 $dbObj = new DBUtil();
 if(!empty($_POST)) {
 	
+		$_POST['supplier_id'] = $_SESSION['id'];
 		$id = $dbObj->addEditProduct($_POST['prod_name'], $_POST['category'], $_POST['desc'], $_POST['TOS'], $_POST['min_price'],$_POST['max_price'], $_POST['min_quantity'], 
-				$_POST['max_quantity'],$_POST['prod_status'], $_SESSION['id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],
+				$_POST['max_quantity'],$_POST['prod_status'], $_POST['supplier_id'], $_POST['order_range'], $_POST['supply_ability'], $_POST['home_delivery'],$_POST['quntity_type'],
 				$_POST['price_type'],$_POST['prod_id']);
 		
 		if(!empty($_POST['prod_id'])) {
 			$id = $_POST['prod_id'];
+		} else {
+			Util::sendNotification('NEW_PRODUCT', $_POST);
 		}
 		if(!empty($_FILES["image"])) { //if image is uploaded
 			$image = Util::uploadImage("image");

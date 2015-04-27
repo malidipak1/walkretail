@@ -3,8 +3,8 @@ include_once 'DBUtil.php';
 $dbObj = new DBUtil();
 
 $arrPage = array('ABOUT_US' => 'About Us', 'CONTACT_US' => 'Contact Us','TERMS' => 'Terms & Condition',
-		'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery','HOW_WORKS' => 'How It Works');
-if(array_key_exists($_REQUEST['page'], $arrPage)){
+				'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery','HOW_WORKS' => 'How It Works');
+if(array_key_exists($_REQUEST['page'], $arrPage) && true){
 	$arrDetails = $dbObj->getStaticPageByPage($_REQUEST['page']);
 	$arrDetails = $arrDetails[0];
 }
