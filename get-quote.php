@@ -72,7 +72,7 @@ function MM_validateForm() { //v4.0
   	<div align="center" style="color: red"><?php echo $message?></div>
   <div class="buy-get-heading">Get Quotation</div>
     <div class="form-con1">
-       <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">
+       <form method="post" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','RisNum','address','','R','message','','R');return document.MM_returnValue">
         <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
                   <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
                   <input name="image" type="hidden" value="<?php echo $arrResult['image']?>" />
@@ -91,41 +91,41 @@ function MM_validateForm() { //v4.0
           
   <tr>
     <td width="200" rowspan="4"><img src="<?php echo $image?>" width="227" alt="<?php echo $arrResult['prod_name']?>" /></td>
-    <td><span class="head"><?php echo $arrResult['prod_name']?></span></td>
+    <td class="head"><?php echo $arrResult['prod_name']?></td>
   </tr>
   <tr>
-    <td><span style="color:#333;">Price Range: &#8377; <?php echo $arrResult['min_price']?>/- &#8377; <?php echo $arrResult['max_price']?>/- Per <?php echo $arrResult['price_type']?> </span></td>
+    <td>Price Range: &#8377; <?php echo $arrResult['min_price']?>/- &#8377; <?php echo $arrResult['max_price']?> / <?php echo $arrResult['price_type']?> </td>
   </tr>
   <tr>
-    <td><span>Order Range : <?php echo $arrResult['min_quantity']?>&nbsp; &ndash;  <?php echo $arrResult['max_quantity']?>&nbsp; <?php echo $arrResult['quntity_type']?></span></td>
+    <td>Order Range : <?php echo $arrResult['min_quantity']?>&nbsp; &ndash;  <?php echo $arrResult['max_quantity']?> / <?php echo $arrResult['quntity_type']?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table> </div>   
  
-<div class="property-panel-bg"> <span class="property-panel-left">Name</span> <span class="poperty-panel-right">
+<div class="property-panel-bg"> <span class="property-panel-left">Name*</span> <span class="poperty-panel-right">
                   <input name="name" type="text" class="sell2" id="name" />
 </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Email-Id</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Email-Id*</span> <span class="poperty-panel-right">
                   <input name="emailid" type="text" class="sell2" id="emailid" />
         </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Phone No.</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Phone No.*</span> <span class="poperty-panel-right">
                   <input name="phone" type="text" class="sell2" id="phone" />
                 </span> </div>
                 <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Address</span> 
+                  <span class="property-panel-left">Address*</span> 
                      <span class="poperty-panel-right">
                      <textarea name="address" rows="4" class="sell3" id="address"></textarea>
                      </span> 
           </div>
           <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Message</span> 
+                  <span class="property-panel-left">Message*</span> 
                      <span class="poperty-panel-right">
                      <textarea name="message" rows="4" class="sell3" id="message"></textarea>
                      </span> 
           </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Quantity</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Quantity*</span> <span class="poperty-panel-right">
                   <input name="quantity" type="text" class="sell2" id="quantity" />
                 </span> </div>
                       <div class="property-panel-bg"> 
@@ -134,7 +134,7 @@ function MM_validateForm() { //v4.0
                      <textarea name=description rows="4" class="sell3"></textarea>
                      </span>  -->
           </div>         
-                <br /><br /><br />
+                <br /><span class="message"><strong>You will receive quote within 12 hours</strong></span><br /><br />
         <div class="property-panel-bg"> 
                   <span class="property-panel-left">&nbsp;</span> 
                     <div class="poperty-panel-right">

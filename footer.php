@@ -64,9 +64,9 @@
 <a href="http://www.twitter.com/techandallcom" target="_blank">Paypal</a>
 </li> -->
 
-<li class="linkedin" style="background-color: #f0f0f0">
+<!--<li class="linkedin" style="background-color: #f0f0f0">
 <a href="https://www.linkedin.com/hp/?dnr=nIya1xG4Flk0OU86_4Xp08soWlPk4Qcx-6y8" target="_blank">LinkedIN</a>
-</li>
+</li>-->
 
 <!--<li class="flickr" style="background-color: #f0f0f0">
 <a href="http://www.twitter.com/techandallcom" target="_blank">Flickrr</a>

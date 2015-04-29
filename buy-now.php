@@ -106,7 +106,7 @@ function MM_validateForm() { //v4.0
 <div class="middle">
   <div class="middle-inner">
   	<div align="center" style="color: red"><?php echo $message?></div>
-  <div class="buy-get-heading">BUY NOW and Get Free Home Delivery</div>
+  <div class="buy-get-heading">BUY NOW</div>
     <div class="form-con1">
      <form name="buynow" method="post" onsubmit="MM_validateForm('emailid','','RisEmail','phone','','RisNum','name','','R','address','','R','pincode','','RisNum','message','','R');return document.MM_returnValue">
       <div class="form-pad1">
@@ -128,7 +128,7 @@ function MM_validateForm() { //v4.0
 </div>   
   
 <div class="property-panel-bg">
-			<span class="property-panel-left">Email Id</span> <span class="poperty-panel-right">
+			<span class="property-panel-left">Email Id*</span> <span class="poperty-panel-right">
                   <input name="emailid" type="text" class="sell2" id="emailid" />
                   <input name="prod_id" type="hidden" value="<?php echo $arrResult['prod_id']?>" />
                   <input name="prod_name" type="hidden" value="<?php echo $arrResult['prod_name']?>" />
@@ -142,19 +142,19 @@ function MM_validateForm() { //v4.0
                   
                   
                 </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Phone No.</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Phone No.*</span> <span class="poperty-panel-right">
                   <input name="phone" type="text" class="sell2" id="phone" />
         </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Name</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Name*</span> <span class="poperty-panel-right">
                   <input name="name" type="text" class="sell2" id="name" />
                 </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Address</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Address*</span> <span class="poperty-panel-right">
                   <input name="address" type="text" class="sell2" id="address" />
                 </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Pincode</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Pincode*</span> <span class="poperty-panel-right">
                   <input name="pincode" type="text" class="sell2" id="pincode" />
                 </span> </div>
-                <div class="property-panel-bg"> <span class="property-panel-left">Quantity</span> <span class="poperty-panel-right">
+                <div class="property-panel-bg"> <span class="property-panel-left">Quantity*</span> <span class="poperty-panel-right">
                   <select name="quantity" onchange="javascript:setPrice(this.value)">
                   	<option value="0">-SELECT-</option>
                   	<?php for($i =1; $i <= MIN_BUYNOW; $i++) {?>
@@ -166,22 +166,31 @@ function MM_validateForm() { //v4.0
                 
                 
         <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Price</span> 
+                  <span class="property-panel-left">Price*</span> 
                      <span class="poperty-panel-right">
-                    <input id="price" name="price" type="text" class="sell2" readonly="readonly" />
+                     <input id="price" name="price" type="text" class="sell2" readonly="readonly" />
                      </span> 
           </div>
           
           <div class="property-panel-bg"> 
           <span class="property-panel-left-full">Payment Mode :&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cash on Delivery (COD)</span></div>
           <div class="property-panel-bg"> 
-                  <span class="property-panel-left">Suggestions</span> 
+                  <span class="property-panel-left">Suggestions*</span> 
                      <span class="poperty-panel-right">
                      <textarea name="message" rows="4" class="sell3" id="message"></textarea>
                      </span> 
           </div>     
-                <br /><br /><br />
-        <div class="property-panel-bg"> 
+                <p><br />
+                  <br />
+                </p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+                                   
+                <br /><span class="message"><strong>Estimated delivery time within 3 days excluding Sunday</strong></span><br /><br />
+        
+          <div class="property-panel-bg"> 
                   <span class="property-panel-left">&nbsp;</span> 
 <div class="poperty-panel-right">
     <table width="50%" border="0" cellspacing="10" cellpadding="0">
