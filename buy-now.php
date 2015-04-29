@@ -61,6 +61,32 @@ function setPrice(quantity) {
 		}	
 		return true;
 }
+
+	function check(e) {  
+		var keynum  
+		var keychar  
+		var numcheck  
+		// For Internet Explorer  
+		if (window.event)  
+		{  
+			keynum = e.keyCode  
+		}  
+		// For Netscape/Firefox/Opera  
+		else if (e.which)  
+		{  
+			keynum = e.which  
+		}  
+		keychar = String.fromCharCode(keynum)  
+		//List of special characters you want to restrict  
+		if (keychar == "'" || keychar == "!" || keychar == "@" || keychar == "#" || keychar == "$" || keychar == "%" || keychar == "^" || keychar == "&" || keychar == "*" || keychar == "(" || keychar == ")" || keychar == "-" || keychar == "_" || keychar == "=" || keychar == "+" || keychar == "{" || keychar == "}" || keychar == "[" || keychar == "]" || keychar == "|" || keychar == "\\" || keychar == "\"" || keychar == ";" || keychar == ":" || keychar == "," || keychar == "<" || keychar == "." || keychar == ">" || keychar == "/" || keychar == "?" || keynum == 48 || keynum == 49 || keynum == 50 || keynum == 51 || keynum == 52 || keynum == 53 || keynum == 54 || keynum == 55 || keynum == 56 || keynum == 57)   
+		{    
+			return false;  
+		}  
+		else {  
+			return true;  
+		}  
+	} 
+	
 function MM_validateForm() { //v4.0
   if (document.getElementById){
     var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
@@ -146,7 +172,7 @@ function MM_validateForm() { //v4.0
                   <input name="phone" type="text" class="sell2" id="phone" />
         </span> </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Name*</span> <span class="poperty-panel-right">
-                  <input name="name" type="text" class="sell2" id="name" />
+                  <input name="name" type="text" class="sell2" id="name" onkeypress="return check(event);" />
                 </span> </div>
                 <div class="property-panel-bg"> <span class="property-panel-left">Address*</span> <span class="poperty-panel-right">
                   <input name="address" type="text" class="sell2" id="address" />
