@@ -149,7 +149,7 @@ class DBUtil {
 		} else {
 			$sql = "UPDATE `ads` SET `image_name`=:image_name,`image_alt`=:image_alt,`image_link`=:image_link,`ads_type`=:ads_type, `seq`=:seq WHERE `id`=:id";
 		}
-		
+
 		$arrData = array (
 				':id' => $id,
 				':image_name'  => $image_name,
