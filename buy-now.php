@@ -18,7 +18,7 @@ $message = "";
 if(!empty($_POST)) {
 	Util::enquiryMail("buynow", $_POST);
 	$message = "Thank you for your enquiry. We will get back to you soon.";
-	header("Location: /thank-you.php?ref=buynow");
+	header("Location: /thank-you-buy-now.php?ref=buynow");
 	exit();
 }
 

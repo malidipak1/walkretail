@@ -36,9 +36,18 @@
         <div class="con" align="center"><img src="images/thank-you.png" width="317" height="92" alt="" /></div>
         <div align="center" class="gr-font">Thank you for your Valuable Suggestion...</div>
       </div>
+      
+      <div id="white-bg">
+          <div class="ad-box">
+            <?php include("thank-you-ad.php");?>
+          </div>
+        </div>
+      
   </div>
 </div>
  <!-- middle panel end -->
+ 
+ 
  
  
  
