@@ -1,6 +1,6 @@
 <?php
 //	include("checklock.php");
-	$root				=	"pont_du/commerce/admin";
+	$root				=	"admin";
 	$serverpath			=	$_SERVER['HTTP_HOST']."/".$root;
 	//$admin_path =	$GLOBALS[PHP_SELF];
 	$admin_path			=	$_SERVER['SCRIPT_FILENAME'];
