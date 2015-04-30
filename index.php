@@ -71,7 +71,12 @@ $(document).ready(function($){
 <body>
 <!--FB Page-->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+function loadPage(u) {
+	window.location = u;
+}
+
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
@@ -106,14 +111,14 @@ $(document).ready(function($){
       
      <div class="slider-wrapper">
         <div id="slider">
-        	<?php foreach ($mainAds as $eachAd) {?>
-            <div  style="cursor: pointer;" class="slide">
+        	<?php $cnt=0; foreach ($mainAds as $eachAd) {?>
+            <div  style="cursor: pointer;" class="slide<?php echo $cnt++;?>">
                  <a style="cursor: pointer;" href="<?php echo $eachAd['image_link']?>" target="_blank">
                  	<img style="cursor:pointer;" height="300px;" width="400px" src="<?php echo Util::getAdsImage($eachAd['image_name'])?>" alt="<?php echo $eachAd['image_alt']?>" /> 
                  </a>
             </div>
             <?php }?>
-        </div>
+        </div> 
         <div id="slider-direction-nav"></div>
         <!--<div id="slider-control-nav"></div>-->
     </div>
