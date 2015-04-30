@@ -22,6 +22,7 @@
 .lean-slider-slide img { 
     display: block;
     width: 100%; 
+	z-index: 1;
 }
 
 #slider-direction-nav {
@@ -35,6 +36,7 @@
     -o-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
     opacity: 0.2;
+	z-index: 2;
 }
 .slider-wrapper:hover #slider-direction-nav { opacity: 1; }
 #slider-direction-nav a {
@@ -44,6 +46,7 @@
     height: 37px;
     background: url(images/arrows.png) no-repeat 0 0;
     text-indent: -9999px;
+	z-index: 2;
 }
 #slider-direction-nav .lean-slider-next {
     float: right;

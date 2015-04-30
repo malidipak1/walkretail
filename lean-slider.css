@@ -26,4 +26,13 @@
     margin-right: -100%;
     display: none;
 }
-.lean-slider-slide.current { display: block; }
+.lean-slider-slide.current { display: block; z-index: 1;
+ }
+ 
+#slider-direction-nav {
+    z-index: 2;
+}
+
+#slider-control-nav {
+    z-index: 2;
+}

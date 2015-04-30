@@ -113,7 +113,7 @@ function loadPage(u) {
         <div id="slider">
         	<?php $cnt=0; foreach ($mainAds as $eachAd) {?>
             <div  style="cursor: pointer;" class="slide<?php echo $cnt++;?>">
-                 <a style="cursor: pointer;" href="<?php echo $eachAd['image_link']?>" target="_blank">
+                 <a style="cursor: pointer;" href="<?php echo $eachAd['image_link']?>" >
                  	<img style="cursor:pointer;" height="300px;" width="400px" src="<?php echo Util::getAdsImage($eachAd['image_name'])?>" alt="<?php echo $eachAd['image_alt']?>" /> 
                  </a>
             </div>
@@ -132,7 +132,7 @@ function loadPage(u) {
     });
     </script>
 <!-- end of header-->
-      <span style="float:left;"><a href="<?php echo $subAds[0]['image_link']?>" target="_blank"><img src="<?php echo Util::getAdsImage($subAds[0]['image_name'])?>" border="0" width="336" height="154" alt="" /></a></span>
+      <span style="float:left;"><a href="<?php echo $subAds[0]['image_link']?>" target="_blank"><img src="<?php echo Util::getAdsImage($subAds[0]['image_name'])?>" border="0" width="338" height="157" alt="" /></a></span>
       <span style="float:right;"><a href="<?php echo $subAds[1]['image_link']?>"  target="_blank"><img src="<?php echo Util::getAdsImage($subAds[1]['image_name'])?>" border="0" width="338" height="157" alt="" /></a></span>
     </div>
     
