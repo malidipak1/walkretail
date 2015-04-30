@@ -8,7 +8,7 @@
         <li><a href="/contact-us.php">Contact Us</a></li>
        <!-- <li><a href="#">Blog</a></li>-->
      </ul></div></td>
-    <td width="50%" align="center" valign="top" style="color:#ccc;"><strong>Home Delivery :</strong> <marquee>Mumbai, Navi Mumbai, Thane</marquee></td>
+    <td width="50%" align="center" valign="top" style="color:#ccc;"><marquee><strong>Home Delivery :</strong> Mumbai, Navi Mumbai, Thane</marquee></td>
     <td width="25%" align="left" valign="top" style="padding-left:110px;"><a href="http://walkretail.com/supplier" style="color:#CCC; text-decoration:none; font-weight:bold;">Supplier Login</a></td>
   </tr>
 </table>
