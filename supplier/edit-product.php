@@ -50,8 +50,6 @@ if(!empty($_REQUEST['prod_id'])) {
 <link href="css/css.css" rel="stylesheet" type="text/css">
 <script src="../js/jquery-1.6.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript" src="js/admin.js"></script>
-<script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-
 <script language="JavaScript">
 	function valid(form) {
 		if(form.prod_name.value == '') {
@@ -88,7 +86,9 @@ if(!empty($_REQUEST['prod_id'])) {
 	}
 
 </script>
-<?php include("common_tinymce.php");?>
+
+<script type="text/javascript" src="../js/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="../js/tinymce.js"></script>
 </head>
 <body>
 <table width="100%" height="100%" align="center" cellpadding="0" cellspacing="0"  bordercolor="#5181BF">

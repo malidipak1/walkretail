@@ -10,8 +10,7 @@ $message = "";
 		$dbObj->addStaticPage($_POST['page_id'], $_POST['page_title'], $_POST['page_description'], $_POST['page_code']);
 		$message = "Page Content Modified Sucessfully!";
 	}
-	
-	
+		
 	$arrPage = array('ABOUT_US' => 'About Us', 'CONTACT_US' => 'Contact Us','TERMS' => 'Terms & Condition',
 						'PRIVACY_POLICY' => 'Privacy Policy','FAQS' => 'FAQs','COD' => 'Cash on Delivery',
 						'HOW_WORKS' => 'How It Works', 'RETURN_POLICY' => 'Return Policy');
@@ -25,8 +24,12 @@ $message = "";
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../css/css.css" rel="stylesheet" type="text/css">
-<script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-<?php include("common_tinymce.php");?>
+<!-- <script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script> -->
+
+<script type="text/javascript" src="../js/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="../js/tinymce.js"></script>
+
+
 <script language="javascript" src="ajax_js.js"></script>
 <script language="javascript" type="text/javascript">
 function validate()
@@ -101,7 +104,7 @@ function loadPage(val) {
                       </tr> 
                       <tr align="center" bgcolor="#FFFFFF" >
                     <td height="30" align="left" nowrap="nowrap" bgcolor="#FFFFFF">Page Description</strong></td>
-                    <td colspan="-2" align="left" nowrap="nowrap" ><textarea name="page_description" id="page_description" cols="140" rows="25" ><?php echo $arrDetails['page_description']?></textarea></td>
+                    <td colspan="-2" align="left" nowrap="nowrap" ><textarea class="text_area" name="page_description" id="page_description" cols="140" rows="25" ><?php echo $arrDetails['page_description']?></textarea></td>
                   </tr>
                     
                   </tr>
