@@ -264,14 +264,27 @@ class DBUtil {
 		return $this->getAll($sql);
 	}	
 		
-	public function getProductList($prodName = '', $arrSearch = array()) {
+	public function getProductList($prodName = '', $arrSearch = array(), $orderByKey = PRODTBL_DEFAULT_ORDER_KEY, $order = PRODTBL_DEFAULT_ORDER) {
 		//print_r($arrSearch);
 		$sql = "SELECT id, name, catid, catname, product.* FROM product,supplier,product_categories WHERE catid=category and id=supplier_id and " . $this->getWhereClause($arrSearch);
 
 		if(!empty($prodName)) {
 			$sql .= " and (prod_name like '%" . $prodName . "%' OR name like '%" . $prodName . "%' )";
 		}
-
+		
+		$sql .= " order by $orderByKey $order";
+	//echo $sql;	
+		return $this->getAll($sql);
+	}
+	
+	public function getProdList($prodName = '', $arrSearch = array()) {
+		//print_r($arrSearch);
+		$sql = "SELECT id, name, catid, catname, product.* FROM product,supplier,product_categories WHERE catid=category and id=supplier_id and " . $this->getWhereClause($arrSearch);
+	
+		if(!empty($prodName)) {
+			$sql .= " and (prod_name like '%" . $prodName . "%' OR name like '%" . $prodName . "%' )";
+		}
+	
 		return $this->getAll($sql);
 	}
 	
@@ -398,8 +411,8 @@ class DBUtil {
 			$order_range, $supply_ability, $home_delivery,$quntity_type,$price_type='', $prod_id = 0) {
 		$sql = "";
 		if ($prod_id == 0) {
-			$sql = "INSERT INTO `product`(`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `min_price`,`max_price`, `min_quantity`,`max_quantity`, `prod_status`, `supplier_id`, `order_range`, `quntity_type`,`price_type`, `home_delivery`) VALUES 
-					(:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :prod_status, :supplier_id,  :order_range, :quntity_type,:price_type, :home_delivery)";
+			$sql = "INSERT INTO `product`(`create_date`,`prod_id`, `prod_name`, `category`, `desc`, `TOS`, `min_price`,`max_price`, `min_quantity`,`max_quantity`, `prod_status`, `supplier_id`, `order_range`, `quntity_type`,`price_type`, `home_delivery`) VALUES 
+					(NOW(),:prod_id, :prod_name, :category, :desc, :TOS, :min_price,:max_price, :min_quantity,:max_quantity, :prod_status, :supplier_id,  :order_range, :quntity_type,:price_type, :home_delivery)";
 		} else {
 			$sql = "UPDATE `product` SET `prod_name`=:prod_name, `category`=:category,`desc`=:desc,`TOS`=:TOS,`min_price`=:min_price,`max_price`=:max_price,`min_quantity`=:min_quantity, `max_quantity`=:max_quantity,
 					`prod_status`=:prod_status,`supplier_id`=:supplier_id,`order_range`=:order_range, `quntity_type`=:quntity_type,`price_type`=:price_type, `home_delivery`=:home_delivery

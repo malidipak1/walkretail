@@ -15,8 +15,18 @@ include_once 'supplier_check.php';
    		$search = $_REQUEST['search'];
    }
    
+   $orderByKey = PRODTBL_DEFAULT_ORDER_KEY;
+   $order = PRODTBL_DEFAULT_ORDER;
+   if(!empty($_REQUEST['orderByKey'])) {
+   	$orderByKey = $_REQUEST['orderByKey'];
+   }
+   if(!empty($_REQUEST['order'])) {
+   	$order = $_REQUEST['order'];
+   }
+    
+   
    $dbObj->isPaging = true;
-   $arrProduct = $dbObj->getProductList($search, $arrParam);
+   $arrProduct = $dbObj->getProductList($search, $arrParam, $orderByKey, $order);
    $page = $dbObj->page;
    $totalRecords = $dbObj->totalRecords;
    $lastPage = $dbObj->lastPage;
@@ -39,6 +49,31 @@ function search(form) {
 		return false;
 	}
 	return true;
+}
+
+
+function loadPage(field) {
+	
+	var url = 'http://' + '<?php echo $_SERVER['HTTP_HOST']?>';
+	var urlOrderByKey = '<?php echo Util::getUrl('orderByKey')?>';
+	var urlOrder = '<?php echo Util::getUrl('order')?>';
+
+	if(field.name == 'orderByKey')
+		url = url + '<?php echo Util::getUrl('orderByKey')?>' + field.name + '=' + field.value;
+	else 
+		url = url + '<?php echo Util::getUrl('order')?>' + field.name + '=' + field.value;
+
+	window.location = url;	
+}
+
+
+function defaultSelect (obj, defaultVal) {
+	var len = obj.length;
+	for(var i=0; i<len; i++) {
+		if(defaultVal == obj.options[i].value) {
+			obj.selectedIndex = i;
+		}
+	}
 }
 
 </script>
@@ -65,7 +100,7 @@ function search(form) {
 	  	<table width="95%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
 						
 										 <tr align="center" style="color:#060; background:#FFF;">
-										   <td colspan="8">
+										   <td colspan="7">
 										   
 								<form name="search_product" method="get" onSubmit="return search(this);">
 										   
@@ -85,6 +120,20 @@ function search(form) {
 									       </table>
 									       </form>
 									       </td>
+									         <td>
+									       		<input type="hidden" id="orderByKeyDefault" value="<?php echo $_REQUEST['orderByKey']?>">
+									       		<select name="orderByKey" id="orderByKey" onchange="javascript:loadPage(this);">
+									       			<option value="update_date">Updated Date</option>
+									       			<option value="prod_id">Product Id</option>
+									       		</select>
+									       </td>
+									       <td>
+									       		<input type="hidden" id="orderDefault" value="<?php echo $_REQUEST['order']?>">
+									       		<select name="order" id="order" onchange="javascript:loadPage(this);">
+									       			<option value="DESC">Descending</option>
+									       			<option value="ASC">Ascending</option>
+									       		</select>
+									       </td>
 				      </tr>
 										 <tr align="center"  bgcolor="#3c7701">									
 										<td class="white">Product Image</td>
@@ -93,6 +142,7 @@ function search(form) {
                                          <td width="16%" class="white">Product Name</td>
                                          <td width="8%" class="white">Product ID</td>
                                          <td width="8%" class="white">Product Status</td>
+                                         <td width="11%" class="white">Updated On</td>
                                          <td width="8%" class="white">Edit</td>
                                          <td width="8%" class="white">Delete</td>
                                          
@@ -106,6 +156,7 @@ function search(form) {
                                             <td width="16%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_name']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_id']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">&nbsp;<?php echo $prod['prod_status']?></td>
+                                            <td width="11%"  bgcolor="#FFFFFF"><?php echo $prod['update_date']?></td>
                                             <td width="8%"  bgcolor="#FFFFFF">
                                             <a href="edit-product.php?prod_id=<?php echo $prod['prod_id']?>&supplier_id=<?php echo $prod['supplier_id']?>"> 
                                             	<img width="12" height="12" border="0" alt="Edit" src="images/Edit.gif">
@@ -142,6 +193,9 @@ function search(form) {
 </body>
 </html>
 <script language="JavaScript" type="text/JavaScript">
+defaultSelect(document.getElementById('orderByKey'),document.getElementById('orderByKeyDefault').value);
+defaultSelect(document.getElementById('order'),document.getElementById('orderDefault').value);
+
 function MM_openBrWindow(theURL,winName,features) { //v2.0
   window.open(theURL,winName,features);
 }

@@ -183,15 +183,24 @@ class Util {
 		return $return_array;
 	}
 	
+	static function getUrl($skipKey){
+		$pagingUrl = $_SERVER['PHP_SELF'] . "?&";
+		foreach ($_GET as $key => $val) {
+			if($key != $skipKey)
+				$pagingUrl .= $key . "=" . $val . "&";
+		}
+		return $pagingUrl;
+	}
 
 	static function getPagination ($page, $lastPage = 1) {
 		$paginationDisplay = "";
 		
-		$pagingUrl = $_SERVER['PHP_SELF'] . "?&";
+		/* $pagingUrl = $_SERVER['PHP_SELF'] . "?&";
 		foreach ($_GET as $key => $val) {
 			if($key != "page")
 				$pagingUrl .= $key . "=" . $val . "&";
-		}
+		} */
+		$pagingUrl = self::getUrl('page'); 
 		
 		if($lastPage > 1) {
 	
