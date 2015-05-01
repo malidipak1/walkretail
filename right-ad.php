@@ -19,7 +19,7 @@ $arrResult = $dbObj->getAdsProductByPage('SEARCH_PAGE');
                         <td class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['max_price']?></td>
                     </tr>
                     <tr valign="middle">
-                        <td class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?></td>
+                        <td class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['quntity_type']?></td>
                     </tr>
                     </table>
         </li>
