@@ -18,10 +18,10 @@ $arrResult = $dbObj->getAdsProductByPage('HOME_PAGE');
                 <td height="40" valign="middle" class="pro-head"><span style="width:50px;"><?php echo $result['prod_name']?></span></td>
               </tr>
               <tr valign="top" align="center">
-                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['min_price']?></td>
+                <td height="26" valign="middle" class="price1">Price : &#8377; <?php echo $result['min_price']?> - <?php echo $result['min_price']?> / <?php echo $result['price_type']?></td>
               </tr>
              <tr valign="top" align="center">
-                 <td valign="middle" class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?></td>
+                 <td valign="middle" class="g-text">Order Range : <?php echo $result['min_quantity']?> - <?php echo $result['max_quantity']?> / <?php echo $result['quantity_type']?></td>
               </tr>
             </table>
             </td>
