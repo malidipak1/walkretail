@@ -354,7 +354,7 @@ h3{color:#000000; font-size:25px; padding:10px 0;}
 .get-quote-btn-inn{ background:url(images/get-quote-inn.png) no-repeat center; width:108px; height:31px;  padding:0px; margin:0px; border:none; color:#fff;}
 .get-quote-btn{ background:url(images/get-quotation.png) no-repeat center;  padding:0px; margin:0px; border:none; color:#fff;}
 .note{padding:0 0 0 45px; width:400px; line-height:22px; font-family:"Century Gothic"; font-size:12px; color:#333; float:left;}
-.buy-get-heading{font-family:"Century Gothic"; font-size:18px; color:#333; padding:10px 0 10px 0; background:none; text-align:center;}
+.buy-get-heading{font-family:"Century Gothic"; font-size:36px; color:#333; padding:5px 0 5px 0; background:none; text-align:center;}
 .scrolling-head{padding:10px 30px 10px 400px; color:#cccccc;}
 .message{color:navy;text-align: center;}
 .error{color:red; text-align: center;}

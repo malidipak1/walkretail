@@ -154,6 +154,13 @@ function loadPage(u) {
  <div id="light-gray-bg">
    <div class="middle">
       <div class="middle-inner">
+      <div id="white-bg">
+          <div class="ad-box" style="text-align:center; color:#E84019; font-size:15px; padding:10px 0; line-height:22px; margin-bottom:">
+             <strong>IMP NOTE :</strong> For order of single product the Maximum Price will be charged and for order of Bulk Quantity  Minimum amount will be charged.  (For ex. If Price Range is 100-200 and Order Range is 1-50, then for 1 piece you will be charged Rs 200 per piece and For 50 pieces you will be charged Rs 100 per piece ).
+          </div>
+          
+        </div>
+        <br /><br /><br /><br /><br />
         <div id="white-bg">
           <div class="ad-box">
              <?php include("ad-home.php");?>

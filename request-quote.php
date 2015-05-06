@@ -57,7 +57,7 @@ function MM_validateForm() { //v4.0
 <div class="middle">
   <div class="middle-inner">
   	<div align="center" style="color: red"></div>
-  <div class="buy-get-heading">Please Fill For to Request Quotation</div>
+  <div class="buy-get-heading">Get Free Quotation</div>
     <div class="form-con1">
        <form action="request-quote-submit.php" method="post" enctype="multipart/form-data" name="qoute" onsubmit="MM_validateForm('name','','R','emailid','','RisEmail','phone','','RisNum','quantity','','R','address','','R','message','','R');return document.MM_returnValue">        
       <div class="form-pad1">
