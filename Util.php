@@ -3,6 +3,12 @@ include_once 'lib/config.php';
 include_once 'DBUtil.php';
 class Util {
 	
+	public static function stripSlashes($value)
+	{
+		$value = is_array($value) ? array_map(array('Util','stripSlashes') , $value) : stripslashes($value);
+		return $value;
+	}
+	
 	public static function getAdsImage($image) {
 		$image = DOWNLOAD_IMAGE_ADS . $image;
 		return $image;

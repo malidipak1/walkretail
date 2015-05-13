@@ -64,7 +64,7 @@ class DBUtil {
 
 		$stmt = $this->dbConn->query ( $query );
 		
-		return $stmt->fetchAll ( PDO::FETCH_ASSOC );
+		return Util::stripSlashes($stmt->fetchAll ( PDO::FETCH_ASSOC ));
 	}
 	public function getRow($query = '') {
 		$result = $this->getAll ( $query );
